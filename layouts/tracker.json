@@ -22,6 +22,15 @@
                         },
                         {
                             "type": "group",
+                            "header": "Movement",
+                            "dock": "top",
+                            "content": {
+                                "type": "layout",
+                                "key": "movement"
+                            }
+                        },
+                        {
+                            "type": "group",
                             "header": "Items",
                             "dock": "top",
                             "content": {

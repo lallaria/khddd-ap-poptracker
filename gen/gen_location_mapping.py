@@ -1,47 +1,34 @@
+"""Generates scripts/autotracking/location_mapping.lua from the apworld's Locations.py.
+
+Usage: <source>/Archipelago/venv/Scripts/python gen/gen_location_mapping.py
+
+Run it with the venv inside the Archipelago checkout that holds worlds/khddd.
 """
-Temporary script to generate location_mapping.lua from the KHDDD AP world's Locations.py.
-Fetches the raw Locations.py from GitHub and parses it to create the Lua mapping table.
-"""
-import re
-import urllib.request
+import atexit
 import os
+import re
+import sys
+from pathlib import Path
 
-# Fetch the raw Locations.py
-url = "https://raw.githubusercontent.com/LuxMake/Archipelago-KHDDD/main/worlds/khddd/Locations.py"
-response = urllib.request.urlopen(url)
-content = response.read().decode('utf-8')
+sys.path.insert(0, str(Path(sys.prefix).parent))  # the venv sits in the Archipelago checkout
 
-# Parse all location entries
-# Handles both compact and multi-line formats
-pattern = r'"([^"]+)":\s*KHDDDLocationData\(\s*region="([^"]+)"\s*,\s*code\s*=\s*(\d+)\s*,?\s*\)'
-matches = re.findall(pattern, content)
+from worlds import khddd
 
-print(f"Found {len(matches)} location entries")
+atexit.unregister(input)  # some apworlds register an exit prompt on import
 
 
-def get_world_name(region):
-    """Get the world name by stripping [Sora]/[Riku] from the region."""
-    return re.sub(r'\s*\[(?:Sora|Riku)\]$', '', region).strip()
-
-
-def get_section_name(ap_name, region):
-    """Extract a clean section name from the AP location name."""
-    world = get_world_name(region)
+def section_name(ap_name, region):
+    """Tracker section name for an AP location: the AP name without world prefix and character tags."""
+    world = re.sub(r"\s*\[(?:Sora|Riku)\]$", "", region).strip()
     name = ap_name
-
-    # Strip world prefix if the AP name starts with it
     if name.startswith(world + " "):
         name = name[len(world) + 1:]
-
-    # Strip character suffix(es): [Sora] [Riku], [Sora], or [Riku]
-    name = re.sub(r'\s*\[Sora\]\s*\[Riku\]\s*$', '', name)
-    name = re.sub(r'\s*\[(?:Sora|Riku)\]\s*$', '', name)
-
+    name = re.sub(r"\s*\[Sora\]\s*\[Riku\]\s*$", "", name)
+    name = re.sub(r"\s*\[(?:Sora|Riku)\]\s*$", "", name)
     return name.strip()
 
 
 def get_category(code, region, name):
-    """Categorize each location for grouping in the Lua output."""
     if 2680000 <= code < 2690000:
         return "Secret Portals"
     if region == "Levels":
@@ -55,38 +42,15 @@ def get_category(code, region, name):
     if 2670000 <= code < 2680000:
         if "[Sora]" in region or region == "Destiny Islands":
             return "Sora Events"
-        else:
-            return "Riku Events"
+        return "Riku Events"
     if 2650000 <= code < 2660000:
         if "[Riku]" in region:
             return "Riku Chests"
-        else:
-            return "Sora Chests"
+        return "Sora Chests"
     return "Other"
 
 
-# Build categorized mapping
-categories = {}
-for ap_name, region, code_str in matches:
-    code = int(code_str)
-    section = get_section_name(ap_name, region)
-    cat = get_category(code, region, ap_name)
-    if cat not in categories:
-        categories[cat] = []
-    categories[cat].append((code, region, section))
-
-# Generate Lua output
-lines = []
-lines.append("-- use this file to map the AP location ids to your locations")
-lines.append("-- first value is the code of the target location/item and the second is the item type override")
-lines.append("-- to reference a location in Pop use @ in the beginning and then path to the section")
-lines.append("-- path format: @Region/Section Name")
-lines.append("-- (more info: https://github.com/black-sliver/PopTracker/blob/master/doc/PACKS.md#locations)")
-lines.append("")
-lines.append("BASE_LOCATION_ID = 0")
-lines.append("LOCATION_MAPPING = {")
-
-cat_order = [
+CATEGORY_ORDER = [
     "Secret Portals",
     "Sora Events",
     "Riku Events",
@@ -99,38 +63,48 @@ cat_order = [
     "Other",
 ]
 
-for cat in cat_order:
-    if cat not in categories:
-        continue
-    # Section header comment
-    label = cat
-    pad_total = 40
-    pad_inner = pad_total - len(label) - 2  # -2 for the ## on each side
-    pad_left = pad_inner // 2
-    pad_right = pad_inner - pad_left
-    lines.append(f"\t{'#' * pad_total}")
-    lines.append(f"\t{'#' * pad_left} {label} {'#' * pad_right}")
-    lines.append(f"\t{'#' * pad_total}")
 
-    for code, region, section in sorted(categories[cat], key=lambda x: x[0]):
-        lines.append(f'\t[{code}] = {{ {{ "@{region}/{section}" }} }},')
-    lines.append("")
+def main():
+    categories = {}
+    for ap_name, data in khddd.location_data_table.items():
+        section = section_name(ap_name, data.region)
+        categories.setdefault(get_category(data.code, data.region, ap_name), []).append(
+            (data.code, data.region, section))
 
-lines.append("}")
+    lines = [
+        "-- use this file to map the AP location ids to your locations",
+        "-- first value is the code of the target location/item and the second is the item type override",
+        "-- to reference a location in Pop use @ in the beginning and then path to the section",
+        "-- path format: @Region/Section Name",
+        "-- (more info: https://github.com/black-sliver/PopTracker/blob/master/doc/PACKS.md#locations)",
+        "",
+        "BASE_LOCATION_ID = 0",
+        "LOCATION_MAPPING = {",
+    ]
+    for category in CATEGORY_ORDER:
+        if category not in categories:
+            continue
+        pad_inner = 40 - len(category) - 2
+        pad_left = pad_inner // 2
+        border = "-- " + "#" * 40
+        lines.append("\t" + border)
+        lines.append("\t-- " + "#" * pad_left + f" {category} " + "#" * (pad_inner - pad_left))
+        lines.append("\t" + border)
+        for code, region, section in sorted(categories[category]):
+            lines.append(f'\t[{code}] = {{ {{ "@{region}/{section}/{section}" }} }},')
+        lines.append("")
+    lines.append("}")
 
-output = "\n".join(lines) + "\n"
+    repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    output_path = os.path.join(repo_root, "scripts", "autotracking", "location_mapping.lua")
+    with open(output_path, "w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(lines) + "\n")
 
-# Write to file
-script_dir = os.path.dirname(os.path.abspath(__file__))
-repo_root = os.path.dirname(script_dir)
-output_path = os.path.join(repo_root, "scripts", "autotracking", "location_mapping.lua")
+    print(f"Generated {sum(len(v) for v in categories.values())} location mappings -> {output_path}")
+    for category in CATEGORY_ORDER:
+        if category in categories:
+            print(f"  {category}: {len(categories[category])} entries")
 
-with open(output_path, "w", encoding="utf-8") as f:
-    f.write(output)
 
-print(f"\nGenerated {sum(len(v) for v in categories.values())} location mappings")
-print(f"Output: {output_path}")
-print()
-for cat in cat_order:
-    if cat in categories:
-        print(f"  {cat}: {len(categories[cat])} entries")
+if __name__ == "__main__":
+    main()

@@ -1,15 +1,74 @@
--- put logic functions here using the Lua API: https://github.com/black-sliver/PopTracker/blob/master/doc/PACKS.md#lua-interface
--- don't be afraid to use custom logic functions. it will make many things a lot easier to maintain, for example by adding logging.
--- to see how this function gets called, check: locations/locations.json
--- example:
-function has_more_then_n_consumable(n)
-    local count = Tracker:ProviderCountForCode('consumable')
-    local val = (count > tonumber(n))
-    if ENABLE_DEBUG_LOG then
-        print(string.format("called has_more_then_n_consumable: count: %s, n: %s, val: %s", count, n, val))
+-- $ functions used by the rules that gen/gen_access_rules.py writes into locations/locations.json
+local function has(code)
+    return Tracker:ProviderCountForCode(code) > 0
+end
+
+function can_infinite_jump()
+    return has("flowmotion") or (has("wall_kick") and has("super_jump"))
+end
+
+function can_pole_jump()
+    return has("flowmotion") or (has("pole_swing") and has("super_jump") and has("air_slide"))
+end
+
+function can_glide()
+    return has("flowmotion") or has("glide") or has("superglide")
+end
+
+function post_office_access()
+    return has("flowmotion") or has("wall_kick") or has("glide") or has("rail_slide")
+end
+
+-- the worlds counted by has_x_sora_worlds / has_x_riku_worlds in the apworld's Rules.py
+local SORA_WORLDS = {
+    "world_traverse_town_sora",
+    "world_la_cite_des_cloches_sora",
+    "world_the_grid_sora",
+    "world_pranksters_paradise_sora",
+    "world_country_of_the_musketeers_sora",
+    "world_symphony_of_sorcery_sora",
+}
+local RIKU_WORLDS = {
+    "world_traverse_town_riku",
+    "world_la_cite_des_cloches_riku",
+    "world_the_grid_riku",
+    "world_pranksters_paradise_riku",
+    "world_country_of_the_musketeers_riku",
+    "world_symphony_of_sorcery_riku",
+}
+
+local function count_worlds(codes)
+    local count = 0
+    for _, code in ipairs(codes) do
+        if has(code) then
+            count = count + 1
+        end
     end
-    if val then
-        return 1 -- 1 => access is in logic
-    end
-    return 0 -- 0 => no access
+    return count
+end
+
+function has_sora_worlds(n)
+    return count_worlds(SORA_WORLDS) >= tonumber(n)
+end
+
+function has_riku_worlds(n)
+    return count_worlds(RIKU_WORLDS) >= tonumber(n)
+end
+
+local function has_opt_count(code, opt_code)
+    local opt = Tracker:FindObjectForCode(opt_code)
+    return Tracker:ProviderCountForCode(code) >= (opt and opt.AcquiredCount or 0)
+end
+
+function has_recipes()
+    return has_opt_count("recipe_total", "opt_recipe_reqs")
+end
+
+function has_emblems()
+    return has_opt_count("lucky_emblem", "opt_emblem_reqs")
+end
+
+-- true while a setting toggle is off or a setting count is 0
+function opt_off(code)
+    return Tracker:ProviderCountForCode(code) == 0
 end

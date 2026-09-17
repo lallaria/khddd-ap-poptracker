@@ -1,6 +1,7 @@
 [
     {
         "name": "Destiny Islands",
+        "visibility_rules": ["opt_destiny_islands,opt_sora"],
         "children": [
             {
                 "name": "Ursula Bonus Slot 1",
@@ -47,9 +48,12 @@
     {
         "name": "Traverse Town [Sora]",
         "access_rules": ["world_traverse_town_sora"],
+        "visibility_rules": ["opt_sora"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["high_jump,$has_sora_worlds|6", "$has_sora_worlds|6,$can_infinite_jump"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -74,6 +78,7 @@
             },
             {
                 "name": "Hockomonkey Bonus Slot 1",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Hockomonkey Bonus Slot 1"
@@ -82,6 +87,7 @@
             },
             {
                 "name": "Hockomonkey Bonus Slot 2",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Hockomonkey Bonus Slot 2"
@@ -90,6 +96,7 @@
             },
             {
                 "name": "Skull Noise Reward",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Skull Noise Reward"
@@ -121,6 +128,7 @@
             },
             {
                 "name": "Second District Confetti Candy",
+                "access_rules": ["high_jump", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Second District Confetti Candy"
@@ -136,6 +144,7 @@
             },
             {
                 "name": "Second District Balloon",
+                "access_rules": ["high_jump", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Second District Balloon"
@@ -151,6 +160,7 @@
             },
             {
                 "name": "Second District Hi-Potion",
+                "access_rules": ["high_jump", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Second District Hi-Potion"
@@ -166,6 +176,7 @@
             },
             {
                 "name": "Third District Vibrant Fantasy",
+                "access_rules": ["high_jump", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Third District Vibrant Fantasy"
@@ -196,6 +207,7 @@
             },
             {
                 "name": "Fourth District Shield Cookie",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fourth District Shield Cookie"
@@ -211,6 +223,7 @@
             },
             {
                 "name": "Fourth District Water Barrel",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fourth District Water Barrel"
@@ -226,6 +239,7 @@
             },
             {
                 "name": "Fourth District Hi-Potion",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fourth District Hi-Potion"
@@ -241,6 +255,7 @@
             },
             {
                 "name": "Fourth District Ice Dream Cone",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fourth District Ice Dream Cone"
@@ -257,6 +272,7 @@
             },
             {
                 "name": "Fifth District Shield Cookie",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fifth District Shield Cookie"
@@ -272,6 +288,7 @@
             },
             {
                 "name": "Fifth District Potion",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fifth District Potion"
@@ -287,6 +304,7 @@
             },
             {
                 "name": "Fifth District Block-It Chocolate",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fifth District Block-It Chocolate"
@@ -302,6 +320,7 @@
             },
             {
                 "name": "Fountain Plaza Balloon",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fountain Plaza Balloon"
@@ -318,6 +337,7 @@
             },
             {
                 "name": "Fountain Plaza Intrepid Figment",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fountain Plaza Intrepid Figment"
@@ -333,6 +353,7 @@
             },
             {
                 "name": "Fountain Plaza Ice Dream Cone",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fountain Plaza Ice Dream Cone"
@@ -348,6 +369,7 @@
             },
             {
                 "name": "Fountain Plaza Rampant Fantasy",
+                "access_rules": ["glide,$can_infinite_jump", "rail_slide,$can_infinite_jump", "superglide,$can_infinite_jump", "flowmotion,$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fountain Plaza Rampant Fantasy"
@@ -364,6 +386,7 @@
             },
             {
                 "name": "Garden Royal Cake",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Garden Royal Cake"
@@ -379,6 +402,7 @@
             },
             {
                 "name": "Garden Confetti Candy",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Garden Confetti Candy"
@@ -394,6 +418,7 @@
             },
             {
                 "name": "Garden Rampant Figment",
+                "access_rules": ["rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Garden Rampant Figment"
@@ -409,6 +434,7 @@
             },
             {
                 "name": "Garden Drop-Me-Not",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Garden Drop-Me-Not"
@@ -424,6 +450,7 @@
             },
             {
                 "name": "Fourth District Potion",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fourth District Potion"
@@ -440,6 +467,7 @@
             },
             {
                 "name": "Fourth District Block-It Chocolate",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fourth District Block-It Chocolate"
@@ -455,6 +483,7 @@
             },
             {
                 "name": "Fourth District 2nd Potion",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fourth District 2nd Potion"
@@ -471,6 +500,7 @@
             },
             {
                 "name": "Fourth District Balloon (Command)",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fourth District Balloon (Command)"
@@ -487,6 +517,7 @@
             },
             {
                 "name": "Fountain Plaza Strike Raid",
+                "access_rules": ["glide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fountain Plaza Strike Raid"
@@ -502,6 +533,7 @@
             },
             {
                 "name": "Post Office Rampant Fantasy",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Post Office Rampant Fantasy"
@@ -518,6 +550,7 @@
             },
             {
                 "name": "Post Office Vibrant Fantasy",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Post Office Vibrant Fantasy"
@@ -533,6 +566,7 @@
             },
             {
                 "name": "Post Office Troubling Fantasy",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Post Office Troubling Fantasy"
@@ -548,6 +582,7 @@
             },
             {
                 "name": "Post Office Spark",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Post Office Spark"
@@ -563,6 +598,7 @@
             },
             {
                 "name": "Post Office Paint Gun: Red",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Post Office Paint Gun: Red"
@@ -579,6 +615,7 @@
             },
             {
                 "name": "Post Office Potion",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Post Office Potion"
@@ -594,6 +631,7 @@
             },
             {
                 "name": "Post Office Ice Dream Cone",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Post Office Ice Dream Cone"
@@ -627,9 +665,12 @@
     {
         "name": "Traverse Town [Riku]",
         "access_rules": ["world_traverse_town_riku"],
+        "visibility_rules": ["opt_riku"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["rail_slide,$has_riku_worlds|6", "double_flight,$has_riku_worlds|6", "flowmotion,$has_riku_worlds|6", "$has_riku_worlds|6,$can_infinite_jump"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -740,6 +781,7 @@
             },
             {
                 "name": "Second District Block-It Chocolate",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Second District Block-It Chocolate"
@@ -755,6 +797,7 @@
             },
             {
                 "name": "Second District Balloon",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Second District Balloon"
@@ -770,6 +813,7 @@
             },
             {
                 "name": "Second District Yoggy Ram Recipe",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Second District Yoggy Ram Recipe"
@@ -785,6 +829,7 @@
             },
             {
                 "name": "Third District Ice Dream Cone",
+                "access_rules": ["double_flight", "flowmotion", "$can_infinite_jump", "high_jump,wall_kick"],
                 "sections": [
                     {
                         "name": "Third District Ice Dream Cone"
@@ -981,6 +1026,7 @@
             },
             {
                 "name": "Garden Royal Cake",
+                "access_rules": ["$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Garden Royal Cake"
@@ -1074,6 +1120,7 @@
             },
             {
                 "name": "Fountain Plaza Blizzard Edge",
+                "access_rules": ["double_flight", "high_jump", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fountain Plaza Blizzard Edge"
@@ -1089,6 +1136,7 @@
             },
             {
                 "name": "Back Streets Troubling Fantasy",
+                "access_rules": ["double_flight,air_slide", "$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Back Streets Troubling Fantasy"
@@ -1149,6 +1197,7 @@
             },
             {
                 "name": "Back Streets Intrepid Figment",
+                "access_rules": ["double_flight,air_slide", "$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Back Streets Intrepid Figment"
@@ -1196,7 +1245,8 @@
     },
     {
         "name": "Traverse Town 2 [Sora]",
-        "access_rules": ["world_traverse_town_sora:2"],
+        "access_rules": ["world_traverse_town_sora:2,wall_kick", "world_traverse_town_sora:2,glide", "world_traverse_town_sora:2,superglide", "world_traverse_town_sora:2,rail_slide", "world_traverse_town_sora:2,flowmotion"],
+        "visibility_rules": ["opt_sora"],
         "children": [
             {
                 "name": "Sliding Sidewinder Reward",
@@ -1224,9 +1274,27 @@
             },
             {
                 "name": "Ultima Weapon Reward",
+                "access_rules": ["@Traverse Town [Sora]/Secret Portal/Secret Portal,@La Cite des Cloches [Sora]/Secret Portal/Secret Portal,@The Grid [Sora]/Secret Portal/Secret Portal,@Country of the Musketeers [Sora]/Secret Portal/Secret Portal,@Prankster's Paradise [Sora]/Secret Portal/Secret Portal,@Symphony of Sorcery [Sora]/Secret Portal/Secret Portal,$has_recipes"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Ultima Weapon Reward"
+                    }
+                ]
+            },
+            {
+                "name": "Boss Gauntlet Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Boss Gauntlet Bonus Slot 1"
+                    }
+                ]
+            },
+            {
+                "name": "Boss Gauntlet Bonus Slot 2",
+                "sections": [
+                    {
+                        "name": "Boss Gauntlet Bonus Slot 2"
                     }
                 ]
             }
@@ -1235,6 +1303,7 @@
     {
         "name": "Traverse Town 2 [Riku]",
         "access_rules": ["world_traverse_town_riku:2"],
+        "visibility_rules": ["opt_riku"],
         "children": [
             {
                 "name": "Cera Terror Battle Bonus Slot 1",
@@ -1270,6 +1339,8 @@
             },
             {
                 "name": "Ultima Weapon Reward",
+                "access_rules": ["@Traverse Town [Riku]/Secret Portal/Secret Portal,@La Cite des Cloches [Riku]/Secret Portal/Secret Portal,@The Grid [Riku]/Secret Portal/Secret Portal,@Country of the Musketeers [Riku]/Secret Portal/Secret Portal,@Prankster's Paradise [Riku]/Secret Portal/Secret Portal,$has_recipes"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Ultima Weapon Reward"
@@ -1281,9 +1352,12 @@
     {
         "name": "La Cite des Cloches [Sora]",
         "access_rules": ["world_la_cite_des_cloches_sora"],
+        "visibility_rules": ["opt_sora"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -1323,10 +1397,10 @@
                 ]
             },
             {
-                "name": "Chronicle Bell Reward",
+                "name": "Guardian Bell Reward",
                 "sections": [
                     {
-                        "name": "Chronicle Bell Reward"
+                        "name": "Guardian Bell Reward"
                     }
                 ]
             },
@@ -1490,6 +1564,7 @@
             },
             {
                 "name": "Bell Tower Dulcet Figment",
+                "access_rules": ["flowmotion", "high_jump", "$can_pole_jump", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Bell Tower Dulcet Figment"
@@ -1505,6 +1580,7 @@
             },
             {
                 "name": "Bell Tower Drop-Me-Not",
+                "access_rules": ["flowmotion", "high_jump", "$can_pole_jump", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Bell Tower Drop-Me-Not"
@@ -2085,9 +2161,12 @@
     {
         "name": "La Cite des Cloches [Riku]",
         "access_rules": ["world_la_cite_des_cloches_riku"],
+        "visibility_rules": ["opt_riku"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["air_slide,$has_riku_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -2112,6 +2191,7 @@
             },
             {
                 "name": "Wargoyle Bonus Slot 1",
+                "access_rules": ["air_slide"],
                 "sections": [
                     {
                         "name": "Wargoyle Bonus Slot 1"
@@ -2120,6 +2200,7 @@
             },
             {
                 "name": "Wargoyle Bonus Slot 2",
+                "access_rules": ["air_slide"],
                 "sections": [
                     {
                         "name": "Wargoyle Bonus Slot 2"
@@ -2128,6 +2209,7 @@
             },
             {
                 "name": "Chronicle: Kingdom Hearts Reward",
+                "access_rules": ["air_slide"],
                 "sections": [
                     {
                         "name": "Chronicle: Kingdom Hearts Reward"
@@ -2136,6 +2218,7 @@
             },
             {
                 "name": "Guardian Bell Reward",
+                "access_rules": ["air_slide"],
                 "sections": [
                     {
                         "name": "Guardian Bell Reward"
@@ -2294,6 +2377,7 @@
             },
             {
                 "name": "Bell Tower Royal Cake",
+                "access_rules": ["flowmotion", "high_jump", "double_flight", "$can_pole_jump", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Bell Tower Royal Cake"
@@ -2309,6 +2393,7 @@
             },
             {
                 "name": "Bell Tower Dulcet Figment",
+                "access_rules": ["flowmotion", "high_jump", "double_flight", "$can_pole_jump", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Bell Tower Dulcet Figment"
@@ -2660,6 +2745,7 @@
             },
             {
                 "name": "Nave Lord Kyroo Fight",
+                "visibility_rules": ["opt_lord_kyroo"],
                 "sections": [
                     {
                         "name": "Nave Lord Kyroo Fight"
@@ -2671,9 +2757,12 @@
     {
         "name": "The Grid [Sora]",
         "access_rules": ["world_the_grid_sora"],
+        "visibility_rules": ["opt_sora"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["glide,$has_sora_worlds|6", "superglide,$has_sora_worlds|6", "rail_slide,$has_sora_worlds|6", "flowmotion,$has_sora_worlds|6", "$has_sora_worlds|6,$can_infinite_jump"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -2682,6 +2771,7 @@
             },
             {
                 "name": "Counter Rush Reward",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Counter Rush Reward"
@@ -2690,6 +2780,7 @@
             },
             {
                 "name": "Rinzler Bonus Slot 1",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rinzler Bonus Slot 1"
@@ -2698,6 +2789,7 @@
             },
             {
                 "name": "Rinzler Bonus Slot 2",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rinzler Bonus Slot 2"
@@ -2706,6 +2798,7 @@
             },
             {
                 "name": "Dual Disc",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Dual Disc"
@@ -2714,6 +2807,7 @@
             },
             {
                 "name": "Rectifier 1F Ice Dream Cone 2",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 1F Ice Dream Cone 2"
@@ -2729,6 +2823,7 @@
             },
             {
                 "name": "Rectifier 1F Drop-Me-Not",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 1F Drop-Me-Not"
@@ -2744,6 +2839,7 @@
             },
             {
                 "name": "Rectifier 1F Potion",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 1F Potion"
@@ -2759,6 +2855,7 @@
             },
             {
                 "name": "Rectifier 1F Panacea",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 1F Panacea"
@@ -2774,6 +2871,7 @@
             },
             {
                 "name": "Rectifier 1F Shield Cookie",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 1F Shield Cookie"
@@ -2789,6 +2887,7 @@
             },
             {
                 "name": "Rectifier 1F Hi-Potion",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 1F Hi-Potion"
@@ -2804,6 +2903,7 @@
             },
             {
                 "name": "Rectifier 1F Lofty Fantasy",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 1F Lofty Fantasy"
@@ -2819,6 +2919,7 @@
             },
             {
                 "name": "Rectifier 1F Ice Dream Cone",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 1F Ice Dream Cone"
@@ -2834,6 +2935,7 @@
             },
             {
                 "name": "Docks Eaglider Recipe",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Docks Eaglider Recipe"
@@ -2849,6 +2951,7 @@
             },
             {
                 "name": "Docks Candy Goggles",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Docks Candy Goggles"
@@ -2864,6 +2967,7 @@
             },
             {
                 "name": "Docks Paint Gun: Black",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Docks Paint Gun: Black"
@@ -2879,6 +2983,7 @@
             },
             {
                 "name": "Docks Panacea",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Docks Panacea"
@@ -2894,6 +2999,7 @@
             },
             {
                 "name": "Docks Drop-Me-Not",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Docks Drop-Me-Not"
@@ -2909,6 +3015,7 @@
             },
             {
                 "name": "Docks Balloon",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Docks Balloon"
@@ -2924,6 +3031,7 @@
             },
             {
                 "name": "City Drop-Me-Not",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "City Drop-Me-Not"
@@ -2939,6 +3047,7 @@
             },
             {
                 "name": "City Troubling Fancy",
+                "access_rules": ["glide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "City Troubling Fancy"
@@ -2969,6 +3078,7 @@
             },
             {
                 "name": "City Water Barrel",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "City Water Barrel"
@@ -2985,6 +3095,7 @@
             },
             {
                 "name": "City Block-It Chocolate 2",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "City Block-It Chocolate 2"
@@ -3001,6 +3112,7 @@
             },
             {
                 "name": "Throughput Fleeting Figment",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Throughput Fleeting Figment"
@@ -3016,6 +3128,7 @@
             },
             {
                 "name": "Throughput Circle Raid",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Throughput Circle Raid"
@@ -3031,6 +3144,7 @@
             },
             {
                 "name": "Throughput Dulcet Figment",
+                "access_rules": ["glide,high_jump", "glide,$can_pole_jump", "superglide,high_jump", "superglide,$can_pole_jump", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Throughput Dulcet Figment"
@@ -3046,6 +3160,7 @@
             },
             {
                 "name": "Throughput Royal Cake",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Throughput Royal Cake"
@@ -3061,6 +3176,7 @@
             },
             {
                 "name": "Throughput Confetti Candy",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Throughput Confetti Candy"
@@ -3076,6 +3192,7 @@
             },
             {
                 "name": "Throughput Potion",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Throughput Potion"
@@ -3091,6 +3208,7 @@
             },
             {
                 "name": "Bridge Block-It Chocolate",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Bridge Block-It Chocolate"
@@ -3106,6 +3224,7 @@
             },
             {
                 "name": "Bridge Drop-Me-Not",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Bridge Drop-Me-Not"
@@ -3121,6 +3240,7 @@
             },
             {
                 "name": "Rectifier 2F Cyber Yog Recipe",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 2F Cyber Yog Recipe"
@@ -3136,6 +3256,7 @@
             },
             {
                 "name": "Rectifier 2F Shield Cookie 2",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 2F Shield Cookie 2"
@@ -3151,6 +3272,7 @@
             },
             {
                 "name": "Rectifier 2F Ice Dream Cone",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 2F Ice Dream Cone"
@@ -3167,6 +3289,7 @@
             },
             {
                 "name": "Rectifier 2F Potion",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 2F Potion"
@@ -3182,6 +3305,7 @@
             },
             {
                 "name": "Rectifier 2F Drop-Me-Not",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 2F Drop-Me-Not"
@@ -3197,6 +3321,7 @@
             },
             {
                 "name": "Rectifier 2F Paint Gun: Green",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Rectifier 2F Paint Gun: Green"
@@ -3213,6 +3338,7 @@
             },
             {
                 "name": "Solar Sailer Confetti Candy 2",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Solar Sailer Confetti Candy 2"
@@ -3228,6 +3354,7 @@
             },
             {
                 "name": "Solar Sailer Wondrous Figment",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Solar Sailer Wondrous Figment"
@@ -3243,6 +3370,7 @@
             },
             {
                 "name": "Solar Sailer Fleeting Figment",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Solar Sailer Fleeting Figment"
@@ -3259,6 +3387,7 @@
             },
             {
                 "name": "Solar Sailer Balloon",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Solar Sailer Balloon"
@@ -3275,6 +3404,7 @@
             },
             {
                 "name": "Solar Sailer Hi-Potion",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Solar Sailer Hi-Potion"
@@ -3291,6 +3421,7 @@
             },
             {
                 "name": "Solar Sailer Panacea",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Solar Sailer Panacea"
@@ -3306,6 +3437,7 @@
             },
             {
                 "name": "Solar Sailer Candy Goggles",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Solar Sailer Candy Goggles"
@@ -3321,6 +3453,7 @@
             },
             {
                 "name": "Solar Sailer Balloonra",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Solar Sailer Balloonra"
@@ -3337,6 +3470,7 @@
             },
             {
                 "name": "Solar Sailer Water Barrel",
+                "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Solar Sailer Water Barrel"
@@ -3356,9 +3490,12 @@
     {
         "name": "The Grid [Riku]",
         "access_rules": ["world_the_grid_riku"],
+        "visibility_rules": ["opt_riku"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -3640,6 +3777,7 @@
             },
             {
                 "name": "City Thundara",
+                "access_rules": ["flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "City Thundara"
@@ -3670,6 +3808,7 @@
             },
             {
                 "name": "City Fleeting Figment",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "City Fleeting Figment"
@@ -3686,6 +3825,7 @@
             },
             {
                 "name": "City Drop-Me-Not",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "City Drop-Me-Not"
@@ -3732,6 +3872,7 @@
             },
             {
                 "name": "Throughput Noble Fantasy",
+                "access_rules": ["high_jump", "double_flight", "rail_slide", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Throughput Noble Fantasy"
@@ -4102,9 +4243,12 @@
     {
         "name": "Prankster's Paradise [Sora]",
         "access_rules": ["world_pranksters_paradise_sora"],
+        "visibility_rules": ["opt_sora"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -4550,6 +4694,7 @@
             },
             {
                 "name": "Windup Way Aerial Slam",
+                "access_rules": ["$can_infinite_jump", "high_jump,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Windup Way Aerial Slam"
@@ -4565,6 +4710,7 @@
             },
             {
                 "name": "Windup Way Royal Cake",
+                "access_rules": ["$can_infinite_jump", "high_jump,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Windup Way Royal Cake"
@@ -4640,6 +4786,7 @@
             },
             {
                 "name": "Circus Rampant Fancy",
+                "access_rules": ["$can_infinite_jump", "high_jump,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Circus Rampant Fancy"
@@ -4671,6 +4818,7 @@
             },
             {
                 "name": "Promontory Lord Kyroo Fight",
+                "visibility_rules": ["opt_lord_kyroo"],
                 "sections": [
                     {
                         "name": "Promontory Lord Kyroo Fight"
@@ -4682,9 +4830,12 @@
     {
         "name": "Prankster's Paradise [Riku]",
         "access_rules": ["world_pranksters_paradise_riku"],
+        "visibility_rules": ["opt_riku"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -4868,6 +5019,7 @@
             },
             {
                 "name": "Monstro: Gullet Sir Kyroo Recipe",
+                "access_rules": ["rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Monstro: Gullet Sir Kyroo Recipe"
@@ -4883,6 +5035,7 @@
             },
             {
                 "name": "Monstro: Gullet Charming Fantasy",
+                "access_rules": ["flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Monstro: Gullet Charming Fantasy"
@@ -5052,9 +5205,12 @@
     {
         "name": "Country of the Musketeers [Sora]",
         "access_rules": ["world_country_of_the_musketeers_sora"],
+        "visibility_rules": ["opt_sora"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -5269,6 +5425,7 @@
             },
             {
                 "name": "Mont Saint-Michel Sparkga",
+                "access_rules": ["$can_infinite_jump", "high_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Mont Saint-Michel Sparkga"
@@ -5589,9 +5746,12 @@
     {
         "name": "Country of the Musketeers [Riku]",
         "access_rules": ["world_country_of_the_musketeers_riku"],
+        "visibility_rules": ["opt_riku"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -5600,6 +5760,7 @@
             },
             {
                 "name": "Flashback: Bon Journey Reward",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Flashback: Bon Journey Reward"
@@ -5608,6 +5769,7 @@
             },
             {
                 "name": "Stage Gadget Reward",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Stage Gadget Reward"
@@ -5616,6 +5778,7 @@
             },
             {
                 "name": "Holey Moley Bonus Slot 1",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Holey Moley Bonus Slot 1"
@@ -5624,6 +5787,7 @@
             },
             {
                 "name": "Shadow Slide Reward",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Shadow Slide Reward"
@@ -5632,6 +5796,7 @@
             },
             {
                 "name": "Shadow Strike Reward",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Shadow Strike Reward"
@@ -5640,6 +5805,7 @@
             },
             {
                 "name": "All For One Reward",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "All For One Reward"
@@ -5693,6 +5859,7 @@
             },
             {
                 "name": "Grand Lobby Shadowbreaker",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,$can_infinite_jump", "flowmotion,high_jump", "flowmotion,double_flight", "flowmotion,$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Grand Lobby Shadowbreaker"
@@ -5814,6 +5981,7 @@
             },
             {
                 "name": "Green Room Candy Goggles",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Green Room Candy Goggles"
@@ -5829,6 +5997,7 @@
             },
             {
                 "name": "Green Room Prickly Fantasy",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Green Room Prickly Fantasy"
@@ -5844,6 +6013,7 @@
             },
             {
                 "name": "Green Room Fleeting Fantasy",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Green Room Fleeting Fantasy"
@@ -5859,6 +6029,7 @@
             },
             {
                 "name": "Green Room Shield Cookie 3",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Green Room Shield Cookie 3"
@@ -5874,6 +6045,7 @@
             },
             {
                 "name": "Green Room Hi-Potion",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Green Room Hi-Potion"
@@ -5889,6 +6061,7 @@
             },
             {
                 "name": "Machine Room Blizzaga",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Machine Room Blizzaga"
@@ -5904,6 +6077,7 @@
             },
             {
                 "name": "Machine Room Ducky Goose Recipe",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Machine Room Ducky Goose Recipe"
@@ -5919,6 +6093,7 @@
             },
             {
                 "name": "Machine Room Ice Dream Cone 2",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Machine Room Ice Dream Cone 2"
@@ -5934,6 +6109,7 @@
             },
             {
                 "name": "Machine Room Drop-Me-Not",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Machine Room Drop-Me-Not"
@@ -5949,6 +6125,7 @@
             },
             {
                 "name": "Backstage Royal Cake",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Backstage Royal Cake"
@@ -5964,6 +6141,7 @@
             },
             {
                 "name": "Backstage Fleeting Fantasy",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Backstage Fleeting Fantasy"
@@ -5979,6 +6157,7 @@
             },
             {
                 "name": "Backstage Dream Candy",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Backstage Dream Candy"
@@ -5994,6 +6173,7 @@
             },
             {
                 "name": "Backstage Staggerceps Recipe",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Backstage Staggerceps Recipe"
@@ -6009,6 +6189,7 @@
             },
             {
                 "name": "Green Room Stop",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Green Room Stop"
@@ -6025,6 +6206,7 @@
             },
             {
                 "name": "Green Room Drop-Me-Not",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Green Room Drop-Me-Not"
@@ -6041,6 +6223,7 @@
             },
             {
                 "name": "Green Room Confetti Candy 3",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Green Room Confetti Candy 3"
@@ -6057,6 +6240,7 @@
             },
             {
                 "name": "Machine Room Hi-Potion",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Machine Room Hi-Potion"
@@ -6072,6 +6256,7 @@
             },
             {
                 "name": "Machine Room Mega-Potion",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Machine Room Mega-Potion"
@@ -6087,6 +6272,7 @@
             },
             {
                 "name": "Backstage Drop-Me-Not",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Backstage Drop-Me-Not"
@@ -6102,6 +6288,7 @@
             },
             {
                 "name": "Backstage Mega-Potion",
+                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Backstage Mega-Potion"
@@ -6120,9 +6307,12 @@
     {
         "name": "Symphony of Sorcery [Sora]",
         "access_rules": ["world_symphony_of_sorcery_sora"],
+        "visibility_rules": ["opt_sora"],
         "children": [
             {
                 "name": "Secret Portal",
+                "access_rules": ["high_jump,$has_sora_worlds|6", "$has_sora_worlds|6,$can_infinite_jump"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
                         "name": "Secret Portal"
@@ -6339,6 +6529,7 @@
             },
             {
                 "name": "Glen Royal Cake",
+                "access_rules": ["wall_kick", "superglide", "glide", "flowmotion"],
                 "sections": [
                     {
                         "name": "Glen Royal Cake"
@@ -6354,6 +6545,7 @@
             },
             {
                 "name": "Glen Intrepid Fantasy",
+                "access_rules": ["wall_kick", "superglide", "glide", "flowmotion"],
                 "sections": [
                     {
                         "name": "Glen Intrepid Fantasy"
@@ -6430,6 +6622,7 @@
             },
             {
                 "name": "Fields Electricorn Recipe",
+                "access_rules": ["superglide", "glide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Fields Electricorn Recipe"
@@ -6491,6 +6684,7 @@
             },
             {
                 "name": "Cloudwalk Candy Goggles",
+                "access_rules": ["wall_kick", "superglide", "glide", "flowmotion"],
                 "sections": [
                     {
                         "name": "Cloudwalk Candy Goggles"
@@ -6509,6 +6703,7 @@
     {
         "name": "Symphony of Sorcery [Riku]",
         "access_rules": ["world_symphony_of_sorcery_riku"],
+        "visibility_rules": ["opt_riku"],
         "children": [
             {
                 "name": "Flashback: A Magical Mishap Reward",
@@ -6520,6 +6715,7 @@
             },
             {
                 "name": "Chernobog Bonus Slot 1",
+                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Chernobog Bonus Slot 1"
@@ -6528,6 +6724,7 @@
             },
             {
                 "name": "Chernobog Bonus Slot 2",
+                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Chernobog Bonus Slot 2"
@@ -6536,6 +6733,7 @@
             },
             {
                 "name": "Counterpoint Reward",
+                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Counterpoint Reward"
@@ -6589,6 +6787,7 @@
             },
             {
                 "name": "Moonlight Wood Zero Graviza",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Moonlight Wood Zero Graviza"
@@ -6635,6 +6834,7 @@
             },
             {
                 "name": "Moonlight Wood Paint Gun: Green",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Moonlight Wood Paint Gun: Green"
@@ -6650,6 +6850,7 @@
             },
             {
                 "name": "Golden Wood Elixir",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Golden Wood Elixir"
@@ -6665,6 +6866,7 @@
             },
             {
                 "name": "Golden Wood Intrepid Fantasy",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Golden Wood Intrepid Fantasy"
@@ -6680,6 +6882,7 @@
             },
             {
                 "name": "Golden Wood Mega-Potion",
+                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Golden Wood Mega-Potion"
@@ -6695,6 +6898,7 @@
             },
             {
                 "name": "Snowgleam Wood Ice Barrage",
+                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Snowgleam Wood Ice Barrage"
@@ -6710,6 +6914,7 @@
             },
             {
                 "name": "Snowgleam Wood Candy Goggles",
+                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Snowgleam Wood Candy Goggles"
@@ -6725,6 +6930,7 @@
             },
             {
                 "name": "Snowgleam Wood Block-It Chocolate",
+                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Snowgleam Wood Block-It Chocolate"
@@ -6740,6 +6946,7 @@
             },
             {
                 "name": "Snowgleam Wood Ice Dream Cone 3",
+                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Snowgleam Wood Ice Dream Cone 3"
@@ -6755,6 +6962,7 @@
             },
             {
                 "name": "Golden Wood Paint Gun: Red",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Golden Wood Paint Gun: Red"
@@ -6770,6 +6978,7 @@
             },
             {
                 "name": "Golden Wood Ryu Dragon Recipe",
+                "access_rules": ["double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Golden Wood Ryu Dragon Recipe"
@@ -6815,6 +7024,7 @@
             },
             {
                 "name": "Moonlight Wood Intrepid Fancy",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Moonlight Wood Intrepid Fancy"
@@ -6831,6 +7041,7 @@
             },
             {
                 "name": "Snowgleam Wood Dulcet Fancy",
+                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Snowgleam Wood Dulcet Fancy"
@@ -6846,6 +7057,7 @@
             },
             {
                 "name": "Snowgleam Wood Confetti Candy 3",
+                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Snowgleam Wood Confetti Candy 3"
@@ -6861,6 +7073,8 @@
             },
             {
                 "name": "Moonlight Wood Lord Kyroo Fight",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
+                "visibility_rules": ["opt_lord_kyroo"],
                 "sections": [
                     {
                         "name": "Moonlight Wood Lord Kyroo Fight"
@@ -6871,10 +7085,12 @@
     },
     {
         "name": "The World That Never Was [Sora]",
-        "access_rules": ["world_the_world_that_never_was_sora"],
+        "access_rules": ["world_the_world_that_never_was_sora,$has_sora_worlds|4"],
+        "visibility_rules": ["opt_sora"],
         "children": [
             {
                 "name": "Xemnas Bonus Slot 1",
+                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,glide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
                 "sections": [
                     {
                         "name": "Xemnas Bonus Slot 1"
@@ -6883,6 +7099,7 @@
             },
             {
                 "name": "Glossary: Recusant's Sigil Reward",
+                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,glide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
                 "sections": [
                     {
                         "name": "Glossary: Recusant's Sigil Reward"
@@ -6891,6 +7108,7 @@
             },
             {
                 "name": "Glossary: Hearts Tied to Sora Reward",
+                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,glide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
                 "sections": [
                     {
                         "name": "Glossary: Hearts Tied to Sora Reward"
@@ -7094,6 +7312,7 @@
             },
             {
                 "name": "Contorted City Ice Dream Cone 3",
+                "access_rules": ["$can_infinite_jump", "flowmotion", "high_jump,air_slide", "high_jump,glide"],
                 "sections": [
                     {
                         "name": "Contorted City Ice Dream Cone 3"
@@ -7126,18 +7345,22 @@
     },
     {
         "name": "The World That Never Was [Riku]",
-        "access_rules": ["world_the_world_that_never_was_riku"],
+        "access_rules": ["world_the_world_that_never_was_riku,$has_riku_worlds|4"],
+        "visibility_rules": ["opt_riku"],
         "children": [
             {
-                "name": "Ansem II Bonus Slot 1",
+                "name": "Ansem II Defeated",
+                "access_rules": ["flowmotion,air_slide", "rail_slide,air_slide"],
                 "sections": [
                     {
-                        "name": "Ansem II Bonus Slot 1"
+                        "name": "Ansem II Defeated"
                     }
                 ]
             },
             {
                 "name": "Young Xehanort Defeated",
+                "access_rules": ["opt_goal_lucky_emblems", "opt_riku,meow_wow_recipe,komory_bat_recipe,recusant_sigil,opt_fast_go_mode,$opt_off|opt_sora,$has_emblems,$has_recipes", "opt_riku,meow_wow_recipe,komory_bat_recipe,recusant_sigil,rail_slide,$opt_off|opt_sora,$has_emblems,$has_recipes", "opt_riku,meow_wow_recipe,komory_bat_recipe,recusant_sigil,flowmotion,$opt_off|opt_sora,$has_emblems,$has_recipes", "opt_sora,opt_riku,opt_fast_go_mode,@The World That Never Was [Sora]/Xemnas Bonus Slot 1/Xemnas Bonus Slot 1", "opt_sora,opt_riku,rail_slide,@The World That Never Was [Sora]/Xemnas Bonus Slot 1/Xemnas Bonus Slot 1", "opt_sora,opt_riku,flowmotion,@The World That Never Was [Sora]/Xemnas Bonus Slot 1/Xemnas Bonus Slot 1", "meow_wow_recipe,komory_bat_recipe,recusant_sigil,opt_fast_go_mode,@The World That Never Was [Sora]/Xemnas Bonus Slot 1/Xemnas Bonus Slot 1,$has_emblems,$has_recipes", "meow_wow_recipe,komory_bat_recipe,recusant_sigil,rail_slide,@The World That Never Was [Sora]/Xemnas Bonus Slot 1/Xemnas Bonus Slot 1,$has_emblems,$has_recipes", "meow_wow_recipe,komory_bat_recipe,recusant_sigil,flowmotion,@The World That Never Was [Sora]/Xemnas Bonus Slot 1/Xemnas Bonus Slot 1,$has_emblems,$has_recipes"],
+                "visibility_rules": ["opt_goal_final_boss", "opt_goal_lucky_emblems"],
                 "sections": [
                     {
                         "name": "Young Xehanort Defeated"
@@ -7146,6 +7369,8 @@
             },
             {
                 "name": "Armored Ventus Nightmare Defeated",
+                "access_rules": ["opt_goal_lucky_emblems", "opt_fast_go_mode,@The World That Never Was [Riku]/Young Xehanort Defeated/Young Xehanort Defeated", "rail_slide,@The World That Never Was [Riku]/Young Xehanort Defeated/Young Xehanort Defeated", "flowmotion,@The World That Never Was [Riku]/Young Xehanort Defeated/Young Xehanort Defeated"],
+                "visibility_rules": ["opt_avn,opt_goal_final_boss", "opt_avn,opt_goal_lucky_emblems"],
                 "sections": [
                     {
                         "name": "Armored Ventus Nightmare Defeated"
@@ -7381,6 +7606,7 @@
             },
             {
                 "name": "Verge of Chaos Skelterwild Recipe",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Verge of Chaos Skelterwild Recipe"
@@ -7396,6 +7622,7 @@
             },
             {
                 "name": "Verge of Chaos Candy Goggles",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Verge of Chaos Candy Goggles"
@@ -7411,6 +7638,7 @@
             },
             {
                 "name": "Verge of Chaos Wondrous Fantasy",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Verge of Chaos Wondrous Fantasy"
@@ -7441,6 +7669,7 @@
             },
             {
                 "name": "Verge of Chaos Shield Cookie 3",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Verge of Chaos Shield Cookie 3"
@@ -7456,6 +7685,7 @@
             },
             {
                 "name": "Verge of Chaos Second Elixir",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Verge of Chaos Second Elixir"
@@ -7517,6 +7747,7 @@
             },
             {
                 "name": "Delusive Beginning Keeba Tiger Recipe",
+                "access_rules": ["flowmotion", "rail_slide", "high_jump", "$can_infinite_jump", "$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Delusive Beginning Keeba Tiger Recipe"
@@ -7563,6 +7794,7 @@
             },
             {
                 "name": "Delusive Beginning Third Elixir",
+                "access_rules": ["flowmotion", "rail_slide", "high_jump", "$can_infinite_jump", "$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Delusive Beginning Third Elixir"
@@ -7576,6 +7808,24 @@
                         "size": 20
                     }
                 ]
+            },
+            {
+                "name": "Ansem I Defeated",
+                "access_rules": ["flowmotion,air_slide", "rail_slide,air_slide"],
+                "sections": [
+                    {
+                        "name": "Ansem I Defeated"
+                    }
+                ]
+            },
+            {
+                "name": "Anti Black Coat Nightmare Defeated",
+                "access_rules": ["flowmotion,air_slide", "rail_slide,air_slide"],
+                "sections": [
+                    {
+                        "name": "Anti Black Coat Nightmare Defeated"
+                    }
+                ]
             }
         ]
     },
@@ -7584,6 +7834,8 @@
         "children": [
             {
                 "name": "Unbound Keyblade Reward",
+                "access_rules": ["@Traverse Town [Sora]/Secret Portal/Secret Portal,@La Cite des Cloches [Sora]/Secret Portal/Secret Portal,@The Grid [Sora]/Secret Portal/Secret Portal,@Country of the Musketeers [Sora]/Secret Portal/Secret Portal,@Prankster's Paradise [Sora]/Secret Portal/Secret Portal,@Symphony of Sorcery [Sora]/Secret Portal/Secret Portal"],
+                "visibility_rules": ["opt_sora,opt_goal_superbosses", "opt_sora,opt_superbosses"],
                 "sections": [
                     {
                         "name": "Unbound Keyblade Reward"
@@ -7592,6 +7844,8 @@
             },
             {
                 "name": "All Superbosses Defeated",
+                "access_rules": ["opt_riku,world_traverse_town_riku:2,$opt_off|opt_sora,@Traverse Town [Riku]/Secret Portal/Secret Portal,@La Cite des Cloches [Riku]/Secret Portal/Secret Portal,@The Grid [Riku]/Secret Portal/Secret Portal,@Country of the Musketeers [Riku]/Secret Portal/Secret Portal,@Prankster's Paradise [Riku]/Secret Portal/Secret Portal,$has_emblems,$has_recipes", "world_traverse_town_sora:2,opt_sora,@Traverse Town [Sora]/Secret Portal/Secret Portal,@La Cite des Cloches [Sora]/Secret Portal/Secret Portal,@The Grid [Sora]/Secret Portal/Secret Portal,@Country of the Musketeers [Sora]/Secret Portal/Secret Portal,@Prankster's Paradise [Sora]/Secret Portal/Secret Portal,@Symphony of Sorcery [Sora]/Secret Portal/Secret Portal,$has_recipes,$opt_off|opt_riku", "world_traverse_town_sora:2,world_traverse_town_riku:2,@Traverse Town [Sora]/Secret Portal/Secret Portal,@La Cite des Cloches [Sora]/Secret Portal/Secret Portal,@The Grid [Sora]/Secret Portal/Secret Portal,@Country of the Musketeers [Sora]/Secret Portal/Secret Portal,@Prankster's Paradise [Sora]/Secret Portal/Secret Portal,@Symphony of Sorcery [Sora]/Secret Portal/Secret Portal,$has_recipes,@Traverse Town [Riku]/Secret Portal/Secret Portal,@La Cite des Cloches [Riku]/Secret Portal/Secret Portal,@The Grid [Riku]/Secret Portal/Secret Portal,@Country of the Musketeers [Riku]/Secret Portal/Secret Portal,@Prankster's Paradise [Riku]/Secret Portal/Secret Portal,$has_emblems"],
+                "visibility_rules": ["opt_goal_superbosses"],
                 "sections": [
                     {
                         "name": "All Superbosses Defeated"
@@ -7600,9 +7854,21 @@
             },
             {
                 "name": "Lord Kyroo Defeated",
+                "access_rules": ["opt_riku,$opt_off|opt_sora,@La Cite des Cloches [Riku]/Nave Lord Kyroo Fight/Nave Lord Kyroo Fight,@Symphony of Sorcery [Riku]/Moonlight Wood Lord Kyroo Fight/Moonlight Wood Lord Kyroo Fight", "opt_sora,opt_riku,@Prankster's Paradise [Sora]/Promontory Lord Kyroo Fight/Promontory Lord Kyroo Fight", "opt_sora,@Prankster's Paradise [Sora]/Promontory Lord Kyroo Fight/Promontory Lord Kyroo Fight,$opt_off|opt_riku", "@Prankster's Paradise [Sora]/Promontory Lord Kyroo Fight/Promontory Lord Kyroo Fight,@La Cite des Cloches [Riku]/Nave Lord Kyroo Fight/Nave Lord Kyroo Fight,@Symphony of Sorcery [Riku]/Moonlight Wood Lord Kyroo Fight/Moonlight Wood Lord Kyroo Fight"],
+                "visibility_rules": ["opt_lord_kyroo"],
                 "sections": [
                     {
                         "name": "Lord Kyroo Defeated"
+                    }
+                ]
+            },
+            {
+                "name": "All Lucky Emblems Found",
+                "access_rules": ["$opt_off|opt_emblem_reqs", "$has_emblems"],
+                "visibility_rules": ["opt_emblem_reqs", "opt_goal_lucky_emblems"],
+                "sections": [
+                    {
+                        "name": "All Lucky Emblems Found"
                     }
                 ]
             }
@@ -7613,6 +7879,8 @@
         "children": [
             {
                 "name": "Unbound Keyblade Reward",
+                "access_rules": ["@Traverse Town [Riku]/Secret Portal/Secret Portal,@La Cite des Cloches [Riku]/Secret Portal/Secret Portal,@The Grid [Riku]/Secret Portal/Secret Portal,@Country of the Musketeers [Riku]/Secret Portal/Secret Portal,@Prankster's Paradise [Riku]/Secret Portal/Secret Portal"],
+                "visibility_rules": ["opt_riku,opt_goal_superbosses", "opt_riku,opt_superbosses"],
                 "sections": [
                     {
                         "name": "Unbound Keyblade Reward"
@@ -7623,9 +7891,13 @@
     },
     {
         "name": "Levels",
+        "access_rules": ["opt_sora,$has_sora_worlds|1", "$has_sora_worlds|1,$has_riku_worlds|1", "opt_riku,$has_riku_worlds|1"],
+        "visibility_rules": ["opt_levels"],
         "children": [
             {
                 "name": "Sora Level 02",
+                "access_rules": ["$has_sora_worlds|1"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 02"
@@ -7634,6 +7906,8 @@
             },
             {
                 "name": "Sora Level 03",
+                "access_rules": ["$has_sora_worlds|1"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 03"
@@ -7642,6 +7916,8 @@
             },
             {
                 "name": "Sora Level 04",
+                "access_rules": ["$has_sora_worlds|1"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 04"
@@ -7650,6 +7926,8 @@
             },
             {
                 "name": "Sora Level 05",
+                "access_rules": ["$has_sora_worlds|1"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 05"
@@ -7658,6 +7936,8 @@
             },
             {
                 "name": "Sora Level 06",
+                "access_rules": ["$has_sora_worlds|2"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 06"
@@ -7666,6 +7946,8 @@
             },
             {
                 "name": "Sora Level 07",
+                "access_rules": ["$has_sora_worlds|2"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 07"
@@ -7674,6 +7956,8 @@
             },
             {
                 "name": "Sora Level 08",
+                "access_rules": ["$has_sora_worlds|2"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 08"
@@ -7682,6 +7966,8 @@
             },
             {
                 "name": "Sora Level 09",
+                "access_rules": ["$has_sora_worlds|2"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 09"
@@ -7690,6 +7976,8 @@
             },
             {
                 "name": "Sora Level 10",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 10"
@@ -7698,6 +7986,8 @@
             },
             {
                 "name": "Sora Level 11",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 11"
@@ -7706,6 +7996,8 @@
             },
             {
                 "name": "Sora Level 12",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 12"
@@ -7714,6 +8006,8 @@
             },
             {
                 "name": "Sora Level 13",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 13"
@@ -7722,6 +8016,8 @@
             },
             {
                 "name": "Sora Level 14",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 14"
@@ -7730,6 +8026,8 @@
             },
             {
                 "name": "Sora Level 15",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 15"
@@ -7738,6 +8036,8 @@
             },
             {
                 "name": "Sora Level 16",
+                "access_rules": ["$has_sora_worlds|4"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 16"
@@ -7746,6 +8046,8 @@
             },
             {
                 "name": "Sora Level 17",
+                "access_rules": ["$has_sora_worlds|4"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 17"
@@ -7754,6 +8056,8 @@
             },
             {
                 "name": "Sora Level 18",
+                "access_rules": ["$has_sora_worlds|4"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 18"
@@ -7762,6 +8066,8 @@
             },
             {
                 "name": "Sora Level 19",
+                "access_rules": ["$has_sora_worlds|4"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 19"
@@ -7770,6 +8076,8 @@
             },
             {
                 "name": "Sora Level 20",
+                "access_rules": ["$has_sora_worlds|4"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 20"
@@ -7778,6 +8086,8 @@
             },
             {
                 "name": "Sora Level 21",
+                "access_rules": ["$has_sora_worlds|5"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 21"
@@ -7786,6 +8096,8 @@
             },
             {
                 "name": "Sora Level 22",
+                "access_rules": ["$has_sora_worlds|5"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 22"
@@ -7794,6 +8106,8 @@
             },
             {
                 "name": "Sora Level 23",
+                "access_rules": ["$has_sora_worlds|5"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 23"
@@ -7802,6 +8116,8 @@
             },
             {
                 "name": "Sora Level 24",
+                "access_rules": ["$has_sora_worlds|5"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 24"
@@ -7810,6 +8126,8 @@
             },
             {
                 "name": "Sora Level 25",
+                "access_rules": ["$has_sora_worlds|5"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 25"
@@ -7818,6 +8136,8 @@
             },
             {
                 "name": "Sora Level 26",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 26"
@@ -7826,6 +8146,8 @@
             },
             {
                 "name": "Sora Level 27",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 27"
@@ -7834,6 +8156,8 @@
             },
             {
                 "name": "Sora Level 28",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 28"
@@ -7842,6 +8166,8 @@
             },
             {
                 "name": "Sora Level 29",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 29"
@@ -7850,6 +8176,8 @@
             },
             {
                 "name": "Sora Level 30",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 30"
@@ -7858,6 +8186,8 @@
             },
             {
                 "name": "Sora Level 31",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 31"
@@ -7866,6 +8196,8 @@
             },
             {
                 "name": "Sora Level 32",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 32"
@@ -7874,6 +8206,8 @@
             },
             {
                 "name": "Sora Level 33",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 33"
@@ -7882,6 +8216,8 @@
             },
             {
                 "name": "Sora Level 34",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 34"
@@ -7890,6 +8226,8 @@
             },
             {
                 "name": "Sora Level 35",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 35"
@@ -7898,6 +8236,8 @@
             },
             {
                 "name": "Sora Level 36",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 36"
@@ -7906,6 +8246,8 @@
             },
             {
                 "name": "Sora Level 37",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 37"
@@ -7914,6 +8256,8 @@
             },
             {
                 "name": "Sora Level 38",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 38"
@@ -7922,6 +8266,8 @@
             },
             {
                 "name": "Sora Level 39",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 39"
@@ -7930,6 +8276,8 @@
             },
             {
                 "name": "Sora Level 40",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 40"
@@ -7938,6 +8286,8 @@
             },
             {
                 "name": "Sora Level 41",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 41"
@@ -7946,6 +8296,8 @@
             },
             {
                 "name": "Sora Level 42",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 42"
@@ -7954,6 +8306,8 @@
             },
             {
                 "name": "Sora Level 43",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 43"
@@ -7962,6 +8316,8 @@
             },
             {
                 "name": "Sora Level 44",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 44"
@@ -7970,6 +8326,8 @@
             },
             {
                 "name": "Sora Level 45",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 45"
@@ -7978,6 +8336,8 @@
             },
             {
                 "name": "Sora Level 46",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 46"
@@ -7986,6 +8346,8 @@
             },
             {
                 "name": "Sora Level 47",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 47"
@@ -7994,6 +8356,8 @@
             },
             {
                 "name": "Sora Level 48",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 48"
@@ -8002,6 +8366,8 @@
             },
             {
                 "name": "Sora Level 49",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 49"
@@ -8010,6 +8376,8 @@
             },
             {
                 "name": "Sora Level 50",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
                 "sections": [
                     {
                         "name": "Sora Level 50"
@@ -8017,7 +8385,498 @@
                 ]
             },
             {
+                "name": "Sora Level 51",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 51"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 52",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 52"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 53",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 53"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 54",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 54"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 55",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 55"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 56",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 56"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 57",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 57"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 58",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 58"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 59",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 59"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 60",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 60"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 61",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 61"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 62",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 62"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 63",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 63"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 64",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 64"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 65",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 65"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 66",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 66"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 67",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 67"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 68",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 68"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 69",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 69"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 70",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 70"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 71",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 71"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 72",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 72"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 73",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 73"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 74",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 74"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 75",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 75"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 76",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 76"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 77",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 77"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 78",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 78"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 79",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 79"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 80",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 80"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 81",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 81"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 82",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 82"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 83",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 83"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 84",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 84"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 85",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 85"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 86",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 86"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 87",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 87"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 88",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 88"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 89",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 89"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 90",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 90"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 91",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 91"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 92",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 92"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 93",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 93"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 94",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 94"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 95",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 95"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 96",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 96"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 97",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 97"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 98",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 98"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 99",
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 99"
+                    }
+                ]
+            },
+            {
                 "name": "Riku Level 02",
+                "access_rules": ["$has_riku_worlds|1"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 02"
@@ -8026,6 +8885,8 @@
             },
             {
                 "name": "Riku Level 03",
+                "access_rules": ["$has_riku_worlds|1"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 03"
@@ -8034,6 +8895,8 @@
             },
             {
                 "name": "Riku Level 04",
+                "access_rules": ["$has_riku_worlds|1"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 04"
@@ -8042,6 +8905,8 @@
             },
             {
                 "name": "Riku Level 05",
+                "access_rules": ["$has_riku_worlds|1"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 05"
@@ -8050,6 +8915,8 @@
             },
             {
                 "name": "Riku Level 06",
+                "access_rules": ["$has_riku_worlds|2"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 06"
@@ -8058,6 +8925,8 @@
             },
             {
                 "name": "Riku Level 07",
+                "access_rules": ["$has_riku_worlds|2"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 07"
@@ -8066,6 +8935,8 @@
             },
             {
                 "name": "Riku Level 08",
+                "access_rules": ["$has_riku_worlds|2"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 08"
@@ -8074,6 +8945,8 @@
             },
             {
                 "name": "Riku Level 09",
+                "access_rules": ["$has_riku_worlds|2"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 09"
@@ -8082,6 +8955,8 @@
             },
             {
                 "name": "Riku Level 10",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 10"
@@ -8090,6 +8965,8 @@
             },
             {
                 "name": "Riku Level 11",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 11"
@@ -8098,6 +8975,8 @@
             },
             {
                 "name": "Riku Level 12",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 12"
@@ -8106,6 +8985,8 @@
             },
             {
                 "name": "Riku Level 13",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 13"
@@ -8114,6 +8995,8 @@
             },
             {
                 "name": "Riku Level 14",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 14"
@@ -8122,6 +9005,8 @@
             },
             {
                 "name": "Riku Level 15",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 15"
@@ -8130,6 +9015,8 @@
             },
             {
                 "name": "Riku Level 16",
+                "access_rules": ["$has_riku_worlds|4"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 16"
@@ -8138,6 +9025,8 @@
             },
             {
                 "name": "Riku Level 17",
+                "access_rules": ["$has_riku_worlds|4"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 17"
@@ -8146,6 +9035,8 @@
             },
             {
                 "name": "Riku Level 18",
+                "access_rules": ["$has_riku_worlds|4"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 18"
@@ -8154,6 +9045,8 @@
             },
             {
                 "name": "Riku Level 19",
+                "access_rules": ["$has_riku_worlds|4"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 19"
@@ -8162,6 +9055,8 @@
             },
             {
                 "name": "Riku Level 20",
+                "access_rules": ["$has_riku_worlds|4"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 20"
@@ -8170,6 +9065,8 @@
             },
             {
                 "name": "Riku Level 21",
+                "access_rules": ["$has_riku_worlds|5"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 21"
@@ -8178,6 +9075,8 @@
             },
             {
                 "name": "Riku Level 22",
+                "access_rules": ["$has_riku_worlds|5"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 22"
@@ -8186,6 +9085,8 @@
             },
             {
                 "name": "Riku Level 23",
+                "access_rules": ["$has_riku_worlds|5"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 23"
@@ -8194,6 +9095,8 @@
             },
             {
                 "name": "Riku Level 24",
+                "access_rules": ["$has_riku_worlds|5"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 24"
@@ -8202,6 +9105,8 @@
             },
             {
                 "name": "Riku Level 25",
+                "access_rules": ["$has_riku_worlds|5"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 25"
@@ -8210,6 +9115,8 @@
             },
             {
                 "name": "Riku Level 26",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 26"
@@ -8218,6 +9125,8 @@
             },
             {
                 "name": "Riku Level 27",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 27"
@@ -8226,6 +9135,8 @@
             },
             {
                 "name": "Riku Level 28",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 28"
@@ -8234,6 +9145,8 @@
             },
             {
                 "name": "Riku Level 29",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 29"
@@ -8242,6 +9155,8 @@
             },
             {
                 "name": "Riku Level 30",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 30"
@@ -8250,6 +9165,8 @@
             },
             {
                 "name": "Riku Level 31",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 31"
@@ -8258,6 +9175,8 @@
             },
             {
                 "name": "Riku Level 32",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 32"
@@ -8266,6 +9185,8 @@
             },
             {
                 "name": "Riku Level 33",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 33"
@@ -8274,6 +9195,8 @@
             },
             {
                 "name": "Riku Level 34",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 34"
@@ -8282,6 +9205,8 @@
             },
             {
                 "name": "Riku Level 35",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 35"
@@ -8290,6 +9215,8 @@
             },
             {
                 "name": "Riku Level 36",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 36"
@@ -8298,6 +9225,8 @@
             },
             {
                 "name": "Riku Level 37",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 37"
@@ -8306,6 +9235,8 @@
             },
             {
                 "name": "Riku Level 38",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 38"
@@ -8314,6 +9245,8 @@
             },
             {
                 "name": "Riku Level 39",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 39"
@@ -8322,6 +9255,8 @@
             },
             {
                 "name": "Riku Level 40",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 40"
@@ -8330,6 +9265,8 @@
             },
             {
                 "name": "Riku Level 41",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 41"
@@ -8338,6 +9275,8 @@
             },
             {
                 "name": "Riku Level 42",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 42"
@@ -8346,6 +9285,8 @@
             },
             {
                 "name": "Riku Level 43",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 43"
@@ -8354,6 +9295,8 @@
             },
             {
                 "name": "Riku Level 44",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 44"
@@ -8362,6 +9305,8 @@
             },
             {
                 "name": "Riku Level 45",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 45"
@@ -8370,6 +9315,8 @@
             },
             {
                 "name": "Riku Level 46",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 46"
@@ -8378,6 +9325,8 @@
             },
             {
                 "name": "Riku Level 47",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 47"
@@ -8386,6 +9335,8 @@
             },
             {
                 "name": "Riku Level 48",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 48"
@@ -8394,6 +9345,8 @@
             },
             {
                 "name": "Riku Level 49",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 49"
@@ -8402,9 +9355,500 @@
             },
             {
                 "name": "Riku Level 50",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
                 "sections": [
                     {
                         "name": "Riku Level 50"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 51",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 51"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 52",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 52"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 53",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 53"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 54",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 54"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 55",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 55"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 56",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 56"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 57",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 57"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 58",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 58"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 59",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 59"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 60",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 60"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 61",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 61"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 62",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 62"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 63",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 63"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 64",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 64"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 65",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 65"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 66",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 66"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 67",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 67"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 68",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 68"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 69",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 69"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 70",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 70"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 71",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 71"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 72",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 72"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 73",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 73"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 74",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 74"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 75",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 75"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 76",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 76"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 77",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 77"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 78",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 78"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 79",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 79"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 80",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 80"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 81",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 81"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 82",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 82"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 83",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 83"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 84",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 84"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 85",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 85"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 86",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 86"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 87",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 87"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 88",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 88"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 89",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 89"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 90",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 90"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 91",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 91"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 92",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 92"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 93",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 93"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 94",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 94"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 95",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 95"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 96",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 96"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 97",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 97"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 98",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 98"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 99",
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 99"
                     }
                 ]
             }

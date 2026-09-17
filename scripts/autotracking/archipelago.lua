@@ -99,9 +99,147 @@ function incrementItem(item_code, item_type, multiplier)
 	end
 end
 
+-- slot_data values arrive as numbers, strings or booleans depending on the apworld version
+local function slotNumber(value)
+	if type(value) == "boolean" then
+		return value and 1 or 0
+	end
+	local number = tonumber(value)
+	if number then
+		return math.floor(number)
+	end
+	return nil
+end
+
+local function slotBool(value)
+	if type(value) == "string" then
+		local lowered = value:lower()
+		if lowered == "true" then
+			return true
+		elseif lowered == "false" then
+			return false
+		end
+	end
+	local number = slotNumber(value)
+	if number == nil then
+		return nil
+	end
+	return number ~= 0
+end
+
+local function findSetting(item_code)
+	local obj = Tracker:FindObjectForCode(item_code)
+	if not obj and AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+		print(string.format("findSetting: could not find item object for code %s", item_code))
+	end
+	return obj
+end
+
+-- nil leaves the setting untouched
+local function setSettingActive(item_code, active)
+	if active == nil then
+		return
+	end
+	local obj = findSetting(item_code)
+	if obj then
+		if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+			print(string.format("setSettingActive: %s = %s", item_code, tostring(active)))
+		end
+		obj.Active = active
+	end
+end
+
+local function setSettingStage(item_code, stage, stage_count)
+	if stage == nil or stage < 0 or stage >= stage_count then
+		return
+	end
+	local obj = findSetting(item_code)
+	if obj then
+		if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+			print(string.format("setSettingStage: %s = %s", item_code, stage))
+		end
+		obj.CurrentStage = stage
+	end
+end
+
+-- PopTracker only clamps AcquiredCount itself since 0.32.0
+local function setSettingCount(item_code, count)
+	if count == nil then
+		return
+	end
+	local obj = findSetting(item_code)
+	if obj then
+		count = math.max(obj.MinCount, math.min(obj.MaxCount, count))
+		if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+			print(string.format("setSettingCount: %s = %s", item_code, count))
+		end
+		obj.AcquiredCount = count
+	end
+end
+
+-- ids of every location in the seed, or nil when the AP location lists are unavailable
+local function getSeedLocations()
+	local ids = {}
+	local found = false
+	for _, list in ipairs({ Archipelago.CheckedLocations or {}, Archipelago.MissingLocations or {} }) do
+		for _, id in ipairs(list) do
+			ids[id] = true
+			found = true
+		end
+	end
+	if found then
+		return ids
+	end
+	return nil
+end
+
+local function hasSecretPortal(locations)
+	for id = 2680201, 2680211 do
+		if locations[id] then
+			return true
+		end
+	end
+	return false
+end
+
 -- apply everything needed from slot_data, called from onClear
 function apply_slot_data(slot_data)
-	-- put any code here that slot_data should affect (toggling setting items for example)
+	if type(slot_data) ~= "table" then
+		return
+	end
+	local win_con = slotNumber(slot_data.win_con)
+	local character = slotNumber(slot_data.character)
+	if character == 2 then
+		setSettingActive("opt_riku", true)
+		setSettingActive("opt_sora", false)
+	elseif character ~= nil then
+		setSettingActive("opt_sora", true)
+		setSettingActive("opt_riku", character == 0)
+	end
+	setSettingStage("opt_goal", win_con, 3)
+	setSettingCount("opt_recipe_reqs", slotNumber(slot_data.recipe_reqs))
+	setSettingCount("opt_emblem_reqs", slotNumber(slot_data.emblem_reqs))
+	setSettingActive("opt_lord_kyroo", slotBool(slot_data.lord_kyroo))
+	setSettingActive("opt_destiny_islands", slotBool(slot_data.play_destiny_islands))
+	setSettingActive("opt_fast_go_mode", slotBool(slot_data.fast_go_mode))
+	local vanilla_levels = slotBool(slot_data.use_vanilla_levels)
+	if vanilla_levels ~= nil then
+		setSettingActive("opt_levels", not vanilla_levels)
+	end
+	if win_con == 1 then
+		setSettingActive("opt_superbosses", true)
+	end
+	-- superbosses and AVN are not in slot_data; the location list of the seed is the ground truth
+	local locations = getSeedLocations()
+	if locations then
+		setSettingActive("opt_superbosses", win_con == 1 or hasSecretPortal(locations))
+		setSettingActive("opt_avn", locations[2670295] == true)
+		setSettingActive("opt_lord_kyroo", locations[2650652] == true)
+		setSettingActive("opt_destiny_islands", locations[2670201] == true)
+		setSettingActive("opt_levels", locations[2660002] == true or locations[2660102] == true)
+	elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+		print("apply_slot_data: AP location lists unavailable, keeping slot_data-only settings")
+	end
 end
 
 -- called right after an AP slot is connected

@@ -1,0 +1,116 @@
+{
+    "settings_popup": {
+        "type": "array",
+        "orientation": "vertical",
+        "content": [
+            {
+                "type": "group",
+                "header": "Seed options",
+                "content": {
+                    "type": "layout",
+                    "key": "settings_seed"
+                }
+            },
+            {
+                "type": "group",
+                "header": "Tracker",
+                "content": {
+                    "type": "layout",
+                    "key": "settings_tracker"
+                }
+            }
+        ]
+    },
+    "settings_seed": {
+        "type": "array",
+        "orientation": "vertical",
+        "content": [
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_goal", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Goal (Final Boss / Superbosses / Lucky Emblem Hunt)", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_superbosses", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Superboss checks", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_lord_kyroo", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Lord Kyroo checks", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_destiny_islands", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Destiny Islands (Ursula) checks", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_avn", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Armored Ventus Nightmare check", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_levels", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Level checks", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_fast_go_mode", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Fast go mode", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_recipe_reqs", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Recipes required", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_emblem_reqs", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Lucky Emblems required", "v_alignment": "center" }
+                ]
+            }
+        ]
+    },
+    "settings_tracker": {
+        "type": "array",
+        "orientation": "vertical",
+        "content": [
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_auto_tab", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Follow game: switch map tab", "v_alignment": "center" }
+                ]
+            }
+        ]
+    }
+}
