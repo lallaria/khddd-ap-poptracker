@@ -1,7 +1,7 @@
 {
     "name": "Kingdom Hearts 3D: Dream Drop Distance Tracker",
     "game_name": "Kingdom Hearts 3D: Dream Drop Distance",
-    "package_version": "0.2.3",
+    "package_version": "0.3.0",
     "package_uid": "khddd-ap-tracker",
     "author": "JHobz, DelilahIsDidi",
     "min_poptracker_version": "0.25.9",
