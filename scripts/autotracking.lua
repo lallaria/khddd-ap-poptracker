@@ -23,3 +23,7 @@ print("")
 
 -- loads the AP autotracking code
 ScriptHost:LoadScript("scripts/autotracking/archipelago.lua")
+-- the items-only variant has no map tabs to switch
+if AUTOTRACKER_ENABLE_LOCATION_TRACKING then
+    ScriptHost:LoadScript("scripts/autotracking/auto_tab.lua")
+end

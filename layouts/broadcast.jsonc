@@ -2,17 +2,37 @@
   //sets the layout for the broadcast view
   "tracker_broadcast": {
     "type": "array",
-    "orientation": "vertical",
+    "orientation": "horizontal",
     "margin": "0,0",
     "content": [
       {
+        "type": "group",
+        "header": "Worlds",
+        "content": {
+          "type": "layout",
+          "key": "worlds"
+        }
+      },
+      {
         "type": "array",
-        "orientation": "horizontal",
+        "orientation": "vertical",
         "margin": "0,0",
         "content": [
           {
-            "type": "layout",
-            "key": "shared_item_grid"
+            "type": "group",
+            "header": "Movement",
+            "content": {
+              "type": "layout",
+              "key": "movement"
+            }
+          },
+          {
+            "type": "group",
+            "header": "Items",
+            "content": {
+              "type": "layout",
+              "key": "items"
+            }
           }
         ]
       }

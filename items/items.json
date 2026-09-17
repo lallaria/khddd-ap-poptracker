@@ -12,6 +12,18 @@
         "codes": "recusant_sigil,recusants_sigil"
     },
     {
+        "name": "Lucky Emblem",
+        "type": "consumable",
+        "img": "images/items/lucky_emblem.png",
+        "max_quantity": 99,
+        "increment": 1,
+        "decrement": 1,
+        "initial_quantity": 0,
+        "overlay_background": "#000000",
+        "overlay_font_size": 20,
+        "codes": "lucky_emblem"
+    },
+    {
         "name": "Instant Drop",
         "type": "toggle",
         "img": "images/items/toggle.png",
@@ -284,43 +296,43 @@
     {
         "name": "Pole Spin",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/pole_spin.png",
         "codes": "pole_spin"
     },
     {
         "name": "Wall Kick",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/wall_kick.png",
         "codes": "wall_kick"
     },
     {
         "name": "Super Jump",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/super_jump.png",
         "codes": "super_jump"
     },
     {
         "name": "Pole Swing",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/pole_swing.png",
         "codes": "pole_swing"
     },
     {
         "name": "Rail Slide",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/rail_slide.png",
         "codes": "rail_slide"
     },
     {
         "name": "Flowmotion",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/flowmotion.png",
         "codes": "flowmotion"
     },
     {
         "name": "High Jump",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/high_jump.png",
         "codes": "high_jump"
     },
     {
@@ -338,7 +350,7 @@
     {
         "name": "Air Slide",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/air_slide.png",
         "codes": "air_slide"
     },
     {
@@ -356,13 +368,13 @@
     {
         "name": "Glide",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/glide.png",
         "codes": "glide"
     },
     {
         "name": "Superglide",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/superglide.png",
         "codes": "superglide"
     },
     {
@@ -374,7 +386,7 @@
     {
         "name": "Double Flight",
         "type": "toggle",
-        "img": "images/items/toggle.png",
+        "img": "images/items/movement/double_flight.png",
         "codes": "double_flight"
     },
     {
@@ -820,6 +832,18 @@
         "type": "toggle",
         "img": "images/items/toggle.png",
         "codes": "link_critical"
+    },
+    {
+        "name": "Support Boost",
+        "type": "consumable",
+        "img": "images/items/consumable.png",
+        "max_quantity": 3,
+        "increment": 1,
+        "decrement": 1,
+        "initial_quantity": 0,
+        "overlay_background": "#000000",
+        "overlay_font_size": 20,
+        "codes": "support_boost"
     },
     {
         "name": "Waking Dream",
@@ -1408,7 +1432,7 @@
     {
         "name": "Meow Wow Recipe",
         "type": "toggle",
-        "img": "images/items/Recipe_KHII.png",
+        "img": "images/items/spirits/meow_wow.png",
         "codes": "meow_wow_recipe"
     },
     {
@@ -1426,7 +1450,7 @@
     {
         "name": "Komory Bat Recipe",
         "type": "toggle",
-        "img": "images/items/Recipe_KHII.png",
+        "img": "images/items/spirits/komory_bat.png",
         "codes": "komory_bat_recipe"
     },
     {
@@ -1734,7 +1758,7 @@
         "type": "consumable",
         "min_quantity": 0,
         "max_quantity": 54,
-        "img": "images/items/Recipe_KHII.png",
+        "img": "images/items/recipe.png",
         "codes": "recipe_total"
     },
     {

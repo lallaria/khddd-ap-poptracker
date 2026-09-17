@@ -12,8 +12,10 @@
                     {
                         "type": "itemgrid",
                         "item_margin": "5, 5",
+                        "item_size": "48,48",
                         "h_alignment": "left",
                         "rows": [
+                            ["opt_sora", "opt_riku"],
                             [
                                 "world_traverse_town_sora",
                                 "world_traverse_town_riku"
@@ -45,6 +47,32 @@
             }
         ]
     },
+    "movement": {
+        "type": "array",
+        "orientation": "vertical",
+        "margin": "0,0",
+        "content": [
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "margin": "0,0",
+                "content": [
+                    {
+                        "type": "itemgrid",
+                        "item_margin": "5, 5",
+                        "item_size": "48,48",
+                        "h_alignment": "left",
+                        "rows": [
+                            ["flowmotion", "wall_kick", "super_jump"],
+                            ["pole_spin", "pole_swing", "rail_slide"],
+                            ["high_jump", "air_slide", "glide"],
+                            ["superglide", "double_flight"]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
     "items": {
         "type": "array",
         "orientation": "vertical",
@@ -58,9 +86,10 @@
                     {
                         "type": "itemgrid",
                         "item_margin": "5, 5",
+                        "item_size": "48,48",
                         "h_alignment": "left",
                         "rows": [
-                            ["recipe_total", "recusant_sigil"],
+                            ["recipe_total", "recusant_sigil", "lucky_emblem"],
                             ["meow_wow_recipe", "komory_bat_recipe"]
                         ]
                     }
