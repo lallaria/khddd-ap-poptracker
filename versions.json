@@ -1,6 +1,14 @@
 {
   "versions": [
     {
+      "package_version": "0.3.1",
+      "download_url": "https://github.com/lallaria/khddd-ap-poptracker/releases/download/v0.3.1/khddd-ap-tracker.zip",
+      "sha256": "7d0c1ebe2541f3eae0308ccb85c8fd68938a6ff50466a3a2cfdba2ea2a539bde",
+      "changelog": [
+        "$CHANGELOG_BODY"
+      ]
+    },
+    {
       "package_version": "0.3.0",
       "download_url": "https://github.com/lallaria/khddd-ap-poptracker/releases/download/v0.3.0/khddd-ap-tracker.zip",
       "sha256": "a0a6f9303d509e84e4f4e5d9ab59dad39afa60c06f4c1a9d386450d8ce60bcae",
