@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/lallaria/khddd-ap-poptracker/compare/v0.3.0...v0.3.1) (2026-09-17)
+
+
+### Bug Fixes
+
+* rename png so it works ([8b335da](https://github.com/lallaria/khddd-ap-poptracker/commit/8b335da75737dcfabfd02267e14cede34aa074f8))
+
 ## [0.3.0](https://github.com/lallaria/khddd-ap-poptracker/compare/v0.2.3...v0.3.0) (2026-09-17)
 
 
