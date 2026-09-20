@@ -265,8 +265,7 @@
                     {
                         "map": "Traverse Town [Sora]",
                         "x": 400,
-                        "y": 860,
-                        "size": 30
+                        "y": 860
                     }
                 ]
             },
@@ -330,8 +329,7 @@
                     {
                         "map": "Traverse Town [Sora]",
                         "x": 566,
-                        "y": 1526,
-                        "size": 24
+                        "y": 1526
                     }
                 ]
             },
@@ -379,8 +377,7 @@
                     {
                         "map": "Traverse Town [Sora]",
                         "x": 581,
-                        "y": 1484,
-                        "size": 24
+                        "y": 1484
                     }
                 ]
             },
@@ -460,8 +457,7 @@
                     {
                         "map": "Traverse Town [Sora]",
                         "x": 452,
-                        "y": 964,
-                        "size": 40
+                        "y": 964
                     }
                 ]
             },
@@ -493,8 +489,7 @@
                     {
                         "map": "Traverse Town [Sora]",
                         "x": 341,
-                        "y": 876,
-                        "size": 30
+                        "y": 876
                     }
                 ]
             },
@@ -510,8 +505,7 @@
                     {
                         "map": "Traverse Town [Sora]",
                         "x": 392,
-                        "y": 896,
-                        "size": 30
+                        "y": 896
                     }
                 ]
             },
@@ -543,8 +537,7 @@
                     {
                         "map": "Traverse Town [Sora]",
                         "x": 737,
-                        "y": 1819,
-                        "size": 16
+                        "y": 1819
                     }
                 ]
             },
@@ -608,8 +601,7 @@
                     {
                         "map": "Traverse Town [Sora]",
                         "x": 764,
-                        "y": 1841,
-                        "size": 16
+                        "y": 1841
                     }
                 ]
             },
@@ -914,8 +906,7 @@
                     {
                         "map": "Traverse Town [Riku]",
                         "x": 341,
-                        "y": 876,
-                        "size": 30
+                        "y": 876
                     }
                 ]
             },
@@ -1066,8 +1057,7 @@
                     {
                         "map": "Traverse Town [Riku]",
                         "x": 452,
-                        "y": 964,
-                        "size": 40
+                        "y": 964
                     }
                 ]
             },
@@ -1097,8 +1087,7 @@
                     {
                         "map": "Traverse Town [Riku]",
                         "x": 400,
-                        "y": 860,
-                        "size": 30
+                        "y": 860
                     }
                 ]
             },
@@ -1113,8 +1102,7 @@
                     {
                         "map": "Traverse Town [Riku]",
                         "x": 392,
-                        "y": 896,
-                        "size": 30
+                        "y": 896
                     }
                 ]
             },
@@ -1725,8 +1713,7 @@
                     {
                         "map": "La Cité des Cloches [Sora]",
                         "x": 750,
-                        "y": 2147,
-                        "size": 30
+                        "y": 2147
                     }
                 ]
             },
@@ -1801,8 +1788,7 @@
                     {
                         "map": "La Cité des Cloches [Sora]",
                         "x": 1873,
-                        "y": 1084,
-                        "size": 30
+                        "y": 1084
                     }
                 ]
             },
@@ -1817,8 +1803,7 @@
                     {
                         "map": "La Cité des Cloches [Sora]",
                         "x": 1852,
-                        "y": 1069,
-                        "size": 30
+                        "y": 1069
                     }
                 ]
             },
@@ -1848,8 +1833,7 @@
                     {
                         "map": "La Cité des Cloches [Sora]",
                         "x": 1858,
-                        "y": 952,
-                        "size": 30
+                        "y": 952
                     }
                 ]
             },
@@ -1864,8 +1848,7 @@
                     {
                         "map": "La Cité des Cloches [Sora]",
                         "x": 1871,
-                        "y": 919,
-                        "size": 30
+                        "y": 919
                     }
                 ]
             },
@@ -1955,8 +1938,7 @@
                     {
                         "map": "La Cité des Cloches [Sora]",
                         "x": 1978,
-                        "y": 101,
-                        "size": 35
+                        "y": 101
                     }
                 ]
             },
@@ -1971,8 +1953,7 @@
                     {
                         "map": "La Cité des Cloches [Sora]",
                         "x": 1936,
-                        "y": 134,
-                        "size": 35
+                        "y": 134
                     }
                 ]
             },
@@ -2508,8 +2489,7 @@
                     {
                         "map": "La Cité des Cloches [Riku]",
                         "x": 768,
-                        "y": 2124,
-                        "size": 30
+                        "y": 2124
                     }
                 ]
             },
@@ -2539,8 +2519,7 @@
                     {
                         "map": "La Cité des Cloches [Riku]",
                         "x": 750,
-                        "y": 2147,
-                        "size": 30
+                        "y": 2147
                     }
                 ]
             },
@@ -2615,8 +2594,7 @@
                     {
                         "map": "La Cité des Cloches [Riku]",
                         "x": 1873,
-                        "y": 1084,
-                        "size": 30
+                        "y": 1084
                     }
                 ]
             },
@@ -2631,8 +2609,7 @@
                     {
                         "map": "La Cité des Cloches [Riku]",
                         "x": 1852,
-                        "y": 1069,
-                        "size": 30
+                        "y": 1069
                     }
                 ]
             },
@@ -2662,8 +2639,7 @@
                     {
                         "map": "La Cité des Cloches [Riku]",
                         "x": 1858,
-                        "y": 952,
-                        "size": 30
+                        "y": 952
                     }
                 ]
             },
@@ -2678,8 +2654,7 @@
                     {
                         "map": "La Cité des Cloches [Riku]",
                         "x": 1871,
-                        "y": 919,
-                        "size": 30
+                        "y": 919
                     }
                 ]
             },
@@ -3088,8 +3063,7 @@
                     {
                         "map": "The Grid [Sora]",
                         "x": 754,
-                        "y": 656,
-                        "size": 24
+                        "y": 656
                     }
                 ]
             },
@@ -3105,8 +3079,7 @@
                     {
                         "map": "The Grid [Sora]",
                         "x": 768,
-                        "y": 627,
-                        "size": 24
+                        "y": 627
                     }
                 ]
             },
@@ -3282,8 +3255,7 @@
                     {
                         "map": "The Grid [Sora]",
                         "x": 2053,
-                        "y": 775,
-                        "size": 20
+                        "y": 775
                     }
                 ]
             },
@@ -3331,8 +3303,7 @@
                     {
                         "map": "The Grid [Sora]",
                         "x": 2071,
-                        "y": 752,
-                        "size": 20
+                        "y": 752
                     }
                 ]
             },
@@ -3380,8 +3351,7 @@
                     {
                         "map": "The Grid [Sora]",
                         "x": 1778,
-                        "y": 260,
-                        "size": 20
+                        "y": 260
                     }
                 ]
             },
@@ -3397,8 +3367,7 @@
                     {
                         "map": "The Grid [Sora]",
                         "x": 1833,
-                        "y": 272,
-                        "size": 20
+                        "y": 272
                     }
                 ]
             },
@@ -3414,8 +3383,7 @@
                     {
                         "map": "The Grid [Sora]",
                         "x": 1815,
-                        "y": 261,
-                        "size": 20
+                        "y": 261
                     }
                 ]
             },
@@ -3463,8 +3431,7 @@
                     {
                         "map": "The Grid [Sora]",
                         "x": 1766,
-                        "y": 269,
-                        "size": 20
+                        "y": 269
                     }
                 ]
             },
@@ -3480,8 +3447,7 @@
                     {
                         "map": "The Grid [Sora]",
                         "x": 1766,
-                        "y": 247,
-                        "size": 20
+                        "y": 247
                     }
                 ]
             }
@@ -3818,8 +3784,7 @@
                     {
                         "map": "The Grid [Riku]",
                         "x": 754,
-                        "y": 656,
-                        "size": 24
+                        "y": 656
                     }
                 ]
             },
@@ -3835,8 +3800,7 @@
                     {
                         "map": "The Grid [Riku]",
                         "x": 768,
-                        "y": 627,
-                        "size": 24
+                        "y": 627
                     }
                 ]
             },
@@ -4002,8 +3966,7 @@
                     {
                         "map": "The Grid [Riku]",
                         "x": 2053,
-                        "y": 775,
-                        "size": 20
+                        "y": 775
                     }
                 ]
             },
@@ -4048,8 +4011,7 @@
                     {
                         "map": "The Grid [Riku]",
                         "x": 2071,
-                        "y": 752,
-                        "size": 20
+                        "y": 752
                     }
                 ]
             },
@@ -4094,8 +4056,7 @@
                     {
                         "map": "The Grid [Riku]",
                         "x": 1778,
-                        "y": 260,
-                        "size": 20
+                        "y": 260
                     }
                 ]
             },
@@ -4110,8 +4071,7 @@
                     {
                         "map": "The Grid [Riku]",
                         "x": 1833,
-                        "y": 272,
-                        "size": 20
+                        "y": 272
                     }
                 ]
             },
@@ -4126,8 +4086,7 @@
                     {
                         "map": "The Grid [Riku]",
                         "x": 1815,
-                        "y": 261,
-                        "size": 20
+                        "y": 261
                     }
                 ]
             },
@@ -4172,8 +4131,7 @@
                     {
                         "map": "The Grid [Riku]",
                         "x": 1766,
-                        "y": 269,
-                        "size": 20
+                        "y": 269
                     }
                 ]
             },
@@ -4188,8 +4146,7 @@
                     {
                         "map": "The Grid [Riku]",
                         "x": 1766,
-                        "y": 247,
-                        "size": 20
+                        "y": 247
                     }
                 ]
             },
@@ -4354,8 +4311,7 @@
                     {
                         "map": "Prankster's Paradise [Sora]",
                         "x": 116,
-                        "y": 1383,
-                        "size": 20
+                        "y": 1383
                     }
                 ]
             },
@@ -4385,8 +4341,7 @@
                     {
                         "map": "Prankster's Paradise [Sora]",
                         "x": 101,
-                        "y": 1360,
-                        "size": 20
+                        "y": 1360
                     }
                 ]
             },
@@ -4416,8 +4371,7 @@
                     {
                         "map": "Prankster's Paradise [Sora]",
                         "x": 91,
-                        "y": 1238,
-                        "size": 15
+                        "y": 1238
                     }
                 ]
             },
@@ -4432,8 +4386,7 @@
                     {
                         "map": "Prankster's Paradise [Sora]",
                         "x": 100,
-                        "y": 1223,
-                        "size": 15
+                        "y": 1223
                     }
                 ]
             },
@@ -4811,8 +4764,7 @@
                     {
                         "map": "Prankster's Paradise [Sora]",
                         "x": 112,
-                        "y": 1210,
-                        "size": 15
+                        "y": 1210
                     }
                 ]
             },
@@ -4877,8 +4829,7 @@
                     {
                         "map": "Prankster's Paradise (Monstro) [Riku]",
                         "x": 238,
-                        "y": 2556,
-                        "size": 30
+                        "y": 2556
                     }
                 ]
             },
@@ -5180,8 +5131,7 @@
                     {
                         "map": "Prankster's Paradise (Monstro) [Riku]",
                         "x": 218,
-                        "y": 2587,
-                        "size": 30
+                        "y": 2587
                     }
                 ]
             },
@@ -5373,8 +5323,7 @@
                     {
                         "map": "Country of the Musketeers [Sora]",
                         "x": 1560,
-                        "y": 1032,
-                        "size": 30
+                        "y": 1032
                     }
                 ]
             },
@@ -5600,8 +5549,7 @@
                     {
                         "map": "Country of the Musketeers [Sora]",
                         "x": 443,
-                        "y": 1212,
-                        "size": 15
+                        "y": 1212
                     }
                 ]
             },
@@ -5646,8 +5594,7 @@
                     {
                         "map": "Country of the Musketeers [Sora]",
                         "x": 445,
-                        "y": 1240,
-                        "size": 15
+                        "y": 1240
                     }
                 ]
             },
@@ -5974,8 +5921,7 @@
                     {
                         "map": "Country of the Musketeers [Riku]",
                         "x": 1533,
-                        "y": 1060,
-                        "size": 30
+                        "y": 1060
                     }
                 ]
             },
@@ -6199,8 +6145,7 @@
                     {
                         "map": "Country of the Musketeers [Riku]",
                         "x": 2250,
-                        "y": 1284,
-                        "size": 15
+                        "y": 1284
                     }
                 ]
             },
@@ -6216,8 +6161,7 @@
                     {
                         "map": "Country of the Musketeers [Riku]",
                         "x": 2249,
-                        "y": 1262,
-                        "size": 15
+                        "y": 1262
                     }
                 ]
             },
@@ -6233,8 +6177,7 @@
                     {
                         "map": "Country of the Musketeers [Riku]",
                         "x": 2251,
-                        "y": 1309,
-                        "size": 15
+                        "y": 1309
                     }
                 ]
             },
@@ -6460,8 +6403,7 @@
                     {
                         "map": "Symphony of Sorcery [Sora]",
                         "x": 1408,
-                        "y": 1278,
-                        "size": 24
+                        "y": 1278
                     }
                 ]
             },
@@ -6491,8 +6433,7 @@
                     {
                         "map": "Symphony of Sorcery [Sora]",
                         "x": 1381,
-                        "y": 1264,
-                        "size": 24
+                        "y": 1264
                     }
                 ]
             },
@@ -6507,8 +6448,7 @@
                     {
                         "map": "Symphony of Sorcery [Sora]",
                         "x": 1357,
-                        "y": 1284,
-                        "size": 24
+                        "y": 1284
                     }
                 ]
             },
@@ -6615,8 +6555,7 @@
                     {
                         "map": "Symphony of Sorcery [Sora]",
                         "x": 1304,
-                        "y": 366,
-                        "size": 24
+                        "y": 366
                     }
                 ]
             },
@@ -6632,8 +6571,7 @@
                     {
                         "map": "Symphony of Sorcery [Sora]",
                         "x": 1325,
-                        "y": 345,
-                        "size": 24
+                        "y": 345
                     }
                 ]
             },
@@ -6812,8 +6750,7 @@
                     {
                         "map": "Symphony of Sorcery [Riku]",
                         "x": 2144,
-                        "y": 1326,
-                        "size": 24
+                        "y": 1326
                     }
                 ]
             },
@@ -7034,8 +6971,7 @@
                     {
                         "map": "Symphony of Sorcery [Riku]",
                         "x": 2174,
-                        "y": 1343,
-                        "size": 24
+                        "y": 1343
                     }
                 ]
             },
@@ -7432,9 +7368,8 @@
                 "map_locations": [
                     {
                         "map": "TWTNW (Castle That Never Was) [Riku]",
-                        "x": 640,
-                        "y": 2535,
-                        "size": 20
+                        "x": 579,
+                        "y": 2549
                     }
                 ]
             },
@@ -7448,9 +7383,8 @@
                 "map_locations": [
                     {
                         "map": "TWTNW (Castle That Never Was) [Riku]",
-                        "x": 587,
-                        "y": 2535,
-                        "size": 20
+                        "x": 613,
+                        "y": 2533
                     }
                 ]
             },
@@ -7740,8 +7674,7 @@
                     {
                         "map": "TWTNW (Castle That Never Was) [Riku]",
                         "x": 326,
-                        "y": 2430,
-                        "size": 20
+                        "y": 2430
                     }
                 ]
             },
@@ -7757,8 +7690,7 @@
                     {
                         "map": "TWTNW (Castle That Never Was) [Riku]",
                         "x": 299,
-                        "y": 2430,
-                        "size": 20
+                        "y": 2430
                     }
                 ]
             },
@@ -7803,9 +7735,8 @@
                 "map_locations": [
                     {
                         "map": "TWTNW (Castle That Never Was) [Riku]",
-                        "x": 613,
-                        "y": 2532,
-                        "size": 20
+                        "x": 623,
+                        "y": 2534
                     }
                 ]
             },

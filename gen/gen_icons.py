@@ -24,13 +24,11 @@ SPRITES = {
     "flow_arrow": ("US_icon.dds", (789, 152, 883, 238)),
     "recipe": ("US_icon.dds", (23, 279, 110, 366)),
 }
-# Dream Eater portrait atlas cells (160 px pitch): column letter, row number as in the game's grid
-SPIRITS = {"meow_wow": ("B", 1), "komory_bat": ("E", 1)}
 MOVEMENT = {
     "flowmotion": ("flow_arrow", "Flow\nmotion"),
     "high_jump": ("boot", "High\nJump"),
     "wall_kick": ("flow_arrow", "Wall\nKick"),
-    "super_jump": ("boot", "Super\nJump"),
+    "super_jump": ("flow_arrow", "Super\nJump"),
     "pole_spin": ("flow_arrow", "Pole\nSpin"),
     "pole_swing": ("flow_arrow", "Pole\nSwing"),
     "rail_slide": ("flow_arrow", "Rail\nSlide"),
@@ -40,9 +38,9 @@ MOVEMENT = {
     "double_flight": ("boot", "Double\nFlight"),
 }
 GOALS = {
-    "goal_final_boss": ("sword", "FINAL\nBOSS"),
-    "goal_superbosses": ("dark_star", "SUPER\nBOSSES"),
-    "goal_emblem_hunt": ("lucky_emblem", "EMBLEM\nHUNT"),
+    "goal_final_boss": ("sword", "Final\nBoss"),
+    "goal_superbosses": ("dark_star", "Super\nBosses"),
+    "goal_emblem_hunt": ("lucky_emblem", "Lucky\nEmblem"),
 }
 
 
@@ -95,15 +93,6 @@ def label_tile(icon, text):
     return tile
 
 
-def spirit(atlases, folder, column, row):
-    base = load(atlases, folder, "US_de_kao0.png")
-    shine = load(atlases, folder, "US_de_kao1.png")
-    x = 160 * (ord(column) - ord("A"))
-    y = 160 * (row - 1)
-    cell = Image.alpha_composite(base, shine).crop((x, y, x + 160, y + 160))
-    return canvas(fit(cell.crop(cell.getbbox()), TILE - 4), TILE)
-
-
 def main(folder, lucky_emblem_path=None):
     folder = Path(folder)
     atlases = {}
@@ -113,8 +102,8 @@ def main(folder, lucky_emblem_path=None):
         canvas(sprite(atlases, folder, key), 48).save(OUT / f"{key}.png")
     sora = fit(sprite(atlases, folder, "sora"), TILE - 8)
     riku = fit(sprite(atlases, folder, "riku"), TILE - 8)
-    canvas(sora, TILE).save(OUT / "character_sora.png")
-    canvas(riku, TILE).save(OUT / "character_riku.png")
+    canvas(sora, TILE).save(OUT / "sora.png")
+    canvas(riku, TILE).save(OUT / "riku.png")
     canvas(fit(sprite(atlases, folder, "recipe"), TILE - 8), TILE).save(OUT / "recipe.png")
     if lucky_emblem_path:
         emblem = Image.open(lucky_emblem_path)
@@ -127,8 +116,6 @@ def main(folder, lucky_emblem_path=None):
         label_tile(image, text).save(OUT / f"{code}.png")
     for code, (icon, text) in MOVEMENT.items():
         label_tile(sprite(atlases, folder, icon), text).save(OUT / "movement" / f"{code}.png")
-    for code, (column, row) in SPIRITS.items():
-        spirit(atlases, folder, column, row).save(OUT / "spirits" / f"{code}.png")
     print(f"wrote icons to {OUT}")
 
 
