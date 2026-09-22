@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/lallaria/khddd-ap-poptracker/compare/v0.3.1...v0.3.2) (2026-09-22)
+
+
+### Bug Fixes
+
+* moving chests back onto the map ([f65c39b](https://github.com/lallaria/khddd-ap-poptracker/commit/f65c39b1c119556d231fbff88ade8264d424dc45))
+
 ## [0.3.1](https://github.com/lallaria/khddd-ap-poptracker/compare/v0.3.0...v0.3.1) (2026-09-17)
 
 
