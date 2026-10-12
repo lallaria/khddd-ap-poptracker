@@ -689,6 +689,15 @@ def rules_json(branches):
     return [",".join(branch) for branch in branches]
 
 
+def shared_rules(rule_lists):
+    """The rules every section has, which then go on their node; None when sections differ."""
+    return rule_lists[0] if all(rules == rule_lists[0] for rules in rule_lists) else None
+
+
+def nontrivial(rules):
+    return None if rules == [[]] else rules
+
+
 def set_rules(node, access, visibility):
     """Rebuilds node with rule keys right after name; None removes the key."""
     rebuilt = {"name": node["name"]}
@@ -728,16 +737,21 @@ def main():
     tree = json.loads(LOCATIONS_JSON.read_text(encoding="utf-8"))
     regions = {node["name"]: node for node in tree}
     for name in location_paths:
-        region_name, node_name = location_paths[name].split("/")[:2]
+        region_name, node_name, section_name = location_paths[name].split("/")
         if region_name not in regions:
             regions[region_name] = {"name": region_name, "children": []}
             tree.append(regions[region_name])
         children = regions[region_name].setdefault("children", [])
-        if not any(child["name"] == node_name for child in children):
+        node = next((child for child in children if child["name"] == node_name), None)
+        if node is None:
             print(f"adding {region_name}/{node_name}")
-            children.append({"name": node_name, "sections": [{"name": node_name}]})
+            node = {"name": node_name, "sections": []}
+            children.append(node)
             if region_name == "Levels":
                 children.sort(key=level_sort_key)
+        sections = node.setdefault("sections", [])
+        if not any(section["name"] == section_name for section in sections):
+            sections.append({"name": section_name})
 
     translator = Translator(item_codes, location_paths)
     translator.collect()
@@ -758,15 +772,12 @@ def main():
     nodes_by_path = {(node["name"], child["name"]): child for node in tree for child in node.get("children", [])}
     for node in nodes_by_path.values():
         set_rules(node, None, None)
-    handled = set()
+    section_rules = defaultdict(dict)  # (region, node) -> section -> (access, visibility)
     for name, data in khddd.location_data_table.items():
         path = location_paths.get(name)
         if path is None:
             continue
-        key = tuple(path.split("/")[:2])
-        if key in handled:
-            warn(f"{name!r} shares the tracker node {key} with another location; rules are ANDed")
-        handled.add(key)
+        region_name, node_name, section_name = path.split("/")
         existence = existence_guard(name, data)
         access = [[]]
         for guard, rule in translator.contributions.get(("location", name), []):
@@ -774,9 +785,22 @@ def main():
         if not access:
             raise ValueError(f"{name!r} ended up unreachable under every option")
         visibility = option_combo_to_rules(assuming(existence, region_guard(data.region)))
+        sections = section_rules[(region_name, node_name)]
+        if section_name in sections:
+            warn(f"{name!r} shares the tracker section {path} with another location; rules are ANDed")
+            other_access, other_visibility = sections[section_name]
+            access, visibility = product(other_access, access), union(other_visibility, visibility)
+        sections[section_name] = (access, visibility)
+    for key, sections in section_rules.items():
         node = nodes_by_path[key]
-        set_rules(node, access if access != [[]] else node.get("access_rules"),
-                  visibility if visibility != [[]] else node.get("visibility_rules"))
+        accesses, visibilities = zip(*sections.values())
+        access, visibility = shared_rules(accesses), shared_rules(visibilities)
+        set_rules(node, nontrivial(access), nontrivial(visibility))
+        for section in node["sections"]:
+            if section["name"] in sections:
+                section_access, section_visibility = sections[section["name"]]
+                set_rules(section, None if access is not None else nontrivial(section_access),
+                          None if visibility is not None else nontrivial(section_visibility))
 
     for kind, name in translator.contributions:
         if kind == "location" and name not in location_paths:
