@@ -20,7 +20,8 @@ ones without a map pin.
 ## Logic
 
 Access rules are generated from the apworld's `Rules.py` and `Regions.py`, so the tracker should match
-Universal Tracker right now.
+Universal Tracker right now. Link board gates and the recipes in the pool are rolled per seed, so until
+the tracker is connected to Archipelago every board is shown and its gates count as open.
 
 ## Development
 

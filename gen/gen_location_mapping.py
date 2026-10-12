@@ -31,6 +31,8 @@ def section_name(ap_name, region):
 def get_category(code, region, name):
     if 2680000 <= code < 2690000:
         return "Secret Portals"
+    if 2690000 <= code < 2700000:
+        return "Link Boards"
     if region == "Levels":
         return "Levels"
     if "Lord Kyroo" in name:
@@ -60,6 +62,7 @@ CATEGORY_ORDER = [
     "Riku Chests",
     "Lord Kyroo",
     "Levels",
+    "Link Boards",
     "Other",
 ]
 
