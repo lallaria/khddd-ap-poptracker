@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.3](https://github.com/lallaria/khddd-ap-poptracker/compare/v0.3.2...v0.3.3) (2026-10-13)
+
+
+### Features
+
+* spirit boards and overworld checks ([#8](https://github.com/lallaria/khddd-ap-poptracker/issues/8)) ([c6819a1](https://github.com/lallaria/khddd-ap-poptracker/commit/c6819a183b69931164d89d3703df44d70c46bfbc))
+
 ## [0.3.2](https://github.com/lallaria/khddd-ap-poptracker/compare/v0.3.1...v0.3.2) (2026-09-22)
 
 
