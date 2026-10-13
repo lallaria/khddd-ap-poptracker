@@ -14,10 +14,15 @@ Ventus Nightmare, level checks, fast go mode, recipes required and Lucky Emblems
 and which locations are shown following these settings. When connected to Archipelago they should be 
 filled automatically.
 
+The green number on a world icon counts that world's unchecked checks that are in logic, including
+ones without a map pin.
+
 ## Logic
 
 Access rules are generated from the apworld's `Rules.py` and `Regions.py`, so the tracker should match
-Universal Tracker right now.
+Universal Tracker right now. The Link Boards tab has a square per spirit holding its 16 board nodes.
+Link board gates and the recipes in the pool are rolled per seed, so until the tracker is connected to
+Archipelago every board is shown and its gates count as open.
 
 ## Development
 

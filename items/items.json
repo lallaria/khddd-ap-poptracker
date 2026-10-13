@@ -1399,35 +1399,27 @@
     },
     {
         "name": "Traverse Town [Sora]",
-        "type": "progressive",
-        "stages": [
-            {
-                "name": "Traverse Town 1 [Sora]",
-                "img": "images/items/worlds/Traverse Town.png",
-                "codes": "world_traverse_town_sora"
-            },
-            {
-                "name": "Traverse Town 2 [Sora]",
-                "img": "images/items/worlds/Traverse Town.png",
-                "codes": "world_traverse_town_sora"
-            }
-        ]
+        "type": "consumable",
+        "img": "images/items/worlds/Traverse Town.png",
+        "max_quantity": 2,
+        "increment": 1,
+        "decrement": 1,
+        "initial_quantity": 0,
+        "overlay_background": "#000000",
+        "overlay_font_size": 20,
+        "codes": "world_traverse_town_sora"
     },
     {
         "name": "Traverse Town [Riku]",
-        "type": "progressive",
-        "stages": [
-            {
-                "name": "Traverse Town 1 [Riku]",
-                "img": "images/items/worlds/Traverse Town.png",
-                "codes": "world_traverse_town_riku"
-            },
-            {
-                "name": "Traverse Town 2 [Riku]",
-                "img": "images/items/worlds/Traverse Town.png",
-                "codes": "world_traverse_town_riku"
-            }
-        ]
+        "type": "consumable",
+        "img": "images/items/worlds/Traverse Town.png",
+        "max_quantity": 2,
+        "increment": 1,
+        "decrement": 1,
+        "initial_quantity": 0,
+        "overlay_background": "#000000",
+        "overlay_font_size": 20,
+        "codes": "world_traverse_town_riku"
     },
     {
         "name": "Meow Wow Recipe",

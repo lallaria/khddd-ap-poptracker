@@ -8,16 +8,20 @@ from __future__ import annotations
 
 import ast
 import atexit
+import functools
 import inspect
 import itertools
 import json
+import random
 import re
 import sys
 from collections import defaultdict
 from pathlib import Path
+from types import SimpleNamespace
 
 sys.path.insert(0, str(Path(sys.prefix).parent))  # the venv sits in the Archipelago checkout
 
+from BaseClasses import Location
 from worlds import khddd
 
 atexit.unregister(input)  # some apworlds register an exit prompt on import
@@ -26,6 +30,7 @@ REPO = Path(__file__).resolve().parent.parent
 LOCATIONS_JSON = REPO / "locations" / "locations.json"
 LOCATION_MAPPING = REPO / "scripts" / "autotracking" / "location_mapping.lua"
 ITEM_MAPPING = REPO / "scripts" / "autotracking" / "item_mapping.lua"
+LOGIC_LUA = REPO / "scripts" / "logic" / "logic.lua"
 
 # option -> value domain; emblem_reqs is folded to 0 / "1 or more"
 OPTIONS = {
@@ -72,6 +77,8 @@ HELPERS = {
 COUNTING_HELPERS = {"has_x_sora_worlds": "$has_sora_worlds", "has_x_riku_worlds": "$has_riku_worlds"}
 # helpers whose body iterates a list of location names that must all be reachable
 REACH_ALL_HELPERS = {"can_access_sora_portals", "can_access_riku_portals"}
+# per-seed facts from slot_data, guarded like options with domain (0, 1): fact -> (Lua $ when true, when false)
+SEED_FACT_CODES = {"recipe_in_pool": ("$recipe_in_pool", "$recipe_not_in_pool")}
 
 ALL_OPTION_COMBOS = [dict(zip(OPTIONS, values)) for values in itertools.product(*OPTIONS.values())]
 CODE_OPTION_VALUE = {code: (option, value) for option, codes in ENUM_CODES.items() for value, code in codes.items()}
@@ -86,8 +93,16 @@ def warn(message):
 
 # --- guards: boolean trees over option pieces ------------------------------------------------------
 
+def option_domain(option):
+    return OPTIONS.get(option, (0, 1))
+
+
 def piece(option, allowed):
-    return ("piece", option, frozenset(allowed) & set(OPTIONS[option]))
+    return ("piece", option, frozenset(allowed) & set(option_domain(option)))
+
+
+def recipe_in_pool(spirit_id):
+    return piece(("recipe_in_pool", spirit_id), {1})
 
 
 def guard_and(*parts):
@@ -138,7 +153,7 @@ def guard_eval(guard, opts):
 def merge_option_branch(a, b):
     merged = dict(a)
     for option, allowed in b.items():
-        merged[option] = merged.get(option, frozenset(OPTIONS[option])) & allowed
+        merged[option] = merged.get(option, frozenset(option_domain(option))) & allowed
         if not merged[option]:
             return None
     return merged
@@ -147,7 +162,8 @@ def merge_option_branch(a, b):
 def simplify_option_combo(branches):
     cleaned = []
     for branch in branches:
-        branch = {option: allowed for option, allowed in branch.items() if allowed != frozenset(OPTIONS[option])}
+        branch = {option: allowed for option, allowed in branch.items()
+                  if allowed != frozenset(option_domain(option))}
         if branch not in cleaned:
             cleaned.append(branch)
     result = []
@@ -166,7 +182,7 @@ def guard_combo(guard, negate=False):
         return [{}] if guard != negate else []
     kind = guard[0]
     if kind == "piece":
-        allowed = guard[2] if not negate else frozenset(OPTIONS[guard[1]]) - guard[2]
+        allowed = guard[2] if not negate else frozenset(option_domain(guard[1])) - guard[2]
         return [{guard[1]: allowed}] if allowed else []
     if kind == "not":
         return guard_combo(guard[1], not negate)
@@ -181,11 +197,15 @@ def guard_combo(guard, negate=False):
 
 def option_codes(option, allowed):
     """Rule combinations for `option in allowed`."""
-    domain = frozenset(OPTIONS[option])
+    domain = frozenset(option_domain(option))
     if allowed == domain:
         return [[]]
     if not allowed:
         return []
+    if isinstance(option, tuple):
+        fact, argument = option
+        when_true, when_false = SEED_FACT_CODES[fact]
+        return [[f"{when_true if 1 in allowed else when_false}|{argument}"]]
     if option == "character":
         return CHARACTER_CODES[frozenset(allowed)]
     if option in ENUM_CODES:
@@ -203,18 +223,40 @@ def option_codes(option, allowed):
     raise ValueError(f"cannot express {option} in {sorted(allowed)} with setting codes")
 
 
+def seed_facts(guard):
+    if isinstance(guard, bool):
+        return set()
+    if guard[0] == "piece":
+        return set() if guard[1] in OPTIONS else {guard[1]}
+    if guard[0] == "not":
+        return seed_facts(guard[1])
+    return set().union(*map(seed_facts, guard[1]))
+
+
+@functools.cache
 def assuming(guard, assumption):
-    """Simplifies guard to its meaning under assumption: drops entailed pieces and impossible branches."""
-    combos = [opts for opts in ALL_OPTION_COMBOS if guard_eval(assumption, opts)]
-    feasible = {option: frozenset(opts[option] for opts in combos) for option in OPTIONS}
+    """Simplifies guard to its meaning under assumption: drops entailed pieces and impossible branches.
+
+    Seed facts the assumption does not mention are left unconstrained.
+    """
+    facts = sorted(seed_facts(assumption))
+    combos = []
+    for opts in ALL_OPTION_COMBOS:
+        for values in itertools.product((0, 1), repeat=len(facts)):
+            combo = {**opts, **dict(zip(facts, values))}
+            if guard_eval(assumption, combo):
+                combos.append(combo)
+    feasible = {option: frozenset(opts[option] for opts in combos) for option in [*OPTIONS, *facts]}
     result = []
     for branch in guard_combo(guard):
-        if not any(all(opts[option] in allowed for option, allowed in branch.items()) for opts in combos):
+        if not any(all(opts[option] in allowed for option, allowed in branch.items() if option in opts)
+                   for opts in combos):
             continue
         kept = {}
         for option, allowed in branch.items():
-            if not feasible[option] <= allowed:
-                kept[option] = allowed & feasible[option]
+            possible = feasible.get(option, frozenset(option_domain(option)))
+            if not possible <= allowed:
+                kept[option] = allowed & possible
         result.append(kept)
     return simplify_option_combo(result)
 
@@ -232,7 +274,7 @@ def option_combo_to_rules(branches):
 # --- rule combo over piece strings -------------------------------------------------------------------
 
 def split_piece(text):
-    if text.startswith(("$", "@")):
+    if text.startswith(("$", "^", "@")):
         return text, None
     code, _, count = text.partition(":")
     return code, int(count) if count else 1
@@ -306,13 +348,12 @@ class Translator:
         self.contributions = defaultdict(list)  # target -> [(guard, rule combo)]
 
     def concrete(self, node, env):
-        namespace = {"location_data_table": khddd.location_data_table, "str": str, "range": range, "len": len}
-        namespace.update(env)
+        namespace = {**vars(khddd.Rules), "str": str, "range": range, "len": len, **env}
         return eval(compile(ast.Expression(node), "Rules.py", "eval"), {"__builtins__": {}}, namespace)
 
     @staticmethod
-    def uses_options(node):
-        return any(isinstance(child, ast.Name) and child.id == "options" for child in ast.walk(node))
+    def uses_seed(node):
+        return any(isinstance(child, ast.Name) and child.id in ("options", "khdddworld") for child in ast.walk(node))
 
     @staticmethod
     def option_name(node):
@@ -322,7 +363,7 @@ class Translator:
 
     def guard(self, node, env):
         """Guard tree for a test expression; concrete sub-expressions collapse to booleans."""
-        if not self.uses_options(node):
+        if not self.uses_seed(node):
             return bool(self.concrete(node, env))
         if isinstance(node, ast.BoolOp):
             parts = [self.guard(value, env) for value in node.values]
@@ -335,11 +376,15 @@ class Translator:
         if isinstance(node, ast.Compare) and len(node.ops) == 1:
             option = self.option_name(node.left)
             other = node.comparators[0]
-            if option and not self.uses_options(other):
+            if option and not self.uses_seed(other):
                 value = self.concrete(other, env)
                 tests = {ast.Eq: lambda v: v == value, ast.NotEq: lambda v: v != value, ast.Lt: lambda v: v < value,
                          ast.LtE: lambda v: v <= value, ast.Gt: lambda v: v > value, ast.GtE: lambda v: v >= value}
                 return piece(option, [v for v in OPTIONS[option] if tests[type(node.ops[0])](v)])
+            if (ast.unparse(other) == "khdddworld.ids_for_gates" and isinstance(node.ops[0], (ast.In, ast.NotIn))
+                    and not self.uses_seed(node.left)):
+                fact = recipe_in_pool(self.concrete(node.left, env))
+                return fact if isinstance(node.ops[0], ast.In) else guard_not(fact)
         raise ValueError(f"unsupported option test: {ast.unparse(node)}")
 
     def item_code(self, name):
@@ -471,6 +516,11 @@ class Translator:
                     self.block(statement.body, scope, guard)
             elif isinstance(statement, ast.Continue):
                 return False
+            elif (isinstance(statement, ast.Assign) and isinstance(statement.targets[0], ast.Name)
+                  and not self.uses_seed(statement.value)):
+                if guard is not True:
+                    raise ValueError(f"assignment under an option test: {ast.unparse(statement)}")
+                env[statement.targets[0].id] = self.concrete(statement.value, env)
             elif isinstance(statement, ast.Expr) and isinstance(statement.value, ast.Call):
                 self.call_statement(statement.value, env, guard)
         return guard
@@ -502,6 +552,42 @@ class Translator:
         self.contributions[target].append((guard, self.rule(rule.body, env)))
 
 
+# --- link board gates from KHDDDWorld.set_gate_rules ----------------------------------------------
+
+class GateRecorder:
+    """Stands in for KHDDDWorld while its gate code runs, recording the nodes each gate covers."""
+
+    player = 0
+
+    def __init__(self):
+        value = SimpleNamespace(value=1)
+        self.options = SimpleNamespace(character=value, min_gate_req=value, max_gate_req=value)
+        self.random = random.Random(0)
+        self.ids_for_gates = list(khddd.Items.SPIRITLIST.values())
+        self.nodes = defaultdict(list)  # (spirit id, gate number from 1) -> location names
+        self.gate = None
+
+    def set_gate_rules(self, spirit_name, gate_index, character, world_req):
+        self.gate = (khddd.Items.SPIRITLIST[spirit_name], gate_index + 1)
+        khddd.KHDDDWorld.set_gate_rules(self, spirit_name, gate_index, character, world_req)
+
+    def get_location(self, name):
+        self.nodes[self.gate].append(name)
+        return SimpleNamespace(access_rule=Location.access_rule)
+
+
+def gate_contributions():
+    """(location, guard, rule combo) for the gates KHDDDWorld.get_gate_requirements puts on link board nodes.
+
+    The world count of each gate is rolled per seed and reaches the tracker as slot_data gate_reqs.
+    """
+    recorder = GateRecorder()
+    khddd.KHDDDWorld.get_gate_requirements(recorder)
+    for (spirit_id, gate), names in recorder.nodes.items():
+        for name in names:
+            yield name, recipe_in_pool(spirit_id), [[f"^$board_gate|{spirit_id}|{gate}"]]
+
+
 # --- existence of locations and regions per seed options -----------------------------------------
 
 def is_superboss(name):
@@ -522,16 +608,17 @@ def region_guard(region):
     return True
 
 
-def existence_guard(name, region):
+def existence_guard(name, data):
     """Mirrors the skip conditions of Regions.create_regions."""
     parts = []
-    if region == "Destiny Islands":
+    if data.region == "Destiny Islands":
         parts += [piece("play_destiny_islands", {1}), piece("character", {0, 1})]
     if "Superbosses" not in name:
-        if "Sora" not in name:
-            parts.append(piece("character", {0, 2}))
-        if "Riku" not in name:
-            parts.append(piece("character", {0, 1}))
+        character = guard_and(piece("character", {0, 2}) if "Sora" not in name else True,
+                              piece("character", {0, 1}) if "Riku" not in name else True)
+        if "Node" in name:
+            character = guard_or(character, recipe_in_pool(khddd.Items.SPIRITLIST[name[:-8]]))
+        parts.append(character)
     if "Ventus" in name:
         parts += [piece("armored_ventus_nightmare", {1}), piece("goal", {0, 2})]
     if is_superboss(name):
@@ -542,7 +629,7 @@ def existence_guard(name, region):
         parts.append(guard_or(piece("emblem_reqs", {1}), piece("goal", {2})))
     if "Young Xehanort Defeated" in name:
         parts.append(piece("goal", {0, 2}))
-    if "Lord Kyroo" in name:
+    if "Lord Kyroo" in name and data.category != "Board":
         parts.append(piece("lord_kyroo", {1}))
     if "Level" in name:
         parts.append(piece("stats_on_levels", {0, 1, 2}))
@@ -602,6 +689,15 @@ def rules_json(branches):
     return [",".join(branch) for branch in branches]
 
 
+def shared_rules(rule_lists):
+    """The rules every section has, which then go on their node; None when sections differ."""
+    return rule_lists[0] if all(rules == rule_lists[0] for rules in rule_lists) else None
+
+
+def nontrivial(rules):
+    return None if rules == [[]] else rules
+
+
 def set_rules(node, access, visibility):
     """Rebuilds node with rule keys right after name; None removes the key."""
     rebuilt = {"name": node["name"]}
@@ -633,23 +729,34 @@ def main():
             warn(f"{name!r} ({data.code}) is missing from location_mapping.lua; rerun gen_location_mapping.py")
         else:
             location_paths[name] = path
+    logic = LOGIC_LUA.read_text(encoding="utf-8")
+    for name in khddd.Rules.SORA_COMPLETION_LOCS + khddd.Rules.RIKU_COMPLETION_LOCS:
+        if f'"@{location_paths.get(name)}"' not in logic:
+            warn(f"{name!r} is missing from COMPLETION_LOCATIONS in logic.lua")
 
     tree = json.loads(LOCATIONS_JSON.read_text(encoding="utf-8"))
     regions = {node["name"]: node for node in tree}
     for name in location_paths:
-        region_name, node_name = location_paths[name].split("/")[:2]
+        region_name, node_name, section_name = location_paths[name].split("/")
         if region_name not in regions:
             regions[region_name] = {"name": region_name, "children": []}
             tree.append(regions[region_name])
         children = regions[region_name].setdefault("children", [])
-        if not any(child["name"] == node_name for child in children):
+        node = next((child for child in children if child["name"] == node_name), None)
+        if node is None:
             print(f"adding {region_name}/{node_name}")
-            children.append({"name": node_name, "sections": [{"name": node_name}]})
+            node = {"name": node_name, "sections": []}
+            children.append(node)
             if region_name == "Levels":
                 children.sort(key=level_sort_key)
+        sections = node.setdefault("sections", [])
+        if not any(section["name"] == section_name for section in sections):
+            sections.append({"name": section_name})
 
     translator = Translator(item_codes, location_paths)
     translator.collect()
+    for name, guard, rule in gate_contributions():
+        translator.contributions[("location", name)].append((guard, rule))
 
     for node in tree:
         region_name = node["name"]
@@ -665,25 +772,35 @@ def main():
     nodes_by_path = {(node["name"], child["name"]): child for node in tree for child in node.get("children", [])}
     for node in nodes_by_path.values():
         set_rules(node, None, None)
-    handled = set()
+    section_rules = defaultdict(dict)  # (region, node) -> section -> (access, visibility)
     for name, data in khddd.location_data_table.items():
         path = location_paths.get(name)
         if path is None:
             continue
-        key = tuple(path.split("/")[:2])
-        if key in handled:
-            warn(f"{name!r} shares the tracker node {key} with another location; rules are ANDed")
-        handled.add(key)
-        existence = existence_guard(name, data.region)
+        region_name, node_name, section_name = path.split("/")
+        existence = existence_guard(name, data)
         access = [[]]
         for guard, rule in translator.contributions.get(("location", name), []):
             access = product(access, contribution_rule(guard, rule, existence))
         if not access:
             raise ValueError(f"{name!r} ended up unreachable under every option")
         visibility = option_combo_to_rules(assuming(existence, region_guard(data.region)))
+        sections = section_rules[(region_name, node_name)]
+        if section_name in sections:
+            warn(f"{name!r} shares the tracker section {path} with another location; rules are ANDed")
+            other_access, other_visibility = sections[section_name]
+            access, visibility = product(other_access, access), union(other_visibility, visibility)
+        sections[section_name] = (access, visibility)
+    for key, sections in section_rules.items():
         node = nodes_by_path[key]
-        set_rules(node, access if access != [[]] else node.get("access_rules"),
-                  visibility if visibility != [[]] else node.get("visibility_rules"))
+        accesses, visibilities = zip(*sections.values())
+        access, visibility = shared_rules(accesses), shared_rules(visibilities)
+        set_rules(node, nontrivial(access), nontrivial(visibility))
+        for section in node["sections"]:
+            if section["name"] in sections:
+                section_access, section_visibility = sections[section["name"]]
+                set_rules(section, None if access is not None else nontrivial(section_access),
+                          None if visibility is not None else nontrivial(section_visibility))
 
     for kind, name in translator.contributions:
         if kind == "location" and name not in location_paths:

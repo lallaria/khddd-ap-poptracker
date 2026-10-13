@@ -31,6 +31,8 @@ def section_name(ap_name, region):
 def get_category(code, region, name):
     if 2680000 <= code < 2690000:
         return "Secret Portals"
+    if 2690000 <= code < 2700000:
+        return "Link Boards"
     if region == "Levels":
         return "Levels"
     if "Lord Kyroo" in name:
@@ -50,6 +52,15 @@ def get_category(code, region, name):
     return "Other"
 
 
+def tracker_path(ap_name, region, category):
+    """@Region/Location/Section for an AP location; link board nodes are sections of one location per spirit."""
+    if category == "Link Boards":
+        spirit, _, number = ap_name.rpartition(" Node ")
+        return f"@{region}/{spirit}/Node {number}"
+    section = section_name(ap_name, region)
+    return f"@{region}/{section}/{section}"
+
+
 CATEGORY_ORDER = [
     "Secret Portals",
     "Sora Events",
@@ -60,6 +71,7 @@ CATEGORY_ORDER = [
     "Riku Chests",
     "Lord Kyroo",
     "Levels",
+    "Link Boards",
     "Other",
 ]
 
@@ -67,9 +79,8 @@ CATEGORY_ORDER = [
 def main():
     categories = {}
     for ap_name, data in khddd.location_data_table.items():
-        section = section_name(ap_name, data.region)
-        categories.setdefault(get_category(data.code, data.region, ap_name), []).append(
-            (data.code, data.region, section))
+        category = get_category(data.code, data.region, ap_name)
+        categories.setdefault(category, []).append((data.code, tracker_path(ap_name, data.region, category)))
 
     lines = [
         "-- use this file to map the AP location ids to your locations",
@@ -90,8 +101,8 @@ def main():
         lines.append("\t" + border)
         lines.append("\t-- " + "#" * pad_left + f" {category} " + "#" * (pad_inner - pad_left))
         lines.append("\t" + border)
-        for code, region, section in sorted(categories[category]):
-            lines.append(f'\t[{code}] = {{ {{ "@{region}/{section}/{section}" }} }},')
+        for code, path in sorted(categories[category]):
+            lines.append(f'\t[{code}] = {{ {{ "{path}" }} }},')
         lines.append("")
     lines.append("}")
 

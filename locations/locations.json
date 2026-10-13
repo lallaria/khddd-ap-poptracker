@@ -2772,11 +2772,11 @@
                 ]
             },
             {
-                "name": "Dual Disc",
+                "name": "Dual Disc Reward",
                 "access_rules": ["glide", "superglide", "rail_slide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
-                        "name": "Dual Disc"
+                        "name": "Dual Disc Reward"
                     }
                 ]
             },
@@ -6734,8 +6734,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2203,
-                        "y": 1278
+                        "x": 1978,
+                        "y": 1364
                     }
                 ]
             },
@@ -6749,8 +6749,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2144,
-                        "y": 1326
+                        "x": 2058,
+                        "y": 1297
                     }
                 ]
             },
@@ -6764,8 +6764,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2061,
-                        "y": 1253
+                        "x": 2154,
+                        "y": 1441
                     }
                 ]
             },
@@ -6780,8 +6780,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2152,
-                        "y": 1436
+                        "x": 2041,
+                        "y": 1245
                     }
                 ]
             },
@@ -6939,8 +6939,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2123,
-                        "y": 1273
+                        "x": 2095,
+                        "y": 1428
                     }
                 ]
             },
@@ -6954,8 +6954,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2028,
-                        "y": 1312
+                        "x": 2159,
+                        "y": 1342
                     }
                 ]
             },
@@ -6970,8 +6970,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2174,
-                        "y": 1343
+                        "x": 2031,
+                        "y": 1307
                     }
                 ]
             },
@@ -7800,6 +7800,4149 @@
                 "sections": [
                     {
                         "name": "All Lucky Emblems Found"
+                    }
+                ]
+            },
+            {
+                "name": "Meow Wow",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|1"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe,^$board_gate|1|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe,^$board_gate|1|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe,^$board_gate|1|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe,^$board_gate|1|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe,^$board_gate|1|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe,^$board_gate|1|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|1", "meow_wow_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 286,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Tama Sheep",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|2"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe,^$board_gate|2|1"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe,^$board_gate|2|1"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe,^$board_gate|2|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe,^$board_gate|2|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe,^$board_gate|2|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe,^$board_gate|2|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe,^$board_gate|2|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe,^$board_gate|2|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe,^$board_gate|2|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|2", "tama_sheep_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 446,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Yoggy Ram",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|3"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe,^$board_gate|3|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe,^$board_gate|3|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe,^$board_gate|3|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe,^$board_gate|3|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|3", "yoggy_ram_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 606,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Komory Bat",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|4"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe,^$board_gate|4|2"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe,^$board_gate|4|2"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe,^$board_gate|4|2"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe,^$board_gate|4|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe,^$board_gate|4|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|4", "komory_bat_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 766,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Pricklemane",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|5"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe,^$board_gate|5|1"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe,^$board_gate|5|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe,^$board_gate|5|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe,^$board_gate|5|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe,^$board_gate|5|2"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe,^$board_gate|5|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe,^$board_gate|5|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe,^$board_gate|5|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|5", "pricklemane_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 926,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Hebby Repp",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|6"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe,^$board_gate|6|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe,^$board_gate|6|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe,^$board_gate|6|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe,^$board_gate|6|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe,^$board_gate|6|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe,^$board_gate|6|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe,^$board_gate|6|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|6", "hebby_rep_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1086,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Sir Kyroo",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|7"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe,^$board_gate|7|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe,^$board_gate|7|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe,^$board_gate|7|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe,^$board_gate|7|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe,^$board_gate|7|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe,^$board_gate|7|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|7", "sir_kyroo_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1246,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Toximander",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|8"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe,^$board_gate|8|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe,^$board_gate|8|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe,^$board_gate|8|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe,^$board_gate|8|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe,^$board_gate|8|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe,^$board_gate|8|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe,^$board_gate|8|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|8", "toximander_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1406,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Fin Fatale",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|9"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe,^$board_gate|9|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe,^$board_gate|9|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe,^$board_gate|9|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe,^$board_gate|9|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe,^$board_gate|9|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|9", "fin_fatale_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1566,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Tatsu Steed",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|10"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe,^$board_gate|10|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe,^$board_gate|10|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe,^$board_gate|10|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe,^$board_gate|10|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe,^$board_gate|10|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe,^$board_gate|10|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe,^$board_gate|10|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|10", "tatsu_steed_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1726,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Necho Cat",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|11"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe,^$board_gate|11|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe,^$board_gate|11|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe,^$board_gate|11|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe,^$board_gate|11|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe,^$board_gate|11|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe,^$board_gate|11|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|11", "necho_cat_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1886,
+                        "y": 126
+                    }
+                ]
+            },
+            {
+                "name": "Thunderaffe",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|12"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe,^$board_gate|12|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe,^$board_gate|12|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe,^$board_gate|12|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe,^$board_gate|12|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe,^$board_gate|12|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe,^$board_gate|12|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|12", "thunderaffe_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 126,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Kooma Panda",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|13"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe,^$board_gate|13|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe,^$board_gate|13|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe,^$board_gate|13|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe,^$board_gate|13|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe,^$board_gate|13|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe,^$board_gate|13|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe,^$board_gate|13|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|13", "kooma_panda_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 286,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Pegaslick",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|14"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe,^$board_gate|14|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe,^$board_gate|14|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe,^$board_gate|14|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|14", "pegaslick_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 446,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Iceguin Ace",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|15"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe,^$board_gate|15|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe,^$board_gate|15|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe,^$board_gate|15|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe,^$board_gate|15|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe,^$board_gate|15|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe,^$board_gate|15|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe,^$board_gate|15|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|15", "icequin_ace_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 606,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Peepsta Hoo",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|16"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe,^$board_gate|16|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe,^$board_gate|16|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe,^$board_gate|16|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe,^$board_gate|16|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe,^$board_gate|16|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe,^$board_gate|16|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|16", "peepsta_hoo_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 766,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Escarglow",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|17"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe,^$board_gate|17|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe,^$board_gate|17|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe,^$board_gate|17|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe,^$board_gate|17|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe,^$board_gate|17|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe,^$board_gate|17|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|17", "escarglow_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 926,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "KO Kabuto",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|18"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe,^$board_gate|18|1"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe,^$board_gate|18|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe,^$board_gate|18|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe,^$board_gate|18|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe,^$board_gate|18|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe,^$board_gate|18|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe,^$board_gate|18|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe,^$board_gate|18|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|18", "ko_kabuto_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1086,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Wheeflower",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|19"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe,^$board_gate|19|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe,^$board_gate|19|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe,^$board_gate|19|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe,^$board_gate|19|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe,^$board_gate|19|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe,^$board_gate|19|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|19", "wheeflower_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1246,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Ghostabocky",
+                "access_rules": ["$recipe_not_in_pool|20", "ghostabocky_recipe"],
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|20"],
+                "sections": [
+                    {
+                        "name": "Node 01"
+                    },
+                    {
+                        "name": "Node 02"
+                    },
+                    {
+                        "name": "Node 03"
+                    },
+                    {
+                        "name": "Node 04"
+                    },
+                    {
+                        "name": "Node 05"
+                    },
+                    {
+                        "name": "Node 06"
+                    },
+                    {
+                        "name": "Node 07"
+                    },
+                    {
+                        "name": "Node 08"
+                    },
+                    {
+                        "name": "Node 09"
+                    },
+                    {
+                        "name": "Node 10"
+                    },
+                    {
+                        "name": "Node 11"
+                    },
+                    {
+                        "name": "Node 12"
+                    },
+                    {
+                        "name": "Node 13"
+                    },
+                    {
+                        "name": "Node 14"
+                    },
+                    {
+                        "name": "Node 15"
+                    },
+                    {
+                        "name": "Node 16"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1406,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Zolephant",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|21"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe,^$board_gate|21|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe,^$board_gate|21|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe,^$board_gate|21|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe,^$board_gate|21|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe,^$board_gate|21|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe,^$board_gate|21|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe,^$board_gate|21|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|21", "zolephant_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1566,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Juggle Pup",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|22"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe,^$board_gate|22|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe,^$board_gate|22|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe,^$board_gate|22|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe,^$board_gate|22|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe,^$board_gate|22|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe,^$board_gate|22|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|22", "juggle_pup_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1726,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Halbird",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|23"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe,^$board_gate|23|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe,^$board_gate|23|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe,^$board_gate|23|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe,^$board_gate|23|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe,^$board_gate|23|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|23", "halbird_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1886,
+                        "y": 286
+                    }
+                ]
+            },
+            {
+                "name": "Staggerceps",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|24"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe,^$board_gate|24|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe,^$board_gate|24|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe,^$board_gate|24|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe,^$board_gate|24|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe,^$board_gate|24|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe,^$board_gate|24|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe,^$board_gate|24|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|24", "staggerceps_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 126,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Fishbone",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|25"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe,^$board_gate|25|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe,^$board_gate|25|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe,^$board_gate|25|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe,^$board_gate|25|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe,^$board_gate|25|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe,^$board_gate|25|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|25", "fishbone_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 286,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Flowbermeow",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|26"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe,^$board_gate|26|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe,^$board_gate|26|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe,^$board_gate|26|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe,^$board_gate|26|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe,^$board_gate|26|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|26", "flowbermeow_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 446,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Cyber Yog",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|27"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe,^$board_gate|27|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe,^$board_gate|27|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe,^$board_gate|27|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe,^$board_gate|27|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe,^$board_gate|27|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe,^$board_gate|27|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe,^$board_gate|27|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|27", "cyber_yog_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 606,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Chef Kyroo",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|28"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe,^$board_gate|28|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe,^$board_gate|28|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe,^$board_gate|28|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe,^$board_gate|28|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe,^$board_gate|28|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe,^$board_gate|28|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe,^$board_gate|28|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|28", "chef_kyroo_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 766,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Lord Kyroo",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|29"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe,^$board_gate|29|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe,^$board_gate|29|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe,^$board_gate|29|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe,^$board_gate|29|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe,^$board_gate|29|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe,^$board_gate|29|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|29", "lord_kyroo_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 926,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Tatsu Blaze",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|30"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe,^$board_gate|30|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe,^$board_gate|30|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe,^$board_gate|30|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe,^$board_gate|30|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe,^$board_gate|30|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|30", "tatsu_blaze_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1086,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Electricorn",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|31"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe,^$board_gate|31|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe,^$board_gate|31|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe,^$board_gate|31|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe,^$board_gate|31|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe,^$board_gate|31|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe,^$board_gate|31|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe,^$board_gate|31|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|31", "electricorn_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1246,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Woeflower",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|32"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe,^$board_gate|32|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe,^$board_gate|32|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe,^$board_gate|32|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe,^$board_gate|32|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe,^$board_gate|32|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe,^$board_gate|32|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe,^$board_gate|32|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe,^$board_gate|32|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|32", "woeflower_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1406,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Jestabocky",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|33"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe,^$board_gate|33|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe,^$board_gate|33|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe,^$board_gate|33|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe,^$board_gate|33|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|33", "jestabocky_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1566,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Eaglider",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|34"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe,^$board_gate|34|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe,^$board_gate|34|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe,^$board_gate|34|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe,^$board_gate|34|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe,^$board_gate|34|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe,^$board_gate|34|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|34", "eaglider_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1726,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Me Me Bunny",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|35"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe,^$board_gate|35|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe,^$board_gate|35|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe,^$board_gate|35|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe,^$board_gate|35|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe,^$board_gate|35|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe,^$board_gate|35|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|35", "me_me_bunny_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1886,
+                        "y": 446
+                    }
+                ]
+            },
+            {
+                "name": "Drill Sye",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|36"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe,^$board_gate|36|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe,^$board_gate|36|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe,^$board_gate|36|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe,^$board_gate|36|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe,^$board_gate|36|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe,^$board_gate|36|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe,^$board_gate|36|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|36", "drill_sye_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 126,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Tyranto Rex",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|37"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe,^$board_gate|37|2"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe,^$board_gate|37|2"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe,^$board_gate|37|2"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe,^$board_gate|37|2"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe,^$board_gate|37|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe,^$board_gate|37|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe,^$board_gate|37|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|37", "tyranto_rex_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 286,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Majik Lapin",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|38"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe,^$board_gate|38|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe,^$board_gate|38|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe,^$board_gate|38|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe,^$board_gate|38|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe,^$board_gate|38|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|38", "majik_lapin_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 446,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Cera Terror",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|39"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe,^$board_gate|39|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe,^$board_gate|39|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe,^$board_gate|39|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe,^$board_gate|39|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe,^$board_gate|39|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe,^$board_gate|39|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe,^$board_gate|39|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|39", "cera_terror_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 606,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Skelterwild",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|40"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe,^$board_gate|40|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe,^$board_gate|40|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe,^$board_gate|40|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe,^$board_gate|40|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe,^$board_gate|40|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe,^$board_gate|40|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe,^$board_gate|40|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|40", "skelterwild_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 766,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Ducky Goose",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|41"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe,^$board_gate|41|2"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe,^$board_gate|41|2"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe,^$board_gate|41|2"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe,^$board_gate|41|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe,^$board_gate|41|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|41", "ducky_goose_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 926,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Aura Lion",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|42"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe,^$board_gate|42|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe,^$board_gate|42|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe,^$board_gate|42|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe,^$board_gate|42|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe,^$board_gate|42|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe,^$board_gate|42|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe,^$board_gate|42|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe,^$board_gate|42|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|42", "aura_lion_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1086,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Ryu Dragon",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|43"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe,^$board_gate|43|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe,^$board_gate|43|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe,^$board_gate|43|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe,^$board_gate|43|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe,^$board_gate|43|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe,^$board_gate|43|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe,^$board_gate|43|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe,^$board_gate|43|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|43", "ryu_dragon_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1246,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Drak Quack",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|44"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe,^$board_gate|44|2"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe,^$board_gate|44|2"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe,^$board_gate|44|2"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe,^$board_gate|44|2"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe,^$board_gate|44|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe,^$board_gate|44|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe,^$board_gate|44|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|44", "drak_quack_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1406,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Keeba Tiger",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|45"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe,^$board_gate|45|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe,^$board_gate|45|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe,^$board_gate|45|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe,^$board_gate|45|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe,^$board_gate|45|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe,^$board_gate|45|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe,^$board_gate|45|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe,^$board_gate|45|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|45", "keeba_tiger_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1566,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Meowjesty",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|46"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe,^$board_gate|46|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe,^$board_gate|46|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe,^$board_gate|46|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe,^$board_gate|46|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe,^$board_gate|46|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe,^$board_gate|46|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe,^$board_gate|46|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|46", "meowjesty_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1726,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Sudo Neku",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|47"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe,^$board_gate|47|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe,^$board_gate|47|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe,^$board_gate|47|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe,^$board_gate|47|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe,^$board_gate|47|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe,^$board_gate|47|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe,^$board_gate|47|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe,^$board_gate|47|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|47", "sudo_neku_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1886,
+                        "y": 606
+                    }
+                ]
+            },
+            {
+                "name": "Frootz Cat",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|48"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe,^$board_gate|48|2"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe,^$board_gate|48|2"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe,^$board_gate|48|2"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe,^$board_gate|48|2"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe,^$board_gate|48|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe,^$board_gate|48|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe,^$board_gate|48|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|48", "frootz_cat_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 126,
+                        "y": 766
+                    }
+                ]
+            },
+            {
+                "name": "Ursa Circus",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|49"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe,^$board_gate|49|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe,^$board_gate|49|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe,^$board_gate|49|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe,^$board_gate|49|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe,^$board_gate|49|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe,^$board_gate|49|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe,^$board_gate|49|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|49", "ursa_circus_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 286,
+                        "y": 766
+                    }
+                ]
+            },
+            {
+                "name": "Kab Kannon",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|50"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe,^$board_gate|50|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe,^$board_gate|50|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe,^$board_gate|50|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe,^$board_gate|50|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe,^$board_gate|50|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe,^$board_gate|50|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe,^$board_gate|50|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|50", "kab_kannon_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 446,
+                        "y": 766
+                    }
+                ]
+            },
+            {
+                "name": "R & R Seal",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|51"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe,^$board_gate|51|1"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe,^$board_gate|51|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe,^$board_gate|51|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe,^$board_gate|51|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe,^$board_gate|51|2"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe,^$board_gate|51|2"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe,^$board_gate|51|2"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|51", "r_and_r_seal_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 606,
+                        "y": 766
+                    }
+                ]
+            },
+            {
+                "name": "Catanuki",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|52"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe,^$board_gate|52|2"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe,^$board_gate|52|2"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe,^$board_gate|52|2"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe,^$board_gate|52|2"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe,^$board_gate|52|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe,^$board_gate|52|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe,^$board_gate|52|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|52", "catanuki_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 766,
+                        "y": 766
+                    }
+                ]
+            },
+            {
+                "name": "Beatalike",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|53"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe,^$board_gate|53|1"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe,^$board_gate|53|1"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe,^$board_gate|53|1"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe,^$board_gate|53|1"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe,^$board_gate|53|1"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe,^$board_gate|53|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe,^$board_gate|53|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|53", "beatalike_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 926,
+                        "y": 766
+                    }
+                ]
+            },
+            {
+                "name": "Tubguin Ace",
+                "visibility_rules": ["opt_sora,opt_riku", "$recipe_in_pool|54"],
+                "sections": [
+                    {
+                        "name": "Node 01",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 02",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 03",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 04",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 05",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 06",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 07",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 08",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 09",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe,^$board_gate|54|2"]
+                    },
+                    {
+                        "name": "Node 10",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe,^$board_gate|54|2"]
+                    },
+                    {
+                        "name": "Node 11",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe,^$board_gate|54|2"]
+                    },
+                    {
+                        "name": "Node 12",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 13",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe,^$board_gate|54|1"]
+                    },
+                    {
+                        "name": "Node 14",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe,^$board_gate|54|1"]
+                    },
+                    {
+                        "name": "Node 15",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    },
+                    {
+                        "name": "Node 16",
+                        "access_rules": ["$recipe_not_in_pool|54", "tubguin_ace_recipe"]
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Link Boards",
+                        "x": 1086,
+                        "y": 766
                     }
                 ]
             }

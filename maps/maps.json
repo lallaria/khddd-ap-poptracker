@@ -96,5 +96,12 @@
         "location_border_thickness": 4,
         "location_shape": "rect",
         "img": "images/maps/Minimap_(Traverse_Town)_KH3DHD.png"
+    },
+    {
+        "name": "Link Boards",
+        "location_size": 48,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/maps/Link_Boards.png"
     }
 ]

@@ -55,6 +55,74 @@ function has_riku_worlds(n)
     return count_worlds(RIKU_WORLDS) >= tonumber(n)
 end
 
+-- spirit id -> { character = 1 sora / 2 riku, world count per gate } from slot_data gate_reqs; nil until AP connects
+local board_gates = nil
+-- rule results stay cached until an item changes, so gate updates touch this hidden item
+local board_gates_item = ScriptHost:CreateLuaItem()
+board_gates_item.Name = "Link Board Gates"
+local board_gates_revision = 0
+
+function set_board_gates(gates)
+    board_gates = gates
+    board_gates_revision = board_gates_revision + 1
+    board_gates_item:Set("revision", board_gates_revision)
+end
+
+function recipe_in_pool(id)
+    return board_gates == nil or board_gates[tonumber(id)] ~= nil
+end
+
+function recipe_not_in_pool(id)
+    return not recipe_in_pool(id)
+end
+
+-- the locations counted by beat_x_sora_worlds / beat_x_riku_worlds in the apworld's Rules.py, by gate character
+local COMPLETION_LOCATIONS = {
+    {
+        "@Traverse Town [Sora]/Skull Noise Reward/Skull Noise Reward",
+        "@La Cite des Cloches [Sora]/Guardian Bell Reward/Guardian Bell Reward",
+        "@The Grid [Sora]/Dual Disc Reward/Dual Disc Reward",
+        "@Prankster's Paradise [Sora]/Ferris Gear Reward/Ferris Gear Reward",
+        "@Country of the Musketeers [Sora]/All For One Reward/All For One Reward",
+        "@Symphony of Sorcery [Sora]/Counterpoint Reward/Counterpoint Reward",
+        "@The World That Never Was [Sora]/Xemnas Bonus Slot 1/Xemnas Bonus Slot 1",
+    },
+    {
+        "@Traverse Town [Riku]/Skull Noise Reward/Skull Noise Reward",
+        "@La Cite des Cloches [Riku]/Guardian Bell Reward/Guardian Bell Reward",
+        "@The Grid [Riku]/Dual Disc Reward/Dual Disc Reward",
+        "@Prankster's Paradise [Riku]/Ocean's Rage Reward/Ocean's Rage Reward",
+        "@Country of the Musketeers [Riku]/All For One Reward/All For One Reward",
+        "@Symphony of Sorcery [Riku]/Counterpoint Reward/Counterpoint Reward",
+        "@The World That Never Was [Riku]/Ansem II Defeated/Ansem II Defeated",
+    },
+}
+
+-- open while the gate's character can reach as many completion locations as the gate needs
+function board_gate(id, gate)
+    local gates = board_gates and board_gates[tonumber(id)]
+    local needed = gates and gates[tonumber(gate)]
+    if not needed then
+        return AccessibilityLevel.Normal
+    end
+    local normal, sequence_break = 0, 0
+    for _, path in ipairs(COMPLETION_LOCATIONS[gates.character] or {}) do
+        local section = Tracker:FindObjectForCode(path)
+        local level = section and section.AccessibilityLevel or AccessibilityLevel.None
+        if level >= AccessibilityLevel.Normal then
+            normal = normal + 1
+        elseif level >= AccessibilityLevel.SequenceBreak then
+            sequence_break = sequence_break + 1
+        end
+    end
+    if normal >= needed then
+        return AccessibilityLevel.Normal
+    elseif normal + sequence_break >= needed then
+        return AccessibilityLevel.SequenceBreak
+    end
+    return AccessibilityLevel.None
+end
+
 local function has_opt_count(code, opt_code)
     local opt = Tracker:FindObjectForCode(opt_code)
     return Tracker:ProviderCountForCode(code) >= (opt and opt.AcquiredCount or 0)

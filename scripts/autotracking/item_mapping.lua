@@ -242,8 +242,8 @@ ITEM_MAPPING = {
 	[2691010] = { { "world_country_of_the_musketeers_riku" } },
 	[2691011] = { { "world_symphony_of_sorcery_riku" } },
 	[2691012] = { { "world_the_world_that_never_was_riku" } },
-	[2691013] = { { "world_traverse_town_sora", "progressive" } },
-	[2691014] = { { "world_traverse_town_riku", "progressive" } },
+	[2691013] = { { "world_traverse_town_sora", "consumable" } },
+	[2691014] = { { "world_traverse_town_riku", "consumable" } },
 
 	-- ########################################
 	-- ############### Recipes ################

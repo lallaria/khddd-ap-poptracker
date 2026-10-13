@@ -202,8 +202,31 @@ local function hasSecretPortal(locations)
 	return false
 end
 
+-- gate_reqs is [[spirit id, character, world count per gate], ...], sent as its Python str()
+local function parseGateReqs(value)
+	local entries = value
+	if type(value) == "string" then
+		entries = {}
+		for entry in value:gmatch("%[([^%[%]]+)%]") do
+			local numbers = {}
+			for number in entry:gmatch("%d+") do
+				numbers[#numbers + 1] = tonumber(number)
+			end
+			entries[#entries + 1] = numbers
+		end
+	elseif type(value) ~= "table" then
+		return nil
+	end
+	local gates = {}
+	for _, numbers in ipairs(entries) do
+		gates[numbers[1]] = { character = numbers[2], table.unpack(numbers, 3) }
+	end
+	return gates
+end
+
 -- apply everything needed from slot_data, called from onClear
 function apply_slot_data(slot_data)
+	set_board_gates(type(slot_data) == "table" and parseGateReqs(slot_data.gate_reqs) or nil)
 	if type(slot_data) ~= "table" then
 		return
 	end
