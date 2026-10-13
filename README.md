@@ -14,6 +14,9 @@ Ventus Nightmare, level checks, fast go mode, recipes required and Lucky Emblems
 and which locations are shown following these settings. When connected to Archipelago they should be 
 filled automatically.
 
+The green number on a world icon counts that world's unchecked checks that are in logic, including
+ones without a map pin.
+
 ## Logic
 
 Access rules are generated from the apworld's `Rules.py` and `Regions.py`, so the tracker should match
