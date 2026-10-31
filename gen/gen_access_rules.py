@@ -714,10 +714,13 @@ def main():
             warn(f"{name!r} ({data.code}) is missing from location_mapping.lua; rerun gen_location_mapping.py")
         else:
             location_paths[name] = path
-    logic = LOGIC_LUA.read_text(encoding="utf-8")
-    for name in khddd.location_name_groups["Sora Worlds"] | khddd.location_name_groups["Riku Worlds"]:
-        if f'"@{location_paths[name]}"' not in logic:
-            warn(f"{name!r} is missing from WORLD_EVENTS in logic.lua")
+    world_events = {location_paths[name]
+                    for name in khddd.location_name_groups["Sora Worlds"] | khddd.location_name_groups["Riku Worlds"]}
+    listed = set(re.findall(rf'"@([^"]+/{EVENT_LOCATION}/[^"]+)"', LOGIC_LUA.read_text(encoding="utf-8")))
+    for path in sorted(world_events - listed):
+        warn(f"{path!r} is missing from WORLD_EVENTS in logic.lua")
+    for path in sorted(listed - world_events):
+        warn(f"{path!r} is in WORLD_EVENTS in logic.lua but not the apworld's world groups")
 
     tree = json.loads(LOCATIONS_JSON.read_text(encoding="utf-8"))
     regions = {node["name"]: node for node in tree}

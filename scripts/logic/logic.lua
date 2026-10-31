@@ -85,7 +85,6 @@ local WORLD_EVENTS = {
         "@Prankster's Paradise [Sora]/Cleared/Prankster's Paradise Cleared [Sora]",
         "@Country of the Musketeers [Sora]/Cleared/Country of the Musketeers Cleared [Sora]",
         "@Symphony of Sorcery [Sora]/Cleared/Symphony of Sorcery Cleared [Sora]",
-        "@Traverse Town 2 [Sora]/Cleared/Traverse Town 2 Cleared [Sora]",
         "@The World That Never Was [Sora]/Cleared/The World That Never Was Cleared [Sora]",
     },
     {
@@ -95,7 +94,6 @@ local WORLD_EVENTS = {
         "@Prankster's Paradise [Riku]/Cleared/Prankster's Paradise Cleared [Riku]",
         "@Country of the Musketeers [Riku]/Cleared/Country of the Musketeers Cleared [Riku]",
         "@Symphony of Sorcery [Riku]/Cleared/Symphony of Sorcery Cleared [Riku]",
-        "@Traverse Town 2 [Riku]/Cleared/Traverse Town 2 Cleared [Riku]",
         "@The World That Never Was [Riku]/Cleared/The World That Never Was Cleared [Riku]",
     },
 }

@@ -1302,14 +1302,6 @@
                         "name": "Traverse Town 2 Boss Gauntlet Bonus Slot 2 [Sora]"
                     }
                 ]
-            },
-            {
-                "name": "Cleared",
-                "sections": [
-                    {
-                        "name": "Traverse Town 2 Cleared [Sora]"
-                    }
-                ]
             }
         ]
     },
@@ -1357,14 +1349,6 @@
                 "sections": [
                     {
                         "name": "Traverse Town 2 Ultima Weapon Reward [Riku]"
-                    }
-                ]
-            },
-            {
-                "name": "Cleared",
-                "sections": [
-                    {
-                        "name": "Traverse Town 2 Cleared [Riku]"
                     }
                 ]
             }
