@@ -10,9 +10,9 @@ Download the zip folder from the latest release and place it in the `packs` fold
 
 The Sora and Riku pictures above the world icons pick the characters in play. The settings button
 (gear icon) opens the other seed options: goal, superboss checks, Lord Kyroo, Destiny Islands, Armored
-Ventus Nightmare, level checks, fast go mode, recipes required and Lucky Emblems required. Chest logic
-and which locations are shown following these settings. When connected to Archipelago they should be 
-filled automatically.
+Ventus Nightmare, level checks, link board checks, fast go mode, recipes required and Lucky Emblems
+required. Chest logic and which locations are shown following these settings. When connected to
+Archipelago they should be filled automatically.
 
 The green number on a world icon counts that world's unchecked checks that are in logic, including
 ones without a map pin.
@@ -23,6 +23,12 @@ Access rules are generated from the apworld's `Rules.py` and `Regions.py`, so th
 Universal Tracker right now. The Link Boards tab has a square per spirit holding its 16 board nodes.
 Link board gates and the recipes in the pool are rolled per seed, so until the tracker is connected to
 Archipelago every board is shown and its gates count as open.
+
+## Universal Tracker
+
+The release zip also works as the map pack for Universal Tracker in the KHDDD client: select it when
+the client asks for a pack. Universal Tracker reads only the maps and locations, and takes its logic
+from the apworld. It matches sections by name, so every section keeps its exact AP location name.
 
 ## Development
 
@@ -36,7 +42,7 @@ Archipelago checkout, so run them with that checkout's venv:
 The first regenerates `scripts/autotracking/location_mapping.lua`; the second rewrites the
 `access_rules` and `visibility_rules` in `locations/locations.json`, adding nodes for new locations
 (without map positions). Renamed locations need their node renamed by hand first so map positions
-are kept.
+are kept. The apworld's `Cleared` events become hidden `Cleared` nodes, which link board gates count.
 
 The venv has to sit inside `<source>/Archipelago/` (`venv` or `.venv`): the scripts put its parent
 folder on the import path to find `worlds`.

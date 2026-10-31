@@ -77,6 +77,14 @@
                 "type": "array",
                 "orientation": "horizontal",
                 "content": [
+                    { "type": "item", "item": "opt_link_boards", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Link board checks", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
                     { "type": "item", "item": "opt_fast_go_mode", "max_width": 48, "max_height": 48 },
                     { "type": "text", "text": "Fast go mode", "v_alignment": "center" }
                 ]

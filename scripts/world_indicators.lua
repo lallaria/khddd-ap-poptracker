@@ -74,6 +74,10 @@ local function with_rules(chain, rules)
 end
 
 local function collect_sections(node, parent_id, chain, out)
+    -- Cleared sections are logic events for board_gate, not checks
+    if node.name == "Cleared" then
+        return
+    end
     local id = parent_id and (parent_id .. "/" .. node.name) or node.name
     chain = with_rules(chain, node.visibility_rules)
     for _, section in ipairs(node.sections or {}) do

@@ -1,4 +1,4 @@
-"""Cuts the settings, movement and spirit icons and the link board map out of the game's UI atlases.
+"""Cuts the settings, movement and spirit icons, spirit portraits and the link board map out of the game's UI atlases.
 
 Usage: .venv/Scripts/python gen/gen_icons.py path/to/atlas/folder [path/to/LuckyEmblem.dds]
 
@@ -11,8 +11,15 @@ from PIL import Image, ImageDraw, ImageFont
 REPO = Path(__file__).resolve().parent.parent
 OUT = REPO / "images" / "items"
 LINK_BOARDS_MAP = REPO / "images" / "maps" / "Link_Boards.png"
+SPIRITS = REPO / "images" / "spirits"
 FONT = "C:/Windows/Fonts/KHMenu.otf"
 TILE = 128
+SPIRIT_CELL = 160
+SPIRIT_COLUMNS = 12
+SPIRIT_COUNT = 54
+GATE_TILE = 64
+GATE_OPEN_COLOR = (225, 40, 40, 255)
+GATE_CLOSED_COLOR = (150, 150, 160, 255)
 
 SPRITES = {
     "switch_on": ("US_pt_status.png", (332, 392, 375, 435)),
@@ -96,6 +103,29 @@ def label_tile(icon, text):
     return tile
 
 
+def gate_tile(color):
+    """Padlock placeholder until the game's gate tile is sourced."""
+    tile = Image.new("RGBA", (GATE_TILE, GATE_TILE), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(tile)
+    draw.rounded_rectangle((0, 0, GATE_TILE - 1, GATE_TILE - 1), radius=8, fill=(28, 34, 48, 235), outline=color, width=2)
+    draw.arc((20, 12, 44, 40), 180, 360, fill=color, width=4)
+    draw.line((20, 26, 20, 32), fill=color, width=4)
+    draw.line((43, 26, 43, 32), fill=color, width=4)
+    draw.rounded_rectangle((14, 30, 49, 52), radius=4, fill=color)
+    return tile
+
+
+def spirit_images(atlas):
+    """Writes the portraits the client's link board grid loads from the pack, named by spirit id."""
+    SPIRITS.mkdir(exist_ok=True)
+    for spirit_id in range(1, SPIRIT_COUNT + 1):
+        row, column = divmod(spirit_id, SPIRIT_COLUMNS)
+        box = (column * SPIRIT_CELL, row * SPIRIT_CELL, (column + 1) * SPIRIT_CELL, (row + 1) * SPIRIT_CELL)
+        atlas.crop(box).save(SPIRITS / f"{spirit_id}.png", optimize=True)
+    gate_tile(GATE_OPEN_COLOR).save(SPIRITS / "gate_open.png", optimize=True)
+    gate_tile(GATE_CLOSED_COLOR).save(SPIRITS / "gate_closed.png", optimize=True)
+
+
 def main(folder, lucky_emblem_path=None):
     folder = Path(folder)
     atlases = {}
@@ -119,8 +149,10 @@ def main(folder, lucky_emblem_path=None):
         label_tile(image, text).save(OUT / f"{code}.png")
     for code, (icon, text) in MOVEMENT.items():
         label_tile(sprite(atlases, folder, icon), text).save(OUT / "movement" / f"{code}.png")
-    sprite(atlases, folder, "link_boards").save(LINK_BOARDS_MAP, optimize=True)
-    print(f"wrote icons to {OUT} and {LINK_BOARDS_MAP.name}")
+    link_boards = sprite(atlases, folder, "link_boards")
+    link_boards.save(LINK_BOARDS_MAP, optimize=True)
+    spirit_images(link_boards)
+    print(f"wrote icons to {OUT}, {SPIRITS} and {LINK_BOARDS_MAP.name}")
 
 
 if __name__ == "__main__":

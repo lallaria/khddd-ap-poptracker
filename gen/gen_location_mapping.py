@@ -17,8 +17,8 @@ from worlds import khddd
 atexit.unregister(input)  # some apworlds register an exit prompt on import
 
 
-def section_name(ap_name, region):
-    """Tracker section name for an AP location: the AP name without world prefix and character tags."""
+def location_name(ap_name, region):
+    """Tracker location name for an AP location: the AP name without world prefix and character tags."""
     world = re.sub(r"\s*\[(?:Sora|Riku)\]$", "", region).strip()
     name = ap_name
     if name.startswith(world + " "):
@@ -53,12 +53,13 @@ def get_category(code, region, name):
 
 
 def tracker_path(ap_name, region, category):
-    """@Region/Location/Section for an AP location; link board nodes are sections of one location per spirit."""
+    """@Region/Location/Section for an AP location; link board nodes are sections of one location per spirit.
+
+    Sections keep the exact AP name: Universal Tracker matches them to AP locations by it.
+    """
     if category == "Link Boards":
-        spirit, _, number = ap_name.rpartition(" Node ")
-        return f"@{region}/{spirit}/Node {number}"
-    section = section_name(ap_name, region)
-    return f"@{region}/{section}/{section}"
+        return f"@{region}/{ap_name.rpartition(' Node ')[0]}/{ap_name}"
+    return f"@{region}/{location_name(ap_name, region)}/{ap_name}"
 
 
 CATEGORY_ORDER = [
@@ -79,6 +80,8 @@ CATEGORY_ORDER = [
 def main():
     categories = {}
     for ap_name, data in khddd.location_data_table.items():
+        if data.code is None:  # events have no AP id
+            continue
         category = get_category(data.code, data.region, ap_name)
         categories.setdefault(category, []).append((data.code, tracker_path(ap_name, data.region, category)))
 

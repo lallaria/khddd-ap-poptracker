@@ -245,6 +245,8 @@ function apply_slot_data(slot_data)
 	setSettingActive("opt_lord_kyroo", slotBool(slot_data.lord_kyroo))
 	setSettingActive("opt_destiny_islands", slotBool(slot_data.play_destiny_islands))
 	setSettingActive("opt_fast_go_mode", slotBool(slot_data.fast_go_mode))
+	-- seeds without link_board_sanity predate the option and always have board checks
+	setSettingActive("opt_link_boards", slotBool(slot_data.link_board_sanity) ~= false)
 	local vanilla_levels = slotBool(slot_data.use_vanilla_levels)
 	if vanilla_levels ~= nil then
 		setSettingActive("opt_levels", not vanilla_levels)

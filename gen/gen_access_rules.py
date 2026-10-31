@@ -21,7 +21,6 @@ from types import SimpleNamespace
 
 sys.path.insert(0, str(Path(sys.prefix).parent))  # the venv sits in the Archipelago checkout
 
-from BaseClasses import Location
 from worlds import khddd
 
 atexit.unregister(input)  # some apworlds register an exit prompt on import
@@ -31,6 +30,7 @@ LOCATIONS_JSON = REPO / "locations" / "locations.json"
 LOCATION_MAPPING = REPO / "scripts" / "autotracking" / "location_mapping.lua"
 ITEM_MAPPING = REPO / "scripts" / "autotracking" / "item_mapping.lua"
 LOGIC_LUA = REPO / "scripts" / "logic" / "logic.lua"
+EVENT_LOCATION = "Cleared"
 
 # option -> value domain; emblem_reqs is folded to 0 / "1 or more"
 OPTIONS = {
@@ -41,6 +41,7 @@ OPTIONS = {
     "armored_ventus_nightmare": (0, 1),
     "fast_go_mode": (0, 1),
     "play_destiny_islands": (0, 1),
+    "link_board_sanity": (0, 1),
     "stats_on_levels": (0, 1, 2, 3),
     "emblem_reqs": (0, 1),
 }
@@ -62,6 +63,7 @@ TOGGLE_CODES = {
     "armored_ventus_nightmare": "opt_avn",
     "fast_go_mode": "opt_fast_go_mode",
     "play_destiny_islands": "opt_destiny_islands",
+    "link_board_sanity": "opt_link_boards",
 }
 COUNT_OPTION_CODES = {"emblem_reqs": "opt_emblem_reqs", "recipe_reqs": "opt_recipe_reqs"}
 # (item, option) count comparisons with a dedicated Lua function
@@ -75,8 +77,6 @@ HELPERS = {
     "has_required_recipes": "$has_recipes",
 }
 COUNTING_HELPERS = {"has_x_sora_worlds": "$has_sora_worlds", "has_x_riku_worlds": "$has_riku_worlds"}
-# helpers whose body iterates a list of location names that must all be reachable
-REACH_ALL_HELPERS = {"can_access_sora_portals", "can_access_riku_portals"}
 # per-seed facts from slot_data, guarded like options with domain (0, 1): fact -> (Lua $ when true, when false)
 SEED_FACT_CODES = {"recipe_in_pool": ("$recipe_in_pool", "$recipe_not_in_pool")}
 
@@ -357,6 +357,8 @@ class Translator:
 
     @staticmethod
     def option_name(node):
+        if isinstance(node, ast.Attribute) and node.attr == "value":
+            node = node.value
         if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name) and node.value.id == "options":
             return node.attr
         return None
@@ -402,97 +404,68 @@ class Translator:
         return [["@" + path]]
 
     def rule(self, node, env):
-        """Rule combo for a lambda body or helper return expression."""
-        if isinstance(node, ast.BoolOp):
-            parts = [self.rule(value, env) for value in node.values]
-            result = parts[0]
-            for part in parts[1:]:
-                result = product(result, part) if isinstance(node.op, ast.And) else union(result, part)
-            return result
-        if isinstance(node, ast.Constant) and isinstance(node.value, bool):
-            return [[]] if node.value else []
-        if isinstance(node, ast.Compare) and len(node.ops) == 1:
-            return self.count_rule(node, env)
+        """Rule combo for a rule_builder expression."""
+        if isinstance(node, ast.BinOp) and isinstance(node.op, (ast.BitAnd, ast.BitOr)):
+            combine = product if isinstance(node.op, ast.BitAnd) else union
+            return combine(self.rule(node.left, env), self.rule(node.right, env))
         if isinstance(node, ast.Call):
             return self.call_rule(node, env)
         raise ValueError(f"unsupported rule expression: {ast.unparse(node)}")
 
-    def count_rule(self, node, env):
-        call = node.left
-        if not (isinstance(call, ast.Call) and self.method_name(call) == "count"):
-            raise ValueError(f"unsupported comparison: {ast.unparse(node)}")
-        name = self.concrete(call.args[0], env)
-        other = node.comparators[0]
-        op = node.ops[0]
-        option = self.option_name(other)
+    def count_rule(self, name, node, env):
+        """Rule combo for owning as many of the item as node says."""
+        option = self.option_name(node)
         if option:
-            if not isinstance(op, ast.GtE):
-                raise ValueError(f"unsupported option comparison: {ast.unparse(node)}")
             helper = COUNT_HELPERS.get((name, option))
             if helper:
                 return [[helper]]
             code = self.item_code(name)
             return [[f"$has_opt_count|{code}|{COUNT_OPTION_CODES[option]}"]] if code else []
-        value = self.concrete(other, env)
-        if isinstance(op, ast.Gt):
-            needed = value + 1
-        elif isinstance(op, ast.GtE):
-            needed = value
-        else:
-            raise ValueError(f"unsupported comparison: {ast.unparse(node)}")
+        needed = self.concrete(node, env)
         code = self.item_code(name)
         return [[f"{code}:{needed}" if needed > 1 else code]] if code else []
 
-    def names(self, node, env):
-        """Item names of a set/list literal in source order (set iteration order is randomized)."""
-        if isinstance(node, (ast.Set, ast.List, ast.Tuple)):
-            return [self.concrete(element, env) for element in node.elts]
-        return sorted(self.concrete(node, env))
-
-    @staticmethod
-    def method_name(call):
-        func = call.func
-        if isinstance(func, ast.Attribute) and isinstance(func.value, ast.Name) and func.value.id == "state":
-            return func.attr
-        return None
-
     def call_rule(self, node, env):
-        method = self.method_name(node)
-        if method == "has":
-            code = self.item_code(self.concrete(node.args[0], env))
+        if ast.unparse(node.func) == "khdddworld.gate_rules.get":  # gate_contributions adds these
+            return [[]]
+        if not isinstance(node.func, ast.Name) or node.keywords:
+            raise ValueError(f"unsupported call: {ast.unparse(node)}")
+        name = node.func.id
+        args = node.args
+        if name == "True_":
+            return [[]]
+        if name == "Has":
+            code = self.item_code(self.concrete(args[0], env))
             return [[code]] if code else []
-        if method in ("has_any", "has_all"):
-            codes = [self.item_code(name) for name in self.names(node.args[0], env)]
-            if method == "has_any":
+        if name in ("HasAny", "HasAll"):
+            codes = [self.item_code(self.concrete(arg, env)) for arg in args]
+            if name == "HasAny":
                 return simplify([[code] for code in codes if code])
             return [] if None in codes else [codes]
-        if method == "can_reach_location":
-            return self.location_ref(self.concrete(node.args[0], env))
-        if method == "can_reach":
-            target = node.args[0]
-            if isinstance(target, ast.Call) and isinstance(target.func, ast.Attribute) and target.func.attr == "get_location":
-                return self.location_ref(self.concrete(target.args[0], env))
-        if isinstance(node.func, ast.Name):
-            return self.helper_rule(node, env)
-        raise ValueError(f"unsupported call: {ast.unparse(node)}")
+        if name == "HasAllCounts":
+            result = [[]]
+            for key, value in zip(args[0].keys, args[0].values):
+                result = product(result, self.count_rule(self.concrete(key, env), value, env))
+            return result
+        if name == "CanReachLocation":
+            return self.location_ref(self.concrete(args[0], env))
+        if name == "AtLeast":
+            rules = [self.rule(arg, env) for arg in args[1:]]
+            result = []
+            for chosen in itertools.combinations(rules, self.concrete(args[0], env)):
+                result = union(result, functools.reduce(product, chosen))
+            return result
+        return self.helper_rule(node, env)
 
     def helper_rule(self, node, env):
         name = node.func.id
         if name in HELPERS:
             return [[HELPERS[name]]]
         if name in COUNTING_HELPERS:
-            return [[f"{COUNTING_HELPERS[name]}|{self.concrete(node.args[2], env)}"]]
+            return [[f"{COUNTING_HELPERS[name]}|{self.concrete(node.args[0], env)}"]]
         function = self.functions.get(name)
         if function is None:
             raise ValueError(f"unknown helper {name}")
-        if name in REACH_ALL_HELPERS:
-            names = next(self.concrete(child, {}) for child in ast.walk(function)
-                         if isinstance(child, ast.List) and child.elts
-                         and all(isinstance(element, ast.Constant) for element in child.elts))
-            result = [[]]
-            for location in names:
-                result = product(result, self.location_ref(location))
-            return result
         if len(function.body) != 1 or not isinstance(function.body[0], ast.Return):
             raise ValueError(f"helper {name} needs an entry in HELPERS")
         return self.rule(function.body[0].value, env)
@@ -516,11 +489,16 @@ class Translator:
                     self.block(statement.body, scope, guard)
             elif isinstance(statement, ast.Continue):
                 return False
-            elif (isinstance(statement, ast.Assign) and isinstance(statement.targets[0], ast.Name)
-                  and not self.uses_seed(statement.value)):
-                if guard is not True:
-                    raise ValueError(f"assignment under an option test: {ast.unparse(statement)}")
-                env[statement.targets[0].id] = self.concrete(statement.value, env)
+            elif isinstance(statement, ast.Assign) and isinstance(statement.targets[0], ast.Name):
+                target = statement.targets[0].id
+                if not self.uses_seed(statement.value):
+                    if guard is not True:
+                        raise ValueError(f"assignment under an option test: {ast.unparse(statement)}")
+                    env[target] = self.concrete(statement.value, env)
+                elif isinstance(statement.value, ast.Call):
+                    env[target] = [(guard, self.rule(statement.value, env))]
+            elif isinstance(statement, ast.AugAssign) and isinstance(statement.op, ast.BitAnd):
+                env[statement.target.id] = env[statement.target.id] + [(guard, self.rule(statement.value, env))]
             elif isinstance(statement, ast.Expr) and isinstance(statement.value, ast.Call):
                 self.call_statement(statement.value, env, guard)
         return guard
@@ -538,7 +516,7 @@ class Translator:
         return guard_or(after_body, after_else)
 
     def call_statement(self, call, env, guard):
-        if not (isinstance(call.func, ast.Name) and call.func.id == "add_rule"):
+        if not (isinstance(call.func, ast.Attribute) and call.func.attr == "set_rule"):
             return
         target_call, rule = call.args
         kind = target_call.func.attr
@@ -548,8 +526,11 @@ class Translator:
         elif kind == "get_entrance":
             target = ("entrance", name)
         else:
-            raise ValueError(f"unsupported add_rule target: {ast.unparse(target_call)}")
-        self.contributions[target].append((guard, self.rule(rule.body, env)))
+            raise ValueError(f"unsupported set_rule target: {ast.unparse(target_call)}")
+        parts = env[rule.id] if isinstance(rule, ast.Name) else [(guard, self.rule(rule, env))]
+        # set_rule replaces, so an earlier rule only holds where this statement does not run
+        kept = [(guard_and(old, guard_not(guard)), combo) for old, combo in self.contributions[target]]
+        self.contributions[target] = [(old, combo) for old, combo in kept if old is not False] + parts
 
 
 # --- link board gates from KHDDDWorld.set_gate_rules ----------------------------------------------
@@ -558,22 +539,20 @@ class GateRecorder:
     """Stands in for KHDDDWorld while its gate code runs, recording the nodes each gate covers."""
 
     player = 0
+    regen_gate_reqs = []  # only set when UT regenerates a seed
 
     def __init__(self):
         value = SimpleNamespace(value=1)
         self.options = SimpleNamespace(character=value, min_gate_req=value, max_gate_req=value)
         self.random = random.Random(0)
         self.ids_for_gates = list(khddd.Items.SPIRITLIST.values())
-        self.nodes = defaultdict(list)  # (spirit id, gate number from 1) -> location names
-        self.gate = None
+        self.nodes = {}  # (spirit id, gate number from 1) -> location names
+        self.gate_rules = {}
 
     def set_gate_rules(self, spirit_name, gate_index, character, world_req):
-        self.gate = (khddd.Items.SPIRITLIST[spirit_name], gate_index + 1)
+        self.gate_rules = {}
         khddd.KHDDDWorld.set_gate_rules(self, spirit_name, gate_index, character, world_req)
-
-    def get_location(self, name):
-        self.nodes[self.gate].append(name)
-        return SimpleNamespace(access_rule=Location.access_rule)
+        self.nodes[(khddd.Items.SPIRITLIST[spirit_name], gate_index + 1)] = list(self.gate_rules)
 
 
 def gate_contributions():
@@ -609,8 +588,11 @@ def region_guard(region):
 
 
 def existence_guard(name, data):
-    """Mirrors the skip conditions of Regions.create_regions."""
+    """Mirrors the skip conditions of Regions.create_regions; board nodes count as skipped without link_board_sanity,
+    since place_board_filler fills them with local filler."""
     parts = []
+    if data.category == "Board":
+        parts.append(piece("link_board_sanity", {1}))
     if data.region == "Destiny Islands":
         parts += [piece("play_destiny_islands", {1}), piece("character", {0, 1})]
     if "Superbosses" not in name:
@@ -724,15 +706,18 @@ def main():
     section_paths = load_mapping(LOCATION_MAPPING, r'^\s*\[(\d+)\]\s*=\s*\{\s*\{\s*"@([^"]+)"')
     location_paths = {}
     for name, data in khddd.location_data_table.items():
+        if data.code is None:  # no AP id; hidden sections that board_gate counts
+            location_paths[name] = f"{data.region}/{EVENT_LOCATION}/{name}"
+            continue
         path = section_paths.get(data.code)
         if path is None:
             warn(f"{name!r} ({data.code}) is missing from location_mapping.lua; rerun gen_location_mapping.py")
         else:
             location_paths[name] = path
     logic = LOGIC_LUA.read_text(encoding="utf-8")
-    for name in khddd.Rules.SORA_COMPLETION_LOCS + khddd.Rules.RIKU_COMPLETION_LOCS:
-        if f'"@{location_paths.get(name)}"' not in logic:
-            warn(f"{name!r} is missing from COMPLETION_LOCATIONS in logic.lua")
+    for name in khddd.location_name_groups["Sora Worlds"] | khddd.location_name_groups["Riku Worlds"]:
+        if f'"@{location_paths[name]}"' not in logic:
+            warn(f"{name!r} is missing from WORLD_EVENTS in logic.lua")
 
     tree = json.loads(LOCATIONS_JSON.read_text(encoding="utf-8"))
     regions = {node["name"]: node for node in tree}
