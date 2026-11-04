@@ -30,10 +30,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create source zip (exclude .github and gen)
+      - name: Create source zip (exclude .github, gen and tools)
         if: ${{ steps.release.outputs.release_created == 'true' }}
         run: |
-          zip -r khddd-ap-tracker.zip . -x '*.git*' '*.github*' 'gen/*' '.luarc.json' '.release-please-manifest.json' 'release-please-config.json'
+          zip -r khddd-ap-tracker.zip . -x '*.git*' '*.github*' 'gen/*' 'tools/*' '.luarc.json' '.release-please-manifest.json' 'release-please-config.json'
 
       - name: Upload artifact
         if: ${{ steps.release.outputs.release_created == 'true' }}

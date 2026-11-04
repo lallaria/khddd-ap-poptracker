@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PopTracker Mapper</title>
+<link rel="stylesheet" href="/static/style.css">
+<script type="module" src="/static/app.mjs"></script>
+</head>
+<body>
+<header id="toolbar">
+    <strong>PopTracker Mapper</strong>
+    <span id="pack-name" class="dim"></span>
+    <span class="spacer"></span>
+    <label class="check" title="Show location names on the map (L)"><input type="checkbox" id="show-labels"> Labels</label>
+    <button id="btn-fit" title="Fit the map to the view (F)">Fit</button>
+    <button id="btn-undo" title="Undo (Ctrl+Z)" disabled>Undo</button>
+    <button id="btn-redo" title="Redo (Ctrl+Y)" disabled>Redo</button>
+    <button id="btn-reload" title="Reload the pack files from disk">Reload</button>
+    <button id="btn-save" class="primary" title="Write maps.json and locations.json (Ctrl+S)" disabled>Save</button>
+    <button id="btn-help" title="Shortcuts (?)">?</button>
+</header>
+<main>
+    <aside id="maps-pane" class="pane">
+        <h2>Maps</h2>
+        <input id="map-filter" type="search" placeholder="Filter maps" autocomplete="off">
+        <div id="map-list" class="list" role="listbox" aria-label="Maps"></div>
+        <button id="btn-add-map">Add map…</button>
+        <section id="map-settings" hidden>
+            <h3 id="ms-name"></h3>
+            <div id="ms-img" class="dim small"></div>
+            <div class="fields">
+                <label>Marker size <input type="number" id="ms-size" min="1"></label>
+                <label>Border <input type="number" id="ms-border" min="0"></label>
+                <label>Shape <select id="ms-shape"></select></label>
+            </div>
+            <div id="ms-warning" class="warning small" hidden></div>
+            <button id="btn-replace">Replace image…</button>
+        </section>
+    </aside>
+
+    <section id="canvas-pane">
+        <canvas id="map-canvas" tabindex="0" aria-label="Map"></canvas>
+        <div id="align-panel" class="floating" hidden>
+            <h3>Align new image</h3>
+            <p class="dim small">Line the old image up with the new one by dragging the layer, or pick the same landmark on the old layer, then on the new image.</p>
+            <div class="segmented" role="group">
+                <button data-tool="move" title="Drag moves the old layer; Ctrl+wheel scales it">Move layer</button>
+                <button data-tool="points" title="Click a landmark on the old layer, then the same spot on the new image">Pick points</button>
+            </div>
+            <label>Old layer opacity <input type="range" id="al-opacity" min="0" max="1" step="0.05"></label>
+            <label class="check"><input type="checkbox" id="al-show" checked> Show old layer (H)</label>
+            <div class="fields grid4">
+                <label>Scale X <input type="number" id="al-sx" step="0.001"></label>
+                <label>Scale Y <input type="number" id="al-sy" step="0.001"></label>
+                <label>Offset X <input type="number" id="al-tx" step="0.5"></label>
+                <label>Offset Y <input type="number" id="al-ty" step="0.5"></label>
+            </div>
+            <div id="al-affine" class="dim small" hidden></div>
+            <label>Fit points with
+                <select id="al-model">
+                    <option value="scale">scale + offset</option>
+                    <option value="uniform">uniform scale + offset</option>
+                    <option value="affine">affine (3+ points, allows rotation)</option>
+                </select>
+            </label>
+            <ol id="al-pairs" class="small"></ol>
+            <div id="al-pending" class="dim small" hidden>Now click the same spot on the new image (Esc cancels).</div>
+            <button id="al-clear">Clear points</button>
+            <hr>
+            <label class="check" id="al-shared-row"><input type="checkbox" id="al-shared" checked> <span></span></label>
+            <label class="check"><input type="checkbox" id="al-scale-markers" checked> <span>Scale marker sizes</span></label>
+            <div class="buttons">
+                <button id="al-cancel">Cancel</button>
+                <button id="al-apply" class="primary">Apply</button>
+            </div>
+        </div>
+        <div id="statusbar">
+            <span id="status"></span>
+            <span class="spacer"></span>
+            <span id="cursor-pos" class="dim"></span>
+        </div>
+    </section>
+
+    <aside id="locations-pane" class="pane">
+        <h2>Locations</h2>
+        <input id="loc-filter" type="search" placeholder="Filter locations or check names" autocomplete="off">
+        <div class="fields two">
+            <select id="loc-scope" title="Which regions to list">
+                <option value="map">Regions on this map</option>
+                <option value="all">All regions</option>
+            </select>
+            <select id="loc-status" title="Which locations to list">
+                <option value="any">Any</option>
+                <option value="missing">Not on this map</option>
+                <option value="here">On this map</option>
+                <option value="nowhere">On no map</option>
+            </select>
+        </div>
+        <label class="check small"><input type="checkbox" id="auto-advance" checked> After placing, select the next location not on this map</label>
+        <div id="loc-note" class="dim small" hidden></div>
+        <div id="loc-list" class="list" role="listbox" aria-label="Locations"></div>
+        <section id="loc-details"></section>
+    </aside>
+</main>
+
+<dialog id="dlg-image">
+    <form>
+        <h2 id="di-title"></h2>
+        <label id="di-name-row">Map name <input name="mapName" autocomplete="off"></label>
+        <fieldset>
+            <legend>Image</legend>
+            <label class="check"><input type="radio" name="source" value="file" checked> Upload a file
+                <input type="file" name="file" accept=".png,.gif,.jpg,.jpeg"></label>
+            <div class="fields two indent">
+                <label>Save as <input name="saveName" placeholder="file name" autocomplete="off"></label>
+                <label>Folder <input name="dir" value="images/maps" autocomplete="off"></label>
+            </div>
+            <label class="check"><input type="radio" name="source" value="existing"> Use a pack image
+                <select name="existing"></select></label>
+        </fieldset>
+        <div id="di-marker-fields" class="fields grid3">
+            <label>Marker size <input type="number" name="size" min="1" value="32"></label>
+            <label>Border <input type="number" name="border" min="0" value="2"></label>
+            <label>Shape <select name="shape"></select></label>
+        </div>
+        <p id="di-note" class="dim small"></p>
+        <p id="di-error" class="warning small" hidden></p>
+        <div class="buttons">
+            <button type="button" value="cancel">Cancel</button>
+            <button type="submit" class="primary" id="di-submit"></button>
+        </div>
+    </form>
+</dialog>
+
+<dialog id="dlg-help">
+    <h2>Shortcuts</h2>
+    <table class="keys">
+        <tr><td>Click a location, then the map</td><td>place it, or move its marker on this map</td></tr>
+        <tr><td>Shift+click</td><td>add another marker on this map</td></tr>
+        <tr><td>Alt+click</td><td>place or move even on top of another marker</td></tr>
+        <tr><td>Click a marker</td><td>select its location</td></tr>
+        <tr><td>Drag a marker</td><td>move it</td></tr>
+        <tr><td>Drag empty space, right/middle drag, Space+drag</td><td>pan</td></tr>
+        <tr><td>Wheel</td><td>zoom</td></tr>
+        <tr><td>Arrows / Shift+arrows</td><td>nudge the selected marker 1 / 10 px</td></tr>
+        <tr><td>Delete</td><td>remove the selected marker</td></tr>
+        <tr><td>N / Shift+N</td><td>next / previous listed location not on this map</td></tr>
+        <tr><td>Esc</td><td>deselect</td></tr>
+        <tr><td>F, L</td><td>fit view, toggle labels</td></tr>
+        <tr><td>Ctrl+Z, Ctrl+Y, Ctrl+S</td><td>undo, redo, save</td></tr>
+        <tr><th colspan="2">While aligning a new image</th></tr>
+        <tr><td>Drag (Move layer)</td><td>move the old layer</td></tr>
+        <tr><td>Ctrl+wheel, +Shift, +Alt</td><td>scale the old layer, only X, only Y</td></tr>
+        <tr><td>Arrows</td><td>nudge the old layer</td></tr>
+        <tr><td>H</td><td>show/hide the old layer</td></tr>
+        <tr><td>Ctrl+Z</td><td>remove the last point pair</td></tr>
+    </table>
+    <p class="dim small">Markers are drawn at their size in image pixels, which is how they look at PopTracker's default zoom.
+        Universal Tracker keys markers by their x/y, so markers sharing a spot on one map get a red ring.</p>
+    <div class="buttons"><button type="button" class="primary" id="help-close">Close</button></div>
+</dialog>
+</body>
+</html>
