@@ -9397,6 +9397,7 @@
             },
             {
                 "name": "Ghostabocky",
+                "access_rules": ["$recipe_not_in_pool|20", "ghostabocky_recipe"],
                 "visibility_rules": ["opt_link_boards,opt_sora,opt_riku", "opt_link_boards,$recipe_in_pool|20"],
                 "sections": [
                     {
