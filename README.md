@@ -21,6 +21,8 @@ ones without a map pin.
 
 Access rules are generated from the apworld's `Rules.py` and `Regions.py`, so the tracker should match
 Universal Tracker right now. The Link Boards tab has a square per spirit holding its 16 board nodes.
+In `locations.json` each spirit under `Link Boards` splits its nodes into `Open`, `Gate 1` and `Gate 2`
+as the apworld gates them; the square is a sibling overview location whose sections reference those.
 Link board gates and the recipes in the pool are rolled per seed, so until the tracker is connected to
 Archipelago every board is shown and its gates count as open.
 
@@ -41,8 +43,8 @@ Archipelago checkout, so run them with that checkout's venv:
 
 The first regenerates `scripts/autotracking/location_mapping.lua`; the second rewrites the
 `access_rules` and `visibility_rules` in `locations/locations.json`, adding nodes for new locations
-(without map positions). Renamed locations need their node renamed by hand first so map positions
-are kept. The apworld's `Cleared` events become hidden `Cleared` nodes, which link board gates count.
+(without map positions) and moving sections whose path changed, such as a board node whose gate did.
+Renamed locations need their node renamed by hand first so map positions are kept. The apworld's `Cleared` events become hidden `Cleared` nodes, which link board gates count.
 
 The venv has to sit inside `<source>/Archipelago/` (`venv` or `.venv`): the scripts put its parent
 folder on the import path to find `worlds`.

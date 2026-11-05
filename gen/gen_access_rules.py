@@ -12,16 +12,15 @@ import functools
 import inspect
 import itertools
 import json
-import random
 import re
 import sys
 from collections import defaultdict
 from pathlib import Path
-from types import SimpleNamespace
 
 sys.path.insert(0, str(Path(sys.prefix).parent))  # the venv sits in the Archipelago checkout
 
 from worlds import khddd
+from gen_location_mapping import BOARD_ROOT, OPEN_SEGMENT, gate_nodes
 
 atexit.unregister(input)  # some apworlds register an exit prompt on import
 
@@ -535,34 +534,12 @@ class Translator:
 
 # --- link board gates from KHDDDWorld.set_gate_rules ----------------------------------------------
 
-class GateRecorder:
-    """Stands in for KHDDDWorld while its gate code runs, recording the nodes each gate covers."""
-
-    player = 0
-    regen_gate_reqs = []  # only set when UT regenerates a seed
-
-    def __init__(self):
-        value = SimpleNamespace(value=1)
-        self.options = SimpleNamespace(character=value, min_gate_req=value, max_gate_req=value)
-        self.random = random.Random(0)
-        self.ids_for_gates = list(khddd.Items.SPIRITLIST.values())
-        self.nodes = {}  # (spirit id, gate number from 1) -> location names
-        self.gate_rules = {}
-
-    def set_gate_rules(self, spirit_name, gate_index, character, world_req):
-        self.gate_rules = {}
-        khddd.KHDDDWorld.set_gate_rules(self, spirit_name, gate_index, character, world_req)
-        self.nodes[(khddd.Items.SPIRITLIST[spirit_name], gate_index + 1)] = list(self.gate_rules)
-
-
 def gate_contributions():
     """(location, guard, rule combo) for the gates KHDDDWorld.get_gate_requirements puts on link board nodes.
 
     The world count of each gate is rolled per seed and reaches the tracker as slot_data gate_reqs.
     """
-    recorder = GateRecorder()
-    khddd.KHDDDWorld.get_gate_requirements(recorder)
-    for (spirit_id, gate), names in recorder.nodes.items():
+    for (spirit_id, gate), names in gate_nodes().items():
         for name in names:
             yield name, recipe_in_pool(spirit_id), [[f"^$board_gate|{spirit_id}|{gate}"]]
 
@@ -641,6 +618,16 @@ def region_chain(regions, target):
     return None
 
 
+def region_rules(region, ap_regions, translator):
+    """(access, visibility) of an AP region: its entrance chain and the options that create it."""
+    existence = region_guard(region)
+    access = [[]]
+    for entrance in region_chain(ap_regions, region) if region in ap_regions else []:
+        for guard, rule in translator.contributions.get(("entrance", entrance), []):
+            access = product(access, contribution_rule(guard, rule, existence))
+    return access, option_combo_to_rules(guard_combo(existence))
+
+
 # --- locations.json ------------------------------------------------------------------------------
 
 def load_mapping(path, pattern):
@@ -671,9 +658,43 @@ def rules_json(branches):
     return [",".join(branch) for branch in branches]
 
 
-def shared_rules(rule_lists):
-    """The rules every section has, which then go on their node; None when sections differ."""
-    return rule_lists[0] if all(rules == rule_lists[0] for rules in rule_lists) else None
+MIXED = object()
+
+
+def shared_rules(node, path, section_rules, shared):
+    """Fills shared[path], per rule kind (access, visibility), with the rules every generated section under node has:
+    None without generated sections, MIXED when they differ."""
+    found = ([], [])
+    for rules in section_rules.get(path, {}).values():
+        for kind in (0, 1):
+            found[kind].append(rules[kind])
+    for child in node.get("children", []):
+        child_path = path + (child["name"],)
+        shared_rules(child, child_path, section_rules, shared)
+        for kind in (0, 1):
+            if shared[child_path][kind] is not None:
+                found[kind].append(shared[child_path][kind])
+    shared[path] = tuple(
+        None if not values else values[0] if all(value is not MIXED and value == values[0] for value in values)
+        else MIXED
+        for values in found)
+
+
+def place_rules(node, path, section_rules, shared, held=(False, False)):
+    """Puts each generated rule on the highest location below the top level whose generated sections all share it."""
+    rules = [None, None]
+    held = list(held)
+    for kind in (0, 1):
+        if not held[kind] and shared[path][kind] not in (None, MIXED):
+            rules[kind] = nontrivial(shared[path][kind])
+            held[kind] = True
+    set_rules(node, *rules)
+    for section in node.get("sections", []):
+        own = section_rules.get(path, {}).get(section.get("name"))
+        if own is not None:
+            set_rules(section, *(None if held[kind] else nontrivial(own[kind]) for kind in (0, 1)))
+    for child in node.get("children", []):
+        place_rules(child, path + (child["name"],), section_rules, shared, held)
 
 
 def nontrivial(rules):
@@ -697,6 +718,68 @@ def set_rules(node, access, visibility):
 def level_sort_key(node):
     match = re.fullmatch(r"(Sora|Riku) Level (\d+)", node["name"])
     return (0 if match.group(1) == "Sora" else 1, int(match.group(2))) if match else (2, 0)
+
+
+def child_sort_key(parent):
+    """Order for the children of the location at path parent when one is added; None keeps insertion order."""
+    if parent == ["Levels"]:
+        return level_sort_key
+    if len(parent) == 2 and parent[0] == BOARD_ROOT:  # the spirit's overview, then its gate segments
+        return lambda node: (node["name"] != parent[1], node["name"] != OPEN_SEGMENT, node["name"])
+    return None
+
+
+def tree_node(tree, names):
+    """The location at path names, adding missing ones."""
+    siblings = tree
+    for depth, name in enumerate(names):
+        node = next((child for child in siblings if child["name"] == name), None)
+        if node is None:
+            print(f"adding {'/'.join(names[:depth + 1])}")
+            node = {"name": name}
+            siblings.append(node)
+            if key := child_sort_key(names[:depth]):
+                siblings.sort(key=key)
+        if depth + 1 < len(names):
+            siblings = node.setdefault("children", [])
+    return node
+
+
+def board_overviews(location_paths):
+    """Ref sections for each spirit's overview location, named by AP name so Universal Tracker matches them."""
+    overviews = defaultdict(list)
+    for name, path in location_paths.items():
+        root, spirit, *_ = path.split("/")
+        if root == BOARD_ROOT:
+            overviews[(root, spirit, spirit)].append({"name": name, "ref": path})
+    return overviews
+
+
+def remove_stale_sections(nodes, location_paths, prefix=""):
+    """Drops AP-named sections away from their mapped path, which Universal Tracker would match as well, and the
+    locations they leave empty unless those hold map_locations; returns the dropped section paths."""
+    removed = []
+    for node in list(nodes):
+        path = prefix + node["name"]
+        sections = node.get("sections", [])
+        kept = [section for section in sections if "ref" in section or section.get("name") not in location_paths
+                or location_paths[section["name"]] == f"{path}/{section['name']}"]
+        removed += [f"{path}/{section['name']}" for section in sections if section not in kept]
+        removed += remove_stale_sections(node.get("children", []), location_paths, path + "/")
+        if len(kept) < len(sections):
+            node["sections"] = kept
+            if not kept and not node.get("children"):
+                if "map_locations" in node:
+                    warn(f"{path!r} lost all its sections but keeps map_locations; move them by hand")
+                else:
+                    nodes.remove(node)
+    return removed
+
+
+def descendants(nodes):
+    for node in nodes:
+        yield node
+        yield from descendants(node.get("children", []))
 
 
 def main():
@@ -723,81 +806,66 @@ def main():
         warn(f"{path!r} is in WORLD_EVENTS in logic.lua but not the apworld's world groups")
 
     tree = json.loads(LOCATIONS_JSON.read_text(encoding="utf-8"))
-    regions = {node["name"]: node for node in tree}
-    for name in location_paths:
-        region_name, node_name, section_name = location_paths[name].split("/")
-        if region_name not in regions:
-            regions[region_name] = {"name": region_name, "children": []}
-            tree.append(regions[region_name])
-        children = regions[region_name].setdefault("children", [])
-        node = next((child for child in children if child["name"] == node_name), None)
-        if node is None:
-            print(f"adding {region_name}/{node_name}")
-            node = {"name": node_name, "sections": []}
-            children.append(node)
-            if region_name == "Levels":
-                children.sort(key=level_sort_key)
-        sections = node.setdefault("sections", [])
-        if not any(section["name"] == section_name for section in sections):
+    for path in remove_stale_sections(tree, location_paths):
+        print(f"removing {path}")
+    for path in location_paths.values():
+        *names, section_name = path.split("/")
+        sections = tree_node(tree, names).setdefault("sections", [])
+        if not any(section.get("name") == section_name for section in sections):
             sections.append({"name": section_name})
+    for names, refs in board_overviews(location_paths).items():
+        tree_node(tree, list(names))["sections"] = refs
 
     translator = Translator(item_codes, location_paths)
     translator.collect()
     for name, guard, rule in gate_contributions():
         translator.contributions[("location", name)].append((guard, rule))
 
+    top_level = {node["name"] for node in tree}
+    regions = {region: region_rules(region, ap_regions, translator)
+               for region in top_level | {data.region for data in khddd.location_data_table.values()}}
     for node in tree:
-        region_name = node["name"]
-        chain = region_chain(ap_regions, region_name) if region_name in ap_regions else []
-        existence = region_guard(region_name)
-        access = [[]]
-        for entrance in chain:
-            for guard, rule in translator.contributions.get(("entrance", entrance), []):
-                access = product(access, contribution_rule(guard, rule, existence))
-        visibility = option_combo_to_rules(guard_combo(existence))
-        set_rules(node, access if access != [[]] else None, visibility if visibility != [[]] else None)
+        access, visibility = regions[node["name"]]
+        set_rules(node, nontrivial(access), nontrivial(visibility))
 
-    nodes_by_path = {(node["name"], child["name"]): child for node in tree for child in node.get("children", [])}
-    for node in nodes_by_path.values():
-        set_rules(node, None, None)
-    section_rules = defaultdict(dict)  # (region, node) -> section -> (access, visibility)
+    section_rules = defaultdict(dict)  # location path -> section -> (access, visibility)
     for name, data in khddd.location_data_table.items():
         path = location_paths.get(name)
         if path is None:
             continue
-        region_name, node_name, section_name = path.split("/")
+        *names, section_name = path.split("/")
         existence = existence_guard(name, data)
         access = [[]]
         for guard, rule in translator.contributions.get(("location", name), []):
             access = product(access, contribution_rule(guard, rule, existence))
         if not access:
             raise ValueError(f"{name!r} ended up unreachable under every option")
-        visibility = option_combo_to_rules(assuming(existence, region_guard(data.region)))
-        sections = section_rules[(region_name, node_name)]
+        if names[0] == data.region:
+            visibility = option_combo_to_rules(assuming(existence, region_guard(data.region)))
+        else:  # no ancestor carries the region's rules
+            access = product(regions[data.region][0], access)
+            visibility = option_combo_to_rules(assuming(guard_and(region_guard(data.region), existence), True))
+        sections = section_rules[tuple(names)]
         if section_name in sections:
             warn(f"{name!r} shares the tracker section {path} with another location; rules are ANDed")
             other_access, other_visibility = sections[section_name]
             access, visibility = product(other_access, access), union(other_visibility, visibility)
         sections[section_name] = (access, visibility)
-    for key, sections in section_rules.items():
-        node = nodes_by_path[key]
-        accesses, visibilities = zip(*sections.values())
-        access, visibility = shared_rules(accesses), shared_rules(visibilities)
-        set_rules(node, nontrivial(access), nontrivial(visibility))
-        for section in node["sections"]:
-            if section["name"] in sections:
-                section_access, section_visibility = sections[section["name"]]
-                set_rules(section, None if access is not None else nontrivial(section_access),
-                          None if visibility is not None else nontrivial(section_visibility))
+    shared = {}
+    for node in tree:
+        for child in node.get("children", []):
+            path = (node["name"], child["name"])
+            shared_rules(child, path, section_rules, shared)
+            place_rules(child, path, section_rules, shared)
 
     for kind, name in translator.contributions:
         if kind == "location" and name not in location_paths:
             warn(f"rules for {name!r} were dropped (no tracker location)")
-        if kind == "entrance" and name not in regions:
+        if kind == "entrance" and name not in top_level:
             warn(f"rules for entrance {name!r} were dropped (no top-level node)")
 
     LOCATIONS_JSON.write_text(dumps(tree) + "\n", encoding="utf-8", newline="\n")
-    rule_count = sum(1 for node in tree for child in node.get("children", []) if "access_rules" in child)
+    rule_count = sum("access_rules" in child for node in tree for child in descendants(node.get("children", [])))
     print(f"wrote {LOCATIONS_JSON.name}: {rule_count} locations with access rules, {len(WARNINGS)} warnings")
 
 

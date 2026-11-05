@@ -6,15 +6,47 @@ Run it with the venv inside the Archipelago checkout that holds worlds/khddd.
 """
 import atexit
 import os
+import random
 import re
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 sys.path.insert(0, str(Path(sys.prefix).parent))  # the venv sits in the Archipelago checkout
 
 from worlds import khddd
 
 atexit.unregister(input)  # some apworlds register an exit prompt on import
+
+BOARD_ROOT = "Link Boards"
+OPEN_SEGMENT = "Open"
+
+
+class GateRecorder:
+    """Stands in for KHDDDWorld while its gate code runs, recording the nodes each gate covers."""
+
+    player = 0
+    regen_gate_reqs = []  # only set when UT regenerates a seed
+
+    def __init__(self):
+        value = SimpleNamespace(value=1)
+        self.options = SimpleNamespace(character=value, min_gate_req=value, max_gate_req=value)
+        self.random = random.Random(0)
+        self.ids_for_gates = list(khddd.Items.SPIRITLIST.values())
+        self.nodes = {}  # (spirit id, gate number from 1) -> location names
+        self.gate_rules = {}
+
+    def set_gate_rules(self, spirit_name, gate_index, character, world_req):
+        self.gate_rules = {}
+        khddd.KHDDDWorld.set_gate_rules(self, spirit_name, gate_index, character, world_req)
+        self.nodes[(khddd.Items.SPIRITLIST[spirit_name], gate_index + 1)] = list(self.gate_rules)
+
+
+def gate_nodes():
+    """{(spirit id, gate number from 1): link board node names} from KHDDDWorld.get_gate_requirements."""
+    recorder = GateRecorder()
+    khddd.KHDDDWorld.get_gate_requirements(recorder)
+    return recorder.nodes
 
 
 def location_name(ap_name, region):
@@ -52,13 +84,15 @@ def get_category(code, region, name):
     return "Other"
 
 
-def tracker_path(ap_name, region, category):
-    """@Region/Location/Section for an AP location; link board nodes are sections of one location per spirit.
+def tracker_path(ap_name, region, category, segments):
+    """@Region/Location/Section for an AP location; link board nodes are sections of their gate segment,
+    @Link Boards/<Spirit>/<Segment>/<Node>.
 
     Sections keep the exact AP name: Universal Tracker matches them to AP locations by it.
     """
     if category == "Link Boards":
-        return f"@{region}/{ap_name.rpartition(' Node ')[0]}/{ap_name}"
+        spirit = ap_name.rpartition(" Node ")[0]
+        return f"@{BOARD_ROOT}/{spirit}/{segments.get(ap_name, OPEN_SEGMENT)}/{ap_name}"
     return f"@{region}/{location_name(ap_name, region)}/{ap_name}"
 
 
@@ -78,12 +112,14 @@ CATEGORY_ORDER = [
 
 
 def main():
+    segments = {name: f"Gate {gate}" for (_, gate), names in gate_nodes().items() for name in names}
     categories = {}
     for ap_name, data in khddd.location_data_table.items():
         if data.code is None:  # events have no AP id
             continue
         category = get_category(data.code, data.region, ap_name)
-        categories.setdefault(category, []).append((data.code, tracker_path(ap_name, data.region, category)))
+        path = tracker_path(ap_name, data.region, category, segments)
+        categories.setdefault(category, []).append((data.code, path))
 
     lines = [
         "-- use this file to map the AP location ids to your locations",
