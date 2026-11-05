@@ -1,10 +1,12 @@
 import { mkdir, readdir, readFile, rename, rm, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 
+import { eachTab, layoutTree } from "../public/layout.mjs";
+
 export const MAPS_JSON = "maps/maps.json";
 export const LOCATIONS_JSON = "locations/locations.json";
 export const IMAGE_EXTENSIONS = [".png", ".gif", ".jpg", ".jpeg"];
-const LAYOUT_ROOTS = ["tracker_default", "tracker_horizontal", "tracker_vertical", "tracker_broadcast"];
+const LAYOUT_WIDTH = 80;
 
 /** Same layout as `dumps` in gen/gen_access_rules.py, so files round-trip byte for byte. */
 export function dumps(value, indent = 0) {
@@ -24,6 +26,49 @@ export function dumps(value, indent = 0) {
             + "\n" + pad + "}";
     }
     return JSON.stringify(value);
+}
+
+const textWidth = (text) => [...text].length;
+
+function flat(value) {
+    if (Array.isArray(value)) {
+        const items = value.map(flat);
+        return items.includes(null) ? null : `[${items.join(", ")}]`;
+    }
+    if (value !== null && typeof value === "object") return Object.keys(value).length ? null : "{}";
+    return JSON.stringify(value);
+}
+
+/** Prettier's JSON style, which the hand-edited layouts use: objects expanded, arrays on one line when they fit. */
+export function formatLayout(value, unit = "    ", width = LAYOUT_WIDTH) {
+    function print(node, indent, column, after) {
+        const inner = indent + unit;
+        if (Array.isArray(node)) {
+            const line = flat(node);
+            const forced = node.length > 1 && node.every((item) => Array.isArray(item) && item.length > 1);
+            if (line !== null && !forced && column + textWidth(line) + after <= width) return line;
+            return "[\n" + node.map((item, i) => inner + print(item, inner, textWidth(inner), i < node.length - 1 ? 1 : 0))
+                .join(",\n") + "\n" + indent + "]";
+        }
+        if (node !== null && typeof node === "object") {
+            const keys = Object.keys(node);
+            if (!keys.length) return "{}";
+            return "{\n" + keys.map((key, i) => {
+                const head = `${inner}${JSON.stringify(key)}: `;
+                return head + print(node[key], inner, textWidth(head), i < keys.length - 1 ? 1 : 0);
+            }).join(",\n") + "\n" + indent + "}";
+        }
+        return JSON.stringify(node);
+    }
+    return print(value, "", 0, 0);
+}
+
+/** `value` formatted like `original`: same indent unit, line endings and final newline. */
+function layoutText(value, original) {
+    const unit = /\n([ \t]+)\S/.exec(original)?.[1] ?? "    ";
+    const eol = original.includes("\r\n") ? "\r\n" : "\n";
+    const text = formatLayout(value, unit).replace(/\n/g, eol);
+    return original.endsWith("\n") ? text + eol : text;
 }
 
 function stringEnd(text, start) {
@@ -127,79 +172,52 @@ async function writeAtomic(file, text) {
     }
 }
 
-async function listImages(root) {
+async function listFiles(root, dir, extensions) {
     const found = [];
-    async function walk(dir) {
+    async function walk(rel) {
         let entries;
         try {
-            entries = await readdir(path.join(root, dir), { withFileTypes: true });
+            entries = await readdir(path.join(root, rel), { withFileTypes: true });
         } catch (error) {
             if (error.code === "ENOENT") return;
             throw error;
         }
         for (const entry of entries) {
-            const rel = dir ? `${dir}/${entry.name}` : entry.name;
-            if (entry.isDirectory()) await walk(rel);
-            else if (IMAGE_EXTENSIONS.includes(path.extname(entry.name).toLowerCase())) found.push(rel);
+            const child = `${rel}/${entry.name}`;
+            if (entry.isDirectory()) await walk(child);
+            else if (extensions.includes(path.extname(entry.name).toLowerCase())) found.push(child);
         }
     }
-    await walk("images");
+    await walk(dir);
     return found.sort();
 }
 
-/**
- * Map hierarchy as laid out by nested `tabbed` nodes, starting from the tracker root layouts.
- *
- * Returns a list of `{title, children}` tab nodes and `{map}` leaves.
- */
-export function layoutTree(layouts) {
-    const seen = new Set();
-    function walk(node, out) {
-        if (Array.isArray(node)) {
-            node.forEach((item) => walk(item, out));
-            return out;
-        }
-        if (!node || typeof node !== "object") return out;
-        if (node.type === "tabbed") {
-            for (const tab of node.tabs || []) {
-                const children = walk(tab.content, []);
-                if (children.length) out.push({ title: tab.title ?? "", children });
-            }
-        } else if (node.type === "map") {
-            for (const map of node.maps || []) out.push({ map });
-        } else if (node.type === "layout") {
-            if (node.key in layouts && !seen.has(node.key)) {
-                seen.add(node.key);
-                walk(layouts[node.key], out);
-            }
-        } else {
-            walk(node.content, out);
-        }
-        return out;
-    }
-    const roots = LAYOUT_ROOTS.filter((key) => key in layouts);
-    const tree = [];
-    for (const key of roots.length ? roots : Object.keys(layouts)) {
-        if (seen.has(key)) continue;
-        seen.add(key);
-        walk(layouts[key], tree);
-    }
-    return tree;
+/** Layout files in load order; a key defined twice resolves to the last file, as in `readLayouts`. */
+async function readLayoutFiles(root) {
+    const names = await listFiles(root, "layouts", [".json", ".jsonc"]);
+    return Promise.all(names.map(async (rel) => {
+        const text = await readFile(path.join(root, rel), "utf8");
+        return { rel, text, value: parseJsonc(text) };
+    }));
 }
 
 async function readLayouts(root) {
-    const layouts = {};
-    let names;
-    try {
-        names = await readdir(path.join(root, "layouts"));
-    } catch (error) {
-        if (error.code === "ENOENT") return layouts;
-        throw error;
+    return Object.assign({}, ...(await readLayoutFiles(root)).map((file) => file.value));
+}
+
+/** Tab titles that Lua quotes, since `UiHint("ActivateTab", ...)` finds tabs by title. */
+async function tabRefs(root, tree) {
+    const titles = new Set();
+    eachTab(tree, (tab) => titles.add(tab.title));
+    const scripts = await Promise.all((await listFiles(root, "scripts", [".lua"])).map(async (rel) => ({
+        rel, text: await readFile(path.join(root, rel), "utf8"),
+    })));
+    const refs = {};
+    for (const title of titles) {
+        const files = scripts.filter(({ text }) => text.includes(`"${title}"`) || text.includes(`'${title}'`));
+        if (title && files.length) refs[title] = files.map((file) => file.rel);
     }
-    for (const name of names.filter((n) => /\.jsonc?$/.test(n)).sort()) {
-        Object.assign(layouts, parseJsonc(await readFile(path.join(root, "layouts", name), "utf8")));
-    }
-    return layouts;
+    return refs;
 }
 
 export async function readPack(root) {
@@ -207,14 +225,35 @@ export async function readPack(root) {
         readFile(path.join(root, MAPS_JSON), "utf8").then(JSON.parse),
         readFile(path.join(root, LOCATIONS_JSON), "utf8").then(JSON.parse),
         readLayouts(root),
-        listImages(root),
+        listFiles(root, "images", IMAGE_EXTENSIONS),
         readFile(path.join(root, "manifest.json"), "utf8").then(parseJsonc).catch(() => ({})),
     ]);
     return {
         name: manifest.name ?? path.basename(root),
         minVersion: manifest.min_poptracker_version ?? null,
-        maps, locations, layoutTree: layoutTree(layouts), images,
+        maps, locations, layouts, images,
+        tabRefs: await tabRefs(root, layoutTree(layouts)),
     };
+}
+
+/** Checks every layout edit against the files on disk and returns the texts to write, before anything is written. */
+async function layoutWrites(root, edits) {
+    if (!edits.length) return [];
+    const files = await readLayoutFiles(root);
+    const changed = new Set();
+    for (const { key, before, after } of edits) {
+        const file = files.findLast((candidate) => Object.hasOwn(candidate.value, key));
+        if (!file) throw new PackError(409, `layout ${key} is no longer in layouts/; Reload, then redo the tab edits`);
+        if (JSON.stringify(file.value[key]) !== JSON.stringify(before)) {
+            throw new PackError(409, `${file.rel} changed on disk since it was loaded; Reload, then redo the tab edits`);
+        }
+        if (!changed.has(file) && layoutText(file.value, file.text) !== file.text) {
+            throw new PackError(409, `${file.rel} has comments or formatting the mapper cannot keep; edit its tabs by hand`);
+        }
+        file.value[key] = after;
+        changed.add(file);
+    }
+    return [...changed].map((file) => [path.join(root, file.rel), layoutText(file.value, file.text)]);
 }
 
 /**
@@ -222,12 +261,14 @@ export async function readPack(root) {
  *
  * Args:
  *     patch: `locations` lists `{path, map_locations}` by node name chain (null or [] drops the key);
- *         `maps` lists `{name, entry}` (null entry removes that map, otherwise replaced in place or appended).
+ *         `maps` lists `{name, entry}` (null entry removes that map, otherwise replaced in place or appended);
+ *         `layouts` lists `{key, before, after}`, refused with 409 if the key on disk no longer equals `before`.
  *
  * Returns:
  *     `{missing}`: location paths that no longer exist on disk and were skipped.
  */
-export async function applyPatch(root, { locations = [], maps = [] }) {
+export async function applyPatch(root, { locations = [], maps = [], layouts = [] }) {
+    const layoutTexts = await layoutWrites(root, layouts);
     const missing = [];
     if (locations.length) {
         const file = path.join(root, LOCATIONS_JSON);
@@ -254,6 +295,7 @@ export async function applyPatch(root, { locations = [], maps = [] }) {
         }
         await writeAtomic(file, dumps(list) + "\n");
     }
+    for (const [file, text] of layoutTexts) await writeAtomic(file, text);
     return { missing };
 }
 

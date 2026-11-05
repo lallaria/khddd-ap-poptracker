@@ -6,9 +6,9 @@ import { after, before, describe, test } from "node:test";
 import { fileURLToPath } from "node:url";
 
 import {
-    applyPatch, dumps, layoutTree, LOCATIONS_JSON, MAPS_JSON, parseJsonc, readPack, resolveInside, sanitizeImageName,
-    saveImage,
+    applyPatch, dumps, formatLayout, LOCATIONS_JSON, MAPS_JSON, parseJsonc, resolveInside, sanitizeImageName, saveImage,
 } from "../lib/pack.mjs";
+import { addTab, layoutTree, tabTargets } from "../public/layout.mjs";
 
 const PACK = fileURLToPath(new URL("../../..", import.meta.url));
 
@@ -56,44 +56,21 @@ describe("parseJsonc", () => {
     });
 });
 
-describe("layoutTree", () => {
-    test("nests maps under tab titles and follows layout references once", () => {
-        const layouts = {
-            tracker_default: {
-                type: "dock",
-                content: [
-                    { type: "layout", key: "maps" },
-                    { type: "layout", key: "maps" },
-                ],
-            },
-            maps: {
-                type: "tabbed",
-                tabs: [
-                    { title: "Overworld", content: { type: "tabbed", tabs: [
-                        { title: "Overview", content: { type: "map", maps: ["World"] } },
-                        { title: "Town", content: { type: "map", maps: ["Town"] } },
-                    ] } },
-                    { title: "Items", content: { type: "itemgrid", rows: [] } },
-                ],
-            },
-            loop: { type: "layout", key: "loop" },
-        };
-        assert.deepEqual(layoutTree(layouts), [
-            { title: "Overworld", children: [
-                { title: "Overview", children: [{ map: "World" }] },
-                { title: "Town", children: [{ map: "Town" }] },
-            ] },
-        ]);
+describe("formatLayout", () => {
+    test("round-trips the pack's tracker and item layouts byte for byte", async () => {
+        for (const file of ["layouts/tracker.json", "layouts/items.json"]) {
+            const text = await readFile(path.join(PACK, file), "utf8");
+            assert.equal(formatLayout(parseJsonc(text)) + "\n", text, file);
+        }
     });
 
-    test("reads the pack's tracker layout", async () => {
-        const pack = await readPack(PACK);
-        const titles = pack.layoutTree.map((node) => node.title);
-        assert.ok(titles.includes("Sora") && titles.includes("Riku"), titles.join(", "));
-        const sora = pack.layoutTree.find((node) => node.title === "Sora");
-        assert.deepEqual(sora.children[0], { title: "Traverse Town", children: [{ map: "Traverse Town [Sora]" }] });
-        const listed = JSON.stringify(pack.layoutTree);
-        for (const map of pack.maps) assert.ok(listed.includes(JSON.stringify(map.name)), `${map.name} is in a layout`);
+    test("keeps arrays on one line while they fit in 80 columns", () => {
+        const fits = "x".repeat(80 - '    "maps": [""]'.length);
+        assert.equal(formatLayout({ maps: [fits] }), `{\n    "maps": ["${fits}"]\n}`);
+        assert.equal(formatLayout({ maps: [fits], n: 1 }), `{\n    "maps": [\n        "${fits}"\n    ],\n    "n": 1\n}`);
+        assert.equal(formatLayout({ rows: [["a", "b"], ["c", "d"]] }, "  "), '{\n  "rows": [\n    ["a", "b"],\n    ["c", "d"]\n  ]\n}');
+        assert.equal(formatLayout({ tabs: [{ title: "A" }], none: [], empty: {} }),
+            '{\n    "tabs": [\n        {\n            "title": "A"\n        }\n    ],\n    "none": [],\n    "empty": {}\n}');
     });
 });
 
@@ -164,6 +141,57 @@ describe("applyPatch", () => {
         await writeFile(path.join(root, MAPS_JSON), original.replace("\n", "\n// sentinel\n"));
         await applyPatch(root, { locations: [] });
         assert.match(await readFile(path.join(root, MAPS_JSON), "utf8"), /sentinel/);
+        await writeFile(path.join(root, MAPS_JSON), original);
+    });
+});
+
+describe("applyPatch layouts", () => {
+    const TRACKER = "layouts/tracker.json";
+    let root;
+    before(async () => {
+        root = await tempPack();
+    });
+    after(() => rm(root, { recursive: true, force: true }));
+
+    async function boardsSubTab() {
+        const file = parseJsonc(await readFile(path.join(root, TRACKER), "utf8"));
+        const before = structuredClone(file.tracker_default);
+        const target = tabTargets(layoutTree(file)).find((t) => t.tab?.title === "Link Boards");
+        addTab(file, target, { title: "Meow Wow", content: { type: "map", maps: ["Meow Wow"] } }, "All spirits");
+        return { file, edit: { key: "tracker_default", before, after: file.tracker_default } };
+    }
+
+    test("refuses a layout that changed on disk, before writing anything", async () => {
+        const { edit } = await boardsSubTab();
+        const locations = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
+        const town = JSON.parse(locations).find((node) => node.name === "Traverse Town [Sora]");
+        const stale = { ...edit, before: { ...edit.before, background: "#ffffff" } };
+        await assert.rejects(applyPatch(root, {
+            locations: [{ path: [town.name, town.children[0].name], map_locations: null }],
+            layouts: [stale],
+        }), (error) => error.status === 409 && /changed on disk/.test(error.message));
+        assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), locations);
+    });
+
+    test("rewrites the layout file in its own style", async () => {
+        const original = await readFile(path.join(root, TRACKER), "utf8");
+        const { file, edit } = await boardsSubTab();
+        await applyPatch(root, { layouts: [edit] });
+        const written = await readFile(path.join(root, TRACKER), "utf8");
+        assert.equal(written, formatLayout(file) + "\n");
+        assert.deepEqual(parseJsonc(written), file);
+        const kept = original.split("\n").filter((line) => written.includes(line));
+        assert.ok(kept.length >= original.split("\n").length - 4, "only the Link Boards tab's lines change");
+    });
+
+    test("refuses files whose comments or formatting it would lose", async () => {
+        const layouts = path.join(root, "layouts", "extra.jsonc");
+        const value = { extra_layout: { type: "tabbed", tabs: [] } };
+        await writeFile(layouts, `{\n  // keep me\n  "extra_layout": {"type": "tabbed", "tabs": []}\n}\n`);
+        await assert.rejects(applyPatch(root, {
+            layouts: [{ key: "extra_layout", before: value.extra_layout, after: { type: "tabbed", tabs: [{ title: "A" }] } }],
+        }), (error) => error.status === 409 && /comments or formatting/.test(error.message));
+        assert.match(await readFile(layouts, "utf8"), /keep me/);
     });
 });
 

@@ -1,4 +1,5 @@
 import * as G from "./geometry.mjs";
+import * as L from "./layout.mjs";
 
 const $ = (selector) => document.querySelector(selector);
 const canvas = $("#map-canvas");
@@ -23,6 +24,7 @@ const OUTLINES = {
 
 const state = {
     pack: null,
+    tree: [],               // L.layoutTree of pack.layouts
     index: [],              // every location with sections, in tree order
     byKey: new Map(),
     mapName: null,
@@ -33,13 +35,15 @@ const state = {
     view: { scale: 1, x: 0, y: 0 },
     views: new Map(),
     pendingFit: null,
-    baseline: new Map(),    // "loc:<key>" / "map:<name>" -> JSON as last loaded or saved
+    baseline: new Map(),    // "loc:<key>" / "map:<name>" / "layout:<key>" -> JSON as last loaded or saved
     undo: [],
     redo: [],
     visibleLocs: [],
     collapsed: new Set(),
     dragPreview: null,
     align: null,
+    editTabs: false,
+    lastTabTarget: null,    // label of the place the last tab went
     spaceHeld: false,
     cacheBust: Date.now(),
 };
@@ -98,21 +102,14 @@ function buildIndex() {
     walk(state.pack.locations, []);
 }
 
-function layoutOrder(nodes = state.pack.layoutTree, out = []) {
-    for (const node of nodes) {
-        if (node.map) out.push(node.map);
-        else layoutOrder(node.children, out);
-    }
-    return out;
-}
-
 function applyPack(pack) {
     state.pack = pack;
+    state.tree = L.layoutTree(pack.layouts);
     buildIndex();
     if (!currentMap()) {
         const known = new Set(pack.maps.map((map) => map.name));
         state.mapName = null;
-        const first = layoutOrder().find((name) => known.has(name)) ?? pack.maps[0]?.name;
+        const first = L.layoutMaps(state.tree).find((name) => known.has(name)) ?? pack.maps[0]?.name;
         if (first) openMap(first);
     }
     if (state.sel && !state.byKey.has(state.sel.key)) state.sel = null;
@@ -153,12 +150,14 @@ function versionLess(a, b) {
 
 // --- edits, undo, save -------------------------------------------------------------------------
 
-const changeId = (change) => (change.type === "loc" ? `loc:${change.key}` : `map:${change.name}`);
+const changeId = (change) => `${change.type}:${change.type === "map" ? change.name : change.key}`;
 
 function currentValue(id) {
     const [type, ...rest] = id.split(":");
     const ref = rest.join(":");
-    return type === "loc" ? state.byKey.get(ref)?.node.map_locations : state.pack.maps.find((m) => m.name === ref);
+    if (type === "loc") return state.byKey.get(ref)?.node.map_locations;
+    if (type === "layout") return state.pack.layouts[ref];
+    return state.pack.maps.find((m) => m.name === ref);
 }
 
 function applyChange(change, value) {
@@ -169,6 +168,9 @@ function applyChange(change, value) {
         if (!entry) return;
         if (value?.length) entry.node.map_locations = clone(value);
         else delete entry.node.map_locations;
+    } else if (change.type === "layout") {
+        state.pack.layouts[change.key] = clone(value);
+        state.tree = L.layoutTree(state.pack.layouts);
     } else {
         const maps = state.pack.maps;
         const index = maps.findIndex((m) => m.name === change.name);
@@ -179,14 +181,21 @@ function applyChange(change, value) {
 }
 
 function dirty() {
-    const locs = [];
-    const maps = [];
+    const changed = { loc: [], map: [], layout: [] };
     for (const [id, json] of state.baseline) {
         if (JSON.stringify(currentValue(id) ?? null) === json) continue;
         const [type, ...rest] = id.split(":");
-        (type === "loc" ? locs : maps).push(rest.join(":"));
+        changed[type].push(rest.join(":"));
     }
-    return { locs, maps };
+    return changed;
+}
+
+const dirtyCount = (changed = dirty()) => changed.loc.length + changed.map.length + changed.layout.length;
+
+function describe(changed) {
+    const parts = [["loc", "location"], ["map", "map"], ["layout", "layout"]]
+        .filter(([type]) => changed[type].length).map(([type, word]) => plural(changed[type].length, word));
+    return parts.length > 1 ? `${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}` : parts[0] ?? "nothing";
 }
 
 /** Records one undo step; a repeated `tag` within 1.5 s (arrow-key nudges) extends the previous step. */
@@ -236,7 +245,7 @@ function redo() {
 function afterHistory(label) {
     if (!currentMap()) {
         const known = new Set(state.pack.maps.map((map) => map.name));
-        const fallback = [state.lastMap, ...layoutOrder(), state.pack.maps[0]?.name].find((name) => known.has(name));
+        const fallback = [state.lastMap, ...L.layoutMaps(state.tree), state.pack.maps[0]?.name].find((name) => known.has(name));
         state.mapName = null;
         if (fallback) openMap(fallback);
     }
@@ -247,17 +256,20 @@ function afterHistory(label) {
 
 async function save() {
     const changed = dirty();
-    if (!changed.locs.length && !changed.maps.length) {
+    if (!dirtyCount(changed)) {
         status("Nothing to save.");
         return;
     }
     $("#btn-save").disabled = true;
     try {
         const patch = {
-            locations: changed.locs.map((key) => ({
+            locations: changed.loc.map((key) => ({
                 path: JSON.parse(key), map_locations: state.byKey.get(key)?.node.map_locations ?? null,
             })),
-            maps: changed.maps.map((name) => ({ name, entry: state.pack.maps.find((m) => m.name === name) ?? null })),
+            maps: changed.map.map((name) => ({ name, entry: state.pack.maps.find((m) => m.name === name) ?? null })),
+            layouts: changed.layout.map((key) => ({
+                key, before: JSON.parse(state.baseline.get(`layout:${key}`)), after: state.pack.layouts[key],
+            })),
         };
         const result = await api("/api/save", {
             method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(patch),
@@ -267,7 +279,7 @@ async function save() {
         if (result.missing.length) {
             status(`Saved, but these locations are gone from disk and were skipped: ${result.missing.join(", ")}`, true);
         } else {
-            status(`Saved ${plural(changed.locs.length, "location")} and ${plural(changed.maps.length, "map")}.`);
+            status(`Saved ${describe(changed)}.`);
         }
     } catch (error) {
         status(`Save failed: ${error.message}`, true);
@@ -277,8 +289,7 @@ async function save() {
 }
 
 async function reload() {
-    const changed = dirty();
-    if ((changed.locs.length || changed.maps.length) && !confirm("Discard unsaved changes and reload from disk?")) return;
+    if (dirtyCount() && !confirm("Discard unsaved changes and reload from disk?")) return;
     state.baseline.clear();
     state.undo = [];
     state.redo = [];
@@ -947,8 +958,7 @@ document.addEventListener("keyup", (event) => {
 });
 
 window.addEventListener("beforeunload", (event) => {
-    const changed = dirty();
-    if (changed.locs.length || changed.maps.length) event.preventDefault();
+    if (dirtyCount()) event.preventDefault();
 });
 
 // --- panels ------------------------------------------------------------------------------------
@@ -965,13 +975,11 @@ function refreshAll() {
 
 function renderToolbar() {
     const changed = dirty();
-    const count = changed.locs.length + changed.maps.length;
+    const count = dirtyCount(changed);
     const saveButton = $("#btn-save");
     saveButton.disabled = !count;
     saveButton.textContent = count ? `Save (${count})` : "Save";
-    saveButton.title = count
-        ? `Write ${plural(changed.locs.length, "changed location")} and ${plural(changed.maps.length, "changed map")} (Ctrl+S)`
-        : "Nothing to save";
+    saveButton.title = count ? `Write ${describe(changed)} (Ctrl+S)` : "Nothing to save";
     $("#btn-undo").disabled = !state.undo.length;
     $("#btn-undo").title = state.undo.length ? `Undo: ${state.undo.at(-1).label} (Ctrl+Z)` : "Undo (Ctrl+Z)";
     $("#btn-redo").disabled = !state.redo.length;
@@ -987,50 +995,106 @@ function groupToggle(details, id, filtering) {
     });
 }
 
+function tool(text, title, action, disabled = false) {
+    return el("button", {
+        type: "button", className: "tool", textContent: text, title, disabled,
+        onclick: (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            action();
+        },
+    });
+}
+
+function tabTools(tab) {
+    const tabs = tab.group.tabs;
+    const index = tabs.indexOf(tab);
+    const inner = tab.children.find((child) => !child.map);
+    return el("span", { className: "tools" },
+        tool("↑", "Move up", () => shiftTab(tab, -1), index === 0),
+        tool("↓", "Move down", () => shiftTab(tab, 1), index === tabs.length - 1),
+        tool("+", inner ? "Add a sub-tab" : "Add a sub-tab; what this tab shows now becomes the first sub-tab",
+            () => openTabDialog({ mode: "add", target: inner ? { group: inner } : { tab } })),
+        tool("✎", "Rename or move this tab", () => openTabDialog({ mode: "edit", tab })),
+        tool("✕", "Remove this tab from the layout; its maps stay in maps.json", () => removeTab(tab)));
+}
+
+function refsNote(title) {
+    const files = state.pack.tabRefs?.[title];
+    return files ? `${files.join(", ")} switches to this tab by its title` : "";
+}
+
 function renderMapList() {
     const list = $("#map-list");
     const top = list.scrollTop;
     const wanted = words($("#map-filter"));
     const filter = wanted.length > 0;
+    const editing = state.editTabs;
     const counts = new Map();
     for (const entry of state.index) {
         for (const m of entry.node.map_locations || []) counts.set(m.map, (counts.get(m.map) || 0) + 1);
     }
     const known = new Set(state.pack.maps.map((map) => map.name));
-    const listed = new Set();
+    const listed = new Set(L.layoutMaps(state.tree));
+    const indent = (node, depth) => {
+        node.style.paddingLeft = `${8 + depth * 14}px`;
+        return node;
+    };
 
-    const mapRow = (name, depth, tab) => {
-        listed.add(name);
-        if (!matchesWords(fold(`${name} ${tab ?? ""}`), wanted)) return [];
-        const row = el("div", {
+    const mapRow = (name, depth, tab, tools) => {
+        if (!matchesWords(fold(`${name} ${tab?.title ?? ""}`), wanted)) return [];
+        const row = indent(el("div", {
             className: `row${name === state.mapName ? " active" : ""}${known.has(name) ? "" : " missing"}`,
-            title: known.has(name) ? `${name}\n${state.pack.maps.find((m) => m.name === name).img}`
-                : `${name} is in a layout but missing from maps.json`,
-        });
-        row.style.paddingLeft = `${8 + depth * 14}px`;
+            title: [
+                known.has(name) ? `${name}\n${state.pack.maps.find((m) => m.name === name).img}`
+                    : `${name} is in a layout but missing from maps.json`,
+                tab ? refsNote(tab.title) : "",
+            ].filter(Boolean).join("\n"),
+        }), depth);
         const text = el("span", { className: "label", textContent: name });
-        if (tab && fold(tab) !== fold(name)) text.append(el("div", { className: "sub", textContent: `tab: ${tab}` }));
+        if (tab && fold(tab.title) !== fold(name)) text.append(el("div", { className: "sub", textContent: `tab: ${tab.title}` }));
         row.append(text, el("span", { className: "badge", textContent: counts.get(name) ?? 0, title: "markers on this map" }));
+        if (tools) row.append(tools);
         if (known.has(name)) row.onclick = () => openMap(name);
         return [row];
     };
 
-    const build = (nodes, depth, trail) => nodes.flatMap((node) => {
-        if (node.map) return mapRow(node.map, depth);
-        if (node.children.length === 1 && node.children[0].map) return mapRow(node.children[0].map, depth, node.title);
-        const id = `maps:${trail}/${node.title}`;
-        const children = build(node.children, depth + 1, `${trail}/${node.title}`);
-        if (!children.length) return [];
+    const renderTab = (tab, depth, trail) => {
+        const tools = editing ? tabTools(tab) : null;
+        if (tab.children.length === 1 && tab.children[0].map) return mapRow(tab.children[0].map, depth, tab, tools);
+        const path = `${trail}/${tab.title}`;
+        const children = build(tab.children, depth + 1, path);
+        if (!children.length) {
+            if (!editing || L.layoutMaps(tab.children).length || !matchesWords(fold(tab.title), wanted)) return [];
+            return [indent(el("div", { className: "row", title: "This tab shows no map" },
+                el("span", { className: "label", textContent: tab.title || "(untitled tab)" },
+                    el("div", { className: "sub", textContent: "no map" })), tools), depth)];
+        }
+        const id = `maps:${path}`;
         const details = el("details", { className: "group", open: filter ? true : !state.collapsed.has(id) });
-        const summary = el("summary", {}, el("span", { className: "label", textContent: node.title || "(untitled tab)" }));
-        summary.style.paddingLeft = `${8 + depth * 14}px`;
+        const summary = indent(el("summary", { title: refsNote(tab.title) },
+            el("span", { className: "label", textContent: tab.title || "(untitled tab)" }), tools), depth);
         details.append(summary, ...children);
         groupToggle(details, id, filter);
         return [details];
+    };
+
+    const build = (items, depth, trail) => items.flatMap((item) => {
+        if (item.map) return mapRow(item.map, depth);
+        if (!L.layoutMaps([item]).length) return [];
+        const rows = item.tabs.flatMap((tab) => renderTab(tab, depth, trail));
+        if (editing && !filter) {
+            const add = indent(el("div", { className: "row add", textContent: "+ Add tab…", title: "Add a tab here" }), depth);
+            add.onclick = () => openTabDialog({ mode: "add", target: { group: item } });
+            rows.push(add);
+        }
+        return rows;
     });
 
-    const rows = build(state.pack.layoutTree, 0, "");
-    const loose = state.pack.maps.map((map) => map.name).filter((name) => !listed.has(name)).flatMap((name) => mapRow(name, 1));
+    const rows = build(state.tree, 0, "");
+    const loose = state.pack.maps.map((map) => map.name).filter((name) => !listed.has(name)).flatMap((name) =>
+        mapRow(name, 1, null, editing ? el("span", { className: "tools" },
+            tool("+", "Put this map in a tab", () => openTabDialog({ mode: "add", map: name }))) : null));
     if (loose.length) {
         const details = el("details", { className: "group", open: true });
         details.append(el("summary", { title: "Maps in maps.json that no layout shows yet" },
@@ -1040,6 +1104,8 @@ function renderMapList() {
     if (!rows.length) rows.push(el("div", { className: "heading", textContent: "No maps match." }));
     list.replaceChildren(...rows);
     list.scrollTop = top;
+    $("#btn-edit-tabs").classList.toggle("on", editing);
+    document.querySelector("main").classList.toggle("editing-tabs", editing);
 }
 
 function setField(input, value) {
@@ -1232,10 +1298,161 @@ function renderDetails() {
     );
 }
 
+// --- layout tabs -------------------------------------------------------------------------------
+
+function targetLabel(target) {
+    const where = target.trail.map((title) => title || "(untitled tab)").join(" / ");
+    if (target.tab) return `Inside ${where} (makes sub-tabs)`;
+    if (where) return `Inside ${where}`;
+    return state.tree.filter((item) => !item.map).length > 1 ? `Top level of ${target.group.key}` : "Top level";
+}
+
+const targets = (moving = null) => L.tabTargets(state.tree, moving).map((target) => ({ ...target, label: targetLabel(target) }));
+const placeName = (place) => place.trail.join(" / ") || "the top level";
+
+/** Remembers a place for the next tab; adding under a tab made it a group, so the next tab goes in that group. */
+function rememberPlace(place) {
+    state.lastTabTarget = place.tab ? targetLabel({ group: place.tab.group, trail: place.trail }) : place.label;
+}
+
+/** Records one undo step for an edit made on a copy of the layouts, plus `extra` changes such as a new map. */
+function editLayout(label, edit, extra = []) {
+    const next = clone(state.pack.layouts);
+    const result = edit(next);
+    const changes = Object.keys(next)
+        .filter((key) => JSON.stringify(next[key]) !== JSON.stringify(state.pack.layouts[key]))
+        .map((key) => ({ type: "layout", key, before: clone(state.pack.layouts[key]), after: next[key] }));
+    commit([...extra, ...changes], label);
+    return result;
+}
+
+function checkTitle(place, title, firstTitle, except = null) {
+    if (place.tab && !firstTitle) throw new Error("Give the first sub-tab a title.");
+    const taken = place.group ? place.group.tabs.filter((tab) => tab !== except).map((tab) => tab.title) : [firstTitle];
+    if (taken.includes(title)) throw new Error(`There is already a tab named ${title} there.`);
+}
+
+function confirmRefs(title, verb) {
+    const files = state.pack.tabRefs?.[title];
+    return !files || confirm(`${files.join(", ")} switches to the tab "${title}" by its title. ${verb} it anyway?`);
+}
+
+const foldNote = (group) => `${group.parent.title} had one sub-tab left, so it shows that sub-tab's content directly again.`;
+
+function shiftTab(tab, step) {
+    editLayout(`Moved tab ${tab.title} ${step < 0 ? "up" : "down"}`, (next) => L.shiftTab(next, tab, step));
+}
+
+function removeTab(tab) {
+    const group = tab.group;
+    if (group.tabs.length === 1) {
+        status(group.parent ? `${tab.title} is the only tab in ${group.parent.title}; remove ${group.parent.title} instead.`
+            : `${tab.title} is the only tab in its group.`, true);
+        return;
+    }
+    if (!confirmRefs(tab.title, "Remove")) return;
+    const nested = tab.children.some((child) => !child.map);
+    if (nested && !confirm(`Remove ${tab.title} and its sub-tabs from the layout? Their maps stay in maps.json.`)) return;
+    if (editLayout(`Removed tab ${tab.title}`, (next) => L.removeTab(next, tab))) {
+        status(`Removed tab ${tab.title}. ${foldNote(group)}`);
+    }
+}
+
+function editTab(tab, place, title, firstTitle) {
+    const stay = place.group === tab.group;
+    if (stay && title === tab.title) return;
+    if (!stay && tab.group.tabs.length === 1) {
+        const parent = tab.group.parent;
+        throw new Error(`${tab.title} is the only tab ${parent ? `in ${parent.title}; move ${parent.title}` : "in its group; move the group"} instead.`);
+    }
+    checkTitle(place, title, firstTitle, tab);
+    if (title !== tab.title && !confirmRefs(tab.title, "Rename")) return;
+    const label = stay ? `Renamed tab ${tab.title} to ${title}` : `Moved tab ${title} to ${placeName(place)}`;
+    const folded = editLayout(label, (next) => {
+        L.renameTab(next, tab, title);
+        return !stay && L.moveTab(next, tab, place, firstTitle);
+    });
+    if (folded) status(`${label}. ${foldNote(tab.group)}`);
+}
+
+const tabDialog = $("#dlg-tab");
+const tabForm = tabDialog.querySelector("form");
+let tabEdit = null;
+
+function openTabDialog({ mode, target = null, tab = null, map = null }) {
+    const f = tabForm.elements;
+    tabForm.reset();
+    const places = targets(mode === "edit" ? tab : null);
+    tabEdit = { mode, tab, places };
+    f.parent.replaceChildren(...places.map((place, i) => el("option", { value: i, textContent: place.label })));
+    const wanted = mode === "edit" ? tab.group : target && (target.group ?? target.tab);
+    let index = places.findIndex((place) => (place.group ?? place.tab) === wanted);
+    if (index < 0) index = places.findIndex((place) => place.label === state.lastTabTarget);
+    f.parent.value = String(Math.max(0, index));
+    $("#dt-heading").textContent = mode === "edit" ? `Tab ${tab.title}` : "Add tab";
+    $("#dt-map-row").hidden = mode === "edit";
+    $("#dt-submit").textContent = mode === "edit" ? "Apply" : "Add tab";
+    $("#dt-error").hidden = true;
+    if (mode === "add") {
+        const listed = new Set(L.layoutMaps(state.tree));
+        const names = state.pack.maps.map((m) => m.name);
+        const group = (label, list) => list.length
+            ? [el("optgroup", { label }, ...list.map((name) => el("option", { value: name, textContent: name })))] : [];
+        f.map.replaceChildren(...group("Not in a layout", names.filter((name) => !listed.has(name))),
+            ...group("Already in a tab", names.filter((name) => listed.has(name))));
+        f.map.value = map ?? names.find((name) => !listed.has(name)) ?? state.mapName ?? names[0] ?? "";
+        f.title.value = f.map.value;
+        f.title.dataset.auto = "1";
+    } else {
+        f.title.value = tab.title;
+    }
+    syncTabDialog();
+    tabDialog.showModal();
+}
+
+function syncTabDialog() {
+    const place = tabEdit.places[tabForm.elements.parent.value];
+    $("#dt-first-row").hidden = !place?.tab;
+    if (place?.tab) tabForm.elements.first.value = place.tab.title;
+}
+
+tabForm.elements.parent.addEventListener("change", syncTabDialog);
+tabForm.elements.title.addEventListener("input", () => delete tabForm.elements.title.dataset.auto);
+tabForm.elements.map.addEventListener("change", () => {
+    if (tabForm.elements.title.dataset.auto) tabForm.elements.title.value = tabForm.elements.map.value;
+});
+tabForm.querySelector("button[value=cancel]").addEventListener("click", () => tabDialog.close());
+
+tabForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const f = tabForm.elements;
+    const place = tabEdit.places[f.parent.value];
+    const title = f.title.value.trim();
+    const firstTitle = f.first.value.trim();
+    try {
+        if (!place) throw new Error("Choose where the tab goes.");
+        if (!title) throw new Error("Give the tab a title.");
+        if (tabEdit.mode === "add") {
+            if (!f.map.value) throw new Error("Choose a map.");
+            checkTitle(place, title, firstTitle);
+            const json = { title, content: { type: "map", maps: [f.map.value] } };
+            editLayout(`Added tab ${title} to ${placeName(place)}`, (next) => L.addTab(next, place, json, firstTitle));
+        } else {
+            editTab(tabEdit.tab, place, title, firstTitle);
+        }
+        rememberPlace(place);
+        tabDialog.close();
+    } catch (failure) {
+        $("#dt-error").textContent = failure.message;
+        $("#dt-error").hidden = false;
+    }
+});
+
 // --- adding maps and replacing images ----------------------------------------------------------
 
 const dialog = $("#dlg-image");
 const form = dialog.querySelector("form");
+let mapPlaces = [];
 
 function fillShapeSelect(select) {
     select.replaceChildren(...Object.entries(SHAPES).map(([shape, version]) =>
@@ -1249,11 +1466,17 @@ function openImageDialog(mode) {
     dialog.dataset.mode = mode;
     $("#di-title").textContent = mode === "add" ? "Add map" : `Replace the image of ${map.name}`;
     $("#di-name-row").hidden = mode !== "add";
+    $("#di-tab-row").hidden = mode !== "add";
     $("#di-marker-fields").hidden = mode !== "add";
     $("#di-submit").textContent = mode === "add" ? "Add map" : "Align…";
     $("#di-note").textContent = mode === "add"
-        ? "The map is appended to the end of maps.json. Put it in a layout tab yourself; until then it is listed under \"Not in a layout\"."
+        ? "The map is appended to the end of maps.json, and gets a tab named after it at the end of the place you pick."
         : "Next you line the old image up with the new one; every marker on this map moves with it.";
+    mapPlaces = targets();
+    f.tab.replaceChildren(el("option", { value: "", textContent: "Not in a layout yet" }),
+        ...mapPlaces.map((place, i) => el("option", { value: i, textContent: place.label })));
+    const last = mapPlaces.findIndex((place) => place.label === state.lastTabTarget);
+    f.tab.value = last < 0 ? "" : String(last);
     $("#di-error").hidden = true;
     f.existing.replaceChildren(el("option", { value: "", textContent: "choose…" }),
         ...state.pack.images.map((path) => el("option", { value: path, textContent: path })));
@@ -1293,6 +1516,8 @@ form.addEventListener("submit", async (event) => {
             const name = f.mapName.value.trim();
             if (!name) throw new Error("Give the map a name.");
             if (state.pack.maps.some((m) => m.name === name)) throw new Error(`There is already a map named ${name}.`);
+            const place = f.tab.value === "" ? null : mapPlaces[f.tab.value];
+            if (place) checkTitle(place, name, place.tab?.title);
             const img = file ? await uploadImage(file, f.dir.value, saveName) : existing;
             const entry = {
                 name,
@@ -1302,7 +1527,14 @@ form.addEventListener("submit", async (event) => {
                 img,
             };
             dialog.close();
-            commit([{ type: "map", name, before: null, after: entry }], `Added map ${name}`);
+            const added = { type: "map", name, before: null, after: entry };
+            if (place) {
+                rememberPlace(place);
+                const json = { title: name, content: { type: "map", maps: [name] } };
+                editLayout(`Added map ${name} to ${placeName(place)}`, (next) => L.addTab(next, place, json, place.tab?.title), [added]);
+            } else {
+                commit([added], `Added map ${name}`);
+            }
             openMap(name);
         } else {
             const src = file ? URL.createObjectURL(file) : existing;
@@ -1514,6 +1746,10 @@ $("#show-labels").onchange = (event) => {
     invalidate();
 };
 $("#btn-add-map").onclick = () => openImageDialog("add");
+$("#btn-edit-tabs").onclick = () => {
+    state.editTabs = !state.editTabs;
+    renderMapList();
+};
 $("#btn-replace").onclick = () => openImageDialog("replace");
 $("#map-filter").oninput = renderMapList;
 $("#loc-filter").oninput = renderLocList;

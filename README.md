@@ -59,5 +59,7 @@ It opens in the browser. Pick a map (listed by layout tab), pick a location, and
 set its `map_locations`; Save writes `maps/maps.json` and `locations/locations.json` in the
 generators' format, onto whatever is on disk at that moment. "Replace image…" swaps a map's image
 and moves its markers along: drag and scale the old image over the new one, or click matching
-landmarks on both. "Add map…" appends a map to `maps.json`, which still needs a layout tab by hand.
-Press `?` in the tool for its shortcuts. Tests: `node --test "tools/mapper/test/*.test.mjs"`.
+landmarks on both. "Add map…" appends a map to `maps.json` and can give it a tab. "Edit tabs" adds,
+reorders, renames, moves and removes layout tabs, including sub-tabs under a tab; it rewrites
+`layouts/tracker.json` in its current style and refuses files with comments. Press `?` in the tool
+for its shortcuts. Tests: `node --test "tools/mapper/test/*.test.mjs"`.

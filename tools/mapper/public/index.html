@@ -25,7 +25,10 @@
         <h2>Maps</h2>
         <input id="map-filter" type="search" placeholder="Filter maps" autocomplete="off">
         <div id="map-list" class="list" role="listbox" aria-label="Maps"></div>
-        <button id="btn-add-map">Add map…</button>
+        <div class="map-buttons">
+            <button id="btn-add-map">Add map…</button>
+            <button id="btn-edit-tabs" title="Add, reorder, rename, move and remove layout tabs">Edit tabs</button>
+        </div>
         <section id="map-settings" hidden>
             <h3 id="ms-name"></h3>
             <div id="ms-img" class="dim small"></div>
@@ -108,6 +111,7 @@
     <form>
         <h2 id="di-title"></h2>
         <label id="di-name-row">Map name <input name="mapName" autocomplete="off"></label>
+        <label id="di-tab-row">Show in a tab <select name="tab"></select></label>
         <fieldset>
             <legend>Image</legend>
             <label class="check"><input type="radio" name="source" value="file" checked> Upload a file
@@ -129,6 +133,23 @@
         <div class="buttons">
             <button type="button" value="cancel">Cancel</button>
             <button type="submit" class="primary" id="di-submit"></button>
+        </div>
+    </form>
+</dialog>
+
+<dialog id="dlg-tab">
+    <form>
+        <h2 id="dt-heading"></h2>
+        <label>Where <select name="parent"></select></label>
+        <label id="dt-first-row">What that tab shows now becomes its first sub-tab, titled
+            <input name="first" autocomplete="off"></label>
+        <label id="dt-map-row">Map <select name="map"></select></label>
+        <label>Tab title <input name="title" autocomplete="off"></label>
+        <p class="dim small">Save writes the tab to the layout file that holds it.</p>
+        <p id="dt-error" class="warning small" hidden></p>
+        <div class="buttons">
+            <button type="button" value="cancel">Cancel</button>
+            <button type="submit" class="primary" id="dt-submit"></button>
         </div>
     </form>
 </dialog>
@@ -155,6 +176,13 @@
         <tr><td>Arrows</td><td>nudge the old layer</td></tr>
         <tr><td>H</td><td>show/hide the old layer</td></tr>
         <tr><td>Ctrl+Z</td><td>remove the last point pair</td></tr>
+        <tr><th colspan="2">Edit tabs</th></tr>
+        <tr><td>↑ ↓</td><td>move a tab among its siblings</td></tr>
+        <tr><td>+</td><td>add a sub-tab; a tab that shows a map keeps it as its first sub-tab</td></tr>
+        <tr><td>✎</td><td>rename a tab or move it somewhere else</td></tr>
+        <tr><td>✕</td><td>remove a tab from the layout; its maps stay in maps.json, and a group left with one
+            sub-tab folds back into its parent tab</td></tr>
+        <tr><td>+ Add tab…</td><td>add a tab at the end of that group</td></tr>
     </table>
     <p class="dim small">Markers are drawn at their size in image pixels, which is how they look at PopTracker's default zoom.
         Universal Tracker keys markers by their x/y, so markers sharing a spot on one map get a red ring.</p>
