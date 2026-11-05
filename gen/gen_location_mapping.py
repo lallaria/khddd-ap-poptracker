@@ -23,10 +23,11 @@ OPEN_SEGMENT = "Open"
 
 
 class GateRecorder:
-    """Stands in for KHDDDWorld while its gate code runs, recording the nodes each gate covers."""
+    """Stands in for KHDDDWorld while its gate code runs; on apworlds before Rules.gated_nodes, records the nodes
+    each KHDDDWorld.set_gate_rules call covers."""
 
     player = 0
-    regen_gate_reqs = []  # only set when UT regenerates a seed
+    re_gen_gate_reqs = regen_gate_reqs = []  # only set when UT regenerates a seed
 
     def __init__(self):
         value = SimpleNamespace(value=1)
@@ -43,10 +44,20 @@ class GateRecorder:
 
 
 def gate_nodes():
-    """{(spirit id, gate number from 1): link board node names} from KHDDDWorld.get_gate_requirements."""
+    """{(spirit id, gate number from 1): link board node names} for the gates KHDDDWorld.get_gate_requirements rolls,
+    covering the nodes Rules.gated_nodes puts behind each."""
     recorder = GateRecorder()
-    khddd.KHDDDWorld.get_gate_requirements(recorder)
-    return recorder.nodes
+    gate_reqs = khddd.KHDDDWorld.get_gate_requirements(recorder)
+    try:
+        gated_nodes = khddd.Rules.gated_nodes
+    except AttributeError:
+        return recorder.nodes
+    nodes = {}
+    for spirit_id, _, *world_reqs in gate_reqs:
+        spirit = khddd.Items.get_spirit_by_id(spirit_id)
+        for gate in range(len(world_reqs)):
+            nodes[(spirit_id, gate + 1)] = [f"{spirit} Node {node + 1:02d}" for node in gated_nodes(spirit, gate)]
+    return nodes
 
 
 def location_name(ap_name, region):

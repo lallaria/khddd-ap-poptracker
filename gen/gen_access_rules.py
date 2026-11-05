@@ -76,6 +76,9 @@ HELPERS = {
     "has_required_recipes": "$has_recipes",
 }
 COUNTING_HELPERS = {"has_x_sora_worlds": "$has_sora_worlds", "has_x_riku_worlds": "$has_riku_worlds"}
+# Rules.py helper returning {node: rule} for the rolled link board gates; gate_contributions adds those rules
+GATE_RULES_HELPER = "gate_rules"
+GATE_RULES = object()
 # per-seed facts from slot_data, guarded like options with domain (0, 1): fact -> (Lua $ when true, when false)
 SEED_FACT_CODES = {"recipe_in_pool": ("$recipe_in_pool", "$recipe_not_in_pool")}
 
@@ -424,8 +427,15 @@ class Translator:
         code = self.item_code(name)
         return [[f"{code}:{needed}" if needed > 1 else code]] if code else []
 
+    @staticmethod
+    def is_gate_rules(node, env):
+        """True for the {node: gate rule} dict: a gate_rules result, or KHDDDWorld.gate_rules before Rules.gate_rules."""
+        if isinstance(node, ast.Name):
+            return env.get(node.id) is GATE_RULES
+        return ast.unparse(node) == "khdddworld.gate_rules"
+
     def call_rule(self, node, env):
-        if ast.unparse(node.func) == "khdddworld.gate_rules.get":  # gate_contributions adds these
+        if isinstance(node.func, ast.Attribute) and node.func.attr == "get" and self.is_gate_rules(node.func.value, env):
             return [[]]
         if not isinstance(node.func, ast.Name) or node.keywords:
             raise ValueError(f"unsupported call: {ast.unparse(node)}")
@@ -494,6 +504,8 @@ class Translator:
                     if guard is not True:
                         raise ValueError(f"assignment under an option test: {ast.unparse(statement)}")
                     env[target] = self.concrete(statement.value, env)
+                elif isinstance(statement.value, ast.Call) and ast.unparse(statement.value.func) == GATE_RULES_HELPER:
+                    env[target] = GATE_RULES
                 elif isinstance(statement.value, ast.Call):
                     env[target] = [(guard, self.rule(statement.value, env))]
             elif isinstance(statement, ast.AugAssign) and isinstance(statement.op, ast.BitAnd):
@@ -532,10 +544,10 @@ class Translator:
         self.contributions[target] = [(old, combo) for old, combo in kept if old is not False] + parts
 
 
-# --- link board gates from KHDDDWorld.set_gate_rules ----------------------------------------------
+# --- link board gates ----------------------------------------------------------------------------
 
 def gate_contributions():
-    """(location, guard, rule combo) for the gates KHDDDWorld.get_gate_requirements puts on link board nodes.
+    """(location, guard, rule combo) for the gates the apworld puts on link board nodes.
 
     The world count of each gate is rolled per seed and reaches the tracker as slot_data gate_reqs.
     """
