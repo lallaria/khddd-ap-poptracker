@@ -85,17 +85,17 @@
     },
     {
         "name": "Traverse Town [Riku]",
-        "location_size": 42,
-        "location_border_thickness": 4,
+        "location_size": 20,
+        "location_border_thickness": 2,
         "location_shape": "rect",
-        "img": "images/maps/Minimap_(Traverse_Town)_KH3DHD.png"
+        "img": "images/maps/Minimap_(Traverse_Town)_KH3DHD_R.png"
     },
     {
         "name": "Traverse Town [Sora]",
-        "location_size": 42,
-        "location_border_thickness": 4,
+        "location_size": 20,
+        "location_border_thickness": 2,
         "location_shape": "rect",
-        "img": "images/maps/Minimap_(Traverse_Town)_KH3DHD.png"
+        "img": "images/maps/Minimap_(Traverse_Town)_KH3DHD_S.png"
     },
     {
         "name": "Link Boards",
