@@ -103,5 +103,19 @@
         "location_border_thickness": 3,
         "location_shape": "rect",
         "img": "images/maps/Link_Boards.png"
+    },
+    {
+        "name": "Meow Wow",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/1.png"
+    },
+    {
+        "name": "Overworld",
+        "location_size": 48,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/maps/Overworld_KH3DHD.png"
     }
 ]

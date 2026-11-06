@@ -10027,6 +10027,13 @@
                             {
                                 "name": "Meow Wow Node 16"
                             }
+                        ],
+                        "map_locations": [
+                            {
+                                "map": "Meow Wow",
+                                "x": 37,
+                                "y": 135
+                            }
                         ]
                     },
                     {
@@ -10045,6 +10052,13 @@
                             {
                                 "name": "Meow Wow Node 11"
                             }
+                        ],
+                        "map_locations": [
+                            {
+                                "map": "Meow Wow",
+                                "x": 85,
+                                "y": 135
+                            }
                         ]
                     },
                     {
@@ -10062,6 +10076,13 @@
                             },
                             {
                                 "name": "Meow Wow Node 15"
+                            }
+                        ],
+                        "map_locations": [
+                            {
+                                "map": "Meow Wow",
+                                "x": 131,
+                                "y": 135
                             }
                         ]
                     }
