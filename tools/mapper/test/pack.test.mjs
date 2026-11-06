@@ -117,7 +117,7 @@ describe("applyPatch", () => {
             ],
             maps: [
                 { name: maps[0].name, entry: { ...maps[0], location_size: 99 } },
-                { name: "Overworld", entry: { name: "Overworld", location_size: 30, img: "images/maps/World.png" } },
+                { name: "Mapper Test", entry: { name: "Mapper Test", location_size: 30, img: "images/maps/World.png" } },
                 { name: maps[1].name, entry: null },
             ],
         });
@@ -131,7 +131,7 @@ describe("applyPatch", () => {
 
         const writtenMaps = JSON.parse(await readFile(path.join(root, MAPS_JSON), "utf8"));
         assert.equal(writtenMaps[0].location_size, 99);
-        assert.equal(writtenMaps.at(-1).name, "Overworld");
+        assert.equal(writtenMaps.at(-1).name, "Mapper Test");
         assert.ok(!writtenMaps.some((map) => map.name === maps[1].name));
         assert.equal(writtenMaps.length, maps.length);
     });
@@ -154,21 +154,21 @@ describe("applyPatch groups", () => {
 
     const readTree = async () => JSON.parse(await readFile(path.join(root, LOCATIONS_JSON), "utf8"));
     const overworld = {
-        name: "Overworld",
+        name: "Mapper Test",
         children: [{ name: "Traverse Town [Sora]", sections: [{ name: "a", ref: "Traverse Town [Sora]/x/a" }] }],
     };
 
     test("adds, replaces and removes whole top-level locations", async () => {
         const original = await readTree();
-        await applyPatch(root, { groups: [{ name: "Overworld", before: null, after: overworld }] });
+        await applyPatch(root, { groups: [{ name: "Mapper Test", before: null, after: overworld }] });
         assert.deepEqual(await readTree(), [...original, overworld]);
 
         const placed = structuredClone(overworld);
         placed.children[0].map_locations = [{ map: "World", x: 1, y: 2 }];
-        await applyPatch(root, { groups: [{ name: "Overworld", before: overworld, after: placed }] });
+        await applyPatch(root, { groups: [{ name: "Mapper Test", before: overworld, after: placed }] });
         assert.deepEqual((await readTree()).at(-1), placed);
 
-        await applyPatch(root, { groups: [{ name: "Overworld", before: placed, after: null }] });
+        await applyPatch(root, { groups: [{ name: "Mapper Test", before: placed, after: null }] });
         assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), dumps(original) + "\n");
     });
 
@@ -176,7 +176,7 @@ describe("applyPatch groups", () => {
         const text = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
         const town = JSON.parse(text).find((node) => node.name === "Traverse Town [Sora]");
         for (const group of [
-            { name: "Overworld", before: overworld, after: null },
+            { name: "Mapper Test", before: overworld, after: null },
             { name: "Traverse Town [Sora]", before: null, after: overworld },
         ]) {
             await assert.rejects(applyPatch(root, {

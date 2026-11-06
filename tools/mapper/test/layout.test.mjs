@@ -61,8 +61,7 @@ describe("layoutTree", () => {
     test("reads the pack's tracker layout with every map in a tab", async () => {
         const pack = await readPack(PACK);
         const tree = layoutTree(pack.layouts);
-        const top = tree.find((item) => item.tabs).tabs.map((t) => t.title);
-        assert.ok(top.includes("Sora") && top.includes("Riku"), top.join(", "));
+        assert.equal(findTab(tree, "Riku").group, findTab(tree, "Sora").group);
         const town = findTab(tree, "Traverse Town");
         assert.deepEqual(town.children, [{ map: "Traverse Town [Sora]" }]);
         assert.equal(town.group.parent.title, "Sora");

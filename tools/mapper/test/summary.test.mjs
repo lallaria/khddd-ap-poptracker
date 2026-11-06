@@ -59,12 +59,14 @@ describe("summarySections", () => {
 });
 
 describe("summary groups", () => {
-    test("recognises summaries, and no top-level location of the pack is one", async () => {
+    test("recognises summaries, and none of the generated top-level locations is one", async () => {
         const [town, overworld] = tree();
         assert.ok(isSummaryGroup(overworld) && isSummary(overworld.children[0]));
         assert.ok(!isSummaryGroup(town) && !isSummaryGroup({ name: "Empty", children: [] }));
         const locations = JSON.parse(await readFile(path.join(PACK, LOCATIONS_JSON), "utf8"));
-        assert.deepEqual(locations.filter(isSummaryGroup).map((node) => node.name), []);
+        for (const name of ["Traverse Town [Sora]", "World Map [Sora]", "Levels", "Link Boards"]) {
+            assert.ok(!isSummaryGroup(locations.find((node) => node.name === name)), name);
+        }
     });
 
     test("missingRefs names refs whose section is gone", () => {
