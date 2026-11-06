@@ -57,17 +57,17 @@
     },
     {
         "name": "Symphony of Sorcery [Riku]",
-        "location_size": 32,
+        "location_size": 25,
         "location_border_thickness": 2,
         "location_shape": "rect",
-        "img": "images/maps/Minimap_(Symphony_of_Sorcery)_KH3D.png"
+        "img": "images/maps/Minimap_(Symphony_of_Sorcery)_KH3D_R.png"
     },
     {
         "name": "Symphony of Sorcery [Sora]",
-        "location_size": 32,
+        "location_size": 25,
         "location_border_thickness": 2,
         "location_shape": "rect",
-        "img": "images/maps/Minimap_(Symphony_of_Sorcery)_KH3D.png"
+        "img": "images/maps/Minimap_(Symphony_of_Sorcery)_KH3D_S.png"
     },
     {
         "name": "The Grid [Riku]",

@@ -46,154 +46,136 @@
                         {
                             "title": "Overworld",
                             "content": {
+                                "type": "map",
+                                "maps": ["Overworld"]
+                            }
+                        },
+                        {
+                            "title": "Sora",
+                            "content": {
                                 "type": "tabbed",
                                 "tabs": [
                                     {
-                                        "title": "Overworld",
+                                        "title": "Traverse Town",
                                         "content": {
                                             "type": "map",
-                                            "maps": ["Overworld"]
+                                            "maps": ["Traverse Town [Sora]"]
                                         }
                                     },
                                     {
-                                        "title": "Sora",
+                                        "title": "La Cité des Cloches",
                                         "content": {
-                                            "type": "tabbed",
-                                            "tabs": [
-                                                {
-                                                    "title": "Traverse Town",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "Traverse Town [Sora]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "La Cité des Cloches",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "La Cité des Cloches [Sora]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "The Grid",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "The Grid [Sora]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "Prankster's Paradise",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "Prankster's Paradise [Sora]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "Country of the Musketeers",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "Country of the Musketeers [Sora]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "Symphony of Sorcery",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "Symphony of Sorcery [Sora]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "TWTNW (Dark City)",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "TWTNW (Dark City) [Sora]"
-                                                        ]
-                                                    }
-                                                }
+                                            "type": "map",
+                                            "maps": [
+                                                "La Cité des Cloches [Sora]"
                                             ]
                                         }
                                     },
                                     {
-                                        "title": "Riku",
+                                        "title": "The Grid",
                                         "content": {
-                                            "type": "tabbed",
-                                            "tabs": [
-                                                {
-                                                    "title": "Traverse Town",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "Traverse Town [Riku]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "La Cité des Cloches",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "La Cité des Cloches [Riku]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "The Grid",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "The Grid [Riku]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "Prankster's Paradise (Monstro)",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "Prankster's Paradise (Monstro) [Riku]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "Country of the Musketeers",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "Country of the Musketeers [Riku]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "Symphony of Sorcery",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "Symphony of Sorcery [Riku]"
-                                                        ]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "TWTNW (Castle)",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": [
-                                                            "TWTNW (Castle That Never Was) [Riku]"
-                                                        ]
-                                                    }
-                                                }
+                                            "type": "map",
+                                            "maps": ["The Grid [Sora]"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Prankster's Paradise",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": [
+                                                "Prankster's Paradise [Sora]"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "Country of the Musketeers",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": [
+                                                "Country of the Musketeers [Sora]"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "Symphony of Sorcery",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": [
+                                                "Symphony of Sorcery [Sora]"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "TWTNW (Dark City)",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["TWTNW (Dark City) [Sora]"]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "title": "Riku",
+                            "content": {
+                                "type": "tabbed",
+                                "tabs": [
+                                    {
+                                        "title": "Traverse Town",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Traverse Town [Riku]"]
+                                        }
+                                    },
+                                    {
+                                        "title": "La Cité des Cloches",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": [
+                                                "La Cité des Cloches [Riku]"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "The Grid",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["The Grid [Riku]"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Prankster's Paradise (Monstro)",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": [
+                                                "Prankster's Paradise (Monstro) [Riku]"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "Country of the Musketeers",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": [
+                                                "Country of the Musketeers [Riku]"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "Symphony of Sorcery",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": [
+                                                "Symphony of Sorcery [Riku]"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "title": "TWTNW (Castle)",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": [
+                                                "TWTNW (Castle That Never Was) [Riku]"
                                             ]
                                         }
                                     }

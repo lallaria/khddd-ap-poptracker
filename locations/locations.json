@@ -58,6 +58,13 @@
                     {
                         "name": "Traverse Town Secret Portal [Sora]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1843,
+                        "y": 255
+                    }
                 ]
             },
             {
@@ -82,6 +89,13 @@
                 "sections": [
                     {
                         "name": "Traverse Town Hockomonkey Bonus Slot 1 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1844,
+                        "y": 315
                     }
                 ]
             },
@@ -676,6 +690,13 @@
                     {
                         "name": "Traverse Town Secret Portal [Riku]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 2342,
+                        "y": 328
+                    }
                 ]
             },
             {
@@ -731,6 +752,13 @@
                 "sections": [
                     {
                         "name": "Traverse Town Hockomonkey Bonus Slot 1 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 2271,
+                        "y": 322
                     }
                 ]
             },
@@ -1275,6 +1303,13 @@
                     {
                         "name": "Traverse Town 2 Boss Gauntlet Reward [Sora]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 594,
+                        "y": 923
+                    }
                 ]
             },
             {
@@ -1332,6 +1367,13 @@
                     {
                         "name": "Traverse Town 2 Cera Terror Recipe Reward [Riku]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1110,
+                        "y": 285
+                    }
                 ]
             },
             {
@@ -1367,6 +1409,13 @@
                     {
                         "name": "La Cite des Cloches Secret Portal [Sora]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1001,
+                        "y": 1513
+                    }
                 ]
             },
             {
@@ -1391,6 +1440,13 @@
                     {
                         "name": "La Cite des Cloches Flower Fight Bonus Slot 1 [Sora]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 934,
+                        "y": 1596
+                    }
                 ]
             },
             {
@@ -1398,6 +1454,13 @@
                 "sections": [
                     {
                         "name": "La Cite des Cloches Wargoyle Bonus Slot 1 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1001,
+                        "y": 1596
                     }
                 ]
             },
@@ -2178,6 +2241,13 @@
                     {
                         "name": "La Cite des Cloches Secret Portal [Riku]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1006,
+                        "y": 1254
+                    }
                 ]
             },
             {
@@ -2202,6 +2272,13 @@
                 "sections": [
                     {
                         "name": "La Cite des Cloches Wargoyle Bonus Slot 1 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1004,
+                        "y": 1284
                     }
                 ]
             },
@@ -2751,6 +2828,13 @@
                     {
                         "name": "La Cite des Cloches Nave Lord Kyroo Fight [Riku]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1012,
+                        "y": 709
+                    }
                 ]
             },
             {
@@ -2777,6 +2861,13 @@
                     {
                         "name": "The Grid Secret Portal [Sora]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1699,
+                        "y": 1169
+                    }
                 ]
             },
             {
@@ -2794,6 +2885,13 @@
                 "sections": [
                     {
                         "name": "The Grid Rinzler Bonus Slot 1 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1130,
+                        "y": 1035
                     }
                 ]
             },
@@ -3510,6 +3608,13 @@
                     {
                         "name": "The Grid Secret Portal [Riku]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 184,
+                        "y": 195
+                    }
                 ]
             },
             {
@@ -3549,6 +3654,13 @@
                 "sections": [
                     {
                         "name": "The Grid Commantis Bonus Slot 1 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 184,
+                        "y": 156
                     }
                 ]
             },
@@ -4262,6 +4374,13 @@
                     {
                         "name": "Prankster's Paradise Secret Portal [Sora]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1035,
+                        "y": 831
+                    }
                 ]
             },
             {
@@ -4341,6 +4460,13 @@
                 "sections": [
                     {
                         "name": "Prankster's Paradise Chill Clawbster Bonus Slot 1 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1701,
+                        "y": 1183
                     }
                 ]
             },
@@ -4829,6 +4955,13 @@
                     {
                         "name": "Prankster's Paradise Promontory Lord Kyroo Fight [Sora]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 858,
+                        "y": 825
+                    }
                 ]
             },
             {
@@ -4854,6 +4987,13 @@
                     {
                         "name": "Prankster's Paradise Secret Portal [Riku]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 346,
+                        "y": 259
+                    }
                 ]
             },
             {
@@ -4869,6 +5009,13 @@
                 "sections": [
                     {
                         "name": "Prankster's Paradise Char Clobster Bonus Slot 1 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 346,
+                        "y": 313
                     }
                 ]
             },
@@ -5235,6 +5382,13 @@
                     {
                         "name": "Country of the Musketeers Secret Portal [Sora]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1207,
+                        "y": 422
+                    }
                 ]
             },
             {
@@ -5266,6 +5420,13 @@
                 "sections": [
                     {
                         "name": "Country of the Musketeers Pete Bonus Slot 1 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1205,
+                        "y": 367
                     }
                 ]
             },
@@ -5784,6 +5945,13 @@
                     {
                         "name": "Country of the Musketeers Secret Portal [Riku]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 2329,
+                        "y": 223
+                    }
                 ]
             },
             {
@@ -5810,6 +5978,13 @@
                 "sections": [
                     {
                         "name": "Country of the Musketeers Holey Moley Bonus Slot 1 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 2329,
+                        "y": 253
                     }
                 ]
             },
@@ -6351,6 +6526,13 @@
                     {
                         "name": "Symphony of Sorcery Secret Portal [Sora]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 875,
+                        "y": 44
+                    }
                 ]
             },
             {
@@ -6374,6 +6556,13 @@
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Spellican Bonus Slot 1 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 865,
+                        "y": 19
                     }
                 ]
             },
@@ -6403,7 +6592,7 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 302,
+                        "x": 252,
                         "y": 698
                     }
                 ]
@@ -6418,8 +6607,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 77,
-                        "y": 1378
+                        "x": 92,
+                        "y": 1395
                     }
                 ]
             },
@@ -6433,8 +6622,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 332,
-                        "y": 1295
+                        "x": 379,
+                        "y": 1364
                     }
                 ]
             },
@@ -6448,8 +6637,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1471,
-                        "y": 1440
+                        "x": 1115,
+                        "y": 1441
                     }
                 ]
             },
@@ -6463,8 +6652,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1310,
-                        "y": 1248
+                        "x": 952,
+                        "y": 1249
                     }
                 ]
             },
@@ -6478,8 +6667,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1319,
-                        "y": 1406
+                        "x": 974,
+                        "y": 1407
                     }
                 ]
             },
@@ -6493,8 +6682,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1408,
-                        "y": 1278
+                        "x": 1049,
+                        "y": 1265
                     }
                 ]
             },
@@ -6508,8 +6697,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1391,
-                        "y": 1212
+                        "x": 1029,
+                        "y": 1213
                     }
                 ]
             },
@@ -6523,8 +6712,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1381,
-                        "y": 1264
+                        "x": 1015,
+                        "y": 1259
                     }
                 ]
             },
@@ -6538,8 +6727,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1357,
-                        "y": 1284
+                        "x": 1001,
+                        "y": 1277
                     }
                 ]
             },
@@ -6553,8 +6742,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1338,
-                        "y": 986
+                        "x": 985,
+                        "y": 982
                     }
                 ]
             },
@@ -6569,8 +6758,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1231,
-                        "y": 805
+                        "x": 878,
+                        "y": 803
                     }
                 ]
             },
@@ -6585,8 +6774,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1257,
-                        "y": 698
+                        "x": 896,
+                        "y": 707
                     }
                 ]
             },
@@ -6600,8 +6789,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1057,
-                        "y": 919
+                        "x": 694,
+                        "y": 929
                     }
                 ]
             },
@@ -6615,8 +6804,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1233,
-                        "y": 1017
+                        "x": 875,
+                        "y": 1012
                     }
                 ]
             },
@@ -6630,8 +6819,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1195,
-                        "y": 318
+                        "x": 839,
+                        "y": 319
                     }
                 ]
             },
@@ -6645,8 +6834,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1304,
-                        "y": 366
+                        "x": 946,
+                        "y": 368
                     }
                 ]
             },
@@ -6661,8 +6850,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1325,
-                        "y": 345
+                        "x": 968,
+                        "y": 346
                     }
                 ]
             },
@@ -6676,8 +6865,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1121,
-                        "y": 234
+                        "x": 767,
+                        "y": 233
                     }
                 ]
             },
@@ -6691,8 +6880,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1319,
-                        "y": 225
+                        "x": 964,
+                        "y": 224
                     }
                 ]
             },
@@ -6706,8 +6895,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1276,
-                        "y": 238
+                        "x": 915,
+                        "y": 225
                     }
                 ]
             },
@@ -6722,8 +6911,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 1278,
-                        "y": 1431
+                        "x": 931,
+                        "y": 1430
                     }
                 ]
             },
@@ -6757,6 +6946,13 @@
                     {
                         "name": "Symphony of Sorcery Chernobog Bonus Slot 1 [Riku]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 1465,
+                        "y": 1369
+                    }
                 ]
             },
             {
@@ -6787,8 +6983,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 309,
-                        "y": 697
+                        "x": 233,
+                        "y": 700
                     }
                 ]
             },
@@ -6802,8 +6998,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 77,
-                        "y": 1378
+                        "x": 91,
+                        "y": 1392
                     }
                 ]
             },
@@ -6817,8 +7013,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 332,
-                        "y": 1295
+                        "x": 377,
+                        "y": 1371
                     }
                 ]
             },
@@ -6833,8 +7029,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 1978,
-                        "y": 1364
+                        "x": 865,
+                        "y": 277
                     }
                 ]
             },
@@ -6848,8 +7044,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2058,
-                        "y": 1297
+                        "x": 791,
+                        "y": 337
                     }
                 ]
             },
@@ -6863,8 +7059,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2154,
-                        "y": 1441
+                        "x": 701,
+                        "y": 194
                     }
                 ]
             },
@@ -6879,8 +7075,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2041,
-                        "y": 1245
+                        "x": 811,
+                        "y": 395
                     }
                 ]
             },
@@ -6895,8 +7091,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2090,
-                        "y": 764
+                        "x": 695,
+                        "y": 774
                     }
                 ]
             },
@@ -6911,8 +7107,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2261,
-                        "y": 690
+                        "x": 836,
+                        "y": 657
                     }
                 ]
             },
@@ -6927,8 +7123,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2251,
-                        "y": 915
+                        "x": 841,
+                        "y": 892
                     }
                 ]
             },
@@ -6943,8 +7139,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2690,
-                        "y": 1403
+                        "x": 1282,
+                        "y": 1371
                     }
                 ]
             },
@@ -6959,8 +7155,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2707,
-                        "y": 1290
+                        "x": 1286,
+                        "y": 1266
                     }
                 ]
             },
@@ -6975,8 +7171,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2768,
-                        "y": 1085
+                        "x": 1350,
+                        "y": 1038
                     }
                 ]
             },
@@ -6991,8 +7187,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2750,
-                        "y": 1237
+                        "x": 1340,
+                        "y": 1207
                     }
                 ]
             },
@@ -7007,8 +7203,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2253,
-                        "y": 767
+                        "x": 816,
+                        "y": 776
                     }
                 ]
             },
@@ -7023,8 +7219,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2068,
-                        "y": 643
+                        "x": 653,
+                        "y": 621
                     }
                 ]
             },
@@ -7038,8 +7234,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2095,
-                        "y": 1428
+                        "x": 758,
+                        "y": 211
                     }
                 ]
             },
@@ -7053,8 +7249,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2159,
-                        "y": 1342
+                        "x": 698,
+                        "y": 303
                     }
                 ]
             },
@@ -7069,8 +7265,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2031,
-                        "y": 1307
+                        "x": 823,
+                        "y": 331
                     }
                 ]
             },
@@ -7085,8 +7281,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2690,
-                        "y": 1223
+                        "x": 1291,
+                        "y": 1194
                     }
                 ]
             },
@@ -7101,8 +7297,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Riku]",
-                        "x": 2865,
-                        "y": 1344
+                        "x": 1444,
+                        "y": 1314
                     }
                 ]
             },
@@ -7113,6 +7309,13 @@
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Moonlight Wood Lord Kyroo Fight [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 667,
+                        "y": 374
                     }
                 ]
             },
@@ -7138,6 +7341,13 @@
                 "sections": [
                     {
                         "name": "The World That Never Was Xemnas Bonus Slot 1 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 361,
+                        "y": 307
                     }
                 ]
             },
@@ -7418,6 +7628,13 @@
                     {
                         "name": "The World That Never Was Young Xehanort Defeated [Riku]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 301,
+                        "y": 554
+                    }
                 ]
             },
             {
@@ -7427,6 +7644,13 @@
                 "sections": [
                     {
                         "name": "Armored Ventus Nightmare Defeated [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 325,
+                        "y": 347
                     }
                 ]
             },
@@ -7868,6 +8092,13 @@
                     {
                         "name": "The World That Never Was Ansem I Defeated [Riku]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 413,
+                        "y": 686
+                    }
                 ]
             },
             {
@@ -7876,6 +8107,13 @@
                 "sections": [
                     {
                         "name": "The World That Never Was Anti Black Coat Nightmare Defeated [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 490,
+                        "y": 1110
                     }
                 ]
             },
@@ -7900,6 +8138,13 @@
                 "sections": [
                     {
                         "name": "Unbound Keyblade Reward [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1110,
+                        "y": 240
                     }
                 ]
             },
@@ -7944,6 +8189,13 @@
                 "sections": [
                     {
                         "name": "Unbound Keyblade Reward [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1110,
+                        "y": 241
                     }
                 ]
             }
@@ -18768,6 +19020,34 @@
                 "name": "Traverse Town [Sora]",
                 "sections": [
                     {
+                        "name": "Traverse Town Secret Portal [Sora]",
+                        "ref": "Traverse Town [Sora]/Secret Portal/Traverse Town Secret Portal [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town Flashback: Dream Eaters Reward [Sora]",
+                        "ref": "Traverse Town [Sora]/Flashback: Dream Eaters Reward/Traverse Town Flashback: Dream Eaters Reward [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town Glossary: Heartless Reward [Sora]",
+                        "ref": "Traverse Town [Sora]/Glossary: Heartless Reward/Traverse Town Glossary: Heartless Reward [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 1 [Sora]",
+                        "ref": "Traverse Town [Sora]/Hockomonkey Bonus Slot 1/Traverse Town Hockomonkey Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 2 [Sora]",
+                        "ref": "Traverse Town [Sora]/Hockomonkey Bonus Slot 2/Traverse Town Hockomonkey Bonus Slot 2 [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town Skull Noise Reward [Sora]",
+                        "ref": "Traverse Town [Sora]/Skull Noise Reward/Traverse Town Skull Noise Reward [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town Meow Wow Recipe Reward [Sora]",
+                        "ref": "Traverse Town [Sora]/Meow Wow Recipe Reward/Traverse Town Meow Wow Recipe Reward [Sora]"
+                    },
+                    {
                         "name": "Traverse Town First District Ice Dream Cone [Sora]",
                         "ref": "Traverse Town [Sora]/First District Ice Dream Cone/Traverse Town First District Ice Dream Cone [Sora]"
                     },
@@ -18915,6 +19195,34 @@
             {
                 "name": "La Cité des Cloches [Sora]",
                 "sections": [
+                    {
+                        "name": "La Cite des Cloches Secret Portal [Sora]",
+                        "ref": "La Cite des Cloches [Sora]/Secret Portal/La Cite des Cloches Secret Portal [Sora]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Zolephant Recipe Reward [Sora]",
+                        "ref": "La Cite des Cloches [Sora]/Zolephant Recipe Reward/La Cite des Cloches Zolephant Recipe Reward [Sora]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Flashback: Frollo Warns Quasimodo Reward [Sora]",
+                        "ref": "La Cite des Cloches [Sora]/Flashback: Frollo Warns Quasimodo Reward/La Cite des Cloches Flashback: Frollo Warns Quasimodo Reward [Sora]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Flower Fight Bonus Slot 1 [Sora]",
+                        "ref": "La Cite des Cloches [Sora]/Flower Fight Bonus Slot 1/La Cite des Cloches Flower Fight Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Wargoyle Bonus Slot 1 [Sora]",
+                        "ref": "La Cite des Cloches [Sora]/Wargoyle Bonus Slot 1/La Cite des Cloches Wargoyle Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Guardian Bell Reward [Sora]",
+                        "ref": "La Cite des Cloches [Sora]/Guardian Bell Reward/La Cite des Cloches Guardian Bell Reward [Sora]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Chronicle BBS Reward [Sora]",
+                        "ref": "La Cite des Cloches [Sora]/Chronicle BBS Reward/La Cite des Cloches Chronicle BBS Reward [Sora]"
+                    },
                     {
                         "name": "La Cite des Cloches Square Block-It Chocolate [Sora]",
                         "ref": "La Cite des Cloches [Sora]/Square Block-It Chocolate/La Cite des Cloches Square Block-It Chocolate [Sora]"
@@ -19124,6 +19432,26 @@
                 "name": "The Grid [Sora]",
                 "sections": [
                     {
+                        "name": "The Grid Secret Portal [Sora]",
+                        "ref": "The Grid [Sora]/Secret Portal/The Grid Secret Portal [Sora]"
+                    },
+                    {
+                        "name": "The Grid Counter Rush Reward [Sora]",
+                        "ref": "The Grid [Sora]/Counter Rush Reward/The Grid Counter Rush Reward [Sora]"
+                    },
+                    {
+                        "name": "The Grid Rinzler Bonus Slot 1 [Sora]",
+                        "ref": "The Grid [Sora]/Rinzler Bonus Slot 1/The Grid Rinzler Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "The Grid Rinzler Bonus Slot 2 [Sora]",
+                        "ref": "The Grid [Sora]/Rinzler Bonus Slot 2/The Grid Rinzler Bonus Slot 2 [Sora]"
+                    },
+                    {
+                        "name": "The Grid Dual Disc Reward [Sora]",
+                        "ref": "The Grid [Sora]/Dual Disc Reward/The Grid Dual Disc Reward [Sora]"
+                    },
+                    {
                         "name": "The Grid Rectifier 1F Ice Dream Cone 2 [Sora]",
                         "ref": "The Grid [Sora]/Rectifier 1F Ice Dream Cone 2/The Grid Rectifier 1F Ice Dream Cone 2 [Sora]"
                     },
@@ -19304,6 +19632,54 @@
                 "name": "Prankster's Paradise [Sora]",
                 "sections": [
                     {
+                        "name": "Prankster's Paradise Secret Portal [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Secret Portal/Prankster's Paradise Secret Portal [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Flashback: When World's Dream Reward [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Flashback: When World's Dream Reward/Prankster's Paradise Flashback: When World's Dream Reward [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Flashback: Pinocchio Lies Reward [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Flashback: Pinocchio Lies Reward/Prankster's Paradise Flashback: Pinocchio Lies Reward [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Found Pinocchio HP Bonus [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Found Pinocchio HP Bonus/Prankster's Paradise Found Pinocchio HP Bonus [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Jestabocky Recipe Reward [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Jestabocky Recipe Reward/Prankster's Paradise Jestabocky Recipe Reward [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise High Jump Reward [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/High Jump Reward/Prankster's Paradise High Jump Reward [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Glossary: Nobodies Reward [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Glossary: Nobodies Reward/Prankster's Paradise Glossary: Nobodies Reward [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Glossary: Organization XIII Reward [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Glossary: Organization XIII Reward/Prankster's Paradise Glossary: Organization XIII Reward [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Chronicle: KH2 Reward [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Chronicle: KH2 Reward/Prankster's Paradise Chronicle: KH2 Reward [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Flashback: In Search of Monstro Reward [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Flashback: In Search of Monstro Reward/Prankster's Paradise Flashback: In Search of Monstro Reward [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Chill Clawbster Bonus Slot 1 [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Chill Clawbster Bonus Slot 1/Prankster's Paradise Chill Clawbster Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Ferris Gear Reward [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Ferris Gear Reward/Prankster's Paradise Ferris Gear Reward [Sora]"
+                    },
+                    {
                         "name": "Prankster's Paradise Amusement Park Blizzara [Sora]",
                         "ref": "Prankster's Paradise [Sora]/Amusement Park Blizzara/Prankster's Paradise Amusement Park Blizzara [Sora]"
                     },
@@ -19426,6 +19802,10 @@
                     {
                         "name": "Prankster's Paradise Amusement Park Candy Goggles [Sora]",
                         "ref": "Prankster's Paradise [Sora]/Amusement Park Candy Goggles/Prankster's Paradise Amusement Park Candy Goggles [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Promontory Lord Kyroo Fight [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Promontory Lord Kyroo Fight/Prankster's Paradise Promontory Lord Kyroo Fight [Sora]"
                     }
                 ],
                 "map_locations": [
@@ -19439,6 +19819,30 @@
             {
                 "name": "Country of the Musketeers [Sora]",
                 "sections": [
+                    {
+                        "name": "Country of the Musketeers Secret Portal [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/Secret Portal/Country of the Musketeers Secret Portal [Sora]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Flashback: Overnight Musketeers Reward [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/Flashback: Overnight Musketeers Reward/Country of the Musketeers Flashback: Overnight Musketeers Reward [Sora]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Tyranto Rex Recipe Reward [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/Tyranto Rex Recipe Reward/Country of the Musketeers Tyranto Rex Recipe Reward [Sora]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Slide Roll Reward [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/Slide Roll Reward/Country of the Musketeers Slide Roll Reward [Sora]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Pete Bonus Slot 1 [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/Pete Bonus Slot 1/Country of the Musketeers Pete Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "Country of the Musketeers All For One Reward [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/All For One Reward/Country of the Musketeers All For One Reward [Sora]"
+                    },
                     {
                         "name": "Country of the Musketeers Grand Lobby Mega-Potion [Sora]",
                         "ref": "Country of the Musketeers [Sora]/Grand Lobby Mega-Potion/Country of the Musketeers Grand Lobby Mega-Potion [Sora]"
@@ -19580,6 +19984,30 @@
                 "name": "Symphony of Sorcery [Sora]",
                 "sections": [
                     {
+                        "name": "Symphony of Sorcery Secret Portal [Sora]",
+                        "ref": "Symphony of Sorcery [Sora]/Secret Portal/Symphony of Sorcery Secret Portal [Sora]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Flashback: Sorcerer's Apprentice Reward [Sora]",
+                        "ref": "Symphony of Sorcery [Sora]/Flashback: Sorcerer's Apprentice Reward/Symphony of Sorcery Flashback: Sorcerer's Apprentice Reward [Sora]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Double Impact Reward [Sora]",
+                        "ref": "Symphony of Sorcery [Sora]/Double Impact Reward/Symphony of Sorcery Double Impact Reward [Sora]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Spellican Bonus Slot 1 [Sora]",
+                        "ref": "Symphony of Sorcery [Sora]/Spellican Bonus Slot 1/Symphony of Sorcery Spellican Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Spellican Bonus Slot 2 [Sora]",
+                        "ref": "Symphony of Sorcery [Sora]/Spellican Bonus Slot 2/Symphony of Sorcery Spellican Bonus Slot 2 [Sora]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Counterpoint Reward [Sora]",
+                        "ref": "Symphony of Sorcery [Sora]/Counterpoint Reward/Symphony of Sorcery Counterpoint Reward [Sora]"
+                    },
+                    {
                         "name": "Symphony of Sorcery Tower Entrance Dream Candy [Sora]",
                         "ref": "Symphony of Sorcery [Sora]/Tower Entrance Dream Candy/Symphony of Sorcery Tower Entrance Dream Candy [Sora]"
                     },
@@ -19680,6 +20108,18 @@
                 "name": "TWTNW (Dark City) [Sora]",
                 "sections": [
                     {
+                        "name": "The World That Never Was Xemnas Bonus Slot 1 [Sora]",
+                        "ref": "The World That Never Was [Sora]/Xemnas Bonus Slot 1/The World That Never Was Xemnas Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "The World That Never Was Glossary: Recusant's Sigil Reward [Sora]",
+                        "ref": "The World That Never Was [Sora]/Glossary: Recusant's Sigil Reward/The World That Never Was Glossary: Recusant's Sigil Reward [Sora]"
+                    },
+                    {
+                        "name": "The World That Never Was Glossary: Hearts Tied to Sora Reward [Sora]",
+                        "ref": "The World That Never Was [Sora]/Glossary: Hearts Tied to Sora Reward/The World That Never Was Glossary: Hearts Tied to Sora Reward [Sora]"
+                    },
+                    {
                         "name": "The World That Never Was Avenue to Dreams Shield Cookie 3 [Sora]",
                         "ref": "The World That Never Was [Sora]/Avenue to Dreams Shield Cookie 3/The World That Never Was Avenue to Dreams Shield Cookie 3 [Sora]"
                     },
@@ -19751,6 +20191,46 @@
             {
                 "name": "Traverse Town [Riku]",
                 "sections": [
+                    {
+                        "name": "Traverse Town Secret Portal [Riku]",
+                        "ref": "Traverse Town [Riku]/Secret Portal/Traverse Town Secret Portal [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Komory Bat Recipe Reward [Riku]",
+                        "ref": "Traverse Town [Riku]/Komory Bat Recipe Reward/Traverse Town Komory Bat Recipe Reward [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Flashback: Keyblade War Reward [Riku]",
+                        "ref": "Traverse Town [Riku]/Flashback: Keyblade War Reward/Traverse Town Flashback: Keyblade War Reward [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Glossary: Keyblade War Reward [Riku]",
+                        "ref": "Traverse Town [Riku]/Glossary: Keyblade War Reward/Traverse Town Glossary: Keyblade War Reward [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Glossary: Kingdom Hearts Reward [Riku]",
+                        "ref": "Traverse Town [Riku]/Glossary: Kingdom Hearts Reward/Traverse Town Glossary: Kingdom Hearts Reward [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Glossary: Keyblade Reward [Riku]",
+                        "ref": "Traverse Town [Riku]/Glossary: Keyblade Reward/Traverse Town Glossary: Keyblade Reward [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Rescue Shiki Bonus Slot [Riku]",
+                        "ref": "Traverse Town [Riku]/Rescue Shiki Bonus Slot/Traverse Town Rescue Shiki Bonus Slot [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 1 [Riku]",
+                        "ref": "Traverse Town [Riku]/Hockomonkey Bonus Slot 1/Traverse Town Hockomonkey Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 2 [Riku]",
+                        "ref": "Traverse Town [Riku]/Hockomonkey Bonus Slot 2/Traverse Town Hockomonkey Bonus Slot 2 [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Skull Noise Reward [Riku]",
+                        "ref": "Traverse Town [Riku]/Skull Noise Reward/Traverse Town Skull Noise Reward [Riku]"
+                    },
                     {
                         "name": "Traverse Town First District Rampant Fantasy [Riku]",
                         "ref": "Traverse Town [Riku]/First District Rampant Fantasy/Traverse Town First District Rampant Fantasy [Riku]"
@@ -19892,6 +20372,34 @@
                 "name": "La Cité des Cloches [Riku]",
                 "sections": [
                     {
+                        "name": "La Cite des Cloches Secret Portal [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Secret Portal/La Cite des Cloches Secret Portal [Riku]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Flashback: Dark Obsession Reward [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Flashback: Dark Obsession Reward/La Cite des Cloches Flashback: Dark Obsession Reward [Riku]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Sonic Impact Reward [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Sonic Impact Reward/La Cite des Cloches Sonic Impact Reward [Riku]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Wargoyle Bonus Slot 1 [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Wargoyle Bonus Slot 1/La Cite des Cloches Wargoyle Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Wargoyle Bonus Slot 2 [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Wargoyle Bonus Slot 2/La Cite des Cloches Wargoyle Bonus Slot 2 [Riku]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Chronicle: Kingdom Hearts Reward [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Chronicle: Kingdom Hearts Reward/La Cite des Cloches Chronicle: Kingdom Hearts Reward [Riku]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Guardian Bell Reward [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Guardian Bell Reward/La Cite des Cloches Guardian Bell Reward [Riku]"
+                    },
+                    {
                         "name": "La Cite des Cloches Square Balloon [Riku]",
                         "ref": "La Cite des Cloches [Riku]/Square Balloon/La Cite des Cloches Square Balloon [Riku]"
                     },
@@ -20026,6 +20534,10 @@
                     {
                         "name": "La Cite des Cloches Windmill Shield Cookie [Riku]",
                         "ref": "La Cite des Cloches [Riku]/Windmill Shield Cookie/La Cite des Cloches Windmill Shield Cookie [Riku]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Nave Lord Kyroo Fight [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Nave Lord Kyroo Fight/La Cite des Cloches Nave Lord Kyroo Fight [Riku]"
                     }
                 ],
                 "map_locations": [
@@ -20039,6 +20551,34 @@
             {
                 "name": "The Grid [Riku]",
                 "sections": [
+                    {
+                        "name": "The Grid Secret Portal [Riku]",
+                        "ref": "The Grid [Riku]/Secret Portal/The Grid Secret Portal [Riku]"
+                    },
+                    {
+                        "name": "The Grid Light Cycle Bonus Slot [Riku]",
+                        "ref": "The Grid [Riku]/Light Cycle Bonus Slot/The Grid Light Cycle Bonus Slot [Riku]"
+                    },
+                    {
+                        "name": "The Grid Flashback: Father and Son Reward [Riku]",
+                        "ref": "The Grid [Riku]/Flashback: Father and Son Reward/The Grid Flashback: Father and Son Reward [Riku]"
+                    },
+                    {
+                        "name": "The Grid City Dream Eater Fight Bonus Slot [Riku]",
+                        "ref": "The Grid [Riku]/City Dream Eater Fight Bonus Slot/The Grid City Dream Eater Fight Bonus Slot [Riku]"
+                    },
+                    {
+                        "name": "The Grid Flashback: Stolen Disk Reward [Riku]",
+                        "ref": "The Grid [Riku]/Flashback: Stolen Disk Reward/The Grid Flashback: Stolen Disk Reward [Riku]"
+                    },
+                    {
+                        "name": "The Grid Commantis Bonus Slot 1 [Riku]",
+                        "ref": "The Grid [Riku]/Commantis Bonus Slot 1/The Grid Commantis Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "The Grid Dual Disc Reward [Riku]",
+                        "ref": "The Grid [Riku]/Dual Disc Reward/The Grid Dual Disc Reward [Riku]"
+                    },
                     {
                         "name": "The Grid Rectifier 1F Balloon [Riku]",
                         "ref": "The Grid [Riku]/Rectifier 1F Balloon/The Grid Rectifier 1F Balloon [Riku]"
@@ -20232,6 +20772,22 @@
                 "name": "Prankster's Paradise (Monstro) [Riku]",
                 "sections": [
                     {
+                        "name": "Prankster's Paradise Secret Portal [Riku]",
+                        "ref": "Prankster's Paradise [Riku]/Secret Portal/Prankster's Paradise Secret Portal [Riku]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Chronicle: Chain of Memories Reward [Riku]",
+                        "ref": "Prankster's Paradise [Riku]/Chronicle: Chain of Memories Reward/Prankster's Paradise Chronicle: Chain of Memories Reward [Riku]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Char Clobster Bonus Slot 1 [Riku]",
+                        "ref": "Prankster's Paradise [Riku]/Char Clobster Bonus Slot 1/Prankster's Paradise Char Clobster Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Ocean's Rage Reward [Riku]",
+                        "ref": "Prankster's Paradise [Riku]/Ocean's Rage Reward/Prankster's Paradise Ocean's Rage Reward [Riku]"
+                    },
+                    {
                         "name": "Prankster's Paradise Monstro: Mouth Ice Dream Cone 2 [Riku]",
                         "ref": "Prankster's Paradise [Riku]/Monstro: Mouth Ice Dream Cone 2/Prankster's Paradise Monstro: Mouth Ice Dream Cone 2 [Riku]"
                     },
@@ -20331,6 +20887,34 @@
             {
                 "name": "Country of the Musketeers [Riku]",
                 "sections": [
+                    {
+                        "name": "Country of the Musketeers Secret Portal [Riku]",
+                        "ref": "Country of the Musketeers [Riku]/Secret Portal/Country of the Musketeers Secret Portal [Riku]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Flashback: Bon Journey Reward [Riku]",
+                        "ref": "Country of the Musketeers [Riku]/Flashback: Bon Journey Reward/Country of the Musketeers Flashback: Bon Journey Reward [Riku]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Stage Gadget Reward [Riku]",
+                        "ref": "Country of the Musketeers [Riku]/Stage Gadget Reward/Country of the Musketeers Stage Gadget Reward [Riku]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Holey Moley Bonus Slot 1 [Riku]",
+                        "ref": "Country of the Musketeers [Riku]/Holey Moley Bonus Slot 1/Country of the Musketeers Holey Moley Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Shadow Slide Reward [Riku]",
+                        "ref": "Country of the Musketeers [Riku]/Shadow Slide Reward/Country of the Musketeers Shadow Slide Reward [Riku]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Shadow Strike Reward [Riku]",
+                        "ref": "Country of the Musketeers [Riku]/Shadow Strike Reward/Country of the Musketeers Shadow Strike Reward [Riku]"
+                    },
+                    {
+                        "name": "Country of the Musketeers All For One Reward [Riku]",
+                        "ref": "Country of the Musketeers [Riku]/All For One Reward/Country of the Musketeers All For One Reward [Riku]"
+                    },
                     {
                         "name": "Country of the Musketeers Grand Lobby Water Barrel [Riku]",
                         "ref": "Country of the Musketeers [Riku]/Grand Lobby Water Barrel/Country of the Musketeers Grand Lobby Water Barrel [Riku]"
@@ -20468,6 +21052,22 @@
                 "name": "Symphony of Sorcery [Riku]",
                 "sections": [
                     {
+                        "name": "Symphony of Sorcery Flashback: A Magical Mishap Reward [Riku]",
+                        "ref": "Symphony of Sorcery [Riku]/Flashback: A Magical Mishap Reward/Symphony of Sorcery Flashback: A Magical Mishap Reward [Riku]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Chernobog Bonus Slot 1 [Riku]",
+                        "ref": "Symphony of Sorcery [Riku]/Chernobog Bonus Slot 1/Symphony of Sorcery Chernobog Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Chernobog Bonus Slot 2 [Riku]",
+                        "ref": "Symphony of Sorcery [Riku]/Chernobog Bonus Slot 2/Symphony of Sorcery Chernobog Bonus Slot 2 [Riku]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Counterpoint Reward [Riku]",
+                        "ref": "Symphony of Sorcery [Riku]/Counterpoint Reward/Symphony of Sorcery Counterpoint Reward [Riku]"
+                    },
+                    {
                         "name": "Symphony of Sorcery Tower Entrance Water Barrel [Riku]",
                         "ref": "Symphony of Sorcery [Riku]/Tower Entrance Water Barrel/Symphony of Sorcery Tower Entrance Water Barrel [Riku]"
                     },
@@ -20550,6 +21150,10 @@
                     {
                         "name": "Symphony of Sorcery Snowgleam Wood Confetti Candy 3 [Riku]",
                         "ref": "Symphony of Sorcery [Riku]/Snowgleam Wood Confetti Candy 3/Symphony of Sorcery Snowgleam Wood Confetti Candy 3 [Riku]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Moonlight Wood Lord Kyroo Fight [Riku]",
+                        "ref": "Symphony of Sorcery [Riku]/Moonlight Wood Lord Kyroo Fight/Symphony of Sorcery Moonlight Wood Lord Kyroo Fight [Riku]"
                     }
                 ],
                 "map_locations": [
@@ -20563,6 +21167,18 @@
             {
                 "name": "TWTNW (Castle That Never Was) [Riku]",
                 "sections": [
+                    {
+                        "name": "The World That Never Was Ansem II Defeated [Riku]",
+                        "ref": "The World That Never Was [Riku]/Ansem II Defeated/The World That Never Was Ansem II Defeated [Riku]"
+                    },
+                    {
+                        "name": "The World That Never Was Young Xehanort Defeated [Riku]",
+                        "ref": "The World That Never Was [Riku]/Young Xehanort Defeated/The World That Never Was Young Xehanort Defeated [Riku]"
+                    },
+                    {
+                        "name": "Armored Ventus Nightmare Defeated [Riku]",
+                        "ref": "The World That Never Was [Riku]/Armored Ventus Nightmare Defeated/Armored Ventus Nightmare Defeated [Riku]"
+                    },
                     {
                         "name": "The World That Never Was Delusive Beginning Dream Candy [Riku]",
                         "ref": "The World That Never Was [Riku]/Delusive Beginning Dream Candy/The World That Never Was Delusive Beginning Dream Candy [Riku]"
@@ -20674,6 +21290,14 @@
                     {
                         "name": "The World That Never Was Delusive Beginning Third Elixir [Riku]",
                         "ref": "The World That Never Was [Riku]/Delusive Beginning Third Elixir/The World That Never Was Delusive Beginning Third Elixir [Riku]"
+                    },
+                    {
+                        "name": "The World That Never Was Ansem I Defeated [Riku]",
+                        "ref": "The World That Never Was [Riku]/Ansem I Defeated/The World That Never Was Ansem I Defeated [Riku]"
+                    },
+                    {
+                        "name": "The World That Never Was Anti Black Coat Nightmare Defeated [Riku]",
+                        "ref": "The World That Never Was [Riku]/Anti Black Coat Nightmare Defeated/The World That Never Was Anti Black Coat Nightmare Defeated [Riku]"
                     }
                 ],
                 "map_locations": [
