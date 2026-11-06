@@ -218,6 +218,377 @@
                                             "type": "map",
                                             "maps": ["Meow Wow"]
                                         }
+                                    },
+                                    {
+                                        "title": "Tama Sheep",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Tama Sheep"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Yoggy Ram",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Yoggy Ram"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Komory Bat",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Komory Bat"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Pricklemane",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Pricklemane"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Hebby Repp",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Hebby Repp"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Sir Kyroo",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Sir Kyroo"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Toximander",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Toximander"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Fin Fatale",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Fin Fatale"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Tatsu Steed",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Tatsu Steed"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Necho Cat",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Necho Cat"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Thunderaffe",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Thunderaffe"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Kooma Panda",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Kooma Panda"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Pegaslick",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Pegaslick"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Iceguin Ace",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Iceguin Ace"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Peepsta Hoo",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Peepsta Hoo"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Escarglow",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Escarglow"]
+                                        }
+                                    },
+                                    {
+                                        "title": "KO Kabuto",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["KO Kabuto"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Wheeflower",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Wheeflower"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Ghostabocky",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Ghostabocky"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Zolephant",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Zolephant"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Juggle Pup",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Juggle Pup"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Halbird",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Halbird"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Staggerceps",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Staggerceps"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Fishbone",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Fishbone"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Flowbermeow",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Flowbermeow"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Cyber Yog",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Cyber Yog"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Chef Kyroo",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Chef Kyroo"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Lord Kyroo",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Lord Kyroo"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Tatsu Blaze",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Tatsu Blaze"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Electricorn",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Electricorn"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Woeflower",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Woeflower"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Jestabocky",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Jestabocky"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Eaglider",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Eaglider"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Me Me Bunny",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Me Me Bunny"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Drill Sye",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Drill Sye"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Tyranto Rex",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Tyranto Rex"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Majik Lapin",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Majik Lapin"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Cera Terror",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Cera Terror"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Skelterwild",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Skelterwild"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Ducky Goose",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Ducky Goose"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Aura Lion",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Aura Lion"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Ryu Dragon",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Ryu Dragon"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Drak Quack",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Drak Quack"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Keeba Tiger",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Keeba Tiger"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Meowjesty",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Meowjesty"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Sudo Neku",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Sudo Neku"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Frootz Cat",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Frootz Cat"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Ursa Circus",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Ursa Circus"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Kab Kannon",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Kab Kannon"]
+                                        }
+                                    },
+                                    {
+                                        "title": "R & R Seal",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["R & R Seal"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Catanuki",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Catanuki"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Beatalike",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Beatalike"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Tubguin Ace",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Tubguin Ace"]
+                                        }
                                     }
                                 ]
                             }

@@ -112,6 +112,377 @@
         "img": "images/spirits/1.png"
     },
     {
+        "name": "Tama Sheep",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/2.png"
+    },
+    {
+        "name": "Yoggy Ram",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/3.png"
+    },
+    {
+        "name": "Komory Bat",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/4.png"
+    },
+    {
+        "name": "Pricklemane",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/5.png"
+    },
+    {
+        "name": "Hebby Repp",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/6.png"
+    },
+    {
+        "name": "Sir Kyroo",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/7.png"
+    },
+    {
+        "name": "Toximander",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/8.png"
+    },
+    {
+        "name": "Fin Fatale",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/9.png"
+    },
+    {
+        "name": "Tatsu Steed",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/10.png"
+    },
+    {
+        "name": "Necho Cat",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/11.png"
+    },
+    {
+        "name": "Thunderaffe",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/12.png"
+    },
+    {
+        "name": "Kooma Panda",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/13.png"
+    },
+    {
+        "name": "Pegaslick",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/14.png"
+    },
+    {
+        "name": "Iceguin Ace",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/15.png"
+    },
+    {
+        "name": "Peepsta Hoo",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/16.png"
+    },
+    {
+        "name": "Escarglow",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/17.png"
+    },
+    {
+        "name": "KO Kabuto",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/18.png"
+    },
+    {
+        "name": "Wheeflower",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/19.png"
+    },
+    {
+        "name": "Ghostabocky",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/20.png"
+    },
+    {
+        "name": "Zolephant",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/21.png"
+    },
+    {
+        "name": "Juggle Pup",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/22.png"
+    },
+    {
+        "name": "Halbird",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/23.png"
+    },
+    {
+        "name": "Staggerceps",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/24.png"
+    },
+    {
+        "name": "Fishbone",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/25.png"
+    },
+    {
+        "name": "Flowbermeow",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/26.png"
+    },
+    {
+        "name": "Cyber Yog",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/27.png"
+    },
+    {
+        "name": "Chef Kyroo",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/28.png"
+    },
+    {
+        "name": "Lord Kyroo",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/29.png"
+    },
+    {
+        "name": "Tatsu Blaze",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/30.png"
+    },
+    {
+        "name": "Electricorn",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/31.png"
+    },
+    {
+        "name": "Woeflower",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/32.png"
+    },
+    {
+        "name": "Jestabocky",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/33.png"
+    },
+    {
+        "name": "Eaglider",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/34.png"
+    },
+    {
+        "name": "Me Me Bunny",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/35.png"
+    },
+    {
+        "name": "Drill Sye",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/36.png"
+    },
+    {
+        "name": "Tyranto Rex",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/37.png"
+    },
+    {
+        "name": "Majik Lapin",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/38.png"
+    },
+    {
+        "name": "Cera Terror",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/39.png"
+    },
+    {
+        "name": "Skelterwild",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/40.png"
+    },
+    {
+        "name": "Ducky Goose",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/41.png"
+    },
+    {
+        "name": "Aura Lion",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/42.png"
+    },
+    {
+        "name": "Ryu Dragon",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/43.png"
+    },
+    {
+        "name": "Drak Quack",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/44.png"
+    },
+    {
+        "name": "Keeba Tiger",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/45.png"
+    },
+    {
+        "name": "Meowjesty",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/46.png"
+    },
+    {
+        "name": "Sudo Neku",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/47.png"
+    },
+    {
+        "name": "Frootz Cat",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/48.png"
+    },
+    {
+        "name": "Ursa Circus",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/49.png"
+    },
+    {
+        "name": "Kab Kannon",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/50.png"
+    },
+    {
+        "name": "R & R Seal",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/51.png"
+    },
+    {
+        "name": "Catanuki",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/52.png"
+    },
+    {
+        "name": "Beatalike",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/53.png"
+    },
+    {
+        "name": "Tubguin Ace",
+        "location_size": 30,
+        "location_border_thickness": 3,
+        "location_shape": "rect",
+        "img": "images/spirits/54.png"
+    },
+    {
         "name": "Overworld",
         "location_size": 30,
         "location_border_thickness": 2,
