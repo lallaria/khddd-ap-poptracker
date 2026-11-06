@@ -196,27 +196,27 @@
                                                 }
                                             ]
                                         }
-                                    },
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "title": "Link Boards",
+                            "content": {
+                                "type": "tabbed",
+                                "tabs": [
                                     {
                                         "title": "Link Boards",
                                         "content": {
-                                            "type": "tabbed",
-                                            "tabs": [
-                                                {
-                                                    "title": "Link Boards",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": ["Link Boards"]
-                                                    }
-                                                },
-                                                {
-                                                    "title": "Meow Wow",
-                                                    "content": {
-                                                        "type": "map",
-                                                        "maps": ["Meow Wow"]
-                                                    }
-                                                }
-                                            ]
+                                            "type": "map",
+                                            "maps": ["Link Boards"]
+                                        }
+                                    },
+                                    {
+                                        "title": "Meow Wow",
+                                        "content": {
+                                            "type": "map",
+                                            "maps": ["Meow Wow"]
                                         }
                                     }
                                 ]

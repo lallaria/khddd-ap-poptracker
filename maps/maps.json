@@ -113,8 +113,8 @@
     },
     {
         "name": "Overworld",
-        "location_size": 48,
-        "location_border_thickness": 3,
+        "location_size": 30,
+        "location_border_thickness": 2,
         "location_shape": "rect",
         "img": "images/maps/Overworld_KH3DHD.png"
     }
