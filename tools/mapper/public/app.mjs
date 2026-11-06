@@ -1,5 +1,6 @@
 import * as G from "./geometry.mjs";
 import * as L from "./layout.mjs";
+import * as S from "./summary.mjs";
 
 const $ = (selector) => document.querySelector(selector);
 const canvas = $("#map-canvas");
@@ -35,7 +36,7 @@ const state = {
     view: { scale: 1, x: 0, y: 0 },
     views: new Map(),
     pendingFit: null,
-    baseline: new Map(),    // "loc:<key>" / "map:<name>" / "layout:<key>" -> JSON as last loaded or saved
+    baseline: new Map(),    // "loc:<key>" / "map:<name>" / "layout:<key>" / "group:<name>" -> JSON as last loaded or saved
     undo: [],
     redo: [],
     visibleLocs: [],
@@ -44,6 +45,7 @@ const state = {
     align: null,
     editTabs: false,
     lastTabTarget: null,    // label of the place the last tab went
+    summaryGroup: "Overworld",
     spaceHeld: false,
     cacheBust: Date.now(),
 };
@@ -157,6 +159,7 @@ function currentValue(id) {
     const ref = rest.join(":");
     if (type === "loc") return state.byKey.get(ref)?.node.map_locations;
     if (type === "layout") return state.pack.layouts[ref];
+    if (type === "group") return state.pack.locations.find((node) => node.name === ref);
     return state.pack.maps.find((m) => m.name === ref);
 }
 
@@ -171,6 +174,14 @@ function applyChange(change, value) {
     } else if (change.type === "layout") {
         state.pack.layouts[change.key] = clone(value);
         state.tree = L.layoutTree(state.pack.layouts);
+    } else if (change.type === "group") {
+        const list = state.pack.locations;
+        const index = list.findIndex((node) => node.name === change.key);
+        if (value && index >= 0) list[index] = clone(value);
+        else if (value) list.push(clone(value));
+        else if (index >= 0) list.splice(index, 1);
+        buildIndex();
+        if (state.sel && !state.byKey.has(state.sel.key)) state.sel = null;
     } else {
         const maps = state.pack.maps;
         const index = maps.findIndex((m) => m.name === change.name);
@@ -181,7 +192,7 @@ function applyChange(change, value) {
 }
 
 function dirty() {
-    const changed = { loc: [], map: [], layout: [] };
+    const changed = { loc: [], map: [], layout: [], group: [] };
     for (const [id, json] of state.baseline) {
         if (JSON.stringify(currentValue(id) ?? null) === json) continue;
         const [type, ...rest] = id.split(":");
@@ -190,10 +201,10 @@ function dirty() {
     return changed;
 }
 
-const dirtyCount = (changed = dirty()) => changed.loc.length + changed.map.length + changed.layout.length;
+const dirtyCount = (changed = dirty()) => Object.values(changed).reduce((sum, list) => sum + list.length, 0);
 
 function describe(changed) {
-    const parts = [["loc", "location"], ["map", "map"], ["layout", "layout"]]
+    const parts = [["loc", "location"], ["group", "summary group"], ["map", "map"], ["layout", "layout"]]
         .filter(([type]) => changed[type].length).map(([type, word]) => plural(changed[type].length, word));
     return parts.length > 1 ? `${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}` : parts[0] ?? "nothing";
 }
@@ -262,9 +273,14 @@ async function save() {
     }
     $("#btn-save").disabled = true;
     try {
+        const groups = new Set(changed.group);
         const patch = {
-            locations: changed.loc.map((key) => ({
+            // a changed group is written whole, markers included
+            locations: changed.loc.filter((key) => !groups.has(JSON.parse(key)[0])).map((key) => ({
                 path: JSON.parse(key), map_locations: state.byKey.get(key)?.node.map_locations ?? null,
+            })),
+            groups: changed.group.map((name) => ({
+                name, before: JSON.parse(state.baseline.get(`group:${name}`)), after: currentValue(`group:${name}`) ?? null,
             })),
             maps: changed.map.map((name) => ({ name, entry: state.pack.maps.find((m) => m.name === name) ?? null })),
             layouts: changed.layout.map((key) => ({
@@ -1282,7 +1298,7 @@ function renderDetails() {
     });
 
     const here = onMap(entry, state.mapName);
-    box.replaceChildren(
+    box.replaceChildren(...[
         el("h3", { textContent: node.name }),
         el("div", {
             className: "dim small",
@@ -1290,12 +1306,13 @@ function renderDetails() {
         }),
         el("div", { className: "small", textContent: plural(checks.length, "check") }),
         list,
+        ...summaryTools(entry),
         markers.length ? table : el("div", { className: "dim small", textContent: "Not on any map yet." }),
         el("div", {
             className: "dim small",
             textContent: here ? "Click the map to move this marker; Shift+click adds another." : "Click the map to place it here.",
         }),
-    );
+    ]);
 }
 
 // --- layout tabs -------------------------------------------------------------------------------
@@ -1445,6 +1462,167 @@ tabForm.addEventListener("submit", (event) => {
     } catch (failure) {
         $("#dt-error").textContent = failure.message;
         $("#dt-error").hidden = false;
+    }
+});
+
+// --- summary locations -------------------------------------------------------------------------
+
+function groupOf(entry) {
+    if (entry.path.length !== 2) return null;
+    const group = state.pack.locations.find((node) => node.name === entry.path[0]);
+    return S.isSummaryGroup(group) ? group : null;
+}
+
+function summaryTools(entry) {
+    const group = groupOf(entry);
+    if (!group) return [];
+    const missing = S.missingRefs(state.pack.locations, entry.node.sections);
+    return [
+        el("div", { className: "dim small", textContent: `A summary in ${group.name}: its marker shows whether any of these checks is available.` }),
+        missing.length ? el("div", {
+            className: "warning small", title: missing.join("\n"),
+            textContent: `${missing.length} of its sections point at checks that no longer exist; rebuild it.`,
+        }) : null,
+        el("div", { className: "buttons" },
+            el("button", { textContent: "Delete", onclick: () => deleteSummary(entry) }),
+            el("button", { textContent: "Rebuild…", onclick: () => openSummaryDialog(entry) })),
+    ].filter(Boolean);
+}
+
+/** Records one undo step that rewrites a summary group; a group left empty is removed. */
+function editGroup(name, edit, label) {
+    const current = state.pack.locations.find((node) => node.name === name) ?? null;
+    const after = clone(current) ?? { name, children: [] };
+    edit(after);
+    commit([{ type: "group", key: name, before: clone(current), after: after.children.length ? after : null }], label);
+}
+
+function deleteSummary(entry) {
+    const [group, name] = entry.path;
+    if (!confirm(`Delete the summary location ${name}${entry.node.map_locations?.length ? " and its markers" : ""}?`)) return;
+    editGroup(group, (node) => {
+        node.children = node.children.filter((child) => child.name !== name);
+    }, `Deleted summary ${name}`);
+}
+
+function summarySources() {
+    const out = [];
+    const walk = (items, trail) => {
+        for (const item of items) {
+            if (item.map) continue;
+            for (const tab of item.tabs) {
+                const path = [...trail, tab.title || "(untitled tab)"];
+                if (L.layoutMaps(tab.children).length) out.push({ tab, label: path.join(" / ") });
+                walk(tab.children, path);
+            }
+        }
+    };
+    walk(state.tree, []);
+    return out;
+}
+
+function summaryName(tab) {
+    const maps = [...new Set(L.layoutMaps(tab.children))];
+    return maps.length === 1 ? maps[0] : tab.title;
+}
+
+const subTabs = (tab) => (tab.children.find((child) => !child.map)?.tabs ?? []).filter((sub) => L.layoutMaps(sub.children).length);
+const summaryOf = (tab) => S.summarySections(state.pack.locations, L.layoutMaps(tab.children), {
+    wholeRegions: summaryForm.elements.scope.value === "regions",
+    checks: state.pack.checks && new Set(state.pack.checks),
+});
+
+const summaryDialog = $("#dlg-summary");
+const summaryForm = summaryDialog.querySelector("form");
+let summaryEdit = null;
+
+function openSummaryDialog(entry = null) {
+    const f = summaryForm.elements;
+    summaryForm.reset();
+    const sources = summarySources();
+    summaryEdit = { entry, sources };
+    f.source.replaceChildren(...sources.map((source, i) => el("option", { value: i, textContent: source.label })));
+    const name = entry ? entry.path[1] : state.mapName;
+    f.source.value = String(Math.max(0, sources.findIndex((source) => summaryName(source.tab) === name)));
+    $("#ds-heading").textContent = entry ? `Rebuild ${entry.path[1]}` : "Add summary location";
+    $("#ds-group-row").hidden = Boolean(entry);
+    $("#ds-groups").replaceChildren(...state.pack.locations.filter(S.isSummaryGroup).map((node) => el("option", { value: node.name })));
+    f.group.value = entry ? entry.path[0] : state.summaryGroup;
+    f.name.value = entry ? entry.path[1] : "";
+    $("#ds-submit").textContent = entry ? "Rebuild" : "Add";
+    $("#ds-error").hidden = true;
+    syncSummaryDialog(!entry);
+    summaryDialog.showModal();
+}
+
+function syncSummaryDialog(renaming) {
+    const f = summaryForm.elements;
+    const source = summaryEdit.sources[f.source.value];
+    const subs = source && !summaryEdit.entry ? subTabs(source.tab) : [];
+    $("#ds-each-row").hidden = !subs.length;
+    if (!subs.length) f.each.checked = false;
+    $("#ds-each-row").lastElementChild.textContent = `One location per sub-tab (${subs.length})`;
+    $("#ds-name-row").hidden = f.each.checked;
+    if (renaming && source) f.name.value = summaryName(source.tab);
+    $("#ds-note").textContent = !source ? "No tab shows a map yet."
+        : f.each.checked ? `Adds or rebuilds ${subs.map(summaryName).join(", ")}.`
+            : `${plural(summaryOf(source.tab).length, "check")} on ${[...new Set(L.layoutMaps(source.tab.children))].join(", ")}.`;
+}
+
+summaryForm.elements.source.addEventListener("change", () => syncSummaryDialog(!summaryEdit.entry));
+summaryForm.elements.each.addEventListener("change", () => syncSummaryDialog(false));
+summaryForm.elements.scope.addEventListener("change", () => syncSummaryDialog(false));
+summaryForm.querySelector("button[value=cancel]").addEventListener("click", () => summaryDialog.close());
+
+summaryForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const f = summaryForm.elements;
+    const { entry, sources } = summaryEdit;
+    const source = sources[f.source.value];
+    try {
+        if (!source) throw new Error("Choose a tab.");
+        const groupName = entry ? entry.path[0] : f.group.value.trim();
+        if (!groupName || groupName.includes("/")) throw new Error("Give the group a name without slashes.");
+        const existing = state.pack.locations.find((node) => node.name === groupName);
+        if (existing && !S.isSummaryGroup(existing)) {
+            throw new Error(`${groupName} holds the pack's own locations; pick another group name.`);
+        }
+        const tabs = f.each.checked ? subTabs(source.tab) : [source.tab];
+        const items = tabs.map((tab) => ({ tab, name: f.each.checked ? summaryName(tab) : f.name.value.trim(), sections: summaryOf(tab) }));
+        for (const item of items) {
+            if (!item.name || item.name.includes("/")) throw new Error("Give the location a name without slashes.");
+            if (!item.sections.length) throw new Error(`No location has a marker on the maps of ${item.tab.title} yet.`);
+        }
+        const names = items.map((item) => item.name);
+        if (new Set(names).size < names.length) throw new Error(`Two sub-tabs would both be named ${names.find((n, i) => names.indexOf(n) !== i)}.`);
+        const taken = new Set((existing?.children ?? []).map((child) => child.name));
+        if (entry) {
+            const [, oldName] = entry.path;
+            const [{ name, sections }] = items;
+            if (name !== oldName && taken.has(name)) throw new Error(`${groupName} already has a location named ${name}.`);
+            editGroup(groupName, (group) => {
+                Object.assign(group.children.find((child) => child.name === oldName), { name, sections });
+            }, `Rebuilt summary ${name} from ${source.label}`);
+            select(JSON.stringify([groupName, name]));
+        } else {
+            const added = names.filter((name) => !taken.has(name)).length;
+            const label = [added && `Added ${plural(added, "summary location")}`, added < names.length && `rebuilt ${names.length - added}`]
+                .filter(Boolean).join(", ") + ` in ${groupName}`;
+            editGroup(groupName, (group) => {
+                for (const { name, sections } of items) {
+                    const node = group.children.find((child) => child.name === name);
+                    if (node) node.sections = sections;
+                    else group.children.push({ name, sections });
+                }
+            }, label);
+            state.summaryGroup = groupName;
+            select(JSON.stringify([groupName, names[0]]));
+            status(`${label}. Open the overworld map and click it to place ${names[0]}.`);
+        }
+        summaryDialog.close();
+    } catch (failure) {
+        $("#ds-error").textContent = failure.message;
+        $("#ds-error").hidden = false;
     }
 });
 
@@ -1746,6 +1924,7 @@ $("#show-labels").onchange = (event) => {
     invalidate();
 };
 $("#btn-add-map").onclick = () => openImageDialog("add");
+$("#btn-summary").onclick = () => openSummaryDialog();
 $("#btn-edit-tabs").onclick = () => {
     state.editTabs = !state.editTabs;
     renderMapList();

@@ -220,6 +220,17 @@ async function tabRefs(root, tree) {
     return refs;
 }
 
+/** Section paths the autotracker maps to AP locations, or null when the pack has no location_mapping.lua. */
+async function mappedChecks(root) {
+    const files = (await listFiles(root, "scripts", [".lua"])).filter((rel) => rel.endsWith("/location_mapping.lua"));
+    if (!files.length) return null;
+    const checks = new Set();
+    for (const rel of files) {
+        for (const match of (await readFile(path.join(root, rel), "utf8")).matchAll(/"@([^"]+)"/g)) checks.add(match[1]);
+    }
+    return [...checks];
+}
+
 export async function readPack(root) {
     const [maps, locations, layouts, images, manifest] = await Promise.all([
         readFile(path.join(root, MAPS_JSON), "utf8").then(JSON.parse),
@@ -233,6 +244,7 @@ export async function readPack(root) {
         minVersion: manifest.min_poptracker_version ?? null,
         maps, locations, layouts, images,
         tabRefs: await tabRefs(root, layoutTree(layouts)),
+        checks: await mappedChecks(root),
     };
 }
 
@@ -262,17 +274,28 @@ async function layoutWrites(root, edits) {
  * Args:
  *     patch: `locations` lists `{path, map_locations}` by node name chain (null or [] drops the key);
  *         `maps` lists `{name, entry}` (null entry removes that map, otherwise replaced in place or appended);
- *         `layouts` lists `{key, before, after}`, refused with 409 if the key on disk no longer equals `before`.
+ *         `layouts` lists `{key, before, after}`, refused with 409 if the key on disk no longer equals `before`;
+ *         `groups` lists whole top-level locations `{name, before, after}` the same way (null: absent), applied
+ *         before `locations`.
  *
  * Returns:
  *     `{missing}`: location paths that no longer exist on disk and were skipped.
  */
-export async function applyPatch(root, { locations = [], maps = [], layouts = [] }) {
+export async function applyPatch(root, { locations = [], maps = [], layouts = [], groups = [] }) {
     const layoutTexts = await layoutWrites(root, layouts);
     const missing = [];
-    if (locations.length) {
+    if (locations.length || groups.length) {
         const file = path.join(root, LOCATIONS_JSON);
         const tree = JSON.parse(await readFile(file, "utf8"));
+        for (const { name, before, after } of groups) {
+            const index = tree.findIndex((node) => node.name === name);
+            if (JSON.stringify(index < 0 ? null : tree[index]) !== JSON.stringify(before ?? null)) {
+                throw new PackError(409, `${name} in ${LOCATIONS_JSON} changed on disk since it was loaded; Reload, then redo its edits`);
+            }
+            if (after && index >= 0) tree[index] = after;
+            else if (after) tree.push(after);
+            else if (index >= 0) tree.splice(index, 1);
+        }
         for (const { path: names, map_locations: markers } of locations) {
             const node = Array.isArray(names) && findNode(tree, names);
             if (!node) {

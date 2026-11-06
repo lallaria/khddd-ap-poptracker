@@ -101,6 +101,7 @@
             </select>
         </div>
         <label class="check small"><input type="checkbox" id="auto-advance" checked> After placing, select the next location not on this map</label>
+        <button id="btn-summary" title="A location whose marker shows whether anything on a tab's maps is available, for an overworld map">Add summary location…</button>
         <div id="loc-note" class="dim small" hidden></div>
         <div id="loc-list" class="list" role="listbox" aria-label="Locations"></div>
         <section id="loc-details"></section>
@@ -154,6 +155,33 @@
     </form>
 </dialog>
 
+<dialog id="dlg-summary">
+    <form>
+        <h2 id="ds-heading"></h2>
+        <p class="dim small">A summary location refers to every check placed on a tab's maps, so one marker, on an
+            overworld map for instance, shows whether anything there is available.</p>
+        <label>Checks on the maps of <select name="source"></select></label>
+        <label class="check" id="ds-each-row"><input type="checkbox" name="each"> <span></span></label>
+        <label>Include
+            <select name="scope">
+                <option value="regions">every check of the top-level locations marked there, placed or not</option>
+                <option value="markers">only checks with a marker on those maps</option>
+            </select>
+        </label>
+        <label id="ds-name-row">Location name <input name="name" autocomplete="off"></label>
+        <label id="ds-group-row">In the top-level location <input name="group" list="ds-groups" autocomplete="off"></label>
+        <datalist id="ds-groups"></datalist>
+        <p id="ds-note" class="dim small"></p>
+        <p class="dim small">Checks are the sections location_mapping.lua maps to AP locations, so logic events stay out.
+            A location of the same name is rebuilt and keeps its markers.</p>
+        <p id="ds-error" class="warning small" hidden></p>
+        <div class="buttons">
+            <button type="button" value="cancel">Cancel</button>
+            <button type="submit" class="primary" id="ds-submit"></button>
+        </div>
+    </form>
+</dialog>
+
 <dialog id="dlg-help">
     <h2>Shortcuts</h2>
     <table class="keys">
@@ -186,6 +214,9 @@
     </table>
     <p class="dim small">Markers are drawn at their size in image pixels, which is how they look at PopTracker's default zoom.
         Universal Tracker keys markers by their x/y, so markers sharing a spot on one map get a red ring.</p>
+    <p class="dim small">"Add summary location" makes a location whose sections refer to every check on a tab's maps,
+        named by AP name so Universal Tracker counts them too. Place it on an overworld map; it lives in its own
+        top-level location, which the generators and the world counters leave alone.</p>
     <div class="buttons"><button type="button" class="primary" id="help-close">Close</button></div>
 </dialog>
 </body>

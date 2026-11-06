@@ -61,5 +61,9 @@ generators' format, onto whatever is on disk at that moment. "Replace image…" 
 and moves its markers along: drag and scale the old image over the new one, or click matching
 landmarks on both. "Add map…" appends a map to `maps.json` and can give it a tab. "Edit tabs" adds,
 reorders, renames, moves and removes layout tabs, including sub-tabs under a tab; it rewrites
-`layouts/tracker.json` in its current style and refuses files with comments. Press `?` in the tool
-for its shortcuts. Tests: `node --test "tools/mapper/test/*.test.mjs"`.
+`layouts/tracker.json` in its current style and refuses files with comments. "Add summary
+location…" makes one location per world (or any tab) whose sections `ref` that world's checks, for
+an overworld map: its marker shows whether anything there is available. Summaries live in their
+own top-level location (`Overworld` by default), which the generators and world counters leave
+alone; rebuild them after the generators add checks. Press `?` in the tool for its shortcuts.
+Tests: `node --test "tools/mapper/test/*.test.mjs"`.

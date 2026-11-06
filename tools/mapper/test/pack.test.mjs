@@ -145,6 +145,49 @@ describe("applyPatch", () => {
     });
 });
 
+describe("applyPatch groups", () => {
+    let root;
+    before(async () => {
+        root = await tempPack();
+    });
+    after(() => rm(root, { recursive: true, force: true }));
+
+    const readTree = async () => JSON.parse(await readFile(path.join(root, LOCATIONS_JSON), "utf8"));
+    const overworld = {
+        name: "Overworld",
+        children: [{ name: "Traverse Town [Sora]", sections: [{ name: "a", ref: "Traverse Town [Sora]/x/a" }] }],
+    };
+
+    test("adds, replaces and removes whole top-level locations", async () => {
+        const original = await readTree();
+        await applyPatch(root, { groups: [{ name: "Overworld", before: null, after: overworld }] });
+        assert.deepEqual(await readTree(), [...original, overworld]);
+
+        const placed = structuredClone(overworld);
+        placed.children[0].map_locations = [{ map: "World", x: 1, y: 2 }];
+        await applyPatch(root, { groups: [{ name: "Overworld", before: overworld, after: placed }] });
+        assert.deepEqual((await readTree()).at(-1), placed);
+
+        await applyPatch(root, { groups: [{ name: "Overworld", before: placed, after: null }] });
+        assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), dumps(original) + "\n");
+    });
+
+    test("refuses a group that changed on disk, or a name already taken, before writing", async () => {
+        const text = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
+        const town = JSON.parse(text).find((node) => node.name === "Traverse Town [Sora]");
+        for (const group of [
+            { name: "Overworld", before: overworld, after: null },
+            { name: "Traverse Town [Sora]", before: null, after: overworld },
+        ]) {
+            await assert.rejects(applyPatch(root, {
+                locations: [{ path: [town.name, town.children[0].name], map_locations: null }],
+                groups: [group],
+            }), (error) => error.status === 409 && /changed on disk/.test(error.message), group.name);
+        }
+        assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), text);
+    });
+});
+
 describe("applyPatch layouts", () => {
     const TRACKER = "layouts/tracker.json";
     let root;
