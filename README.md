@@ -10,10 +10,11 @@ Download the zip folder from the latest release and place it in the `packs` fold
 
 Pick one when loading the pack: Maps, Items & Link Boards (the default), Maps & Items, Items Only, or
 Link Boards Only. PopTracker lists them alphabetically by id. Each variant's `layouts/root.json` (in its
-`var_*` folder, or `layouts/` for the default) points `tracker_default` at a root layout in
-`layouts/tracker.json`, and the variants share every other layout. The variants with items also set
-`tracker_horizontal`, which PopTracker uses while the window is wider than tall: the items move from
-the left column to a band along the bottom.
+`var_*` folder, or `layouts/` for the default) points `tracker_default` at a root layout, and the
+variants share every other layout. The variants with items place them along the bottom or in a
+column on the left, picked by the "Items along the bottom" setting: `layouts/items_bottom.json` and
+`layouts/items_left.json` point `tracker_full`, `tracker_maps` and `tracker_items` at the matching
+`_bottom` or `_left` layout in `layouts/tracker.json`, and `scripts/settings.lua` loads one of them.
 
 ## Settings
 

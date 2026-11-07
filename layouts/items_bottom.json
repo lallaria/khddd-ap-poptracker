@@ -1,0 +1,14 @@
+{
+    "tracker_full": {
+        "type": "layout",
+        "key": "tracker_full_bottom"
+    },
+    "tracker_maps": {
+        "type": "layout",
+        "key": "tracker_maps_bottom"
+    },
+    "tracker_items": {
+        "type": "layout",
+        "key": "tracker_items_bottom"
+    }
+}

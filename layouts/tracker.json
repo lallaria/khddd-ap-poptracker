@@ -1,5 +1,5 @@
 {
-    "tracker_full": {
+    "tracker_full_left": {
         "type": "container",
         "background": "#000000",
         "content": {
@@ -18,7 +18,7 @@
             ]
         }
     },
-    "tracker_full_wide": {
+    "tracker_full_bottom": {
         "type": "container",
         "background": "#000000",
         "content": {
@@ -37,7 +37,7 @@
             ]
         }
     },
-    "tracker_maps": {
+    "tracker_maps_left": {
         "type": "container",
         "background": "#000000",
         "content": {
@@ -56,7 +56,7 @@
             ]
         }
     },
-    "tracker_maps_wide": {
+    "tracker_maps_bottom": {
         "type": "container",
         "background": "#000000",
         "content": {
@@ -75,7 +75,7 @@
             ]
         }
     },
-    "tracker_items": {
+    "tracker_items_left": {
         "type": "container",
         "background": "#000000",
         "content": {
@@ -83,7 +83,7 @@
             "key": "item_panel"
         }
     },
-    "tracker_items_wide": {
+    "tracker_items_bottom": {
         "type": "container",
         "background": "#000000",
         "content": {

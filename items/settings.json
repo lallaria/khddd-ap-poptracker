@@ -132,5 +132,14 @@
         "disabled_img_mods": "none",
         "initial_active_state": true,
         "codes": "opt_auto_tab"
+    },
+    {
+        "name": "Items along the bottom",
+        "type": "toggle",
+        "img": "images/items/switch_on.png",
+        "disabled_img": "images/items/switch_off.png",
+        "disabled_img_mods": "none",
+        "initial_active_state": true,
+        "codes": "opt_items_bottom"
     }
 ]
