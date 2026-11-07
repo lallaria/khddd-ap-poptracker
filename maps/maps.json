@@ -1,94 +1,10 @@
 [
     {
-        "name": "TWTNW (Castle That Never Was) [Riku]",
-        "location_size": 36,
+        "name": "Overworld",
+        "location_size": 30,
         "location_border_thickness": 2,
         "location_shape": "rect",
-        "img": "images/maps/Minimap_(Castle_That_Never_Was)_TWTNW_KH3DHD.png"
-    },
-    {
-        "name": "Country of the Musketeers [Riku]",
-        "location_size": 42,
-        "location_border_thickness": 2,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(Country_of_the_Musketeers)_KH3D.png"
-    },
-    {
-        "name": "Country of the Musketeers [Sora]",
-        "location_size": 42,
-        "location_border_thickness": 2,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(Country_of_the_Musketeers)_KH3D.png"
-    },
-    {
-        "name": "TWTNW (Dark City) [Sora]",
-        "location_size": 24,
-        "location_border_thickness": 1,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(Dark_City)_TWTNW_KH3DHD.png"
-    },
-    {
-        "name": "La Cité des Cloches [Riku]",
-        "location_size": 42,
-        "location_border_thickness": 4,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(La_Cité_des_Cloches)_KH3DHD.png"
-    },
-    {
-        "name": "La Cité des Cloches [Sora]",
-        "location_size": 42,
-        "location_border_thickness": 4,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(La_Cité_des_Cloches)_KH3DHD.png"
-    },
-    {
-        "name": "Prankster's Paradise (Monstro) [Riku]",
-        "location_size": 42,
-        "location_border_thickness": 4,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(Monstro)_PP_KH3DHD.png"
-    },
-    {
-        "name": "Prankster's Paradise [Sora]",
-        "location_size": 28,
-        "location_border_thickness": 1,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(Prankster's_Paradise)_KH3DHD.png"
-    },
-    {
-        "name": "Symphony of Sorcery [Riku]",
-        "location_size": 25,
-        "location_border_thickness": 2,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(Symphony_of_Sorcery)_KH3D_R.png"
-    },
-    {
-        "name": "Symphony of Sorcery [Sora]",
-        "location_size": 25,
-        "location_border_thickness": 2,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(Symphony_of_Sorcery)_KH3D_S.png"
-    },
-    {
-        "name": "The Grid [Riku]",
-        "location_size": 32,
-        "location_border_thickness": 2,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(The_Grid)_KH3DHD.png"
-    },
-    {
-        "name": "The Grid [Sora]",
-        "location_size": 32,
-        "location_border_thickness": 2,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(The_Grid)_KH3DHD.png"
-    },
-    {
-        "name": "Traverse Town [Riku]",
-        "location_size": 20,
-        "location_border_thickness": 2,
-        "location_shape": "rect",
-        "img": "images/maps/Minimap_(Traverse_Town)_KH3DHD_R.png"
+        "img": "images/maps/Overworld_KH3DHD.png"
     },
     {
         "name": "Traverse Town [Sora]",
@@ -98,17 +14,101 @@
         "img": "images/maps/Minimap_(Traverse_Town)_KH3DHD_S.png"
     },
     {
+        "name": "La Cité des Cloches [Sora]",
+        "location_size": 42,
+        "location_border_thickness": 4,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(La_Cité_des_Cloches)_KH3DHD.png"
+    },
+    {
+        "name": "The Grid [Sora]",
+        "location_size": 32,
+        "location_border_thickness": 2,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(The_Grid)_KH3DHD.png"
+    },
+    {
+        "name": "Prankster's Paradise [Sora]",
+        "location_size": 28,
+        "location_border_thickness": 1,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(Prankster's_Paradise)_KH3DHD.png"
+    },
+    {
+        "name": "Country of the Musketeers [Sora]",
+        "location_size": 42,
+        "location_border_thickness": 2,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(Country_of_the_Musketeers)_KH3D.png"
+    },
+    {
+        "name": "Symphony of Sorcery [Sora]",
+        "location_size": 25,
+        "location_border_thickness": 2,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(Symphony_of_Sorcery)_KH3D_S.png"
+    },
+    {
+        "name": "TWTNW (Dark City) [Sora]",
+        "location_size": 24,
+        "location_border_thickness": 1,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(Dark_City)_TWTNW_KH3DHD.png"
+    },
+    {
+        "name": "Traverse Town [Riku]",
+        "location_size": 20,
+        "location_border_thickness": 2,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(Traverse_Town)_KH3DHD_R.png"
+    },
+    {
+        "name": "La Cité des Cloches [Riku]",
+        "location_size": 42,
+        "location_border_thickness": 4,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(La_Cité_des_Cloches)_KH3DHD.png"
+    },
+    {
+        "name": "The Grid [Riku]",
+        "location_size": 32,
+        "location_border_thickness": 2,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(The_Grid)_KH3DHD.png"
+    },
+    {
+        "name": "Prankster's Paradise (Monstro) [Riku]",
+        "location_size": 42,
+        "location_border_thickness": 4,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(Monstro)_PP_KH3DHD.png"
+    },
+    {
+        "name": "Country of the Musketeers [Riku]",
+        "location_size": 42,
+        "location_border_thickness": 2,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(Country_of_the_Musketeers)_KH3D.png"
+    },
+    {
+        "name": "Symphony of Sorcery [Riku]",
+        "location_size": 25,
+        "location_border_thickness": 2,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(Symphony_of_Sorcery)_KH3D_R.png"
+    },
+    {
+        "name": "TWTNW (Castle That Never Was) [Riku]",
+        "location_size": 36,
+        "location_border_thickness": 2,
+        "location_shape": "rect",
+        "img": "images/maps/Minimap_(Castle_That_Never_Was)_TWTNW_KH3DHD.png"
+    },
+    {
         "name": "Link Boards",
         "location_size": 16,
         "location_border_thickness": 2,
         "location_shape": "rect",
         "img": "images/maps/Link_Boards.png"
-    },
-    {
-        "name": "Overworld",
-        "location_size": 30,
-        "location_border_thickness": 2,
-        "location_shape": "rect",
-        "img": "images/maps/Overworld_KH3DHD.png"
     }
 ]
