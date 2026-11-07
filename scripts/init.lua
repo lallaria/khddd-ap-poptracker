@@ -44,7 +44,7 @@ end
 -- Layout
 Tracker:AddLayouts("layouts/items.json")
 Tracker:AddLayouts("layouts/tracker.json")
-Tracker:AddLayouts("layouts/items_bottom.json")
+Tracker:AddLayouts("layouts/items_left.json")
 Tracker:AddLayouts("layouts/root.json")
 Tracker:AddLayouts("layouts/settings.json")
 Tracker:AddLayouts("layouts/broadcast.jsonc")

@@ -9,8 +9,8 @@ Download the zip folder from the latest release and place it in the `packs` fold
 ## Variants
 
 Pick one when loading the pack: Maps, Items & Link Boards (the default), Maps & Items, Items Only, or
-Link Boards Only. The variants with items place them along the bottom or in a
-column on the left, picked by the "Items along the bottom" setting.
+Link Boards Only. The variants with items show them in a column on the left, or along the bottom
+with the "Items along the bottom" setting, which Reset leaves alone.
 
 ## Settings
 
