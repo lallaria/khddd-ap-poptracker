@@ -7987,13 +7987,18 @@
                 "name": "Defeat Ansem",
                 "sections": [
                     {
-                        "name": "The World That Never Was Ansem II Defeated [Riku]",
-                        "ref": "The World That Never Was [Riku]/Ansem II Defeated/The World That Never Was Ansem II Defeated [Riku]"
+                        "name": "The World That Never Was Ansem I Defeated [Riku]",
+                        "ref": "The World That Never Was [Riku]/Ansem II Defeated/The World That Never Was Ansem I Defeated [Riku]"
                     },
                     {
-                        "name": "The World That Never Was Ansem I Defeated [Riku]",
-                        "ref": "The World That Never Was [Riku]/Ansem I Defeated/The World That Never Was Ansem I Defeated [Riku]"
+                        "name": "The World That Never Was Ansem II Defeated [Riku]",
+                        "ref": "The World That Never Was [Riku]/Ansem I Defeated/The World That Never Was Ansem II Defeated [Riku]"
+                    },
+                    {
+                        "name": "The World That Never Was Cleared [Riku]",
+                        "ref": "The World That Never Was [Riku]/Cleared/The World That Never Was Cleared [Riku]"
                     }
+
                 ],
                 "map_locations": [
                     {
