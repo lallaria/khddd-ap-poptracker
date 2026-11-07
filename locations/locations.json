@@ -7988,17 +7988,16 @@
                 "sections": [
                     {
                         "name": "The World That Never Was Ansem I Defeated [Riku]",
-                        "ref": "The World That Never Was [Riku]/Ansem II Defeated/The World That Never Was Ansem I Defeated [Riku]"
+                        "ref": "The World That Never Was [Riku]/Ansem I Defeated/The World That Never Was Ansem I Defeated [Riku]"
                     },
                     {
                         "name": "The World That Never Was Ansem II Defeated [Riku]",
-                        "ref": "The World That Never Was [Riku]/Ansem I Defeated/The World That Never Was Ansem II Defeated [Riku]"
+                        "ref": "The World That Never Was [Riku]/Ansem II Defeated/The World That Never Was Ansem II Defeated [Riku]"
                     },
                     {
                         "name": "The World That Never Was Cleared [Riku]",
                         "ref": "The World That Never Was [Riku]/Cleared/The World That Never Was Cleared [Riku]"
                     }
-
                 ],
                 "map_locations": [
                     {
@@ -20783,7 +20782,7 @@
                     },
                     {
                         "name": "Meow Wow Node 16",
-                        "ref": "Link Boards/Meow Wow/Open/Meow Wow Node 16"
+                        "ref": "Link Boards/Meow Wow/Gate 2/Meow Wow Node 16"
                     },
                     {
                         "name": "Tama Sheep Node 01",
@@ -20847,7 +20846,7 @@
                     },
                     {
                         "name": "Tama Sheep Node 16",
-                        "ref": "Link Boards/Tama Sheep/Open/Tama Sheep Node 16"
+                        "ref": "Link Boards/Tama Sheep/Gate 2/Tama Sheep Node 16"
                     },
                     {
                         "name": "Yoggy Ram Node 01",
@@ -20911,7 +20910,7 @@
                     },
                     {
                         "name": "Yoggy Ram Node 16",
-                        "ref": "Link Boards/Yoggy Ram/Open/Yoggy Ram Node 16"
+                        "ref": "Link Boards/Yoggy Ram/Gate 2/Yoggy Ram Node 16"
                     },
                     {
                         "name": "Komory Bat Node 01",
@@ -20975,7 +20974,7 @@
                     },
                     {
                         "name": "Komory Bat Node 16",
-                        "ref": "Link Boards/Komory Bat/Open/Komory Bat Node 16"
+                        "ref": "Link Boards/Komory Bat/Gate 1/Komory Bat Node 16"
                     },
                     {
                         "name": "Pricklemane Node 01",
@@ -21039,7 +21038,7 @@
                     },
                     {
                         "name": "Pricklemane Node 16",
-                        "ref": "Link Boards/Pricklemane/Open/Pricklemane Node 16"
+                        "ref": "Link Boards/Pricklemane/Gate 2/Pricklemane Node 16"
                     },
                     {
                         "name": "Hebby Repp Node 01",
@@ -21103,7 +21102,7 @@
                     },
                     {
                         "name": "Hebby Repp Node 16",
-                        "ref": "Link Boards/Hebby Repp/Open/Hebby Repp Node 16"
+                        "ref": "Link Boards/Hebby Repp/Gate 1/Hebby Repp Node 16"
                     },
                     {
                         "name": "Sir Kyroo Node 01",
@@ -21167,7 +21166,7 @@
                     },
                     {
                         "name": "Sir Kyroo Node 16",
-                        "ref": "Link Boards/Sir Kyroo/Open/Sir Kyroo Node 16"
+                        "ref": "Link Boards/Sir Kyroo/Gate 2/Sir Kyroo Node 16"
                     },
                     {
                         "name": "Toximander Node 01",
@@ -21231,7 +21230,7 @@
                     },
                     {
                         "name": "Toximander Node 16",
-                        "ref": "Link Boards/Toximander/Open/Toximander Node 16"
+                        "ref": "Link Boards/Toximander/Gate 1/Toximander Node 16"
                     },
                     {
                         "name": "Fin Fatale Node 01",
@@ -21295,7 +21294,7 @@
                     },
                     {
                         "name": "Fin Fatale Node 16",
-                        "ref": "Link Boards/Fin Fatale/Open/Fin Fatale Node 16"
+                        "ref": "Link Boards/Fin Fatale/Gate 2/Fin Fatale Node 16"
                     },
                     {
                         "name": "Tatsu Steed Node 01",
@@ -21359,7 +21358,7 @@
                     },
                     {
                         "name": "Tatsu Steed Node 16",
-                        "ref": "Link Boards/Tatsu Steed/Open/Tatsu Steed Node 16"
+                        "ref": "Link Boards/Tatsu Steed/Gate 1/Tatsu Steed Node 16"
                     },
                     {
                         "name": "Necho Cat Node 01",
@@ -21423,7 +21422,7 @@
                     },
                     {
                         "name": "Necho Cat Node 16",
-                        "ref": "Link Boards/Necho Cat/Open/Necho Cat Node 16"
+                        "ref": "Link Boards/Necho Cat/Gate 1/Necho Cat Node 16"
                     },
                     {
                         "name": "Thunderaffe Node 01",
@@ -21487,7 +21486,7 @@
                     },
                     {
                         "name": "Thunderaffe Node 16",
-                        "ref": "Link Boards/Thunderaffe/Open/Thunderaffe Node 16"
+                        "ref": "Link Boards/Thunderaffe/Gate 1/Thunderaffe Node 16"
                     },
                     {
                         "name": "Kooma Panda Node 01",
@@ -21551,7 +21550,7 @@
                     },
                     {
                         "name": "Kooma Panda Node 16",
-                        "ref": "Link Boards/Kooma Panda/Open/Kooma Panda Node 16"
+                        "ref": "Link Boards/Kooma Panda/Gate 2/Kooma Panda Node 16"
                     },
                     {
                         "name": "Pegaslick Node 01",
@@ -21615,7 +21614,7 @@
                     },
                     {
                         "name": "Pegaslick Node 16",
-                        "ref": "Link Boards/Pegaslick/Open/Pegaslick Node 16"
+                        "ref": "Link Boards/Pegaslick/Gate 2/Pegaslick Node 16"
                     },
                     {
                         "name": "Iceguin Ace Node 01",
@@ -21679,7 +21678,7 @@
                     },
                     {
                         "name": "Iceguin Ace Node 16",
-                        "ref": "Link Boards/Iceguin Ace/Open/Iceguin Ace Node 16"
+                        "ref": "Link Boards/Iceguin Ace/Gate 1/Iceguin Ace Node 16"
                     },
                     {
                         "name": "Peepsta Hoo Node 01",
@@ -21743,7 +21742,7 @@
                     },
                     {
                         "name": "Peepsta Hoo Node 16",
-                        "ref": "Link Boards/Peepsta Hoo/Open/Peepsta Hoo Node 16"
+                        "ref": "Link Boards/Peepsta Hoo/Gate 1/Peepsta Hoo Node 16"
                     },
                     {
                         "name": "Escarglow Node 01",
@@ -21807,7 +21806,7 @@
                     },
                     {
                         "name": "Escarglow Node 16",
-                        "ref": "Link Boards/Escarglow/Open/Escarglow Node 16"
+                        "ref": "Link Boards/Escarglow/Gate 1/Escarglow Node 16"
                     },
                     {
                         "name": "KO Kabuto Node 01",
@@ -21871,7 +21870,7 @@
                     },
                     {
                         "name": "KO Kabuto Node 16",
-                        "ref": "Link Boards/KO Kabuto/Open/KO Kabuto Node 16"
+                        "ref": "Link Boards/KO Kabuto/Gate 2/KO Kabuto Node 16"
                     },
                     {
                         "name": "Wheeflower Node 01",
@@ -21935,7 +21934,7 @@
                     },
                     {
                         "name": "Wheeflower Node 16",
-                        "ref": "Link Boards/Wheeflower/Open/Wheeflower Node 16"
+                        "ref": "Link Boards/Wheeflower/Gate 1/Wheeflower Node 16"
                     },
                     {
                         "name": "Ghostabocky Node 01",
@@ -21999,7 +21998,7 @@
                     },
                     {
                         "name": "Ghostabocky Node 16",
-                        "ref": "Link Boards/Ghostabocky/Open/Ghostabocky Node 16"
+                        "ref": "Link Boards/Ghostabocky/Gate 1/Ghostabocky Node 16"
                     },
                     {
                         "name": "Zolephant Node 01",
@@ -22063,7 +22062,7 @@
                     },
                     {
                         "name": "Zolephant Node 16",
-                        "ref": "Link Boards/Zolephant/Open/Zolephant Node 16"
+                        "ref": "Link Boards/Zolephant/Gate 1/Zolephant Node 16"
                     },
                     {
                         "name": "Juggle Pup Node 01",
@@ -22127,7 +22126,7 @@
                     },
                     {
                         "name": "Juggle Pup Node 16",
-                        "ref": "Link Boards/Juggle Pup/Open/Juggle Pup Node 16"
+                        "ref": "Link Boards/Juggle Pup/Gate 2/Juggle Pup Node 16"
                     },
                     {
                         "name": "Halbird Node 01",
@@ -22191,7 +22190,7 @@
                     },
                     {
                         "name": "Halbird Node 16",
-                        "ref": "Link Boards/Halbird/Open/Halbird Node 16"
+                        "ref": "Link Boards/Halbird/Gate 2/Halbird Node 16"
                     },
                     {
                         "name": "Staggerceps Node 01",
@@ -22255,7 +22254,7 @@
                     },
                     {
                         "name": "Staggerceps Node 16",
-                        "ref": "Link Boards/Staggerceps/Open/Staggerceps Node 16"
+                        "ref": "Link Boards/Staggerceps/Gate 1/Staggerceps Node 16"
                     },
                     {
                         "name": "Fishbone Node 01",
@@ -22319,7 +22318,7 @@
                     },
                     {
                         "name": "Fishbone Node 16",
-                        "ref": "Link Boards/Fishbone/Open/Fishbone Node 16"
+                        "ref": "Link Boards/Fishbone/Gate 1/Fishbone Node 16"
                     },
                     {
                         "name": "Flowbermeow Node 01",
@@ -22383,7 +22382,7 @@
                     },
                     {
                         "name": "Flowbermeow Node 16",
-                        "ref": "Link Boards/Flowbermeow/Open/Flowbermeow Node 16"
+                        "ref": "Link Boards/Flowbermeow/Gate 2/Flowbermeow Node 16"
                     },
                     {
                         "name": "Cyber Yog Node 01",
@@ -22447,7 +22446,7 @@
                     },
                     {
                         "name": "Cyber Yog Node 16",
-                        "ref": "Link Boards/Cyber Yog/Open/Cyber Yog Node 16"
+                        "ref": "Link Boards/Cyber Yog/Gate 1/Cyber Yog Node 16"
                     },
                     {
                         "name": "Chef Kyroo Node 01",
@@ -22511,7 +22510,7 @@
                     },
                     {
                         "name": "Chef Kyroo Node 16",
-                        "ref": "Link Boards/Chef Kyroo/Open/Chef Kyroo Node 16"
+                        "ref": "Link Boards/Chef Kyroo/Gate 2/Chef Kyroo Node 16"
                     },
                     {
                         "name": "Lord Kyroo Node 01",
@@ -22575,7 +22574,7 @@
                     },
                     {
                         "name": "Lord Kyroo Node 16",
-                        "ref": "Link Boards/Lord Kyroo/Open/Lord Kyroo Node 16"
+                        "ref": "Link Boards/Lord Kyroo/Gate 2/Lord Kyroo Node 16"
                     },
                     {
                         "name": "Tatsu Blaze Node 01",
@@ -22639,7 +22638,7 @@
                     },
                     {
                         "name": "Tatsu Blaze Node 16",
-                        "ref": "Link Boards/Tatsu Blaze/Open/Tatsu Blaze Node 16"
+                        "ref": "Link Boards/Tatsu Blaze/Gate 2/Tatsu Blaze Node 16"
                     },
                     {
                         "name": "Electricorn Node 01",
@@ -22703,7 +22702,7 @@
                     },
                     {
                         "name": "Electricorn Node 16",
-                        "ref": "Link Boards/Electricorn/Open/Electricorn Node 16"
+                        "ref": "Link Boards/Electricorn/Gate 2/Electricorn Node 16"
                     },
                     {
                         "name": "Woeflower Node 01",
@@ -22767,7 +22766,7 @@
                     },
                     {
                         "name": "Woeflower Node 16",
-                        "ref": "Link Boards/Woeflower/Open/Woeflower Node 16"
+                        "ref": "Link Boards/Woeflower/Gate 1/Woeflower Node 16"
                     },
                     {
                         "name": "Jestabocky Node 01",
@@ -22831,7 +22830,7 @@
                     },
                     {
                         "name": "Jestabocky Node 16",
-                        "ref": "Link Boards/Jestabocky/Open/Jestabocky Node 16"
+                        "ref": "Link Boards/Jestabocky/Gate 2/Jestabocky Node 16"
                     },
                     {
                         "name": "Eaglider Node 01",
@@ -22895,7 +22894,7 @@
                     },
                     {
                         "name": "Eaglider Node 16",
-                        "ref": "Link Boards/Eaglider/Open/Eaglider Node 16"
+                        "ref": "Link Boards/Eaglider/Gate 1/Eaglider Node 16"
                     },
                     {
                         "name": "Me Me Bunny Node 01",
@@ -22959,7 +22958,7 @@
                     },
                     {
                         "name": "Me Me Bunny Node 16",
-                        "ref": "Link Boards/Me Me Bunny/Open/Me Me Bunny Node 16"
+                        "ref": "Link Boards/Me Me Bunny/Gate 2/Me Me Bunny Node 16"
                     },
                     {
                         "name": "Drill Sye Node 01",
@@ -23023,7 +23022,7 @@
                     },
                     {
                         "name": "Drill Sye Node 16",
-                        "ref": "Link Boards/Drill Sye/Open/Drill Sye Node 16"
+                        "ref": "Link Boards/Drill Sye/Gate 1/Drill Sye Node 16"
                     },
                     {
                         "name": "Tyranto Rex Node 01",
@@ -23087,7 +23086,7 @@
                     },
                     {
                         "name": "Tyranto Rex Node 16",
-                        "ref": "Link Boards/Tyranto Rex/Open/Tyranto Rex Node 16"
+                        "ref": "Link Boards/Tyranto Rex/Gate 1/Tyranto Rex Node 16"
                     },
                     {
                         "name": "Majik Lapin Node 01",
@@ -23151,7 +23150,7 @@
                     },
                     {
                         "name": "Majik Lapin Node 16",
-                        "ref": "Link Boards/Majik Lapin/Open/Majik Lapin Node 16"
+                        "ref": "Link Boards/Majik Lapin/Gate 2/Majik Lapin Node 16"
                     },
                     {
                         "name": "Cera Terror Node 01",
@@ -23215,7 +23214,7 @@
                     },
                     {
                         "name": "Cera Terror Node 16",
-                        "ref": "Link Boards/Cera Terror/Open/Cera Terror Node 16"
+                        "ref": "Link Boards/Cera Terror/Gate 2/Cera Terror Node 16"
                     },
                     {
                         "name": "Skelterwild Node 01",
@@ -23279,7 +23278,7 @@
                     },
                     {
                         "name": "Skelterwild Node 16",
-                        "ref": "Link Boards/Skelterwild/Open/Skelterwild Node 16"
+                        "ref": "Link Boards/Skelterwild/Gate 2/Skelterwild Node 16"
                     },
                     {
                         "name": "Ducky Goose Node 01",
@@ -23343,7 +23342,7 @@
                     },
                     {
                         "name": "Ducky Goose Node 16",
-                        "ref": "Link Boards/Ducky Goose/Open/Ducky Goose Node 16"
+                        "ref": "Link Boards/Ducky Goose/Gate 1/Ducky Goose Node 16"
                     },
                     {
                         "name": "Aura Lion Node 01",
@@ -23407,7 +23406,7 @@
                     },
                     {
                         "name": "Aura Lion Node 16",
-                        "ref": "Link Boards/Aura Lion/Open/Aura Lion Node 16"
+                        "ref": "Link Boards/Aura Lion/Gate 1/Aura Lion Node 16"
                     },
                     {
                         "name": "Ryu Dragon Node 01",
@@ -23471,7 +23470,7 @@
                     },
                     {
                         "name": "Ryu Dragon Node 16",
-                        "ref": "Link Boards/Ryu Dragon/Open/Ryu Dragon Node 16"
+                        "ref": "Link Boards/Ryu Dragon/Gate 1/Ryu Dragon Node 16"
                     },
                     {
                         "name": "Drak Quack Node 01",
@@ -23535,7 +23534,7 @@
                     },
                     {
                         "name": "Drak Quack Node 16",
-                        "ref": "Link Boards/Drak Quack/Open/Drak Quack Node 16"
+                        "ref": "Link Boards/Drak Quack/Gate 1/Drak Quack Node 16"
                     },
                     {
                         "name": "Keeba Tiger Node 01",
@@ -23599,7 +23598,7 @@
                     },
                     {
                         "name": "Keeba Tiger Node 16",
-                        "ref": "Link Boards/Keeba Tiger/Open/Keeba Tiger Node 16"
+                        "ref": "Link Boards/Keeba Tiger/Gate 1/Keeba Tiger Node 16"
                     },
                     {
                         "name": "Meowjesty Node 01",
@@ -23663,7 +23662,7 @@
                     },
                     {
                         "name": "Meowjesty Node 16",
-                        "ref": "Link Boards/Meowjesty/Open/Meowjesty Node 16"
+                        "ref": "Link Boards/Meowjesty/Gate 2/Meowjesty Node 16"
                     },
                     {
                         "name": "Sudo Neku Node 01",
@@ -23727,7 +23726,7 @@
                     },
                     {
                         "name": "Sudo Neku Node 16",
-                        "ref": "Link Boards/Sudo Neku/Open/Sudo Neku Node 16"
+                        "ref": "Link Boards/Sudo Neku/Gate 1/Sudo Neku Node 16"
                     },
                     {
                         "name": "Frootz Cat Node 01",
@@ -23791,7 +23790,7 @@
                     },
                     {
                         "name": "Frootz Cat Node 16",
-                        "ref": "Link Boards/Frootz Cat/Open/Frootz Cat Node 16"
+                        "ref": "Link Boards/Frootz Cat/Gate 1/Frootz Cat Node 16"
                     },
                     {
                         "name": "Ursa Circus Node 01",
@@ -23855,7 +23854,7 @@
                     },
                     {
                         "name": "Ursa Circus Node 16",
-                        "ref": "Link Boards/Ursa Circus/Open/Ursa Circus Node 16"
+                        "ref": "Link Boards/Ursa Circus/Gate 2/Ursa Circus Node 16"
                     },
                     {
                         "name": "Kab Kannon Node 01",
@@ -23919,7 +23918,7 @@
                     },
                     {
                         "name": "Kab Kannon Node 16",
-                        "ref": "Link Boards/Kab Kannon/Open/Kab Kannon Node 16"
+                        "ref": "Link Boards/Kab Kannon/Gate 2/Kab Kannon Node 16"
                     },
                     {
                         "name": "R & R Seal Node 01",
@@ -23983,7 +23982,7 @@
                     },
                     {
                         "name": "R & R Seal Node 16",
-                        "ref": "Link Boards/R & R Seal/Open/R & R Seal Node 16"
+                        "ref": "Link Boards/R & R Seal/Gate 2/R & R Seal Node 16"
                     },
                     {
                         "name": "Catanuki Node 01",
@@ -24047,7 +24046,7 @@
                     },
                     {
                         "name": "Catanuki Node 16",
-                        "ref": "Link Boards/Catanuki/Open/Catanuki Node 16"
+                        "ref": "Link Boards/Catanuki/Gate 1/Catanuki Node 16"
                     },
                     {
                         "name": "Beatalike Node 01",
@@ -24111,7 +24110,7 @@
                     },
                     {
                         "name": "Beatalike Node 16",
-                        "ref": "Link Boards/Beatalike/Open/Beatalike Node 16"
+                        "ref": "Link Boards/Beatalike/Gate 1/Beatalike Node 16"
                     },
                     {
                         "name": "Tubguin Ace Node 01",
@@ -24175,7 +24174,7 @@
                     },
                     {
                         "name": "Tubguin Ace Node 16",
-                        "ref": "Link Boards/Tubguin Ace/Open/Tubguin Ace Node 16"
+                        "ref": "Link Boards/Tubguin Ace/Gate 1/Tubguin Ace Node 16"
                     }
                 ],
                 "map_locations": [

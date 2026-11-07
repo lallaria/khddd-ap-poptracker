@@ -100,17 +100,21 @@ def gate_overlays(gate_counts):
 
 
 def layout(table, rows):
-    """The grid canvas, docked so no parent stretches it: the map would scale while the items stay in place."""
-    content = [{"type": "map", "maps": [BOARD_ROOT]}]
-    for index, (spirit_id, name, _, _) in enumerate(table):
-        x, y = cell(index)
-        content.append({"type": "text", "text": name,
-                        "canvas_left": x + NAME_OFFSET[0], "canvas_top": y + NAME_OFFSET[1]})
-        content.append({"type": "item", "item": f"link_board_spirit_{spirit_id}",
-                        "canvas_left": x + PORTRAIT_OFFSET[0], "canvas_top": y + PORTRAIT_OFFSET[1],
-                        "width": PORTRAIT_SIZE, "height": PORTRAIT_SIZE})
+    """The grid canvas, docked so no parent stretches it: the map would scale while the items stay in place.
+
+    The strict pack schema rejects canvas_left/canvas_top on canvas children, so the portraits are an itemgrid.
+    It places each item item_margin into its cell; the canvas zeroes its children's margins, so the array's
+    child carries the rest of PORTRAIT_OFFSET.
+    """
+    margin = ((CELL_WIDTH - PORTRAIT_SIZE) // 2, (CELL_HEIGHT - PORTRAIT_SIZE) // 2)
+    codes = [f"link_board_spirit_{spirit_id}" for spirit_id, *_ in table]
+    portraits = {"type": "itemgrid", "h_alignment": "left", "item_size": PORTRAIT_SIZE,
+                 "item_margin": f"{margin[0]},{margin[1]}",
+                 "margin": f"{PORTRAIT_OFFSET[0] - margin[0]},{PORTRAIT_OFFSET[1] - margin[1]},0,0",
+                 "rows": [codes[start:start + COLUMNS] for start in range(0, len(codes), COLUMNS)]}
     canvas = {"type": "canvas", "dock": "left", "width": COLUMNS * CELL_WIDTH, "height": rows * CELL_HEIGHT,
-              "content": content}
+              "content": [{"type": "map", "maps": [BOARD_ROOT]},
+                          {"type": "array", "orientation": "vertical", "content": [portraits]}]}
     filler = {"type": "text", "text": ""}
     return {LAYOUT_KEY: {"type": "dock", "content": [{"type": "dock", "dock": "top", "content": [canvas, filler]},
                                                      filler]}}
