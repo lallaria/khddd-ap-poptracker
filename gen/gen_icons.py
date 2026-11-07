@@ -1,4 +1,4 @@
-"""Cuts the settings, movement and spirit icons, spirit portraits, link board gates and the link board map out of the game's textures.
+"""Cuts the settings, movement and spirit icons, spirit portraits and link board gates out of the game's textures.
 
 Usage: .venv/Scripts/python gen/gen_icons.py path/to/atlas/folder [path/to/LuckyEmblem.dds]
 
@@ -10,7 +10,6 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 REPO = Path(__file__).resolve().parent.parent
 OUT = REPO / "images" / "items"
-LINK_BOARDS_MAP = REPO / "images" / "maps" / "Link_Boards.png"
 SPIRITS = REPO / "images" / "spirits"
 FONT = "C:/Windows/Fonts/KHMenu.otf"
 TILE = 128
@@ -36,8 +35,8 @@ SPRITES = {
     "boot": ("US_icon.dds", (411, 153, 490, 236)),
     "flow_arrow": ("US_icon.dds", (789, 152, 883, 238)),
     "recipe": ("US_icon.dds", (23, 279, 110, 366)),
-    # spirit portraits in 160 px cells, spirit id = cell index; Link Boards map_locations assume this origin
-    "link_boards": ("US_de_kao0.png", (0, 0, 1920, 800)),
+    # spirit portraits in 160 px cells, spirit id = cell index
+    "spirit_portraits": ("US_de_kao0.png", (0, 0, 1920, 800)),
 }
 MOVEMENT = {
     "flowmotion": ("flow_arrow", "Flow\nmotion"),
@@ -157,10 +156,8 @@ def main(folder, lucky_emblem_path=None):
         label_tile(image, text).save(OUT / f"{code}.png")
     for code, (icon, text) in MOVEMENT.items():
         label_tile(sprite(atlases, folder, icon), text).save(OUT / "movement" / f"{code}.png")
-    link_boards = sprite(atlases, folder, "link_boards")
-    link_boards.save(LINK_BOARDS_MAP, optimize=True)
-    spirit_images(link_boards, load(atlases, folder, GATE_TEXTURE))
-    print(f"wrote icons to {OUT}, {SPIRITS} and {LINK_BOARDS_MAP.name}")
+    spirit_images(sprite(atlases, folder, "spirit_portraits"), load(atlases, folder, GATE_TEXTURE))
+    print(f"wrote icons to {OUT} and {SPIRITS}")
 
 
 if __name__ == "__main__":

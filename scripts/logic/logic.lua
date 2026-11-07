@@ -98,15 +98,10 @@ local WORLD_EVENTS = {
     },
 }
 
--- open while the gate's character can reach as many Cleared events as the gate needs
-function board_gate(id, gate)
-    local gates = board_gates and board_gates[tonumber(id)]
-    local needed = gates and gates[tonumber(gate)]
-    if not needed then
-        return AccessibilityLevel.Normal
-    end
+-- Cleared events the character reaches in logic, and those reachable only with sequence breaks
+local function reachable_worlds(character)
     local normal, sequence_break = 0, 0
-    for _, path in ipairs(WORLD_EVENTS[gates.character] or {}) do
+    for _, path in ipairs(WORLD_EVENTS[character] or {}) do
         local section = Tracker:FindObjectForCode(path)
         local level = section and section.AccessibilityLevel or AccessibilityLevel.None
         if level >= AccessibilityLevel.Normal then
@@ -115,12 +110,39 @@ function board_gate(id, gate)
             sequence_break = sequence_break + 1
         end
     end
+    return normal, sequence_break
+end
+
+-- open while the gate's character can reach as many Cleared events as the gate needs
+function board_gate(id, gate)
+    local gates = board_gates and board_gates[tonumber(id)]
+    local needed = gates and gates[tonumber(gate)]
+    if not needed then
+        return AccessibilityLevel.Normal
+    end
+    local normal, sequence_break = reachable_worlds(gates.character)
     if normal >= needed then
         return AccessibilityLevel.Normal
     elseif normal + sequence_break >= needed then
         return AccessibilityLevel.SequenceBreak
     end
     return AccessibilityLevel.None
+end
+
+-- how many of the spirit's first gate_count gates are open in logic; worlds caches reachable_worlds by character
+function open_board_gates(id, gate_count, worlds)
+    local gates = board_gates and board_gates[tonumber(id)]
+    if not gates then
+        return gate_count
+    end
+    worlds[gates.character] = worlds[gates.character] or reachable_worlds(gates.character)
+    local open = 0
+    for gate = 1, gate_count do
+        if not gates[gate] or gates[gate] <= worlds[gates.character] then
+            open = open + 1
+        end
+    end
+    return open
 end
 
 local function has_opt_count(code, opt_code)

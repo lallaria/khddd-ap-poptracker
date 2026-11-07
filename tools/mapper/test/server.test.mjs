@@ -54,7 +54,8 @@ describe("server", () => {
         const pack = JSON.parse((await request(port, "GET", "/api/pack")).body);
         assert.ok(pack.maps.some((map) => map.name === "Link Boards"));
         assert.ok(pack.images.includes("images/maps/Link_Boards.png"));
-        assert.equal(pack.minVersion, "0.25.9");
+        const manifest = JSON.parse(await readFile(path.join(root, "manifest.json"), "utf8"));
+        assert.equal(pack.minVersion, manifest.min_poptracker_version);
     });
 
     test("serves images only from images/", async () => {

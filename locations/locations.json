@@ -10246,8 +10246,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 286,
-                                "y": 126
+                                "x": 14,
+                                "y": 86
                             }
                         ]
                     },
@@ -10279,13 +10279,6 @@
                             {
                                 "name": "Meow Wow Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Meow Wow",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -10304,13 +10297,6 @@
                             {
                                 "name": "Meow Wow Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Meow Wow",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -10328,13 +10314,6 @@
                             },
                             {
                                 "name": "Meow Wow Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Meow Wow",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -10415,8 +10394,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 446,
-                                "y": 126
+                                "x": 130,
+                                "y": 86
                             }
                         ]
                     },
@@ -10438,13 +10417,6 @@
                             },
                             {
                                 "name": "Tama Sheep Node 16"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tama Sheep",
-                                "x": 37,
-                                "y": 135
                             }
                         ]
                     },
@@ -10473,13 +10445,6 @@
                             {
                                 "name": "Tama Sheep Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tama Sheep",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -10497,13 +10462,6 @@
                             },
                             {
                                 "name": "Tama Sheep Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tama Sheep",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -10584,8 +10542,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 606,
-                                "y": 126
+                                "x": 246,
+                                "y": 86
                             }
                         ]
                     },
@@ -10623,13 +10581,6 @@
                             {
                                 "name": "Yoggy Ram Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Yoggy Ram",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -10645,13 +10596,6 @@
                             {
                                 "name": "Yoggy Ram Node 12"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Yoggy Ram",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -10666,13 +10610,6 @@
                             },
                             {
                                 "name": "Yoggy Ram Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Yoggy Ram",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -10753,8 +10690,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 766,
-                                "y": 126
+                                "x": 362,
+                                "y": 86
                             }
                         ]
                     },
@@ -10789,13 +10726,6 @@
                             {
                                 "name": "Komory Bat Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Komory Bat",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -10810,13 +10740,6 @@
                             },
                             {
                                 "name": "Komory Bat Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Komory Bat",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     },
@@ -10835,13 +10758,6 @@
                             },
                             {
                                 "name": "Komory Bat Node 12"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Komory Bat",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -10922,8 +10838,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 926,
-                                "y": 126
+                                "x": 478,
+                                "y": 86
                             }
                         ]
                     },
@@ -10949,13 +10865,6 @@
                             {
                                 "name": "Pricklemane Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Pricklemane",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -10977,13 +10886,6 @@
                             {
                                 "name": "Pricklemane Node 10"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Pricklemane",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -11004,13 +10906,6 @@
                             },
                             {
                                 "name": "Pricklemane Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Pricklemane",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -11091,8 +10986,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1086,
-                                "y": 126
+                                "x": 594,
+                                "y": 86
                             }
                         ]
                     },
@@ -11124,13 +11019,6 @@
                             {
                                 "name": "Hebby Repp Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Hebby Repp",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -11160,13 +11048,6 @@
                             },
                             {
                                 "name": "Hebby Repp Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Hebby Repp",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -11247,8 +11128,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1246,
-                                "y": 126
+                                "x": 710,
+                                "y": 86
                             }
                         ]
                     },
@@ -11280,13 +11161,6 @@
                             {
                                 "name": "Sir Kyroo Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Sir Kyroo",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -11305,13 +11179,6 @@
                             {
                                 "name": "Sir Kyroo Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Sir Kyroo",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -11329,13 +11196,6 @@
                             },
                             {
                                 "name": "Sir Kyroo Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Sir Kyroo",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -11416,8 +11276,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1406,
-                                "y": 126
+                                "x": 14,
+                                "y": 188
                             }
                         ]
                     },
@@ -11449,13 +11309,6 @@
                             {
                                 "name": "Toximander Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Toximander",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -11485,13 +11338,6 @@
                             },
                             {
                                 "name": "Toximander Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Toximander",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -11572,8 +11418,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1566,
-                                "y": 126
+                                "x": 130,
+                                "y": 188
                             }
                         ]
                     },
@@ -11608,13 +11454,6 @@
                             {
                                 "name": "Fin Fatale Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Fin Fatale",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -11633,13 +11472,6 @@
                             {
                                 "name": "Fin Fatale Node 12"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Fin Fatale",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -11654,13 +11486,6 @@
                             },
                             {
                                 "name": "Fin Fatale Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Fin Fatale",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -11741,8 +11566,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1726,
-                                "y": 126
+                                "x": 246,
+                                "y": 188
                             }
                         ]
                     },
@@ -11774,13 +11599,6 @@
                             {
                                 "name": "Tatsu Steed Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tatsu Steed",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -11810,13 +11628,6 @@
                             },
                             {
                                 "name": "Tatsu Steed Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tatsu Steed",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -11897,8 +11708,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1886,
-                                "y": 126
+                                "x": 362,
+                                "y": 188
                             }
                         ]
                     },
@@ -11933,13 +11744,6 @@
                             {
                                 "name": "Necho Cat Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Necho Cat",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -11966,13 +11770,6 @@
                             },
                             {
                                 "name": "Necho Cat Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Necho Cat",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -12053,8 +11850,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 126,
-                                "y": 286
+                                "x": 478,
+                                "y": 188
                             }
                         ]
                     },
@@ -12089,13 +11886,6 @@
                             {
                                 "name": "Thunderaffe Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Thunderaffe",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -12122,13 +11912,6 @@
                             },
                             {
                                 "name": "Thunderaffe Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Thunderaffe",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -12209,8 +11992,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 286,
-                                "y": 286
+                                "x": 594,
+                                "y": 188
                             }
                         ]
                     },
@@ -12239,13 +12022,6 @@
                             {
                                 "name": "Kooma Panda Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Kooma Panda",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -12270,13 +12046,6 @@
                             {
                                 "name": "Kooma Panda Node 12"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Kooma Panda",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -12291,13 +12060,6 @@
                             },
                             {
                                 "name": "Kooma Panda Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Kooma Panda",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -12378,8 +12140,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 446,
-                                "y": 286
+                                "x": 710,
+                                "y": 188
                             }
                         ]
                     },
@@ -12420,13 +12182,6 @@
                             {
                                 "name": "Pegaslick Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Pegaslick",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -12442,13 +12197,6 @@
                             {
                                 "name": "Pegaslick Node 13"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Pegaslick",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -12460,13 +12208,6 @@
                             },
                             {
                                 "name": "Pegaslick Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Pegaslick",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -12547,8 +12288,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 606,
-                                "y": 286
+                                "x": 14,
+                                "y": 290
                             }
                         ]
                     },
@@ -12580,13 +12321,6 @@
                             {
                                 "name": "Iceguin Ace Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Iceguin Ace",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -12616,13 +12350,6 @@
                             },
                             {
                                 "name": "Iceguin Ace Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Iceguin Ace",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -12703,8 +12430,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 766,
-                                "y": 286
+                                "x": 130,
+                                "y": 290
                             }
                         ]
                     },
@@ -12739,13 +12466,6 @@
                             {
                                 "name": "Peepsta Hoo Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Peepsta Hoo",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -12772,13 +12492,6 @@
                             },
                             {
                                 "name": "Peepsta Hoo Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Peepsta Hoo",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -12859,8 +12572,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 926,
-                                "y": 286
+                                "x": 246,
+                                "y": 290
                             }
                         ]
                     },
@@ -12895,13 +12608,6 @@
                             {
                                 "name": "Escarglow Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Escarglow",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -12928,13 +12634,6 @@
                             },
                             {
                                 "name": "Escarglow Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Escarglow",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -13015,8 +12714,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1086,
-                                "y": 286
+                                "x": 362,
+                                "y": 290
                             }
                         ]
                     },
@@ -13041,13 +12740,6 @@
                             },
                             {
                                 "name": "KO Kabuto Node 16"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "KO Kabuto",
-                                "x": 37,
-                                "y": 135
                             }
                         ]
                     },
@@ -13076,13 +12768,6 @@
                             {
                                 "name": "KO Kabuto Node 12"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "KO Kabuto",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -13097,13 +12782,6 @@
                             },
                             {
                                 "name": "KO Kabuto Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "KO Kabuto",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -13184,8 +12862,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1246,
-                                "y": 286
+                                "x": 478,
+                                "y": 290
                             }
                         ]
                     },
@@ -13220,13 +12898,6 @@
                             {
                                 "name": "Wheeflower Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Wheeflower",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -13253,13 +12924,6 @@
                             },
                             {
                                 "name": "Wheeflower Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Wheeflower",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -13340,8 +13004,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1406,
-                                "y": 286
+                                "x": 594,
+                                "y": 290
                             }
                         ]
                     },
@@ -13394,13 +13058,6 @@
                             {
                                 "name": "Ghostabocky Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Ghostabocky",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -13409,13 +13066,6 @@
                         "sections": [
                             {
                                 "name": "Ghostabocky Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Ghostabocky",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -13496,8 +13146,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1566,
-                                "y": 286
+                                "x": 710,
+                                "y": 290
                             }
                         ]
                     },
@@ -13529,13 +13179,6 @@
                             {
                                 "name": "Zolephant Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Zolephant",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -13565,13 +13208,6 @@
                             },
                             {
                                 "name": "Zolephant Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Zolephant",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -13652,8 +13288,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1726,
-                                "y": 286
+                                "x": 14,
+                                "y": 392
                             }
                         ]
                     },
@@ -13685,13 +13321,6 @@
                             {
                                 "name": "Juggle Pup Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Juggle Pup",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -13713,13 +13342,6 @@
                             {
                                 "name": "Juggle Pup Node 12"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Juggle Pup",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -13734,13 +13356,6 @@
                             },
                             {
                                 "name": "Juggle Pup Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Juggle Pup",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -13821,8 +13436,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1886,
-                                "y": 286
+                                "x": 130,
+                                "y": 392
                             }
                         ]
                     },
@@ -13857,13 +13472,6 @@
                             {
                                 "name": "Halbird Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Halbird",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -13882,13 +13490,6 @@
                             {
                                 "name": "Halbird Node 12"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Halbird",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -13903,13 +13504,6 @@
                             },
                             {
                                 "name": "Halbird Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Halbird",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -13990,8 +13584,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 126,
-                                "y": 446
+                                "x": 246,
+                                "y": 392
                             }
                         ]
                     },
@@ -14023,13 +13617,6 @@
                             {
                                 "name": "Staggerceps Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Staggerceps",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -14059,13 +13646,6 @@
                             },
                             {
                                 "name": "Staggerceps Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Staggerceps",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -14146,8 +13726,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 286,
-                                "y": 446
+                                "x": 362,
+                                "y": 392
                             }
                         ]
                     },
@@ -14182,13 +13762,6 @@
                             {
                                 "name": "Fishbone Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Fishbone",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -14215,13 +13788,6 @@
                             },
                             {
                                 "name": "Fishbone Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Fishbone",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -14302,8 +13868,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 446,
-                                "y": 446
+                                "x": 478,
+                                "y": 392
                             }
                         ]
                     },
@@ -14338,13 +13904,6 @@
                             {
                                 "name": "Flowbermeow Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Flowbermeow",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -14363,13 +13922,6 @@
                             {
                                 "name": "Flowbermeow Node 12"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Flowbermeow",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -14384,13 +13936,6 @@
                             },
                             {
                                 "name": "Flowbermeow Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Flowbermeow",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -14471,8 +14016,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 606,
-                                "y": 446
+                                "x": 594,
+                                "y": 392
                             }
                         ]
                     },
@@ -14504,13 +14049,6 @@
                             {
                                 "name": "Cyber Yog Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Cyber Yog",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -14540,13 +14078,6 @@
                             },
                             {
                                 "name": "Cyber Yog Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Cyber Yog",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -14627,8 +14158,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 766,
-                                "y": 446
+                                "x": 710,
+                                "y": 392
                             }
                         ]
                     },
@@ -14657,13 +14188,6 @@
                             {
                                 "name": "Chef Kyroo Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Chef Kyroo",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -14685,13 +14209,6 @@
                             {
                                 "name": "Chef Kyroo Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Chef Kyroo",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -14709,13 +14226,6 @@
                             },
                             {
                                 "name": "Chef Kyroo Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Chef Kyroo",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -14796,8 +14306,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 926,
-                                "y": 446
+                                "x": 14,
+                                "y": 494
                             }
                         ]
                     },
@@ -14829,13 +14339,6 @@
                             {
                                 "name": "Lord Kyroo Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Lord Kyroo",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -14854,13 +14357,6 @@
                             {
                                 "name": "Lord Kyroo Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Lord Kyroo",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -14878,13 +14374,6 @@
                             },
                             {
                                 "name": "Lord Kyroo Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Lord Kyroo",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -14965,8 +14454,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1086,
-                                "y": 446
+                                "x": 130,
+                                "y": 494
                             }
                         ]
                     },
@@ -15001,13 +14490,6 @@
                             {
                                 "name": "Tatsu Blaze Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tatsu Blaze",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -15026,13 +14508,6 @@
                             {
                                 "name": "Tatsu Blaze Node 12"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tatsu Blaze",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -15047,13 +14522,6 @@
                             },
                             {
                                 "name": "Tatsu Blaze Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tatsu Blaze",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -15134,8 +14602,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1246,
-                                "y": 446
+                                "x": 246,
+                                "y": 494
                             }
                         ]
                     },
@@ -15164,13 +14632,6 @@
                             {
                                 "name": "Electricorn Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Electricorn",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -15192,13 +14653,6 @@
                             {
                                 "name": "Electricorn Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Electricorn",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -15216,13 +14670,6 @@
                             },
                             {
                                 "name": "Electricorn Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Electricorn",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -15303,8 +14750,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1406,
-                                "y": 446
+                                "x": 362,
+                                "y": 494
                             }
                         ]
                     },
@@ -15332,13 +14779,6 @@
                             },
                             {
                                 "name": "Woeflower Node 16"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Woeflower",
-                                "x": 37,
-                                "y": 135
                             }
                         ]
                     },
@@ -15372,13 +14812,6 @@
                             },
                             {
                                 "name": "Woeflower Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Woeflower",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -15459,8 +14892,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1566,
-                                "y": 446
+                                "x": 478,
+                                "y": 494
                             }
                         ]
                     },
@@ -15498,13 +14931,6 @@
                             {
                                 "name": "Jestabocky Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Jestabocky",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -15520,13 +14946,6 @@
                             {
                                 "name": "Jestabocky Node 12"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Jestabocky",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -15541,13 +14960,6 @@
                             },
                             {
                                 "name": "Jestabocky Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Jestabocky",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -15628,8 +15040,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1726,
-                                "y": 446
+                                "x": 594,
+                                "y": 494
                             }
                         ]
                     },
@@ -15664,13 +15076,6 @@
                             {
                                 "name": "Eaglider Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Eaglider",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -15697,13 +15102,6 @@
                             },
                             {
                                 "name": "Eaglider Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Eaglider",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -15784,8 +15182,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1886,
-                                "y": 446
+                                "x": 710,
+                                "y": 494
                             }
                         ]
                     },
@@ -15817,13 +15215,6 @@
                             {
                                 "name": "Me Me Bunny Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Me Me Bunny",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -15842,13 +15233,6 @@
                             {
                                 "name": "Me Me Bunny Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Me Me Bunny",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -15866,13 +15250,6 @@
                             },
                             {
                                 "name": "Me Me Bunny Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Me Me Bunny",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -15953,8 +15330,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 126,
-                                "y": 606
+                                "x": 14,
+                                "y": 596
                             }
                         ]
                     },
@@ -15986,13 +15363,6 @@
                             {
                                 "name": "Drill Sye Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Drill Sye",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -16022,13 +15392,6 @@
                             },
                             {
                                 "name": "Drill Sye Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Drill Sye",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -16109,8 +15472,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 286,
-                                "y": 606
+                                "x": 130,
+                                "y": 596
                             }
                         ]
                     },
@@ -16139,13 +15502,6 @@
                             {
                                 "name": "Tyranto Rex Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tyranto Rex",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -16163,13 +15519,6 @@
                             },
                             {
                                 "name": "Tyranto Rex Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tyranto Rex",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     },
@@ -16191,13 +15540,6 @@
                             },
                             {
                                 "name": "Tyranto Rex Node 11"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tyranto Rex",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -16278,8 +15620,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 446,
-                                "y": 606
+                                "x": 246,
+                                "y": 596
                             }
                         ]
                     },
@@ -16314,13 +15656,6 @@
                             {
                                 "name": "Majik Lapin Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Majik Lapin",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -16339,13 +15674,6 @@
                             {
                                 "name": "Majik Lapin Node 12"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Majik Lapin",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -16360,13 +15688,6 @@
                             },
                             {
                                 "name": "Majik Lapin Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Majik Lapin",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -16447,8 +15768,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 606,
-                                "y": 606
+                                "x": 362,
+                                "y": 596
                             }
                         ]
                     },
@@ -16477,13 +15798,6 @@
                             {
                                 "name": "Cera Terror Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Cera Terror",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -16505,13 +15819,6 @@
                             {
                                 "name": "Cera Terror Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Cera Terror",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -16529,13 +15836,6 @@
                             },
                             {
                                 "name": "Cera Terror Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Cera Terror",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -16616,8 +15916,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 766,
-                                "y": 606
+                                "x": 478,
+                                "y": 596
                             }
                         ]
                     },
@@ -16646,13 +15946,6 @@
                             {
                                 "name": "Skelterwild Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Skelterwild",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -16674,13 +15967,6 @@
                             {
                                 "name": "Skelterwild Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Skelterwild",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -16698,13 +15984,6 @@
                             },
                             {
                                 "name": "Skelterwild Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Skelterwild",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -16785,8 +16064,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 926,
-                                "y": 606
+                                "x": 594,
+                                "y": 596
                             }
                         ]
                     },
@@ -16821,13 +16100,6 @@
                             {
                                 "name": "Ducky Goose Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Ducky Goose",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -16842,13 +16114,6 @@
                             },
                             {
                                 "name": "Ducky Goose Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Ducky Goose",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     },
@@ -16867,13 +16132,6 @@
                             },
                             {
                                 "name": "Ducky Goose Node 12"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Ducky Goose",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -16954,8 +16212,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1086,
-                                "y": 606
+                                "x": 710,
+                                "y": 596
                             }
                         ]
                     },
@@ -16983,13 +16241,6 @@
                             },
                             {
                                 "name": "Aura Lion Node 16"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Aura Lion",
-                                "x": 37,
-                                "y": 135
                             }
                         ]
                     },
@@ -17023,13 +16274,6 @@
                             },
                             {
                                 "name": "Aura Lion Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Aura Lion",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -17110,8 +16354,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1246,
-                                "y": 606
+                                "x": 14,
+                                "y": 698
                             }
                         ]
                     },
@@ -17139,13 +16383,6 @@
                             },
                             {
                                 "name": "Ryu Dragon Node 16"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Ryu Dragon",
-                                "x": 37,
-                                "y": 135
                             }
                         ]
                     },
@@ -17179,13 +16416,6 @@
                             },
                             {
                                 "name": "Ryu Dragon Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Ryu Dragon",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -17266,8 +16496,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1406,
-                                "y": 606
+                                "x": 130,
+                                "y": 698
                             }
                         ]
                     },
@@ -17296,13 +16526,6 @@
                             {
                                 "name": "Drak Quack Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Drak Quack",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -17320,13 +16543,6 @@
                             },
                             {
                                 "name": "Drak Quack Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Drak Quack",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     },
@@ -17348,13 +16564,6 @@
                             },
                             {
                                 "name": "Drak Quack Node 11"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Drak Quack",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -17435,8 +16644,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1566,
-                                "y": 606
+                                "x": 246,
+                                "y": 698
                             }
                         ]
                     },
@@ -17464,13 +16673,6 @@
                             },
                             {
                                 "name": "Keeba Tiger Node 16"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Keeba Tiger",
-                                "x": 37,
-                                "y": 135
                             }
                         ]
                     },
@@ -17504,13 +16706,6 @@
                             },
                             {
                                 "name": "Keeba Tiger Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Keeba Tiger",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -17591,8 +16786,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1726,
-                                "y": 606
+                                "x": 362,
+                                "y": 698
                             }
                         ]
                     },
@@ -17621,13 +16816,6 @@
                             {
                                 "name": "Meowjesty Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Meowjesty",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -17649,13 +16837,6 @@
                             {
                                 "name": "Meowjesty Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Meowjesty",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -17673,13 +16854,6 @@
                             },
                             {
                                 "name": "Meowjesty Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Meowjesty",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -17760,8 +16934,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1886,
-                                "y": 606
+                                "x": 478,
+                                "y": 698
                             }
                         ]
                     },
@@ -17789,13 +16963,6 @@
                             },
                             {
                                 "name": "Sudo Neku Node 16"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Sudo Neku",
-                                "x": 37,
-                                "y": 135
                             }
                         ]
                     },
@@ -17829,13 +16996,6 @@
                             },
                             {
                                 "name": "Sudo Neku Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Sudo Neku",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -17916,8 +17076,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 126,
-                                "y": 766
+                                "x": 594,
+                                "y": 698
                             }
                         ]
                     },
@@ -17946,13 +17106,6 @@
                             {
                                 "name": "Frootz Cat Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Frootz Cat",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -17970,13 +17123,6 @@
                             },
                             {
                                 "name": "Frootz Cat Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Frootz Cat",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     },
@@ -17998,13 +17144,6 @@
                             },
                             {
                                 "name": "Frootz Cat Node 11"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Frootz Cat",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -18085,8 +17224,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 286,
-                                "y": 766
+                                "x": 710,
+                                "y": 698
                             }
                         ]
                     },
@@ -18115,13 +17254,6 @@
                             {
                                 "name": "Ursa Circus Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Ursa Circus",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -18143,13 +17275,6 @@
                             {
                                 "name": "Ursa Circus Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Ursa Circus",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -18167,13 +17292,6 @@
                             },
                             {
                                 "name": "Ursa Circus Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Ursa Circus",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -18254,8 +17372,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 446,
-                                "y": 766
+                                "x": 14,
+                                "y": 800
                             }
                         ]
                     },
@@ -18284,13 +17402,6 @@
                             {
                                 "name": "Kab Kannon Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Kab Kannon",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -18312,13 +17423,6 @@
                             {
                                 "name": "Kab Kannon Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Kab Kannon",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -18336,13 +17440,6 @@
                             },
                             {
                                 "name": "Kab Kannon Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Kab Kannon",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -18423,8 +17520,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 606,
-                                "y": 766
+                                "x": 130,
+                                "y": 800
                             }
                         ]
                     },
@@ -18453,13 +17550,6 @@
                             {
                                 "name": "R & R Seal Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "R & R Seal",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -18481,13 +17571,6 @@
                             {
                                 "name": "R & R Seal Node 11"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "R & R Seal",
-                                "x": 85,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -18505,13 +17588,6 @@
                             },
                             {
                                 "name": "R & R Seal Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "R & R Seal",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -18592,8 +17668,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 766,
-                                "y": 766
+                                "x": 246,
+                                "y": 800
                             }
                         ]
                     },
@@ -18622,13 +17698,6 @@
                             {
                                 "name": "Catanuki Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Catanuki",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -18646,13 +17715,6 @@
                             },
                             {
                                 "name": "Catanuki Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Catanuki",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     },
@@ -18674,13 +17736,6 @@
                             },
                             {
                                 "name": "Catanuki Node 11"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Catanuki",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }
@@ -18761,8 +17816,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 926,
-                                "y": 766
+                                "x": 362,
+                                "y": 800
                             }
                         ]
                     },
@@ -18794,13 +17849,6 @@
                             {
                                 "name": "Beatalike Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Beatalike",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -18830,13 +17878,6 @@
                             },
                             {
                                 "name": "Beatalike Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Beatalike",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     }
@@ -18917,8 +17958,8 @@
                         "map_locations": [
                             {
                                 "map": "Link Boards",
-                                "x": 1086,
-                                "y": 766
+                                "x": 478,
+                                "y": 800
                             }
                         ]
                     },
@@ -18953,13 +17994,6 @@
                             {
                                 "name": "Tubguin Ace Node 16"
                             }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tubguin Ace",
-                                "x": 37,
-                                "y": 135
-                            }
                         ]
                     },
                     {
@@ -18974,13 +18008,6 @@
                             },
                             {
                                 "name": "Tubguin Ace Node 15"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tubguin Ace",
-                                "x": 85,
-                                "y": 135
                             }
                         ]
                     },
@@ -18999,13 +18026,6 @@
                             },
                             {
                                 "name": "Tubguin Ace Node 12"
-                            }
-                        ],
-                        "map_locations": [
-                            {
-                                "map": "Tubguin Ace",
-                                "x": 131,
-                                "y": 135
                             }
                         ]
                     }

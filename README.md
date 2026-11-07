@@ -6,6 +6,15 @@ Poptracker pack for Kingdom Hearts Dream Drop Distance with Archipelago auto-tra
 
 Download the zip folder from the latest release and place it in the `packs` folder of your Poptracker installation.
 
+## Variants
+
+Pick one when loading the pack: Maps, Items & Link Boards (the default), Maps & Items, Items Only, or
+Link Boards Only. PopTracker lists them alphabetically by id. Each variant's `layouts/root.json` (in its
+`var_*` folder, or `layouts/` for the default) points `tracker_default` at a root layout in
+`layouts/tracker.json`, and the variants share every other layout. The variants with items also set
+`tracker_horizontal`, which PopTracker uses while the window is wider than tall: the items move from
+the left column to a band along the bottom.
+
 ## Settings
 
 The Sora and Riku pictures above the world icons pick the characters in play. The settings button
@@ -20,9 +29,11 @@ ones without a map pin.
 ## Logic
 
 Access rules are generated from the apworld's `Rules.py` and `Regions.py`, so the tracker should match
-Universal Tracker right now. The Link Boards tab has a square per spirit holding its 16 board nodes.
-In `locations.json` each spirit under `Link Boards` splits its nodes into `Open`, `Gate 1` and `Gate 2`
-as the apworld gates them; the square is a sibling overview location whose sections reference those.
+Universal Tracker right now. The Link Boards tab is a grid of the spirits: each portrait is greyed until
+its recipe is held (click it to toggle the recipe), shows its gates open or closed, and has a square
+holding its 16 board nodes. In `locations.json` each spirit under `Link Boards` splits its nodes into
+`Open`, `Gate 1` and `Gate 2` as the apworld gates them; the square is a sibling overview location whose
+sections reference those.
 Link board gates and the recipes in the pool are rolled per seed, so until the tracker is connected to
 Archipelago every board is shown and its gates count as open.
 
@@ -45,6 +56,10 @@ The first regenerates `scripts/autotracking/location_mapping.lua`; the second re
 `access_rules` and `visibility_rules` in `locations/locations.json`, adding nodes for new locations
 (without map positions) and moving sections whose path changed, such as a board node whose gate did.
 Renamed locations need their node renamed by hand first so map positions are kept. The apworld's `Cleared` events become hidden `Cleared` nodes, which link board gates count.
+
+`gen/gen_link_board_grid.py` (same venv) builds the Link Boards grid: the `Link Boards` map image and
+its markers, the gate overlays in `images/spirits`, `layouts/link_boards.json` and
+`scripts/link_board_spirits.lua`. Rerun it after the generators change the spirits or their gates.
 
 The venv has to sit inside `<source>/Archipelago/` (`venv` or `.venv`): the scripts put its parent
 folder on the import path to find `worlds`.

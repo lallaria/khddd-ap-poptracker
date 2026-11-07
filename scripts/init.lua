@@ -1,10 +1,10 @@
 -- entry point for all lua code of the pack
 -- more info on the lua API: https://github.com/black-sliver/PopTracker/blob/master/doc/PACKS.md#lua-interface
 ENABLE_DEBUG_LOG = true
--- get current variant
 local variant = Tracker.ActiveVariantUID
--- check variant info
-IS_ITEMS_ONLY = variant:find("itemsonly")
+IS_ITEMS_ONLY = variant == "var_itemsonly"
+-- variant uids are fixed by manifest.json; each variant's layouts/root.json picks its root layout
+HAS_LINK_BOARDS = variant == "standard" or variant == "var_linkboards"
 
 print("-- Example Tracker --")
 print("Loaded variant: ", variant)
@@ -27,6 +27,7 @@ ScriptHost:LoadScript("scripts/custom_items/progressiveTogglePlusWrapper.lua")
 Tracker:AddItems("items/items.json")
 Tracker:AddItems("items/settings.json")
 ScriptHost:LoadScript("scripts/settings.lua")
+ScriptHost:LoadScript("scripts/traverse_town.lua")
 
 if not IS_ITEMS_ONLY then -- <--- use variant info to optimize loading
     -- Maps
@@ -34,15 +35,18 @@ if not IS_ITEMS_ONLY then -- <--- use variant info to optimize loading
     -- Locations
     Tracker:AddLocations("locations/locations.json")
     ScriptHost:LoadScript("scripts/world_indicators.lua")
+    if HAS_LINK_BOARDS then
+        ScriptHost:LoadScript("scripts/link_board_grid.lua")
+        Tracker:AddLayouts("layouts/link_boards.json")
+    end
 end
 
 -- Layout
 Tracker:AddLayouts("layouts/items.json")
 Tracker:AddLayouts("layouts/tracker.json")
+Tracker:AddLayouts("layouts/root.json")
 Tracker:AddLayouts("layouts/settings.json")
 Tracker:AddLayouts("layouts/broadcast.jsonc")
 
 -- AutoTracking for Poptracker
-if PopVersion and PopVersion >= "0.18.0" then
-    ScriptHost:LoadScript("scripts/autotracking.lua")
-end
+ScriptHost:LoadScript("scripts/autotracking.lua")

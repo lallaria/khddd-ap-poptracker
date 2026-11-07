@@ -7,16 +7,13 @@
 ScriptHost:LoadScript("scripts/autotracking/item_mapping.lua")
 ScriptHost:LoadScript("scripts/autotracking/location_mapping.lua")
 -- used for hint tracking to quickly map hint status to a value from the Highlight enum
-HINT_STATUS_MAPPING = {}
-if Highlight then
-	HINT_STATUS_MAPPING = {
-		[20] = Highlight.Avoid,
-		[40] = Highlight.None,
-		[10] = Highlight.NoPriority,
-		[0] = Highlight.Unspecified,
-		[30] = Highlight.Priority,
-	}
-end
+HINT_STATUS_MAPPING = {
+	[20] = Highlight.Avoid,
+	[40] = Highlight.None,
+	[10] = Highlight.NoPriority,
+	[0] = Highlight.Unspecified,
+	[30] = Highlight.Priority,
+}
 
 CUR_INDEX = -1
 LOCAL_ITEMS = {}
@@ -288,9 +285,7 @@ function onClear(slot_data)
 						local obj = Tracker:FindObjectForCode(location_code)
 						if obj then
 							obj.AvailableChestCount = obj.ChestCount
-							if obj.Highlight then
-								obj.Highlight = Highlight.None
-							end
+							obj.Highlight = Highlight.None
 						elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
 							print(string.format("onClear: could not find location object for code %s", location_code))
 						end
@@ -326,15 +321,8 @@ function onClear(slot_data)
 	apply_slot_data(slot_data)
 	LOCAL_ITEMS = {}
 	GLOBAL_ITEMS = {}
-	-- manually run snes interface functions after onClear in case we need to update them (i.e. because they need slot_data)
-	if PopVersion < "0.20.1" or AutoTracker:GetConnectionState("SNES") == 3 then
-		-- add snes interface functions here
-	end
 	-- setup data storage tracking for hint tracking
-	local data_strorage_keys = {}
-	if PopVersion >= "0.32.0" then
-		data_strorage_keys = { getHintDataStorageKey() }
-	end
+	local data_strorage_keys = { getHintDataStorageKey() }
 	-- subscribes to the data storage keys for updates
 	-- triggers callback in the SetNotify handler on update
 	Archipelago:SetNotify(data_strorage_keys)
@@ -395,10 +383,6 @@ function onItem(index, item_id, item_name, player_number)
 	if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
 		print(string.format("local items: %s", dump_table(LOCAL_ITEMS)))
 		print(string.format("global items: %s", dump_table(GLOBAL_ITEMS)))
-	end
-	-- track local items via snes interface
-	if PopVersion < "0.20.1" or AutoTracker:GetConnectionState("SNES") == 3 then
-		-- add snes interface functions for local item tracking here
 	end
 end
 
@@ -474,8 +458,7 @@ end
 --       if you only map sections 1 to 1 you can simplfy this. for an example see
 --       https://github.com/Cyb3RGER/sm_ap_tracker/blob/main/scripts/autotracking/archipelago.lua
 function onHintsUpdate(hints)
-	-- Highlight is only supported since version 0.32.0
-	if PopVersion < "0.32.0" or not AUTOTRACKER_ENABLE_LOCATION_TRACKING then
+	if not AUTOTRACKER_ENABLE_LOCATION_TRACKING then
 		return
 	end
 	local player_number = Archipelago.PlayerNumber
@@ -491,8 +474,7 @@ function onHintsUpdate(hints)
 	for location_code, highlight_code in pairs(sections_to_update) do
 		-- find the location object
 		local obj = Tracker:FindObjectForCode(location_code)
-		-- check if we got the location and if it supports Highlight
-		if obj and obj.Highlight then
+		if obj then
 			obj.Highlight = highlight_code
 		end
 	end

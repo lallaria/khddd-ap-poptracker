@@ -198,10 +198,11 @@ describe("applyPatch layouts", () => {
 
     async function boardsSubTab() {
         const file = parseJsonc(await readFile(path.join(root, TRACKER), "utf8"));
-        const before = structuredClone(file.tracker_default);
         const target = tabTargets(layoutTree(file)).find((t) => t.tab?.title === "Link Boards");
+        const { key } = target.tab;
+        const before = structuredClone(file[key]);
         addTab(file, target, { title: "Meow Wow", content: { type: "map", maps: ["Meow Wow"] } }, "All spirits");
-        return { file, edit: { key: "tracker_default", before, after: file.tracker_default } };
+        return { file, edit: { key, before, after: file[key] } };
     }
 
     test("refuses a layout that changed on disk, before writing anything", async () => {

@@ -1,0 +1,10 @@
+{
+    "tracker_default": {
+        "type": "layout",
+        "key": "tracker_maps"
+    },
+    "tracker_horizontal": {
+        "type": "layout",
+        "key": "tracker_maps_wide"
+    }
+}
