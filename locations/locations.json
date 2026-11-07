@@ -1320,6 +1320,13 @@
                     {
                         "name": "Traverse Town 2 Ultima Weapon Reward [Sora]"
                     }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1108,
+                        "y": 239
+                    }
                 ]
             },
             {
@@ -1391,6 +1398,13 @@
                 "sections": [
                     {
                         "name": "Traverse Town 2 Ultima Weapon Reward [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1109,
+                        "y": 239
                     }
                 ]
             }
@@ -5386,8 +5400,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1207,
-                        "y": 422
+                        "x": 929,
+                        "y": 236
                     }
                 ]
             },
@@ -5425,8 +5439,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1205,
-                        "y": 367
+                        "x": 927,
+                        "y": 181
                     }
                 ]
             },
@@ -5448,8 +5462,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1756,
-                        "y": 882
+                        "x": 1478,
+                        "y": 696
                     }
                 ]
             },
@@ -5463,8 +5477,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1262,
-                        "y": 961
+                        "x": 984,
+                        "y": 775
                     }
                 ]
             },
@@ -5479,8 +5493,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1515,
-                        "y": 586
+                        "x": 1237,
+                        "y": 400
                     }
                 ]
             },
@@ -5494,8 +5508,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1077,
-                        "y": 762
+                        "x": 799,
+                        "y": 576
                     }
                 ]
             },
@@ -5509,8 +5523,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1685,
-                        "y": 679
+                        "x": 1407,
+                        "y": 493
                     }
                 ]
             },
@@ -5524,8 +5538,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1329,
-                        "y": 357
+                        "x": 1051,
+                        "y": 171
                     }
                 ]
             },
@@ -5539,8 +5553,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1120,
-                        "y": 417
+                        "x": 842,
+                        "y": 231
                     }
                 ]
             },
@@ -5554,8 +5568,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1560,
-                        "y": 1032
+                        "x": 1282,
+                        "y": 846
                     }
                 ]
             },
@@ -5569,8 +5583,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1197,
-                        "y": 1396
+                        "x": 919,
+                        "y": 1210
                     }
                 ]
             },
@@ -5584,8 +5598,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1586,
-                        "y": 1301
+                        "x": 1308,
+                        "y": 1115
                     }
                 ]
             },
@@ -5600,8 +5614,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 968,
-                        "y": 1682
+                        "x": 690,
+                        "y": 1496
                     }
                 ]
             },
@@ -5616,8 +5630,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1017,
-                        "y": 1680
+                        "x": 739,
+                        "y": 1494
                     }
                 ]
             },
@@ -5631,8 +5645,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 865,
-                        "y": 1447
+                        "x": 587,
+                        "y": 1261
                     }
                 ]
             },
@@ -5646,8 +5660,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 885,
-                        "y": 1313
+                        "x": 958,
+                        "y": 1439
                     }
                 ]
             },
@@ -5661,8 +5675,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 2259,
-                        "y": 2008
+                        "x": 1524,
+                        "y": 1250
                     }
                 ]
             },
@@ -5676,8 +5690,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 2334,
-                        "y": 2162
+                        "x": 1601,
+                        "y": 1390
                     }
                 ]
             },
@@ -5691,8 +5705,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 2310,
-                        "y": 2094
+                        "x": 1583,
+                        "y": 1324
                     }
                 ]
             },
@@ -5706,8 +5720,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 2677,
-                        "y": 1502
+                        "x": 1974,
+                        "y": 1063
                     }
                 ]
             },
@@ -5721,8 +5735,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 2881,
-                        "y": 1327
+                        "x": 2166,
+                        "y": 987
                     }
                 ]
             },
@@ -5736,8 +5750,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 2881,
-                        "y": 466
+                        "x": 1886,
+                        "y": 516
                     }
                 ]
             },
@@ -5751,8 +5765,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 636,
-                        "y": 1352
+                        "x": 634,
+                        "y": 1357
                     }
                 ]
             },
@@ -5767,8 +5781,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 504,
-                        "y": 1167
+                        "x": 505,
+                        "y": 1164
                     }
                 ]
             },
@@ -5782,8 +5796,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 443,
-                        "y": 1212
+                        "x": 451,
+                        "y": 1200
                     }
                 ]
             },
@@ -5798,7 +5812,7 @@
                     {
                         "map": "Country of the Musketeers [Sora]",
                         "x": 575,
-                        "y": 985
+                        "y": 986
                     }
                 ]
             },
@@ -5812,7 +5826,7 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 386,
+                        "x": 434,
                         "y": 1220
                     }
                 ]
@@ -5827,7 +5841,7 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 445,
+                        "x": 440,
                         "y": 1240
                     }
                 ]
@@ -5842,8 +5856,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 2095,
-                        "y": 2361
+                        "x": 1787,
+                        "y": 2081
                     }
                 ]
             },
@@ -5857,8 +5871,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1839,
-                        "y": 2387
+                        "x": 1554,
+                        "y": 2132
                     }
                 ]
             },
@@ -5872,8 +5886,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1821,
-                        "y": 2122
+                        "x": 1522,
+                        "y": 1855
                     }
                 ]
             },
@@ -5887,8 +5901,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1525,
-                        "y": 1788
+                        "x": 1097,
+                        "y": 2056
                     }
                 ]
             },
@@ -5902,8 +5916,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 1442,
-                        "y": 1674
+                        "x": 977,
+                        "y": 1943
                     }
                 ]
             },
@@ -5917,8 +5931,8 @@
                 "map_locations": [
                     {
                         "map": "Country of the Musketeers [Sora]",
-                        "x": 189,
-                        "y": 774
+                        "x": -89,
+                        "y": 588
                     }
                 ]
             },
@@ -8139,13 +8153,6 @@
                     {
                         "name": "Unbound Keyblade Reward [Sora]"
                     }
-                ],
-                "map_locations": [
-                    {
-                        "map": "Traverse Town [Sora]",
-                        "x": 1110,
-                        "y": 240
-                    }
                 ]
             },
             {
@@ -8189,13 +8196,6 @@
                 "sections": [
                     {
                         "name": "Unbound Keyblade Reward [Riku]"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "Traverse Town [Riku]",
-                        "x": 1110,
-                        "y": 241
                     }
                 ]
             }
