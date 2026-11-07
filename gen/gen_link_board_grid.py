@@ -1,5 +1,8 @@
 """Generates the Link Boards grid: its map image, gate overlays, canvas layout, spirit table and map markers.
 
+Also writes Universal Tracker's copy of the grid, with names and portraits drawn in since UT can't draw the canvas,
+and `maps/ut_maps.json`, which the apworld reads in place of `maps/maps.json`.
+
 Usage: <source>/Archipelago/venv/Scripts/python gen/gen_link_board_grid.py
 
 Run it with the venv inside the Archipelago checkout that holds worlds/khddd.
@@ -7,13 +10,15 @@ Run it with the venv inside the Archipelago checkout that holds worlds/khddd.
 import json
 import re
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 from gen_access_rules import ITEM_MAPPING, LOCATIONS_JSON, REPO, dumps, khddd, load_mapping
 from gen_location_mapping import BOARD_ROOT
 
 MAPS_JSON = REPO / "maps" / "maps.json"
+UT_MAPS_JSON = REPO / "maps" / "ut_maps.json"
 GRID_IMAGE = REPO / "images" / "maps" / "Link_Boards.png"
+UT_GRID_IMAGE = REPO / "images" / "maps" / "Link_Boards_UT.png"
 SPIRITS = REPO / "images" / "spirits"
 LAYOUT = REPO / "layouts" / "link_boards.json"
 SPIRIT_TABLE = REPO / "scripts" / "link_board_spirits.lua"
@@ -23,7 +28,7 @@ COLUMNS = 7
 CELL_WIDTH, CELL_HEIGHT = 116, 102
 LINE_WIDTH = 2
 BACKGROUND, LINE = "#040c24", "#2c3e66"
-NAME_OFFSET = (6, 4)
+NAME_OFFSET, NAME_SIZE, NAME_COLOUR = (6, 4), 14, "white"
 PORTRAIT_OFFSET, PORTRAIT_SIZE = (28, 22), 72
 # marker centre; PopTracker draws its border outside the square, so it needs room from the grid lines
 MARKER_OFFSET, MARKER_SIZE, MARKER_BORDER = (14, 86), 16, 2
@@ -61,6 +66,19 @@ def grid_image(rows):
         y = min(max(row * CELL_HEIGHT - LINE_WIDTH // 2, 0), height - LINE_WIDTH)
         draw.rectangle((0, y, width - 1, y + LINE_WIDTH - 1), fill=LINE)
     return image
+
+
+def ut_grid_image(table, rows):
+    image = grid_image(rows).convert("RGBA")
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.load_default(NAME_SIZE)
+    for index, (spirit_id, name, _, _) in enumerate(table):
+        x, y = cell(index)
+        draw.text((x + NAME_OFFSET[0], y + NAME_OFFSET[1]), name, fill=NAME_COLOUR, font=font)
+        portrait = Image.open(SPIRITS / f"{spirit_id}.png").convert("RGBA")
+        image.alpha_composite(portrait.resize((PORTRAIT_SIZE, PORTRAIT_SIZE), Image.LANCZOS),
+                              (x + PORTRAIT_OFFSET[0], y + PORTRAIT_OFFSET[1]))
+    return image.convert("RGB")
 
 
 def gate_overlays(gate_counts):
@@ -115,6 +133,8 @@ def set_map():
     board_map.update(location_size=MARKER_SIZE, location_border_thickness=MARKER_BORDER, location_shape="rect",
                      img=GRID_IMAGE.relative_to(REPO).as_posix())
     MAPS_JSON.write_text(dumps(maps) + "\n", encoding="utf-8", newline="\n")
+    board_map["img"] = UT_GRID_IMAGE.relative_to(REPO).as_posix()
+    UT_MAPS_JSON.write_text(dumps(maps) + "\n", encoding="utf-8", newline="\n")
 
 
 def spirit_table(table):
@@ -129,6 +149,7 @@ def main():
     table = spirits(boards)
     rows = -(-len(table) // COLUMNS)
     grid_image(rows).save(GRID_IMAGE, optimize=True)
+    ut_grid_image(table, rows).save(UT_GRID_IMAGE, optimize=True)
     gate_overlays(sorted({gates for *_, gates in table}))
     LAYOUT.write_text(dumps(layout(table, rows)) + "\n", encoding="utf-8", newline="\n")
     SPIRIT_TABLE.write_text(spirit_table(table), encoding="utf-8", newline="\n")

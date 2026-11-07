@@ -42,6 +42,8 @@ Archipelago every board is shown and its gates count as open.
 The release zip also works as the map pack for Universal Tracker in the KHDDD client: select it when
 the client asks for a pack. Universal Tracker reads only the maps and locations, and takes its logic
 from the apworld. It matches sections by name, so every section keeps its exact AP location name.
+It reads its maps from `maps/ut_maps.json`, a copy of `maps.json` whose Link Boards image has the
+spirit names and portraits drawn in, since Universal Tracker can't draw the grid's canvas.
 
 ## Development
 
@@ -59,7 +61,9 @@ Renamed locations need their node renamed by hand first so map positions are kep
 
 `gen/gen_link_board_grid.py` (same venv) builds the Link Boards grid: the `Link Boards` map image and
 its markers, the gate overlays in `images/spirits`, `layouts/link_boards.json` and
-`scripts/link_board_spirits.lua`. Rerun it after the generators change the spirits or their gates.
+`scripts/link_board_spirits.lua`, plus Universal Tracker's labelled copy of the image and
+`maps/ut_maps.json`. Rerun it after the generators change the spirits or their gates, and after any
+hand edit to `maps/maps.json`.
 
 The venv has to sit inside `<source>/Archipelago/` (`venv` or `.venv`): the scripts put its parent
 folder on the import path to find `worlds`.
