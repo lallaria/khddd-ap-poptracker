@@ -36,7 +36,7 @@
     },
     {
         "name": "Country of the Musketeers [Sora]",
-        "location_size": 42,
+        "location_size": 30,
         "location_border_thickness": 2,
         "location_shape": "rect",
         "img": "images/maps/Minimap_(Country_of_the_Musketeers)_KH3D_S.png"
@@ -85,10 +85,10 @@
     },
     {
         "name": "Country of the Musketeers [Riku]",
-        "location_size": 42,
+        "location_size": 30,
         "location_border_thickness": 2,
         "location_shape": "rect",
-        "img": "images/maps/Minimap_(Country_of_the_Musketeers)_KH3D.png"
+        "img": "images/maps/Minimap_(Country_of_the_Musketeers)_KH3D_R.png"
     },
     {
         "name": "Symphony of Sorcery [Riku]",
