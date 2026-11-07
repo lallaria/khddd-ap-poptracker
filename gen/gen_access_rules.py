@@ -12,17 +12,15 @@ import functools
 import inspect
 import itertools
 import json
-import random
 import re
 import sys
 from collections import defaultdict
 from pathlib import Path
-from types import SimpleNamespace
 
 sys.path.insert(0, str(Path(sys.prefix).parent))  # the venv sits in the Archipelago checkout
 
-from BaseClasses import Location
 from worlds import khddd
+from gen_location_mapping import BOARD_ROOT, OPEN_SEGMENT, gate_nodes
 
 atexit.unregister(input)  # some apworlds register an exit prompt on import
 
@@ -31,6 +29,7 @@ LOCATIONS_JSON = REPO / "locations" / "locations.json"
 LOCATION_MAPPING = REPO / "scripts" / "autotracking" / "location_mapping.lua"
 ITEM_MAPPING = REPO / "scripts" / "autotracking" / "item_mapping.lua"
 LOGIC_LUA = REPO / "scripts" / "logic" / "logic.lua"
+EVENT_LOCATION = "Cleared"
 
 # option -> value domain; emblem_reqs is folded to 0 / "1 or more"
 OPTIONS = {
@@ -41,6 +40,7 @@ OPTIONS = {
     "armored_ventus_nightmare": (0, 1),
     "fast_go_mode": (0, 1),
     "play_destiny_islands": (0, 1),
+    "link_board_sanity": (0, 1),
     "stats_on_levels": (0, 1, 2, 3),
     "emblem_reqs": (0, 1),
 }
@@ -62,6 +62,7 @@ TOGGLE_CODES = {
     "armored_ventus_nightmare": "opt_avn",
     "fast_go_mode": "opt_fast_go_mode",
     "play_destiny_islands": "opt_destiny_islands",
+    "link_board_sanity": "opt_link_boards",
 }
 COUNT_OPTION_CODES = {"emblem_reqs": "opt_emblem_reqs", "recipe_reqs": "opt_recipe_reqs"}
 # (item, option) count comparisons with a dedicated Lua function
@@ -75,8 +76,9 @@ HELPERS = {
     "has_required_recipes": "$has_recipes",
 }
 COUNTING_HELPERS = {"has_x_sora_worlds": "$has_sora_worlds", "has_x_riku_worlds": "$has_riku_worlds"}
-# helpers whose body iterates a list of location names that must all be reachable
-REACH_ALL_HELPERS = {"can_access_sora_portals", "can_access_riku_portals"}
+# Rules.py helper returning {node: rule} for the rolled link board gates; gate_contributions adds those rules
+GATE_RULES_HELPER = "gate_rules"
+GATE_RULES = object()
 # per-seed facts from slot_data, guarded like options with domain (0, 1): fact -> (Lua $ when true, when false)
 SEED_FACT_CODES = {"recipe_in_pool": ("$recipe_in_pool", "$recipe_not_in_pool")}
 
@@ -357,6 +359,8 @@ class Translator:
 
     @staticmethod
     def option_name(node):
+        if isinstance(node, ast.Attribute) and node.attr == "value":
+            node = node.value
         if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name) and node.value.id == "options":
             return node.attr
         return None
@@ -402,97 +406,75 @@ class Translator:
         return [["@" + path]]
 
     def rule(self, node, env):
-        """Rule combo for a lambda body or helper return expression."""
-        if isinstance(node, ast.BoolOp):
-            parts = [self.rule(value, env) for value in node.values]
-            result = parts[0]
-            for part in parts[1:]:
-                result = product(result, part) if isinstance(node.op, ast.And) else union(result, part)
-            return result
-        if isinstance(node, ast.Constant) and isinstance(node.value, bool):
-            return [[]] if node.value else []
-        if isinstance(node, ast.Compare) and len(node.ops) == 1:
-            return self.count_rule(node, env)
+        """Rule combo for a rule_builder expression."""
+        if isinstance(node, ast.BinOp) and isinstance(node.op, (ast.BitAnd, ast.BitOr)):
+            combine = product if isinstance(node.op, ast.BitAnd) else union
+            return combine(self.rule(node.left, env), self.rule(node.right, env))
         if isinstance(node, ast.Call):
             return self.call_rule(node, env)
         raise ValueError(f"unsupported rule expression: {ast.unparse(node)}")
 
-    def count_rule(self, node, env):
-        call = node.left
-        if not (isinstance(call, ast.Call) and self.method_name(call) == "count"):
-            raise ValueError(f"unsupported comparison: {ast.unparse(node)}")
-        name = self.concrete(call.args[0], env)
-        other = node.comparators[0]
-        op = node.ops[0]
-        option = self.option_name(other)
+    def count_rule(self, name, node, env):
+        """Rule combo for owning as many of the item as node says."""
+        option = self.option_name(node)
         if option:
-            if not isinstance(op, ast.GtE):
-                raise ValueError(f"unsupported option comparison: {ast.unparse(node)}")
             helper = COUNT_HELPERS.get((name, option))
             if helper:
                 return [[helper]]
             code = self.item_code(name)
             return [[f"$has_opt_count|{code}|{COUNT_OPTION_CODES[option]}"]] if code else []
-        value = self.concrete(other, env)
-        if isinstance(op, ast.Gt):
-            needed = value + 1
-        elif isinstance(op, ast.GtE):
-            needed = value
-        else:
-            raise ValueError(f"unsupported comparison: {ast.unparse(node)}")
+        needed = self.concrete(node, env)
         code = self.item_code(name)
         return [[f"{code}:{needed}" if needed > 1 else code]] if code else []
 
-    def names(self, node, env):
-        """Item names of a set/list literal in source order (set iteration order is randomized)."""
-        if isinstance(node, (ast.Set, ast.List, ast.Tuple)):
-            return [self.concrete(element, env) for element in node.elts]
-        return sorted(self.concrete(node, env))
-
     @staticmethod
-    def method_name(call):
-        func = call.func
-        if isinstance(func, ast.Attribute) and isinstance(func.value, ast.Name) and func.value.id == "state":
-            return func.attr
-        return None
+    def is_gate_rules(node, env):
+        """True for the {node: gate rule} dict: a gate_rules result, or KHDDDWorld.gate_rules before Rules.gate_rules."""
+        if isinstance(node, ast.Name):
+            return env.get(node.id) is GATE_RULES
+        return ast.unparse(node) == "khdddworld.gate_rules"
 
     def call_rule(self, node, env):
-        method = self.method_name(node)
-        if method == "has":
-            code = self.item_code(self.concrete(node.args[0], env))
+        if isinstance(node.func, ast.Attribute) and node.func.attr == "get" and self.is_gate_rules(node.func.value, env):
+            return [[]]
+        if not isinstance(node.func, ast.Name) or node.keywords:
+            raise ValueError(f"unsupported call: {ast.unparse(node)}")
+        name = node.func.id
+        args = node.args
+        if name == "True_":
+            return [[]]
+        if name == "Has":
+            code = self.item_code(self.concrete(args[0], env))
             return [[code]] if code else []
-        if method in ("has_any", "has_all"):
-            codes = [self.item_code(name) for name in self.names(node.args[0], env)]
-            if method == "has_any":
+        if name in ("HasAny", "HasAll"):
+            codes = [self.item_code(self.concrete(arg, env)) for arg in args]
+            if name == "HasAny":
                 return simplify([[code] for code in codes if code])
             return [] if None in codes else [codes]
-        if method == "can_reach_location":
-            return self.location_ref(self.concrete(node.args[0], env))
-        if method == "can_reach":
-            target = node.args[0]
-            if isinstance(target, ast.Call) and isinstance(target.func, ast.Attribute) and target.func.attr == "get_location":
-                return self.location_ref(self.concrete(target.args[0], env))
-        if isinstance(node.func, ast.Name):
-            return self.helper_rule(node, env)
-        raise ValueError(f"unsupported call: {ast.unparse(node)}")
+        if name == "HasAllCounts":
+            result = [[]]
+            for key, value in zip(args[0].keys, args[0].values):
+                result = product(result, self.count_rule(self.concrete(key, env), value, env))
+            return result
+        if name == "CanReachLocation":
+            return self.location_ref(self.concrete(args[0], env))
+        if name == "AtLeast":
+            rules = [self.rule(arg, env) for arg in args[1:]]
+            result = []
+            for chosen in itertools.combinations(rules, self.concrete(args[0], env)):
+                result = union(result, functools.reduce(product, chosen))
+            return result
+        return self.helper_rule(node, env)
 
     def helper_rule(self, node, env):
         name = node.func.id
         if name in HELPERS:
             return [[HELPERS[name]]]
         if name in COUNTING_HELPERS:
-            return [[f"{COUNTING_HELPERS[name]}|{self.concrete(node.args[2], env)}"]]
+            return [[f"{COUNTING_HELPERS[name]}|{self.concrete(node.args[0], env)}"]]
         function = self.functions.get(name)
         if function is None:
             raise ValueError(f"unknown helper {name}")
-        if name in REACH_ALL_HELPERS:
-            names = next(self.concrete(child, {}) for child in ast.walk(function)
-                         if isinstance(child, ast.List) and child.elts
-                         and all(isinstance(element, ast.Constant) for element in child.elts))
-            result = [[]]
-            for location in names:
-                result = product(result, self.location_ref(location))
-            return result
         if len(function.body) != 1 or not isinstance(function.body[0], ast.Return):
             raise ValueError(f"helper {name} needs an entry in HELPERS")
         return self.rule(function.body[0].value, env)
@@ -516,11 +498,18 @@ class Translator:
                     self.block(statement.body, scope, guard)
             elif isinstance(statement, ast.Continue):
                 return False
-            elif (isinstance(statement, ast.Assign) and isinstance(statement.targets[0], ast.Name)
-                  and not self.uses_seed(statement.value)):
-                if guard is not True:
-                    raise ValueError(f"assignment under an option test: {ast.unparse(statement)}")
-                env[statement.targets[0].id] = self.concrete(statement.value, env)
+            elif isinstance(statement, ast.Assign) and isinstance(statement.targets[0], ast.Name):
+                target = statement.targets[0].id
+                if not self.uses_seed(statement.value):
+                    if guard is not True:
+                        raise ValueError(f"assignment under an option test: {ast.unparse(statement)}")
+                    env[target] = self.concrete(statement.value, env)
+                elif isinstance(statement.value, ast.Call) and ast.unparse(statement.value.func) == GATE_RULES_HELPER:
+                    env[target] = GATE_RULES
+                elif isinstance(statement.value, ast.Call):
+                    env[target] = [(guard, self.rule(statement.value, env))]
+            elif isinstance(statement, ast.AugAssign) and isinstance(statement.op, ast.BitAnd):
+                env[statement.target.id] = env[statement.target.id] + [(guard, self.rule(statement.value, env))]
             elif isinstance(statement, ast.Expr) and isinstance(statement.value, ast.Call):
                 self.call_statement(statement.value, env, guard)
         return guard
@@ -538,7 +527,7 @@ class Translator:
         return guard_or(after_body, after_else)
 
     def call_statement(self, call, env, guard):
-        if not (isinstance(call.func, ast.Name) and call.func.id == "add_rule"):
+        if not (isinstance(call.func, ast.Attribute) and call.func.attr == "set_rule"):
             return
         target_call, rule = call.args
         kind = target_call.func.attr
@@ -548,42 +537,21 @@ class Translator:
         elif kind == "get_entrance":
             target = ("entrance", name)
         else:
-            raise ValueError(f"unsupported add_rule target: {ast.unparse(target_call)}")
-        self.contributions[target].append((guard, self.rule(rule.body, env)))
+            raise ValueError(f"unsupported set_rule target: {ast.unparse(target_call)}")
+        parts = env[rule.id] if isinstance(rule, ast.Name) else [(guard, self.rule(rule, env))]
+        # set_rule replaces, so an earlier rule only holds where this statement does not run
+        kept = [(guard_and(old, guard_not(guard)), combo) for old, combo in self.contributions[target]]
+        self.contributions[target] = [(old, combo) for old, combo in kept if old is not False] + parts
 
 
-# --- link board gates from KHDDDWorld.set_gate_rules ----------------------------------------------
-
-class GateRecorder:
-    """Stands in for KHDDDWorld while its gate code runs, recording the nodes each gate covers."""
-
-    player = 0
-
-    def __init__(self):
-        value = SimpleNamespace(value=1)
-        self.options = SimpleNamespace(character=value, min_gate_req=value, max_gate_req=value)
-        self.random = random.Random(0)
-        self.ids_for_gates = list(khddd.Items.SPIRITLIST.values())
-        self.nodes = defaultdict(list)  # (spirit id, gate number from 1) -> location names
-        self.gate = None
-
-    def set_gate_rules(self, spirit_name, gate_index, character, world_req):
-        self.gate = (khddd.Items.SPIRITLIST[spirit_name], gate_index + 1)
-        khddd.KHDDDWorld.set_gate_rules(self, spirit_name, gate_index, character, world_req)
-
-    def get_location(self, name):
-        self.nodes[self.gate].append(name)
-        return SimpleNamespace(access_rule=Location.access_rule)
-
+# --- link board gates ----------------------------------------------------------------------------
 
 def gate_contributions():
-    """(location, guard, rule combo) for the gates KHDDDWorld.get_gate_requirements puts on link board nodes.
+    """(location, guard, rule combo) for the gates the apworld puts on link board nodes.
 
     The world count of each gate is rolled per seed and reaches the tracker as slot_data gate_reqs.
     """
-    recorder = GateRecorder()
-    khddd.KHDDDWorld.get_gate_requirements(recorder)
-    for (spirit_id, gate), names in recorder.nodes.items():
+    for (spirit_id, gate), names in gate_nodes().items():
         for name in names:
             yield name, recipe_in_pool(spirit_id), [[f"^$board_gate|{spirit_id}|{gate}"]]
 
@@ -609,8 +577,11 @@ def region_guard(region):
 
 
 def existence_guard(name, data):
-    """Mirrors the skip conditions of Regions.create_regions."""
+    """Mirrors the skip conditions of Regions.create_regions; board nodes count as skipped without link_board_sanity,
+    since place_board_filler fills them with local filler."""
     parts = []
+    if data.category == "Board":
+        parts.append(piece("link_board_sanity", {1}))
     if data.region == "Destiny Islands":
         parts += [piece("play_destiny_islands", {1}), piece("character", {0, 1})]
     if "Superbosses" not in name:
@@ -659,6 +630,16 @@ def region_chain(regions, target):
     return None
 
 
+def region_rules(region, ap_regions, translator):
+    """(access, visibility) of an AP region: its entrance chain and the options that create it."""
+    existence = region_guard(region)
+    access = [[]]
+    for entrance in region_chain(ap_regions, region) if region in ap_regions else []:
+        for guard, rule in translator.contributions.get(("entrance", entrance), []):
+            access = product(access, contribution_rule(guard, rule, existence))
+    return access, option_combo_to_rules(guard_combo(existence))
+
+
 # --- locations.json ------------------------------------------------------------------------------
 
 def load_mapping(path, pattern):
@@ -689,9 +670,43 @@ def rules_json(branches):
     return [",".join(branch) for branch in branches]
 
 
-def shared_rules(rule_lists):
-    """The rules every section has, which then go on their node; None when sections differ."""
-    return rule_lists[0] if all(rules == rule_lists[0] for rules in rule_lists) else None
+MIXED = object()
+
+
+def shared_rules(node, path, section_rules, shared):
+    """Fills shared[path], per rule kind (access, visibility), with the rules every generated section under node has:
+    None without generated sections, MIXED when they differ."""
+    found = ([], [])
+    for rules in section_rules.get(path, {}).values():
+        for kind in (0, 1):
+            found[kind].append(rules[kind])
+    for child in node.get("children", []):
+        child_path = path + (child["name"],)
+        shared_rules(child, child_path, section_rules, shared)
+        for kind in (0, 1):
+            if shared[child_path][kind] is not None:
+                found[kind].append(shared[child_path][kind])
+    shared[path] = tuple(
+        None if not values else values[0] if all(value is not MIXED and value == values[0] for value in values)
+        else MIXED
+        for values in found)
+
+
+def place_rules(node, path, section_rules, shared, held=(False, False)):
+    """Puts each generated rule on the highest location below the top level whose generated sections all share it."""
+    rules = [None, None]
+    held = list(held)
+    for kind in (0, 1):
+        if not held[kind] and shared[path][kind] not in (None, MIXED):
+            rules[kind] = nontrivial(shared[path][kind])
+            held[kind] = True
+    set_rules(node, *rules)
+    for section in node.get("sections", []):
+        own = section_rules.get(path, {}).get(section.get("name"))
+        if own is not None:
+            set_rules(section, *(None if held[kind] else nontrivial(own[kind]) for kind in (0, 1)))
+    for child in node.get("children", []):
+        place_rules(child, path + (child["name"],), section_rules, shared, held)
 
 
 def nontrivial(rules):
@@ -717,6 +732,68 @@ def level_sort_key(node):
     return (0 if match.group(1) == "Sora" else 1, int(match.group(2))) if match else (2, 0)
 
 
+def child_sort_key(parent):
+    """Order for the children of the location at path parent when one is added; None keeps insertion order."""
+    if parent == ["Levels"]:
+        return level_sort_key
+    if len(parent) == 2 and parent[0] == BOARD_ROOT:  # the spirit's overview, then its gate segments
+        return lambda node: (node["name"] != parent[1], node["name"] != OPEN_SEGMENT, node["name"])
+    return None
+
+
+def tree_node(tree, names):
+    """The location at path names, adding missing ones."""
+    siblings = tree
+    for depth, name in enumerate(names):
+        node = next((child for child in siblings if child["name"] == name), None)
+        if node is None:
+            print(f"adding {'/'.join(names[:depth + 1])}")
+            node = {"name": name}
+            siblings.append(node)
+            if key := child_sort_key(names[:depth]):
+                siblings.sort(key=key)
+        if depth + 1 < len(names):
+            siblings = node.setdefault("children", [])
+    return node
+
+
+def board_overviews(location_paths):
+    """Ref sections for each spirit's overview location, named by AP name so Universal Tracker matches them."""
+    overviews = defaultdict(list)
+    for name, path in location_paths.items():
+        root, spirit, *_ = path.split("/")
+        if root == BOARD_ROOT:
+            overviews[(root, spirit, spirit)].append({"name": name, "ref": path})
+    return overviews
+
+
+def remove_stale_sections(nodes, location_paths, prefix=""):
+    """Drops AP-named sections away from their mapped path, which Universal Tracker would match as well, and the
+    locations they leave empty unless those hold map_locations; returns the dropped section paths."""
+    removed = []
+    for node in list(nodes):
+        path = prefix + node["name"]
+        sections = node.get("sections", [])
+        kept = [section for section in sections if "ref" in section or section.get("name") not in location_paths
+                or location_paths[section["name"]] == f"{path}/{section['name']}"]
+        removed += [f"{path}/{section['name']}" for section in sections if section not in kept]
+        removed += remove_stale_sections(node.get("children", []), location_paths, path + "/")
+        if len(kept) < len(sections):
+            node["sections"] = kept
+            if not kept and not node.get("children"):
+                if "map_locations" in node:
+                    warn(f"{path!r} lost all its sections but keeps map_locations; move them by hand")
+                else:
+                    nodes.remove(node)
+    return removed
+
+
+def descendants(nodes):
+    for node in nodes:
+        yield node
+        yield from descendants(node.get("children", []))
+
+
 def main():
     khddd.Regions.set_region_table()
     ap_regions = khddd.Regions.region_data_table  # rebound by set_region_table; the package's copy stays empty
@@ -724,92 +801,83 @@ def main():
     section_paths = load_mapping(LOCATION_MAPPING, r'^\s*\[(\d+)\]\s*=\s*\{\s*\{\s*"@([^"]+)"')
     location_paths = {}
     for name, data in khddd.location_data_table.items():
+        if data.code is None:  # no AP id; hidden sections that board_gate counts
+            location_paths[name] = f"{data.region}/{EVENT_LOCATION}/{name}"
+            continue
         path = section_paths.get(data.code)
         if path is None:
             warn(f"{name!r} ({data.code}) is missing from location_mapping.lua; rerun gen_location_mapping.py")
         else:
             location_paths[name] = path
-    logic = LOGIC_LUA.read_text(encoding="utf-8")
-    for name in khddd.Rules.SORA_COMPLETION_LOCS + khddd.Rules.RIKU_COMPLETION_LOCS:
-        if f'"@{location_paths.get(name)}"' not in logic:
-            warn(f"{name!r} is missing from COMPLETION_LOCATIONS in logic.lua")
+    world_events = {location_paths[name]
+                    for name in khddd.location_name_groups["Sora Worlds"] | khddd.location_name_groups["Riku Worlds"]}
+    listed = set(re.findall(rf'"@([^"]+/{EVENT_LOCATION}/[^"]+)"', LOGIC_LUA.read_text(encoding="utf-8")))
+    for path in sorted(world_events - listed):
+        warn(f"{path!r} is missing from WORLD_EVENTS in logic.lua")
+    for path in sorted(listed - world_events):
+        warn(f"{path!r} is in WORLD_EVENTS in logic.lua but not the apworld's world groups")
 
     tree = json.loads(LOCATIONS_JSON.read_text(encoding="utf-8"))
-    regions = {node["name"]: node for node in tree}
-    for name in location_paths:
-        region_name, node_name, section_name = location_paths[name].split("/")
-        if region_name not in regions:
-            regions[region_name] = {"name": region_name, "children": []}
-            tree.append(regions[region_name])
-        children = regions[region_name].setdefault("children", [])
-        node = next((child for child in children if child["name"] == node_name), None)
-        if node is None:
-            print(f"adding {region_name}/{node_name}")
-            node = {"name": node_name, "sections": []}
-            children.append(node)
-            if region_name == "Levels":
-                children.sort(key=level_sort_key)
-        sections = node.setdefault("sections", [])
-        if not any(section["name"] == section_name for section in sections):
+    for path in remove_stale_sections(tree, location_paths):
+        print(f"removing {path}")
+    for path in location_paths.values():
+        *names, section_name = path.split("/")
+        sections = tree_node(tree, names).setdefault("sections", [])
+        if not any(section.get("name") == section_name for section in sections):
             sections.append({"name": section_name})
+    for names, refs in board_overviews(location_paths).items():
+        tree_node(tree, list(names))["sections"] = refs
 
     translator = Translator(item_codes, location_paths)
     translator.collect()
     for name, guard, rule in gate_contributions():
         translator.contributions[("location", name)].append((guard, rule))
 
+    top_level = {node["name"] for node in tree}
+    regions = {region: region_rules(region, ap_regions, translator)
+               for region in top_level | {data.region for data in khddd.location_data_table.values()}}
     for node in tree:
-        region_name = node["name"]
-        chain = region_chain(ap_regions, region_name) if region_name in ap_regions else []
-        existence = region_guard(region_name)
-        access = [[]]
-        for entrance in chain:
-            for guard, rule in translator.contributions.get(("entrance", entrance), []):
-                access = product(access, contribution_rule(guard, rule, existence))
-        visibility = option_combo_to_rules(guard_combo(existence))
-        set_rules(node, access if access != [[]] else None, visibility if visibility != [[]] else None)
+        access, visibility = regions[node["name"]]
+        set_rules(node, nontrivial(access), nontrivial(visibility))
 
-    nodes_by_path = {(node["name"], child["name"]): child for node in tree for child in node.get("children", [])}
-    for node in nodes_by_path.values():
-        set_rules(node, None, None)
-    section_rules = defaultdict(dict)  # (region, node) -> section -> (access, visibility)
+    section_rules = defaultdict(dict)  # location path -> section -> (access, visibility)
     for name, data in khddd.location_data_table.items():
         path = location_paths.get(name)
         if path is None:
             continue
-        region_name, node_name, section_name = path.split("/")
+        *names, section_name = path.split("/")
         existence = existence_guard(name, data)
         access = [[]]
         for guard, rule in translator.contributions.get(("location", name), []):
             access = product(access, contribution_rule(guard, rule, existence))
         if not access:
             raise ValueError(f"{name!r} ended up unreachable under every option")
-        visibility = option_combo_to_rules(assuming(existence, region_guard(data.region)))
-        sections = section_rules[(region_name, node_name)]
+        if names[0] == data.region:
+            visibility = option_combo_to_rules(assuming(existence, region_guard(data.region)))
+        else:  # no ancestor carries the region's rules
+            access = product(regions[data.region][0], access)
+            visibility = option_combo_to_rules(assuming(guard_and(region_guard(data.region), existence), True))
+        sections = section_rules[tuple(names)]
         if section_name in sections:
             warn(f"{name!r} shares the tracker section {path} with another location; rules are ANDed")
             other_access, other_visibility = sections[section_name]
             access, visibility = product(other_access, access), union(other_visibility, visibility)
         sections[section_name] = (access, visibility)
-    for key, sections in section_rules.items():
-        node = nodes_by_path[key]
-        accesses, visibilities = zip(*sections.values())
-        access, visibility = shared_rules(accesses), shared_rules(visibilities)
-        set_rules(node, nontrivial(access), nontrivial(visibility))
-        for section in node["sections"]:
-            if section["name"] in sections:
-                section_access, section_visibility = sections[section["name"]]
-                set_rules(section, None if access is not None else nontrivial(section_access),
-                          None if visibility is not None else nontrivial(section_visibility))
+    shared = {}
+    for node in tree:
+        for child in node.get("children", []):
+            path = (node["name"], child["name"])
+            shared_rules(child, path, section_rules, shared)
+            place_rules(child, path, section_rules, shared)
 
     for kind, name in translator.contributions:
         if kind == "location" and name not in location_paths:
             warn(f"rules for {name!r} were dropped (no tracker location)")
-        if kind == "entrance" and name not in regions:
+        if kind == "entrance" and name not in top_level:
             warn(f"rules for entrance {name!r} were dropped (no top-level node)")
 
     LOCATIONS_JSON.write_text(dumps(tree) + "\n", encoding="utf-8", newline="\n")
-    rule_count = sum(1 for node in tree for child in node.get("children", []) if "access_rules" in child)
+    rule_count = sum("access_rules" in child for node in tree for child in descendants(node.get("children", [])))
     print(f"wrote {LOCATIONS_JSON.name}: {rule_count} locations with access rules, {len(WARNINGS)} warnings")
 
 

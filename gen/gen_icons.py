@@ -1,4 +1,4 @@
-"""Cuts the settings, movement and spirit icons and the link board map out of the game's UI atlases.
+"""Cuts the settings, movement and spirit icons, spirit portraits and link board gates out of the game's textures.
 
 Usage: .venv/Scripts/python gen/gen_icons.py path/to/atlas/folder [path/to/LuckyEmblem.dds]
 
@@ -6,13 +6,24 @@ Usage: .venv/Scripts/python gen/gen_icons.py path/to/atlas/folder [path/to/Lucky
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 REPO = Path(__file__).resolve().parent.parent
 OUT = REPO / "images" / "items"
-LINK_BOARDS_MAP = REPO / "images" / "maps" / "Link_Boards.png"
+SPIRITS = REPO / "images" / "spirits"
 FONT = "C:/Windows/Fonts/KHMenu.otf"
 TILE = 128
+SPIRIT_CELL = 160
+SPIRIT_COLUMNS = 12
+SPIRIT_COUNT = 54
+GATE_TILE = 64
+# link board gate model's texture animation, chara/f_obj/f_de50/mig/1/bin/f_de501.txa; frames stack every 256 px
+GATE_TEXTURE = "f_de501_a.dds"
+GATE_FRAME = 256
+GATE_FRAMES = {"gate_open": 0, "gate_closed": 1}
+# left door leaf within a frame; the model mirrors it at the seam
+GATE_LEAF = (141, 13, 246, 253)
+GATE_ARCH_HEIGHT = 93
 
 SPRITES = {
     "switch_on": ("US_pt_status.png", (332, 392, 375, 435)),
@@ -24,8 +35,8 @@ SPRITES = {
     "boot": ("US_icon.dds", (411, 153, 490, 236)),
     "flow_arrow": ("US_icon.dds", (789, 152, 883, 238)),
     "recipe": ("US_icon.dds", (23, 279, 110, 366)),
-    # spirit portraits in 160 px cells, spirit id = cell index; Link Boards map_locations assume this origin
-    "link_boards": ("US_de_kao0.png", (0, 0, 1920, 800)),
+    # spirit portraits in 160 px cells, spirit id = cell index
+    "spirit_portraits": ("US_de_kao0.png", (0, 0, 1920, 800)),
 }
 MOVEMENT = {
     "flowmotion": ("flow_arrow", "Flow\nmotion"),
@@ -96,6 +107,32 @@ def label_tile(icon, text):
     return tile
 
 
+def gate_tile(texture, index):
+    """Front view of the gate: one frame's door leaf, arch-masked and mirrored."""
+    frame = texture.crop((0, index * GATE_FRAME, GATE_FRAME, (index + 1) * GATE_FRAME))
+    leaf = frame.crop(GATE_LEAF)
+    mask = Image.new("L", leaf.size, 0)
+    draw = ImageDraw.Draw(mask)
+    draw.ellipse((0, 0, 2 * leaf.width, 2 * GATE_ARCH_HEIGHT), fill=255)
+    draw.rectangle((0, GATE_ARCH_HEIGHT, leaf.width, leaf.height), fill=255)
+    leaf.putalpha(mask)
+    door = Image.new("RGBA", (2 * leaf.width, leaf.height), (0, 0, 0, 0))
+    door.paste(leaf, (0, 0))
+    door.paste(ImageOps.mirror(leaf), (leaf.width, 0))
+    return canvas(fit(door, GATE_TILE), GATE_TILE)
+
+
+def spirit_images(atlas, gate_texture):
+    """Writes the portraits and gates the client's link board grid loads from the pack, portraits named by spirit id."""
+    SPIRITS.mkdir(exist_ok=True)
+    for spirit_id in range(1, SPIRIT_COUNT + 1):
+        row, column = divmod(spirit_id, SPIRIT_COLUMNS)
+        box = (column * SPIRIT_CELL, row * SPIRIT_CELL, (column + 1) * SPIRIT_CELL, (row + 1) * SPIRIT_CELL)
+        atlas.crop(box).save(SPIRITS / f"{spirit_id}.png", optimize=True)
+    for name, index in GATE_FRAMES.items():
+        gate_tile(gate_texture, index).save(SPIRITS / f"{name}.png", optimize=True)
+
+
 def main(folder, lucky_emblem_path=None):
     folder = Path(folder)
     atlases = {}
@@ -119,8 +156,8 @@ def main(folder, lucky_emblem_path=None):
         label_tile(image, text).save(OUT / f"{code}.png")
     for code, (icon, text) in MOVEMENT.items():
         label_tile(sprite(atlases, folder, icon), text).save(OUT / "movement" / f"{code}.png")
-    sprite(atlases, folder, "link_boards").save(LINK_BOARDS_MAP, optimize=True)
-    print(f"wrote icons to {OUT} and {LINK_BOARDS_MAP.name}")
+    spirit_images(sprite(atlases, folder, "spirit_portraits"), load(atlases, folder, GATE_TEXTURE))
+    print(f"wrote icons to {OUT} and {SPIRITS}")
 
 
 if __name__ == "__main__":

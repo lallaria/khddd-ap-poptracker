@@ -2,6 +2,9 @@
 -- worlds/khddd/Client.py); the opt_auto_tab toggle lets the user turn it off
 AUTO_TAB_KEY = nil
 
+-- ActivateTab only switches tab groups holding that title, so each enclosing tab needs its own hint
+local OVERWORLD_TAB = "Overworld"
+
 local CHARACTER_TABS = {
 	[0] = "Sora",
 	[1] = "Riku",
@@ -72,6 +75,7 @@ local function onRoomUpdate(key, value)
 	if not character_tab or not world_tab then
 		return
 	end
+	Tracker:UiHint("ActivateTab", OVERWORLD_TAB)
 	Tracker:UiHint("ActivateTab", character_tab)
 	Tracker:UiHint("ActivateTab", world_tab)
 end

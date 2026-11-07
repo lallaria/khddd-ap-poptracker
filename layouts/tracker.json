@@ -1,5 +1,5 @@
 {
-    "tracker_default": {
+    "tracker_full_left": {
         "type": "container",
         "background": "#000000",
         "content": {
@@ -7,184 +7,330 @@
             "dropshadow": true,
             "content": [
                 {
-                    "type": "dock",
-                    "dock": "left",
-                    "v_alignment": "stretch",
-                    "content": [
-                        {
-                            "type": "group",
-                            "header": "Worlds",
-                            "dock": "top",
-                            "content": {
-                                "type": "layout",
-                                "key": "worlds"
-                            }
-                        },
-                        {
-                            "type": "group",
-                            "header": "Movement",
-                            "dock": "top",
-                            "content": {
-                                "type": "layout",
-                                "key": "movement"
-                            }
-                        },
-                        {
-                            "type": "group",
-                            "header": "Items",
-                            "dock": "top",
-                            "content": {
-                                "type": "layout",
-                                "key": "items"
-                            }
-                        }
-                    ]
+                    "type": "layout",
+                    "key": "item_panel",
+                    "dock": "left"
                 },
                 {
-                    "type": "tabbed",
-                    "tabs": [
-                        {
-                            "title": "Sora",
-                            "content": {
-                                "type": "tabbed",
-                                "tabs": [
-                                    {
-                                        "title": "Traverse Town",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": ["Traverse Town [Sora]"]
-                                        }
-                                    },
-                                    {
-                                        "title": "La Cité des Cloches",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": [
-                                                "La Cité des Cloches [Sora]"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "The Grid",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": ["The Grid [Sora]"]
-                                        }
-                                    },
-                                    {
-                                        "title": "Prankster's Paradise",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": [
-                                                "Prankster's Paradise [Sora]"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "Country of the Musketeers",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": [
-                                                "Country of the Musketeers [Sora]"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "Symphony of Sorcery",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": [
-                                                "Symphony of Sorcery [Sora]"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "TWTNW (Dark City)",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": ["TWTNW (Dark City) [Sora]"]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "title": "Riku",
-                            "content": {
-                                "type": "tabbed",
-                                "tabs": [
-                                    {
-                                        "title": "Traverse Town",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": ["Traverse Town [Riku]"]
-                                        }
-                                    },
-                                    {
-                                        "title": "La Cité des Cloches",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": [
-                                                "La Cité des Cloches [Riku]"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "The Grid",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": ["The Grid [Riku]"]
-                                        }
-                                    },
-                                    {
-                                        "title": "Prankster's Paradise (Monstro)",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": [
-                                                "Prankster's Paradise (Monstro) [Riku]"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "Country of the Musketeers",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": [
-                                                "Country of the Musketeers [Riku]"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "Symphony of Sorcery",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": [
-                                                "Symphony of Sorcery [Riku]"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "title": "TWTNW (Castle)",
-                                        "content": {
-                                            "type": "map",
-                                            "maps": [
-                                                "TWTNW (Castle That Never Was) [Riku]"
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "title": "Link Boards",
-                            "content": {
-                                "type": "map",
-                                "maps": ["Link Boards"]
-                            }
-                        }
-                    ]
+                    "type": "layout",
+                    "key": "full_tabs"
                 }
             ]
         }
+    },
+    "tracker_full_bottom": {
+        "type": "container",
+        "background": "#000000",
+        "content": {
+            "type": "dock",
+            "dropshadow": true,
+            "content": [
+                {
+                    "type": "layout",
+                    "key": "item_band",
+                    "dock": "bottom"
+                },
+                {
+                    "type": "layout",
+                    "key": "full_tabs"
+                }
+            ]
+        }
+    },
+    "tracker_maps_left": {
+        "type": "container",
+        "background": "#000000",
+        "content": {
+            "type": "dock",
+            "dropshadow": true,
+            "content": [
+                {
+                    "type": "layout",
+                    "key": "item_panel",
+                    "dock": "left"
+                },
+                {
+                    "type": "layout",
+                    "key": "map_tabs"
+                }
+            ]
+        }
+    },
+    "tracker_maps_bottom": {
+        "type": "container",
+        "background": "#000000",
+        "content": {
+            "type": "dock",
+            "dropshadow": true,
+            "content": [
+                {
+                    "type": "layout",
+                    "key": "item_band",
+                    "dock": "bottom"
+                },
+                {
+                    "type": "layout",
+                    "key": "map_tabs"
+                }
+            ]
+        }
+    },
+    "tracker_items_left": {
+        "type": "container",
+        "background": "#000000",
+        "content": {
+            "type": "layout",
+            "key": "item_panel"
+        }
+    },
+    "tracker_items_bottom": {
+        "type": "container",
+        "background": "#000000",
+        "content": {
+            "type": "layout",
+            "key": "item_band"
+        }
+    },
+    "tracker_link_boards": {
+        "type": "container",
+        "background": "#000000",
+        "content": {
+            "type": "layout",
+            "key": "link_board_grid"
+        }
+    },
+    "full_tabs": {
+        "type": "tabbed",
+        "tabs": [
+            {
+                "title": "Overworld",
+                "content": {
+                    "type": "layout",
+                    "key": "overworld_tab"
+                }
+            },
+            {
+                "title": "Sora",
+                "content": {
+                    "type": "layout",
+                    "key": "sora_tab"
+                }
+            },
+            {
+                "title": "Riku",
+                "content": {
+                    "type": "layout",
+                    "key": "riku_tab"
+                }
+            },
+            {
+                "title": "Link Boards",
+                "content": {
+                    "type": "layout",
+                    "key": "link_board_grid"
+                }
+            }
+        ]
+    },
+    "map_tabs": {
+        "type": "tabbed",
+        "tabs": [
+            {
+                "title": "Overworld",
+                "content": {
+                    "type": "layout",
+                    "key": "overworld_tab"
+                }
+            },
+            {
+                "title": "Sora",
+                "content": {
+                    "type": "layout",
+                    "key": "sora_tab"
+                }
+            },
+            {
+                "title": "Riku",
+                "content": {
+                    "type": "layout",
+                    "key": "riku_tab"
+                }
+            }
+        ]
+    },
+    "item_panel": {
+        "type": "dock",
+        "v_alignment": "stretch",
+        "content": [
+            {
+                "type": "group",
+                "header": "Worlds",
+                "dock": "top",
+                "content": {
+                    "type": "layout",
+                    "key": "worlds"
+                }
+            },
+            {
+                "type": "group",
+                "header": "Movement",
+                "dock": "top",
+                "content": {
+                    "type": "layout",
+                    "key": "movement"
+                }
+            },
+            {
+                "type": "group",
+                "header": "Items",
+                "dock": "top",
+                "content": {
+                    "type": "layout",
+                    "key": "items"
+                }
+            }
+        ]
+    },
+    "item_band": {
+        "type": "array",
+        "orientation": "horizontal",
+        "content": [
+            {
+                "type": "group",
+                "header": "Worlds",
+                "content": {
+                    "type": "layout",
+                    "key": "worlds_wide"
+                }
+            },
+            {
+                "type": "group",
+                "header": "Movement",
+                "content": {
+                    "type": "layout",
+                    "key": "movement_wide"
+                }
+            },
+            {
+                "type": "group",
+                "header": "Items",
+                "content": {
+                    "type": "layout",
+                    "key": "items"
+                }
+            }
+        ]
+    },
+    "overworld_tab": {
+        "type": "map",
+        "maps": ["Overworld"]
+    },
+    "sora_tab": {
+        "type": "tabbed",
+        "tabs": [
+            {
+                "title": "Traverse Town",
+                "content": {
+                    "type": "map",
+                    "maps": ["Traverse Town [Sora]"]
+                }
+            },
+            {
+                "title": "La Cité des Cloches",
+                "content": {
+                    "type": "map",
+                    "maps": ["La Cité des Cloches [Sora]"]
+                }
+            },
+            {
+                "title": "The Grid",
+                "content": {
+                    "type": "map",
+                    "maps": ["The Grid [Sora]"]
+                }
+            },
+            {
+                "title": "Prankster's Paradise",
+                "content": {
+                    "type": "map",
+                    "maps": ["Prankster's Paradise [Sora]"]
+                }
+            },
+            {
+                "title": "Country of the Musketeers",
+                "content": {
+                    "type": "map",
+                    "maps": ["Country of the Musketeers [Sora]"]
+                }
+            },
+            {
+                "title": "Symphony of Sorcery",
+                "content": {
+                    "type": "map",
+                    "maps": ["Symphony of Sorcery [Sora]"]
+                }
+            },
+            {
+                "title": "TWTNW (Dark City)",
+                "content": {
+                    "type": "map",
+                    "maps": ["TWTNW (Dark City) [Sora]"]
+                }
+            }
+        ]
+    },
+    "riku_tab": {
+        "type": "tabbed",
+        "tabs": [
+            {
+                "title": "Traverse Town",
+                "content": {
+                    "type": "map",
+                    "maps": ["Traverse Town [Riku]"]
+                }
+            },
+            {
+                "title": "La Cité des Cloches",
+                "content": {
+                    "type": "map",
+                    "maps": ["La Cité des Cloches [Riku]"]
+                }
+            },
+            {
+                "title": "The Grid",
+                "content": {
+                    "type": "map",
+                    "maps": ["The Grid [Riku]"]
+                }
+            },
+            {
+                "title": "Prankster's Paradise (Monstro)",
+                "content": {
+                    "type": "map",
+                    "maps": ["Prankster's Paradise (Monstro) [Riku]"]
+                }
+            },
+            {
+                "title": "Country of the Musketeers",
+                "content": {
+                    "type": "map",
+                    "maps": ["Country of the Musketeers [Riku]"]
+                }
+            },
+            {
+                "title": "Symphony of Sorcery",
+                "content": {
+                    "type": "map",
+                    "maps": ["Symphony of Sorcery [Riku]"]
+                }
+            },
+            {
+                "title": "TWTNW (Castle)",
+                "content": {
+                    "type": "map",
+                    "maps": ["TWTNW (Castle That Never Was) [Riku]"]
+                }
+            }
+        ]
     }
 }

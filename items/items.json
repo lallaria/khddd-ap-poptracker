@@ -6,7 +6,7 @@
         "codes": "victory"
     },
     {
-        "name": "Recusant's Sigil",
+        "name": "Recusant Sigil",
         "type": "toggle",
         "img": "images/items/recusant_sigil.png",
         "codes": "recusant_sigil,recusants_sigil"
@@ -1356,7 +1356,7 @@
         "codes": "world_symphony_of_sorcery_sora"
     },
     {
-        "name": "TWTNW [Sora]",
+        "name": "The World That Never Was [Sora]",
         "type": "toggle",
         "img": "images/items/worlds/The World That Never Was.png",
         "codes": "world_the_world_that_never_was_sora"
@@ -1392,7 +1392,7 @@
         "codes": "world_symphony_of_sorcery_riku"
     },
     {
-        "name": "TWTNW [Riku]",
+        "name": "The World That Never Was [Riku]",
         "type": "toggle",
         "img": "images/items/worlds/The World That Never Was.png",
         "codes": "world_the_world_that_never_was_riku"
@@ -1452,7 +1452,7 @@
         "codes": "pricklemane_recipe"
     },
     {
-        "name": "Hebby Rep Recipe",
+        "name": "Hebby Repp Recipe",
         "type": "toggle",
         "img": "images/items/toggle.png",
         "codes": "hebby_rep_recipe"
@@ -1506,7 +1506,7 @@
         "codes": "pegaslick_recipe"
     },
     {
-        "name": "Icequin Ace Recipe",
+        "name": "Iceguin Ace Recipe",
         "type": "toggle",
         "img": "images/items/toggle.png",
         "codes": "icequin_ace_recipe"
@@ -1722,7 +1722,7 @@
         "codes": "kab_kannon_recipe"
     },
     {
-        "name": "R&R Seal Recipe",
+        "name": "R & R Seal Recipe",
         "type": "toggle",
         "img": "images/items/toggle.png",
         "codes": "r_and_r_seal_recipe"

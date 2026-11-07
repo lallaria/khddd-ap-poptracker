@@ -8,7 +8,7 @@ function can_infinite_jump()
 end
 
 function can_pole_jump()
-    return has("flowmotion") or (has("pole_swing") and has("super_jump") and has("air_slide"))
+    return has("air_slide") and (has("flowmotion") or (has("pole_swing") and has("super_jump")))
 end
 
 function can_glide()
@@ -76,37 +76,34 @@ function recipe_not_in_pool(id)
     return not recipe_in_pool(id)
 end
 
--- the locations counted by beat_x_sora_worlds / beat_x_riku_worlds in the apworld's Rules.py, by gate character
-local COMPLETION_LOCATIONS = {
+-- the events counted by beat_x_sora_worlds / beat_x_riku_worlds in the apworld's Rules.py, by gate character
+local WORLD_EVENTS = {
     {
-        "@Traverse Town [Sora]/Skull Noise Reward/Skull Noise Reward",
-        "@La Cite des Cloches [Sora]/Guardian Bell Reward/Guardian Bell Reward",
-        "@The Grid [Sora]/Dual Disc Reward/Dual Disc Reward",
-        "@Prankster's Paradise [Sora]/Ferris Gear Reward/Ferris Gear Reward",
-        "@Country of the Musketeers [Sora]/All For One Reward/All For One Reward",
-        "@Symphony of Sorcery [Sora]/Counterpoint Reward/Counterpoint Reward",
-        "@The World That Never Was [Sora]/Xemnas Bonus Slot 1/Xemnas Bonus Slot 1",
+        "@Traverse Town [Sora]/Cleared/Traverse Town Cleared [Sora]",
+        "@La Cite des Cloches [Sora]/Cleared/La Cite des Cloches Cleared [Sora]",
+        "@The Grid [Sora]/Cleared/The Grid Cleared [Sora]",
+        "@Prankster's Paradise [Sora]/Cleared/Prankster's Paradise Cleared [Sora]",
+        "@Country of the Musketeers [Sora]/Cleared/Country of the Musketeers Cleared [Sora]",
+        "@Symphony of Sorcery [Sora]/Cleared/Symphony of Sorcery Cleared [Sora]",
+        "@Traverse Town 2 [Sora]/Cleared/Traverse Town 2 Cleared [Sora]",
+        "@The World That Never Was [Sora]/Cleared/The World That Never Was Cleared [Sora]",
     },
     {
-        "@Traverse Town [Riku]/Skull Noise Reward/Skull Noise Reward",
-        "@La Cite des Cloches [Riku]/Guardian Bell Reward/Guardian Bell Reward",
-        "@The Grid [Riku]/Dual Disc Reward/Dual Disc Reward",
-        "@Prankster's Paradise [Riku]/Ocean's Rage Reward/Ocean's Rage Reward",
-        "@Country of the Musketeers [Riku]/All For One Reward/All For One Reward",
-        "@Symphony of Sorcery [Riku]/Counterpoint Reward/Counterpoint Reward",
-        "@The World That Never Was [Riku]/Ansem II Defeated/Ansem II Defeated",
+        "@Traverse Town [Riku]/Cleared/Traverse Town Cleared [Riku]",
+        "@La Cite des Cloches [Riku]/Cleared/La Cite des Cloches Cleared [Riku]",
+        "@The Grid [Riku]/Cleared/The Grid Cleared [Riku]",
+        "@Prankster's Paradise [Riku]/Cleared/Prankster's Paradise Cleared [Riku]",
+        "@Country of the Musketeers [Riku]/Cleared/Country of the Musketeers Cleared [Riku]",
+        "@Symphony of Sorcery [Riku]/Cleared/Symphony of Sorcery Cleared [Riku]",
+        "@Traverse Town 2 [Riku]/Cleared/Traverse Town 2 Cleared [Riku]",
+        "@The World That Never Was [Riku]/Cleared/The World That Never Was Cleared [Riku]",
     },
 }
 
--- open while the gate's character can reach as many completion locations as the gate needs
-function board_gate(id, gate)
-    local gates = board_gates and board_gates[tonumber(id)]
-    local needed = gates and gates[tonumber(gate)]
-    if not needed then
-        return AccessibilityLevel.Normal
-    end
+-- Cleared events the character reaches in logic, and those reachable only with sequence breaks
+local function reachable_worlds(character)
     local normal, sequence_break = 0, 0
-    for _, path in ipairs(COMPLETION_LOCATIONS[gates.character] or {}) do
+    for _, path in ipairs(WORLD_EVENTS[character] or {}) do
         local section = Tracker:FindObjectForCode(path)
         local level = section and section.AccessibilityLevel or AccessibilityLevel.None
         if level >= AccessibilityLevel.Normal then
@@ -115,12 +112,39 @@ function board_gate(id, gate)
             sequence_break = sequence_break + 1
         end
     end
+    return normal, sequence_break
+end
+
+-- open while the gate's character can reach as many Cleared events as the gate needs
+function board_gate(id, gate)
+    local gates = board_gates and board_gates[tonumber(id)]
+    local needed = gates and gates[tonumber(gate)]
+    if not needed then
+        return AccessibilityLevel.Normal
+    end
+    local normal, sequence_break = reachable_worlds(gates.character)
     if normal >= needed then
         return AccessibilityLevel.Normal
     elseif normal + sequence_break >= needed then
         return AccessibilityLevel.SequenceBreak
     end
     return AccessibilityLevel.None
+end
+
+-- how many of the spirit's first gate_count gates are open in logic; worlds caches reachable_worlds by character
+function open_board_gates(id, gate_count, worlds)
+    local gates = board_gates and board_gates[tonumber(id)]
+    if not gates then
+        return gate_count
+    end
+    worlds[gates.character] = worlds[gates.character] or reachable_worlds(gates.character)
+    local open = 0
+    for gate = 1, gate_count do
+        if not gates[gate] or gates[gate] <= worlds[gates.character] then
+            open = open + 1
+        end
+    end
+    return open
 end
 
 local function has_opt_count(code, opt_code)

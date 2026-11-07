@@ -4,17 +4,29 @@
     "package_version": "0.3.3",
     "package_uid": "khddd-ap-tracker",
     "author": "JHobz, DelilahIsDidi",
-    "min_poptracker_version": "0.25.9",
+    "min_poptracker_version": "0.35.4",
     "target_poptracker_version": "0.34.0",
     "variants": {
         "standard": {
-            "display_name": "Map Tracker",
+            "display_name": "Maps, Items & Link Boards",
             "flags": [
                 "ap"
             ]
         },
         "var_itemsonly": {
             "display_name": "Items Only",
+            "flags": [
+                "ap"
+            ]
+        },
+        "var_linkboards": {
+            "display_name": "Link Boards Only",
+            "flags": [
+                "ap"
+            ]
+        },
+        "var_maps": {
+            "display_name": "Maps & Items",
             "flags": [
                 "ap"
             ]

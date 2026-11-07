@@ -17,8 +17,8 @@
                         "rows": [
                             ["opt_sora", "opt_riku"],
                             [
-                                "world_traverse_town_sora",
-                                "world_traverse_town_riku"
+                                "world_traverse_town_sora_shown",
+                                "world_traverse_town_riku_shown"
                             ],
                             [
                                 "world_la_cite_des_cloches_sora",
@@ -91,6 +91,85 @@
                         "rows": [
                             ["recipe_total", "recusant_sigil", "lucky_emblem"],
                             ["meow_wow_recipe", "komory_bat_recipe"]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "worlds_wide": {
+        "type": "array",
+        "orientation": "vertical",
+        "margin": "0,0",
+        "content": [
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "margin": "0,0",
+                "content": [
+                    {
+                        "type": "itemgrid",
+                        "item_margin": "5, 5",
+                        "item_size": "48,48",
+                        "h_alignment": "left",
+                        "rows": [
+                            [
+                                "opt_sora",
+                                "world_traverse_town_sora_shown",
+                                "world_la_cite_des_cloches_sora",
+                                "world_the_grid_sora",
+                                "world_pranksters_paradise_sora",
+                                "world_country_of_the_musketeers_sora",
+                                "world_symphony_of_sorcery_sora",
+                                "world_the_world_that_never_was_sora"
+                            ],
+                            [
+                                "opt_riku",
+                                "world_traverse_town_riku_shown",
+                                "world_la_cite_des_cloches_riku",
+                                "world_the_grid_riku",
+                                "world_pranksters_paradise_riku",
+                                "world_country_of_the_musketeers_riku",
+                                "world_symphony_of_sorcery_riku",
+                                "world_the_world_that_never_was_riku"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "movement_wide": {
+        "type": "array",
+        "orientation": "vertical",
+        "margin": "0,0",
+        "content": [
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "margin": "0,0",
+                "content": [
+                    {
+                        "type": "itemgrid",
+                        "item_margin": "5, 5",
+                        "item_size": "48,48",
+                        "h_alignment": "left",
+                        "rows": [
+                            [
+                                "flowmotion",
+                                "wall_kick",
+                                "super_jump",
+                                "pole_spin",
+                                "pole_swing",
+                                "rail_slide"
+                            ],
+                            [
+                                "high_jump",
+                                "air_slide",
+                                "glide",
+                                "superglide",
+                                "double_flight"
+                            ]
                         ]
                     }
                 ]

@@ -1,10 +1,10 @@
 -- overlays each world icon with the number of unchecked, logically reachable (green) checks in that world
 local REACHABLE_COLOR = "#20FF20" -- PopTracker's default map colour for reachable
 
--- world item code -> its top-level locations in locations/locations.json
+-- code of the item the layouts show for each world -> its top-level locations in locations/locations.json
 local WORLD_LOCATIONS = {
-    world_traverse_town_sora = { "Traverse Town [Sora]", "Traverse Town 2 [Sora]" },
-    world_traverse_town_riku = { "Traverse Town [Riku]", "Traverse Town 2 [Riku]" },
+    world_traverse_town_sora_shown = { "Traverse Town [Sora]", "Traverse Town 2 [Sora]" },
+    world_traverse_town_riku_shown = { "Traverse Town [Riku]", "Traverse Town 2 [Riku]" },
     world_la_cite_des_cloches_sora = { "La Cite des Cloches [Sora]" },
     world_la_cite_des_cloches_riku = { "La Cite des Cloches [Riku]" },
     world_the_grid_sora = { "The Grid [Sora]" },
@@ -74,15 +74,22 @@ local function with_rules(chain, rules)
 end
 
 local function collect_sections(node, parent_id, chain, out)
+    -- Cleared sections are logic events for board_gate, not checks
+    if node.name == "Cleared" then
+        return
+    end
     local id = parent_id and (parent_id .. "/" .. node.name) or node.name
     chain = with_rules(chain, node.visibility_rules)
     for _, section in ipairs(node.sections or {}) do
-        local code = "@" .. id .. "/" .. (section.name or "")
-        local object = Tracker:FindObjectForCode(code)
-        if object then
-            out[#out + 1] = { object = object, visibility = with_rules(chain, section.visibility_rules) }
-        else
-            print("world indicators: no section " .. code)
+        -- a ref section repeats a check counted where it lives
+        if section.ref == nil then
+            local code = "@" .. id .. "/" .. (section.name or "")
+            local object = Tracker:FindObjectForCode(code)
+            if object then
+                out[#out + 1] = { object = object, visibility = with_rules(chain, section.visibility_rules) }
+            else
+                print("world indicators: no section " .. code)
+            end
         end
     end
     for _, child in ipairs(node.children or {}) do

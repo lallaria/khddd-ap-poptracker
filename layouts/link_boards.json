@@ -1,0 +1,56 @@
+{
+    "link_board_grid": {
+        "type": "dock",
+        "content": [
+            {
+                "type": "dock",
+                "dock": "top",
+                "content": [
+                    {
+                        "type": "canvas",
+                        "dock": "left",
+                        "width": 812,
+                        "height": 816,
+                        "content": [
+                            {
+                                "type": "map",
+                                "maps": ["Link Boards"]
+                            },
+                            {
+                                "type": "array",
+                                "orientation": "vertical",
+                                "content": [
+                                    {
+                                        "type": "itemgrid",
+                                        "h_alignment": "left",
+                                        "item_size": 72,
+                                        "item_margin": "22,15",
+                                        "margin": "6,7,0,0",
+                                        "rows": [
+                                            ["link_board_spirit_1", "link_board_spirit_2", "link_board_spirit_3", "link_board_spirit_4", "link_board_spirit_5", "link_board_spirit_6", "link_board_spirit_7"],
+                                            ["link_board_spirit_8", "link_board_spirit_9", "link_board_spirit_10", "link_board_spirit_11", "link_board_spirit_12", "link_board_spirit_13", "link_board_spirit_14"],
+                                            ["link_board_spirit_15", "link_board_spirit_16", "link_board_spirit_17", "link_board_spirit_18", "link_board_spirit_19", "link_board_spirit_20", "link_board_spirit_21"],
+                                            ["link_board_spirit_22", "link_board_spirit_23", "link_board_spirit_24", "link_board_spirit_25", "link_board_spirit_26", "link_board_spirit_27", "link_board_spirit_28"],
+                                            ["link_board_spirit_29", "link_board_spirit_30", "link_board_spirit_31", "link_board_spirit_32", "link_board_spirit_33", "link_board_spirit_34", "link_board_spirit_35"],
+                                            ["link_board_spirit_36", "link_board_spirit_37", "link_board_spirit_38", "link_board_spirit_39", "link_board_spirit_40", "link_board_spirit_41", "link_board_spirit_42"],
+                                            ["link_board_spirit_43", "link_board_spirit_44", "link_board_spirit_45", "link_board_spirit_46", "link_board_spirit_47", "link_board_spirit_48", "link_board_spirit_49"],
+                                            ["link_board_spirit_50", "link_board_spirit_51", "link_board_spirit_52", "link_board_spirit_53", "link_board_spirit_54"]
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "text": ""
+                    }
+                ]
+            },
+            {
+                "type": "text",
+                "text": ""
+            }
+        ]
+    }
+}

@@ -148,12 +148,10 @@ end
 
 function ProgressiveTogglePlus:updateIcon()
     self.ItemInstance.Icon = self.images[self.state]
-    if PopVersion and PopVersion > "0.1.0" then
-        if self.active then   
-            self.ItemInstance.IconMods = ""
-        else
-            self.ItemInstance.IconMods = "@disabled"
-        end
+    if self.active then
+        self.ItemInstance.IconMods = ""
+    else
+        self.ItemInstance.IconMods = "@disabled"
     end
 end
 
