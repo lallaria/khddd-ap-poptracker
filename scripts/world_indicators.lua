@@ -81,12 +81,15 @@ local function collect_sections(node, parent_id, chain, out)
     local id = parent_id and (parent_id .. "/" .. node.name) or node.name
     chain = with_rules(chain, node.visibility_rules)
     for _, section in ipairs(node.sections or {}) do
-        local code = "@" .. id .. "/" .. (section.name or "")
-        local object = Tracker:FindObjectForCode(code)
-        if object then
-            out[#out + 1] = { object = object, visibility = with_rules(chain, section.visibility_rules) }
-        else
-            print("world indicators: no section " .. code)
+        -- a ref section repeats a check counted where it lives
+        if section.ref == nil then
+            local code = "@" .. id .. "/" .. (section.name or "")
+            local object = Tracker:FindObjectForCode(code)
+            if object then
+                out[#out + 1] = { object = object, visibility = with_rules(chain, section.visibility_rules) }
+            else
+                print("world indicators: no section " .. code)
+            end
         end
     end
     for _, child in ipairs(node.children or {}) do
