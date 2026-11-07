@@ -4510,7 +4510,7 @@
             },
             {
                 "name": "Amusement Park Blizzara",
-                "access_rules": ["$can_infinite_jump", "flowmotion", "glide", "superglide"],
+                "access_rules": ["$can_infinite_jump", "super_jump,rail_slide", "flowmotion", "glide", "superglide"],
                 "sections": [
                     {
                         "name": "Prankster's Paradise Amusement Park Blizzara [Sora]"
