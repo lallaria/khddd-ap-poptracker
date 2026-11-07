@@ -9,12 +9,8 @@ Download the zip folder from the latest release and place it in the `packs` fold
 ## Variants
 
 Pick one when loading the pack: Maps, Items & Link Boards (the default), Maps & Items, Items Only, or
-Link Boards Only. PopTracker lists them alphabetically by id. Each variant's `layouts/root.json` (in its
-`var_*` folder, or `layouts/` for the default) points `tracker_default` at a root layout, and the
-variants share every other layout. The variants with items place them along the bottom or in a
-column on the left, picked by the "Items along the bottom" setting: `layouts/items_bottom.json` and
-`layouts/items_left.json` point `tracker_full`, `tracker_maps` and `tracker_items` at the matching
-`_bottom` or `_left` layout in `layouts/tracker.json`, and `scripts/settings.lua` loads one of them.
+Link Boards Only. The variants with items place them along the bottom or in a
+column on the left, picked by the "Items along the bottom" setting.
 
 ## Settings
 
@@ -30,13 +26,9 @@ ones without a map pin.
 ## Logic
 
 Access rules are generated from the apworld's `Rules.py` and `Regions.py`, so the tracker should match
-Universal Tracker right now. The Link Boards tab is a grid of the spirits: each portrait is greyed until
-its recipe is held (click it to toggle the recipe), shows its gates open or closed, and has a square
-holding its 16 board nodes. In `locations.json` each spirit under `Link Boards` splits its nodes into
-`Open`, `Gate 1` and `Gate 2` as the apworld gates them; the square is a sibling overview location whose
-sections reference those.
-Link board gates and the recipes in the pool are rolled per seed, so until the tracker is connected to
-Archipelago every board is shown and its gates count as open.
+Universal Tracker right now. The Link Boards tab is an item grid of the spirits and it will be greyed
+out until you receive the recipe. It will also show the gates open or closed, and through some trickery
+has a single location group for all of the nodes.
 
 ## Universal Tracker
 
@@ -44,9 +36,12 @@ The release zip also works as the map pack for Universal Tracker in the KHDDD cl
 the client asks for a pack. Universal Tracker reads only the maps and locations, and takes its logic
 from the apworld. It matches sections by name, so every section keeps its exact AP location name.
 It reads its maps from `maps/ut_maps.json`, a copy of `maps.json` whose Link Boards image has the
-spirit names and portraits drawn in, since Universal Tracker can't draw the grid's canvas.
+spirit names and portraits drawn in, since Universal Tracker can't draw it the same way.  I may port
+this into kivy instead at some point, but leaving it for now.
 
 ## Development
+
+None of the generators are included in the pack, they're only in source.
 
 The generators in `gen/` will regenerate logic if it's changed. They import `worlds.khddd` from the
 Archipelago checkout, so run them with that checkout's venv:
@@ -58,23 +53,25 @@ Archipelago checkout, so run them with that checkout's venv:
 The first regenerates `scripts/autotracking/location_mapping.lua`; the second rewrites the
 `access_rules` and `visibility_rules` in `locations/locations.json`, adding nodes for new locations
 (without map positions) and moving sections whose path changed, such as a board node whose gate did.
-Renamed locations need their node renamed by hand first so map positions are kept. The apworld's `Cleared` events become hidden `Cleared` nodes, which link board gates count.
+Renamed locations need their node renamed by hand first so map positions are kept.
 
-`gen/gen_link_board_grid.py` (same venv) builds the Link Boards grid: the `Link Boards` map image and
+`gen/gen_link_board_grid.py` builds the Link Boards grid: the `Link Boards` map image and
 its markers, the gate overlays in `images/spirits`, `layouts/link_boards.json` and
 `scripts/link_board_spirits.lua`, plus Universal Tracker's labelled copy of the image and
-`maps/ut_maps.json`. Rerun it after the generators change the spirits or their gates, and after any
-hand edit to `maps/maps.json`.
-
-The venv has to sit inside `<source>/Archipelago/` (`venv` or `.venv`): the scripts put its parent
-folder on the import path to find `worlds`.
+`maps/ut_maps.json`. It shouldn't need to be rerun ever but keeping just in case.
 
 ### Map editor
 
-`tools/mapper` is a local web UI for placing locations on maps. It needs only Node 18 or newer:
+I vibecoded the **** out of this tool.  It is **NOT** included in any poptracker pack.  It exists
+so that I didn't have to open up paint to move a check, like one of those crappy old school html editors.
+It changes **ONLY** `locations/locations.json` and `maps/maps.json`, and I have verified that it doesn't look like crap.
+
+`tools/mapper` is a local web UI for placing locations on maps.  It requires node.js
+
 ```bash
 node tools/mapper/server.mjs
 ```
+
 It opens in the browser. Pick a map (listed by layout tab), pick a location, and click the map to
 set its `map_locations`; Save writes `maps/maps.json` and `locations/locations.json` in the
 generators' format, onto whatever is on disk at that moment. "Replace image…" swaps a map's image
