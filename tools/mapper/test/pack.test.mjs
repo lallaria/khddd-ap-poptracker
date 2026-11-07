@@ -188,6 +188,67 @@ describe("applyPatch groups", () => {
     });
 });
 
+describe("applyPatch nodes", () => {
+    let root;
+    before(async () => {
+        root = await tempPack();
+    });
+    after(() => rm(root, { recursive: true, force: true }));
+
+    const readTree = async () => JSON.parse(await readFile(path.join(root, LOCATIONS_JSON), "utf8"));
+    const townOf = (tree) => tree.find((node) => node.name === "Traverse Town [Sora]");
+
+    test("adds a location before its sibling, replaces and removes it, with the members' markers", async () => {
+        const text = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
+        const town = townOf(JSON.parse(text));
+        const [first, second] = town.children.filter((node) => node.map_locations);
+        const names = [town.name, "Mapper Group"];
+        const group = {
+            name: names[1],
+            sections: [first, second].flatMap((node) => node.sections.map((s) => ({ name: s.name, ref: `${town.name}/${node.name}/${s.name}` }))),
+            map_locations: [{ map: town.name, x: 5, y: 6 }],
+        };
+        await applyPatch(root, {
+            locations: [first, second].map((node) => ({ path: [town.name, node.name], map_locations: null })),
+            nodes: [{ path: names, before: null, after: group, beside: first.name }],
+        });
+        const children = townOf(await readTree()).children;
+        const at = children.findIndex((node) => node.name === names[1]);
+        assert.deepEqual(children[at], group);
+        assert.equal(children[at + 1].name, first.name);
+        assert.ok(!children[at + 1].map_locations);
+
+        const moved = { ...group, map_locations: [{ map: town.name, x: 7, y: 8 }] };
+        const reordered = { map_locations: group.map_locations, sections: group.sections, name: group.name };
+        await applyPatch(root, { nodes: [{ path: names, before: reordered, after: moved }] });
+        assert.deepEqual(townOf(await readTree()).children[at], moved);
+
+        await applyPatch(root, {
+            locations: [first, second].map((node) => ({ path: [town.name, node.name], map_locations: node.map_locations })),
+            nodes: [{ path: names, before: moved, after: null }],
+        });
+        assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), text);
+    });
+
+    test("refuses a location that changed on disk, or a parent that is gone, before writing", async () => {
+        const text = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
+        const town = townOf(JSON.parse(text));
+        for (const node of [
+            { path: [town.name, town.children[0].name], before: null, after: { name: "x", sections: [] } },
+            { path: [town.name, "Mapper Group"], before: { name: "Mapper Group", sections: [] }, after: null },
+            { path: ["No Such Region", "Mapper Group"], before: null, after: { name: "Mapper Group", sections: [] } },
+        ]) {
+            await assert.rejects(applyPatch(root, {
+                locations: [{ path: [town.name, town.children[0].name], map_locations: null }],
+                nodes: [node],
+            }), (error) => error.status === 409 && /changed on disk/.test(error.message), node.path.join("/"));
+        }
+        await assert.rejects(applyPatch(root, { nodes: [{ path: ["Mapper Group"], before: null, after: { name: "Mapper Group" } }] }),
+            (error) => error.status === 400 && /as a group/.test(error.message));
+        assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), text);
+    });
+});
+
 describe("applyPatch layouts", () => {
     const TRACKER = "layouts/tracker.json";
     let root;

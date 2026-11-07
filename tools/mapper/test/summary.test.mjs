@@ -5,7 +5,9 @@ import { describe, test } from "node:test";
 import { fileURLToPath } from "node:url";
 
 import { LOCATIONS_JSON, readPack } from "../lib/pack.mjs";
-import { isSummary, isSummaryGroup, missingRefs, summarySections } from "../public/summary.mjs";
+import {
+    groupSections, isSummary, isSummaryGroup, missingRefs, refLocations, sharedName, summarySections,
+} from "../public/summary.mjs";
 
 const PACK = fileURLToPath(new URL("../../..", import.meta.url));
 
@@ -72,5 +74,40 @@ describe("summary groups", () => {
     test("missingRefs names refs whose section is gone", () => {
         const sections = [{ name: "Gate Chest", ref: "Town/Gate/Gate Chest" }, { name: "Old", ref: "Town/Gone/Old" }];
         assert.deepEqual(missingRefs(tree(), sections), ["Town/Gone/Old"]);
+    });
+});
+
+describe("grouping", () => {
+    const [town, overworld] = tree();
+    const member = (node, ...path) => ({ node, path });
+
+    test("groupSections refers to each named check once, following refs", () => {
+        const sections = groupSections([
+            member(town.children[0], "Town", "Gate"),
+            member(town.children[2], "Town", "Square"),
+            member(overworld.children[0], "Overworld", "Town"),
+        ]);
+        assert.deepEqual(sections, [
+            { name: "Gate Chest", ref: "Town/Gate/Gate Chest" },
+            { name: "Gate Prize", ref: "Town/Gate/Gate Prize" },
+            { name: "Square Chest", ref: "Town/Square/Square Chest" },
+        ]);
+        assert.ok(isSummary({ name: "Group", sections }));
+        assert.deepEqual(missingRefs(tree(), sections), []);
+    });
+
+    test("refLocations lists the locations behind the refs, once each", () => {
+        const sections = [
+            { name: "Gate Chest", ref: "Town/Gate/Gate Chest" }, { name: "Gate Prize", ref: "Town/Gate/Gate Prize" },
+            { name: "Square Chest", ref: "Town/Square/Square Chest" }, { name: "Own" },
+        ];
+        assert.deepEqual(refLocations(sections), [["Town", "Gate"], ["Town", "Square"]]);
+    });
+
+    test("sharedName keeps the shared leading words, short of a whole name", () => {
+        assert.equal(sharedName(["Fourth District Potion", "Fourth District Block-It Chocolate"]), "Fourth District");
+        assert.equal(sharedName(["Fourth District", "Fourth District Potion"]), "Fourth");
+        assert.equal(sharedName(["Garden Royal Cake", "Post Office Spark"]), "Garden Royal Cake");
+        assert.equal(sharedName(["Nave  Royal Cake", "Nave Water Barrel"]), "Nave");
     });
 });

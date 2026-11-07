@@ -148,6 +148,11 @@ function imageDir(dir) {
     return segments.join("/");
 }
 
+// key order drifts while the mapper edits markers, so locations are compared without it
+const canonical = (value) => JSON.stringify(value, (_, item) => (item && typeof item === "object" && !Array.isArray(item)
+    ? Object.fromEntries(Object.entries(item).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)))
+    : item));
+
 function findNode(tree, names) {
     let level = tree;
     let node;
@@ -277,24 +282,43 @@ async function layoutWrites(root, edits) {
  *         `layouts` lists `{key, before, after}`, refused with 409 if the key on disk no longer equals `before`;
  *         `groups` lists whole top-level locations `{name, before, after}` the same way (null: absent), applied
  *         before `locations`.
+ *         `nodes` lists whole locations below the top level `{path, before, after, beside}` the same way, applied
+ *         after `groups`; a new one goes before its sibling named `beside`, or last.
  *
  * Returns:
  *     `{missing}`: location paths that no longer exist on disk and were skipped.
  */
-export async function applyPatch(root, { locations = [], maps = [], layouts = [], groups = [] }) {
+export async function applyPatch(root, { locations = [], maps = [], layouts = [], groups = [], nodes = [] }) {
     const layoutTexts = await layoutWrites(root, layouts);
     const missing = [];
-    if (locations.length || groups.length) {
+    if (locations.length || groups.length || nodes.length) {
         const file = path.join(root, LOCATIONS_JSON);
         const tree = JSON.parse(await readFile(file, "utf8"));
+        const changed = (name) => new PackError(409,
+            `${name} in ${LOCATIONS_JSON} changed on disk since it was loaded; Reload, then redo its edits`);
         for (const { name, before, after } of groups) {
             const index = tree.findIndex((node) => node.name === name);
-            if (JSON.stringify(index < 0 ? null : tree[index]) !== JSON.stringify(before ?? null)) {
-                throw new PackError(409, `${name} in ${LOCATIONS_JSON} changed on disk since it was loaded; Reload, then redo its edits`);
-            }
+            if (canonical(index < 0 ? null : tree[index]) !== canonical(before ?? null)) throw changed(name);
             if (after && index >= 0) tree[index] = after;
             else if (after) tree.push(after);
             else if (index >= 0) tree.splice(index, 1);
+        }
+        for (const { path: names, before, after, beside } of nodes) {
+            if (names.length < 2) throw new PackError(400, `${names.join("/")} is top-level; patch it as a group`);
+            const parent = findNode(tree, names.slice(0, -1));
+            if (!parent) throw changed(names.slice(0, -1).join("/"));
+            const siblings = parent.children ?? [];
+            const index = siblings.findIndex((node) => node.name === names.at(-1));
+            if (canonical(index < 0 ? null : siblings[index]) !== canonical(before ?? null)) throw changed(names.join("/"));
+            if (after && index >= 0) {
+                siblings[index] = after;
+            } else if (after) {
+                const at = siblings.findIndex((node) => node.name === beside);
+                siblings.splice(at < 0 ? siblings.length : at, 0, after);
+                parent.children = siblings;
+            } else if (index >= 0) {
+                siblings.splice(index, 1);
+            }
         }
         for (const { path: names, map_locations: markers } of locations) {
             const node = Array.isArray(names) && findNode(tree, names);

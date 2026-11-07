@@ -48,6 +48,44 @@ export function summarySections(locations, maps, { wholeRegions = false, checks 
     return out;
 }
 
+/** Ref sections for the named sections of `members` (`{node, path}` with `path` a name array), refs followed, each once. */
+export function groupSections(members) {
+    const seen = new Set();
+    const out = [];
+    for (const { node, path } of members) {
+        for (const section of node.sections || []) {
+            if (typeof section.name !== "string" || !section.name) continue;
+            const ref = section.ref ?? `${path.join("/")}/${section.name}`;
+            if (seen.has(ref)) continue;
+            seen.add(ref);
+            out.push({ name: section.name, ref });
+        }
+    }
+    return out;
+}
+
+/** The leading words all `names` share, short of the whole of any name; otherwise the first name. */
+export function sharedName(names) {
+    const split = names.map((name) => name.trim().split(/\s+/));
+    let length = 0;
+    while (split.every((words) => length < words.length - 1 && words[length] === split[0][length])) length++;
+    return length ? split[0].slice(0, length).join(" ") : names[0] ?? "";
+}
+
+/** Paths, as name arrays, of the locations that `sections` refer into, each once and in order. */
+export function refLocations(sections) {
+    const seen = new Set();
+    const out = [];
+    for (const { ref } of sections) {
+        if (!ref) continue;
+        const location = ref.slice(0, ref.lastIndexOf("/"));
+        if (seen.has(location)) continue;
+        seen.add(location);
+        out.push(location.split("/"));
+    }
+    return out;
+}
+
 /** Refs among `sections` that no longer name a section in `locations`. */
 export function missingRefs(locations, sections) {
     const known = new Set();

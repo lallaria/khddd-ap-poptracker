@@ -182,6 +182,21 @@
     </form>
 </dialog>
 
+<dialog id="dlg-group">
+    <form>
+        <h2>Group into one location</h2>
+        <p class="dim small">The new location gets a section for each check, referring to it, so one marker shows them
+            all. The checks stay where they are and lose their markers on this map.</p>
+        <label>Location name <input name="name" autocomplete="off"></label>
+        <p id="dg-note" class="dim small"></p>
+        <p id="dg-error" class="warning small" hidden></p>
+        <div class="buttons">
+            <button type="button" value="cancel">Cancel</button>
+            <button type="submit" class="primary">Group</button>
+        </div>
+    </form>
+</dialog>
+
 <dialog id="dlg-help">
     <h2>Shortcuts</h2>
     <table class="keys">
@@ -189,6 +204,9 @@
         <tr><td>Shift+click</td><td>add another marker on this map</td></tr>
         <tr><td>Alt+click</td><td>place or move even on top of another marker</td></tr>
         <tr><td>Click a marker</td><td>select its location</td></tr>
+        <tr><td>Ctrl+click a location or marker</td><td>add it to the selection, or take it out</td></tr>
+        <tr><td>Shift+click a location</td><td>select the range from the last one clicked</td></tr>
+        <tr><td>Click the map with several selected</td><td>group them into one location there</td></tr>
         <tr><td>Drag a marker</td><td>move it</td></tr>
         <tr><td>Drag empty space, right/middle drag, Space+drag</td><td>pan</td></tr>
         <tr><td>Wheel</td><td>zoom</td></tr>
@@ -217,6 +235,9 @@
     <p class="dim small">"Add summary location" makes a location whose sections refer to every check on a tab's maps,
         named by AP name so Universal Tracker counts them too. Place it on an overworld map; it lives in its own
         top-level location, which the generators and the world counters leave alone.</p>
+    <p class="dim small">Grouping makes a location beside the first selected one, with a section referring to each of
+        their checks, for chests that sit on top of each other. Generators keep it, since the checks themselves do not
+        move. Ungroup puts their markers back where it was.</p>
     <div class="buttons"><button type="button" class="primary" id="help-close">Close</button></div>
 </dialog>
 </body>

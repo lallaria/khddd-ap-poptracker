@@ -85,5 +85,8 @@ reorders, renames, moves and removes layout tabs, including sub-tabs under a tab
 location…" makes one location per world (or any tab) whose sections `ref` that world's checks, for
 an overworld map: its marker shows whether anything there is available. Summaries live in their
 own top-level location (`Overworld` by default), which the generators and world counters leave
-alone; rebuild them after the generators add checks. Press `?` in the tool for its shortcuts.
+alone; rebuild them after the generators add checks. For chests on top of each other, Ctrl+click
+or Shift+click several locations, then click the map: that makes one location beside them whose
+sections `ref` their checks, and their own markers on that map go. The checks stay where the
+generators put them, so a regen keeps the group. Press `?` in the tool for its shortcuts.
 Tests: `node --test "tools/mapper/test/*.test.mjs"`.

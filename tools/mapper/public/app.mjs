@@ -31,12 +31,14 @@ const state = {
     mapName: null,
     lastMap: null,
     sel: null,             // {key, idx}; idx points into the location's map_locations
+    picked: new Set(),     // keys of every selected location, sel's included
+    anchor: null,          // key that Shift+click ranges start from
     hover: null,
     pointer: null,
     view: { scale: 1, x: 0, y: 0 },
     views: new Map(),
     pendingFit: null,
-    baseline: new Map(),    // "loc:<key>" / "map:<name>" / "layout:<key>" / "group:<name>" -> JSON as last loaded or saved
+    baseline: new Map(),    // "loc:<key>" / "map:<name>" / "layout:<key>" / "group:<name>" / "node:<key>" -> JSON as last loaded or saved
     undo: [],
     redo: [],
     visibleLocs: [],
@@ -102,6 +104,25 @@ function buildIndex() {
         }
     };
     walk(state.pack.locations, []);
+    state.picked = new Set([...state.picked].filter((key) => state.byKey.has(key)));
+}
+
+function nodeAt(names) {
+    let level = state.pack.locations;
+    let node = null;
+    for (const name of names) {
+        node = (level || []).find((child) => child.name === name);
+        if (!node) return null;
+        level = node.children;
+    }
+    return node;
+}
+
+/** Name of the sibling right after the location at `names`, which a new or restored one is put before. */
+function besideOf(names) {
+    const siblings = nodeAt(names.slice(0, -1))?.children ?? [];
+    const index = siblings.findIndex((node) => node.name === names.at(-1));
+    return index >= 0 ? siblings[index + 1]?.name ?? null : null;
 }
 
 function applyPack(pack) {
@@ -160,12 +181,32 @@ function currentValue(id) {
     if (type === "loc") return state.byKey.get(ref)?.node.map_locations;
     if (type === "layout") return state.pack.layouts[ref];
     if (type === "group") return state.pack.locations.find((node) => node.name === ref);
+    if (type === "node") return nodeAt(JSON.parse(ref));
     return state.pack.maps.find((m) => m.name === ref);
+}
+
+/** A group or node as it is on disk: `value` with the unsaved marker edits below it undone. */
+function asSaved(change, value) {
+    if (!value || (change.type !== "group" && change.type !== "node")) return value;
+    const root = change.type === "group" ? [change.key] : JSON.parse(change.key);
+    const copy = clone(value);
+    for (const [id, json] of state.baseline) {
+        if (!id.startsWith("loc:")) continue;
+        const names = JSON.parse(id.slice(4));
+        if (names.length < root.length || root.some((name, i) => names[i] !== name)) continue;
+        let node = copy;
+        for (const name of names.slice(root.length)) node = node?.children?.find((child) => child.name === name);
+        if (!node) continue;
+        const markers = JSON.parse(json);
+        if (markers?.length) node.map_locations = markers;
+        else delete node.map_locations;
+    }
+    return copy;
 }
 
 function applyChange(change, value) {
     const id = changeId(change);
-    if (!state.baseline.has(id)) state.baseline.set(id, JSON.stringify(currentValue(id) ?? null));
+    if (!state.baseline.has(id)) state.baseline.set(id, JSON.stringify(asSaved(change, currentValue(id)) ?? null));
     if (change.type === "loc") {
         const entry = state.byKey.get(change.key);
         if (!entry) return;
@@ -182,6 +223,23 @@ function applyChange(change, value) {
         else if (index >= 0) list.splice(index, 1);
         buildIndex();
         if (state.sel && !state.byKey.has(state.sel.key)) state.sel = null;
+    } else if (change.type === "node") {
+        const names = JSON.parse(change.key);
+        const parent = nodeAt(names.slice(0, -1));
+        if (!parent) return;
+        const siblings = parent.children ?? [];
+        const index = siblings.findIndex((node) => node.name === names.at(-1));
+        if (value && index >= 0) {
+            siblings[index] = clone(value);
+        } else if (value) {
+            const at = siblings.findIndex((node) => node.name === change.beside);
+            siblings.splice(at < 0 ? siblings.length : at, 0, clone(value));
+            parent.children = siblings;
+        } else if (index >= 0) {
+            siblings.splice(index, 1);
+        }
+        buildIndex();
+        if (state.sel && !state.byKey.has(state.sel.key)) state.sel = null;
     } else {
         const maps = state.pack.maps;
         const index = maps.findIndex((m) => m.name === change.name);
@@ -192,7 +250,7 @@ function applyChange(change, value) {
 }
 
 function dirty() {
-    const changed = { loc: [], map: [], layout: [], group: [] };
+    const changed = { loc: [], map: [], layout: [], group: [], node: [] };
     for (const [id, json] of state.baseline) {
         if (JSON.stringify(currentValue(id) ?? null) === json) continue;
         const [type, ...rest] = id.split(":");
@@ -204,7 +262,7 @@ function dirty() {
 const dirtyCount = (changed = dirty()) => Object.values(changed).reduce((sum, list) => sum + list.length, 0);
 
 function describe(changed) {
-    const parts = [["loc", "location"], ["group", "summary group"], ["map", "map"], ["layout", "layout"]]
+    const parts = [["loc", "location"], ["node", "grouped location"], ["group", "summary group"], ["map", "map"], ["layout", "layout"]]
         .filter(([type]) => changed[type].length).map(([type, word]) => plural(changed[type].length, word));
     return parts.length > 1 ? `${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}` : parts[0] ?? "nothing";
 }
@@ -260,7 +318,7 @@ function afterHistory(label) {
         state.mapName = null;
         if (fallback) openMap(fallback);
     }
-    if (state.sel) select(state.sel.key);
+    if (state.sel) select(state.sel.key, null, state.picked);
     status(label);
     refreshAll();
 }
@@ -274,13 +332,19 @@ async function save() {
     $("#btn-save").disabled = true;
     try {
         const groups = new Set(changed.group);
+        // a changed group or node is written whole, markers included
+        const nodes = changed.node.filter((key) => !groups.has(JSON.parse(key)[0]));
+        const whole = new Set(nodes);
         const patch = {
-            // a changed group is written whole, markers included
-            locations: changed.loc.filter((key) => !groups.has(JSON.parse(key)[0])).map((key) => ({
+            locations: changed.loc.filter((key) => !groups.has(JSON.parse(key)[0]) && !whole.has(key) && state.byKey.has(key)).map((key) => ({
                 path: JSON.parse(key), map_locations: state.byKey.get(key)?.node.map_locations ?? null,
             })),
             groups: changed.group.map((name) => ({
                 name, before: JSON.parse(state.baseline.get(`group:${name}`)), after: currentValue(`group:${name}`) ?? null,
+            })),
+            nodes: nodes.map((key) => ({
+                path: JSON.parse(key), before: JSON.parse(state.baseline.get(`node:${key}`)),
+                after: currentValue(`node:${key}`) ?? null, beside: besideOf(JSON.parse(key)),
             })),
             maps: changed.map.map((name) => ({ name, entry: state.pack.maps.find((m) => m.name === name) ?? null })),
             layouts: changed.layout.map((key) => ({
@@ -393,7 +457,8 @@ function removeActive() {
     if (idx >= 0) removeMarker(entry, idx);
 }
 
-function select(key, idx = null) {
+/** Makes `key` the selected location; `picked` keeps more selected with it (by default only `key` is). */
+function select(key, idx = null, picked = null) {
     const entry = key === null || key === undefined ? null : state.byKey.get(key);
     if (!entry) {
         state.sel = null;
@@ -401,10 +466,37 @@ function select(key, idx = null) {
         if (idx === null) idx = (entry.node.map_locations || []).findIndex((m) => m.map === state.mapName);
         state.sel = { key, idx: idx >= 0 ? idx : null };
     }
+    state.picked = new Set([...(picked ?? []), ...(state.sel ? [state.sel.key] : [])].filter((k) => state.byKey.has(k)));
+    if (!state.sel) state.picked.clear();
     markActiveRows();
     renderDetails();
     updateCursorStyle();
     invalidate();
+}
+
+const pickedEntries = () => state.index.filter((entry) => state.picked.has(entry.key));
+
+function togglePick(key) {
+    const picked = new Set(state.picked);
+    if (picked.delete(key)) select(state.sel?.key === key ? [...picked].at(-1) ?? null : state.sel.key, null, picked);
+    else select(key, null, picked.add(key));
+}
+
+/** List click: Ctrl toggles a location in the selection, Shift selects the range from the last one clicked. */
+function pickRow(entry, event) {
+    const toggle = event.ctrlKey || event.metaKey;
+    const keys = state.visibleLocs.map((listed) => listed.key);
+    const from = event.shiftKey ? keys.indexOf(state.anchor) : -1;
+    const to = keys.indexOf(entry.key);
+    if (from >= 0 && to >= 0) {
+        const picked = new Set(toggle ? state.picked : []);
+        for (const key of keys.slice(Math.min(from, to), Math.max(from, to) + 1)) picked.add(key);
+        select(entry.key, null, picked);
+        return;
+    }
+    state.anchor = entry.key;
+    if (toggle) togglePick(entry.key);
+    else select(entry.key);
 }
 
 function centerOnSelection(onlyIfHidden) {
@@ -429,7 +521,7 @@ function openMap(name) {
     if (state.mapName !== name) state.lastMap = state.mapName;
     state.mapName = name;
     const map = currentMap();
-    if (state.sel) select(state.sel.key);
+    if (state.sel) select(state.sel.key, null, state.picked);
     const saved = state.views.get(name);
     if (saved) state.view = { ...saved };
     else if (map) state.pendingFit = map.img;
@@ -621,7 +713,9 @@ function drawMarkers(map) {
     const spots = new Map();
     for (const hit of hits) spots.set(`${hit.m.x},${hit.m.y}`, (spots.get(`${hit.m.x},${hit.m.y}`) || 0) + 1);
     const selKey = state.sel?.key;
-    const order = [...hits.filter((h) => h.entry.key !== selKey), ...hits.filter((h) => h.entry.key === selKey)];
+    const isPicked = (h) => state.picked.has(h.entry.key);
+    const order = [...hits.filter((h) => !isPicked(h)), ...hits.filter((h) => isPicked(h) && h.entry.key !== selKey),
+        ...hits.filter((h) => h.entry.key === selKey)];
     const px = 1 / state.view.scale;
     const isHover = (h) => state.hover?.entry === h.entry && state.hover.idx === h.idx;
 
@@ -629,7 +723,7 @@ function drawMarkers(map) {
     for (const hit of order) {
         const style = markerStyle(map, hit.m);
         const p = displayPos(hit);
-        const selected = hit.entry.key === selKey;
+        const selected = isPicked(hit);
         drawMarkerShape(style, p, selected ? COLORS.selected : isHover(hit) ? COLORS.hover : COLORS.marker, selected ? 1 : 0.85);
         if (spots.get(`${hit.m.x},${hit.m.y}`) > 1) {
             outline(style, p.x, p.y, style.size / 2 + style.border + 3 * px);
@@ -637,7 +731,7 @@ function drawMarkers(map) {
             ctx.strokeStyle = COLORS.duplicate;
             ctx.stroke();
         }
-        if (selected && hit.idx === state.sel.idx) crosshair(p, style.size / 2 + style.border + 8 * px);
+        if (hit.entry.key === selKey && hit.idx === state.sel.idx) crosshair(p, style.size / 2 + style.border + 8 * px);
     }
 
     const ghostVisible = state.sel && state.pointer && !state.hover && !drag && !state.spaceHeld;
@@ -653,7 +747,7 @@ function drawMarkers(map) {
 
     screen();
     for (const hit of order) {
-        const selected = hit.entry.key === selKey;
+        const selected = isPicked(hit);
         if (!state.labels && !selected && !isHover(hit)) continue;
         const style = markerStyle(map, hit.m);
         const p = displayPos(hit);
@@ -753,12 +847,12 @@ function renderCursorText() {
     $("#cursor-pos").textContent = parts.join(" · ");
 }
 
-function hitTest(sx, sy) {
+/** Markers under a screen point, nearest first, the selected location's first among equals. */
+function hitsAt(sx, sy) {
     const map = currentMap();
-    if (!map || state.align) return null;
+    if (!map || state.align) return [];
     const p = toImage(sx, sy);
-    let best = null;
-    let bestDistance = Infinity;
+    const found = [];
     for (const hit of markersOn(map.name)) {
         const style = markerStyle(map, hit.m);
         const pos = displayPos(hit);
@@ -766,14 +860,12 @@ function hitTest(sx, sy) {
         const dx = Math.abs(p.x - pos.x);
         const dy = Math.abs(p.y - pos.y);
         if (dx > half || dy > half) continue;
-        const distance = dx * dx + dy * dy - (hit.entry.key === state.sel?.key ? 0.5 : 0);
-        if (distance < bestDistance) {
-            best = hit;
-            bestDistance = distance;
-        }
+        found.push({ hit, distance: dx * dx + dy * dy - (hit.entry.key === state.sel?.key ? 0.5 : 0) });
     }
-    return best;
+    return found.sort((a, b) => a.distance - b.distance).map(({ hit }) => hit);
 }
+
+const hitTest = (sx, sy) => hitsAt(sx, sy)[0] ?? null;
 
 function updateCursorStyle() {
     let cursor = "default";
@@ -801,12 +893,14 @@ canvas.addEventListener("pointerdown", (event) => {
         if (state.align) {
             mode = state.align.tool === "move" ? "layer" : "pick";
         } else {
-            hit = event.altKey ? null : hitTest(event.offsetX, event.offsetY);
+            const hits = event.altKey ? [] : hitsAt(event.offsetX, event.offsetY);
+            // Ctrl+click works through markers stacked on one spot
+            hit = (event.ctrlKey || event.metaKey ? hits.find((h) => !state.picked.has(h.entry.key)) : null) ?? hits[0] ?? null;
             mode = hit && !event.shiftKey ? "marker" : "click";
         }
     }
     drag = {
-        mode, hit, x: event.offsetX, y: event.offsetY, moved: false, shift: event.shiftKey,
+        mode, hit, x: event.offsetX, y: event.offsetY, moved: false, shift: event.shiftKey, ctrl: event.ctrlKey || event.metaKey,
         view: { ...state.view }, transform: state.align && { ...state.align.transform },
     };
 });
@@ -855,7 +949,12 @@ canvas.addEventListener("pointerup", (event) => {
     if (d.mode === "pick") {
         pickPoint(p);
     } else if (d.mode === "marker") {
-        select(d.hit.entry.key, d.hit.idx);
+        if (d.ctrl) togglePick(d.hit.entry.key);
+        else select(d.hit.entry.key, d.hit.idx);
+    } else if (d.ctrl) {
+        status("Ctrl+click a marker to add it to the selection, or take it out.");
+    } else if (state.picked.size > 1) {
+        openGroupDialog({ x: Math.round(p.x), y: Math.round(p.y) });
     } else {
         const entry = state.sel && state.byKey.get(state.sel.key);
         if (entry) placeAt(entry, Math.round(p.x), Math.round(p.y), d.shift);
@@ -920,6 +1019,11 @@ document.addEventListener("keydown", (event) => {
     if (ctrl || event.altKey) return;
     const step = event.shiftKey ? 10 : 1;
     const arrows = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
+    if (state.picked.size > 1 && !state.align && (arrows[event.key] || event.key === "Delete" || event.key === "Backspace")) {
+        event.preventDefault();
+        status("Select a single location to nudge or remove its marker.");
+        return;
+    }
     if (arrows[event.key]) {
         event.preventDefault();
         if (state.align) nudgeLayer(...arrows[event.key]);
@@ -1215,7 +1319,7 @@ function locRow(entry) {
     const markers = entry.node.map_locations || [];
     const here = markers.some((m) => m.map === state.mapName);
     const elsewhere = [...new Set(markers.filter((m) => m.map !== state.mapName).map((m) => m.map))];
-    const row = el("div", { className: `row${state.sel?.key === entry.key ? " active" : ""}` });
+    const row = el("div", { className: `row${state.picked.has(entry.key) ? " active" : ""}` });
     row.dataset.key = entry.key;
     row.title = [
         entry.path.join(" / "),
@@ -1228,9 +1332,12 @@ function locRow(entry) {
     if (entry.node.sections.length > 1) {
         row.append(el("span", { className: "badge", textContent: plural(entry.node.sections.length, "check") }));
     }
-    row.onclick = () => {
-        select(entry.key);
-        centerOnSelection(true);
+    row.onmousedown = (event) => {
+        if (event.shiftKey) event.preventDefault(); // keeps Shift+click from selecting text
+    };
+    row.onclick = (event) => {
+        pickRow(entry, event);
+        if (state.picked.size === 1) centerOnSelection(true);
     };
     row.ondblclick = () => {
         if (here || !elsewhere.length) return;
@@ -1244,9 +1351,8 @@ function locRow(entry) {
 function markActiveRows() {
     let active = null;
     for (const row of $("#loc-list").querySelectorAll(".row")) {
-        const on = row.dataset.key === state.sel?.key;
-        row.classList.toggle("active", on);
-        if (on) active = row;
+        row.classList.toggle("active", state.picked.has(row.dataset.key));
+        if (row.dataset.key === state.sel?.key) active = row;
     }
     if (active) {
         active.closest("details").open = true;
@@ -1259,6 +1365,10 @@ function renderDetails() {
     const entry = state.sel && state.byKey.get(state.sel.key);
     if (!entry) {
         box.replaceChildren(el("div", { className: "dim small", textContent: "Select a location, then click the map to place it." }));
+        return;
+    }
+    if (state.picked.size > 1) {
+        box.replaceChildren(...pickedDetails());
         return;
     }
     const node = entry.node;
@@ -1307,12 +1417,34 @@ function renderDetails() {
         el("div", { className: "small", textContent: plural(checks.length, "check") }),
         list,
         ...summaryTools(entry),
+        ...ungroupTools(entry),
         markers.length ? table : el("div", { className: "dim small", textContent: "Not on any map yet." }),
         el("div", {
             className: "dim small",
-            textContent: here ? "Click the map to move this marker; Shift+click adds another." : "Click the map to place it here.",
+            textContent: (here ? "Click the map to move this marker; Shift+click adds another." : "Click the map to place it here.")
+                + " Ctrl+click more locations to group them.",
         }),
     ]);
+}
+
+function pickedDetails() {
+    const members = pickedEntries();
+    const here = members.filter((entry) => onMap(entry, state.mapName)).length;
+    const shown = members.length > 8 ? members.slice(0, 7) : members;
+    const list = el("ul", { className: "small" }, ...shown.map((entry) => el("li", { textContent: entry.path.join(" / ") })));
+    if (shown.length < members.length) list.append(el("li", { className: "dim", textContent: `… ${members.length - shown.length} more` }));
+    return [
+        el("h3", { textContent: `${members.length} locations selected` }),
+        list,
+        el("div", {
+            className: "dim small",
+            textContent: `${here} of them on this map. Click the map to put them in one location there, with a section`
+                + " for each check, or use Group to put it where their markers are.",
+        }),
+        el("div", { className: "buttons" },
+            el("button", { textContent: "Clear", onclick: () => select(null) }),
+            el("button", { className: "primary", textContent: "Group…", onclick: () => openGroupDialog() })),
+    ];
 }
 
 // --- layout tabs -------------------------------------------------------------------------------
@@ -1625,6 +1757,101 @@ summaryForm.addEventListener("submit", (event) => {
         $("#ds-error").hidden = false;
     }
 });
+
+// --- grouping locations ------------------------------------------------------------------------
+
+const MARKER_STYLE = ["size", "border_thickness", "shape"];
+const groupDialog = $("#dlg-group");
+const groupForm = groupDialog.querySelector("form");
+let grouping = null;
+
+/** Asks for a name for one location that refers to every check of the selected ones, its marker at `at`. */
+function openGroupDialog(at = null) {
+    const members = pickedEntries();
+    if (members.length < 2) return;
+    const spots = members.flatMap((entry) => (entry.node.map_locations || []).filter((m) => m.map === state.mapName));
+    const center = (axis) => Math.round(spots.reduce((sum, m) => sum + m[axis], 0) / spots.length);
+    const spot = at ?? (spots.length ? { x: center("x"), y: center("y") } : null);
+    const parent = members[0].path.slice(0, -1);
+    const sections = S.groupSections(members);
+    const style = Object.fromEntries(Object.entries(spots[0] ?? {}).filter(([field]) => MARKER_STYLE.includes(field)));
+    grouping = { members, parent, sections, marker: spot && { map: state.mapName, ...spot, ...style } };
+    groupForm.reset();
+    groupForm.elements.name.value = S.sharedName(members.map((entry) => entry.node.name));
+    const regions = new Set(members.map((entry) => entry.region));
+    $("#dg-note").textContent = [
+        `${plural(sections.length, "check")} from ${plural(members.length, "location")}; it goes in ${parent.join(" / ") || "the top level"}.`,
+        regions.size > 1 ? `They come from ${regions.size} top-level locations.` : "",
+        spot ? `Its marker goes at ${spot.x}, ${spot.y} on ${state.mapName}.` : "None of them is on this map, so click the map to place it afterwards.",
+    ].filter(Boolean).join(" ");
+    $("#dg-error").hidden = true;
+    groupDialog.showModal();
+}
+
+groupForm.querySelector("button[value=cancel]").addEventListener("click", () => groupDialog.close());
+
+groupForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const { members, parent, sections, marker } = grouping;
+    const name = groupForm.elements.name.value.trim();
+    try {
+        if (!parent.length) throw new Error("Top-level locations cannot be grouped.");
+        const summary = members.find(groupOf);
+        if (summary) throw new Error(`${summary.path.join(" / ")} is a summary location; rebuild it instead.`);
+        if (!name || name.includes("/")) throw new Error("Give the location a name without slashes.");
+        if (!sections.length) throw new Error("None of these locations has a named section.");
+        const path = [...parent, name];
+        const key = JSON.stringify(path);
+        const kept = (entry) => (entry.node.map_locations || []).filter((m) => m.map !== state.mapName);
+        // a ref-only location left without markers would be an empty copy of the new one
+        const dropped = new Set(members.filter((entry) => entry.path.length > 1 && S.isSummary(entry.node) && !kept(entry).length)
+            .map((entry) => entry.key));
+        const existing = nodeAt(path);
+        if (existing && !dropped.has(key)) throw new Error(`${parent.join(" / ")} already has a location named ${name}.`);
+        const node = { name, sections, ...(marker ? { map_locations: [marker] } : {}) };
+        const changes = [{ type: "node", key, before: clone(existing), after: node, beside: members[0].node.name }];
+        for (const entry of members) {
+            if (entry.key === key) continue;
+            if (dropped.has(entry.key)) {
+                changes.push({ type: "node", key: entry.key, before: clone(entry.node), after: null, beside: besideOf(entry.path) });
+            } else {
+                changes.push({ type: "loc", key: entry.key, before: clone(entry.node.map_locations), after: kept(entry) });
+            }
+        }
+        const label = `Grouped ${plural(members.length, "location")} into ${name}`;
+        commit(changes, label);
+        select(key);
+        groupDialog.close();
+        status(marker ? `${label}.` : `${label}. Click the map to place it.`);
+    } catch (failure) {
+        $("#dg-error").textContent = failure.message;
+        $("#dg-error").hidden = false;
+    }
+});
+
+function ungroupTools(entry) {
+    if (entry.path.length < 2 || !S.isSummary(entry.node) || groupOf(entry)) return [];
+    return [el("div", { className: "buttons" }, el("button", {
+        textContent: "Ungroup",
+        title: "Delete this location and give each location it refers to a marker where this one is",
+        onclick: () => ungroup(entry),
+    }))];
+}
+
+function ungroup(entry) {
+    const markers = entry.node.map_locations || [];
+    const targets = S.refLocations(entry.node.sections).map((names) => state.byKey.get(JSON.stringify(names))).filter(Boolean);
+    const give = markers.length ? ` and give its ${plural(targets.length, "location")} a marker where it is` : "";
+    if (!confirm(`Delete ${entry.node.name}${give}?`)) return;
+    const changes = [{ type: "node", key: entry.key, before: clone(entry.node), after: null, beside: besideOf(entry.path) }];
+    for (const target of targets) {
+        const before = clone(target.node.map_locations);
+        const after = [...(before ?? []), ...markers.filter((m) => !onMap(target, m.map)).map(clone)];
+        changes.push({ type: "loc", key: target.key, before, after });
+    }
+    commit(changes, `Ungrouped ${entry.node.name}`);
+    select(targets[0]?.key ?? null, null, new Set(targets.map((target) => target.key)));
+}
 
 // --- adding maps and replacing images ----------------------------------------------------------
 
