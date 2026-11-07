@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/lallaria/khddd-ap-poptracker/compare/v0.3.3...v0.3.4) (2026-11-07)
+
+
+### Features
+
+* **tracker:** make the pack work as a Universal Tracker map pack ([#11](https://github.com/lallaria/khddd-ap-poptracker/issues/11)) ([8bf5569](https://github.com/lallaria/khddd-ap-poptracker/commit/8bf5569b228d35ee269b541bd88a8d5d5d12ab7f))
+
 ## [0.3.3](https://github.com/lallaria/khddd-ap-poptracker/compare/v0.3.2...v0.3.3) (2026-10-13)
 
 
