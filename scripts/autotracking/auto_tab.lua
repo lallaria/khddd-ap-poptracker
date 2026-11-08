@@ -2,7 +2,7 @@
 -- worlds/khddd/Client.py); the opt_auto_tab toggle lets the user turn it off
 AUTO_TAB_KEY = nil
 
--- ActivateTab only switches tab groups holding that title, so each enclosing tab needs its own hint
+local WORLD_MAP = 0x0B
 local OVERWORLD_TAB = "Overworld"
 
 local CHARACTER_TABS = {
@@ -11,7 +11,7 @@ local CHARACTER_TABS = {
 }
 
 -- world byte (WorldFlags.*.worldNo in DDDAPConnector.lua) -> tab title per character;
--- 0x01 Destiny Islands and 0x0B World Map have no map tab
+-- 0x01 Destiny Islands has no map tab
 local WORLD_TABS = {
 	[0x03] = { [0] = "Traverse Town", [1] = "Traverse Town" },
 	[0x04] = { [0] = "Country of the Musketeers", [1] = "Country of the Musketeers" },
@@ -72,10 +72,13 @@ local function onRoomUpdate(key, value)
 		print(string.format("onRoomUpdate: world 0x%02X, character %d -> %s / %s", world, character,
 			tostring(character_tab), tostring(world_tab)))
 	end
+	if world == WORLD_MAP then
+		Tracker:UiHint("ActivateTab", OVERWORLD_TAB)
+		return
+	end
 	if not character_tab or not world_tab then
 		return
 	end
-	Tracker:UiHint("ActivateTab", OVERWORLD_TAB)
 	Tracker:UiHint("ActivateTab", character_tab)
 	Tracker:UiHint("ActivateTab", world_tab)
 end
