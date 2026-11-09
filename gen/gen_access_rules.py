@@ -20,7 +20,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(sys.prefix).parent))  # the venv sits in the Archipelago checkout
 
 from worlds import khddd
-from gen_location_mapping import BOARD_ROOT, OPEN_SEGMENT, gate_nodes
+from gen_location_mapping import BOARD_ROOT, OPEN_SEGMENT, gate_nodes, tracker_regions
 
 atexit.unregister(input)  # some apworlds register an exit prompt on import
 
@@ -506,7 +506,7 @@ class Translator:
                     env[target] = self.concrete(statement.value, env)
                 elif isinstance(statement.value, ast.Call) and ast.unparse(statement.value.func) == GATE_RULES_HELPER:
                     env[target] = GATE_RULES
-                elif isinstance(statement.value, ast.Call):
+                elif isinstance(statement.value, (ast.Call, ast.BinOp)):
                     env[target] = [(guard, self.rule(statement.value, env))]
             elif isinstance(statement, ast.AugAssign) and isinstance(statement.op, ast.BitAnd):
                 env[statement.target.id] = env[statement.target.id] + [(guard, self.rule(statement.value, env))]
@@ -615,10 +615,10 @@ def contribution_rule(guard, rule, existence):
     return union(option_combo_to_rules(negated), rule)
 
 
-def region_chain(regions, target):
-    """Entrance names from the origin region to target."""
-    paths = {"World": []}
-    queue = ["World"]
+def region_chain(regions, target, start="World"):
+    """Entrance names from start to target."""
+    paths = {start: []}
+    queue = [start]
     while queue:
         region = queue.pop(0)
         if region == target:
@@ -630,11 +630,11 @@ def region_chain(regions, target):
     return None
 
 
-def region_rules(region, ap_regions, translator):
-    """(access, visibility) of an AP region: its entrance chain and the options that create it."""
+def region_rules(region, ap_regions, translator, start="World"):
+    """(access, visibility) of an AP region: its entrance chain from start and the options that create it."""
     existence = region_guard(region)
     access = [[]]
-    for entrance in region_chain(ap_regions, region) if region in ap_regions else []:
+    for entrance in region_chain(ap_regions, region, start) if region in ap_regions else []:
         for guard, rule in translator.contributions.get(("entrance", entrance), []):
             access = product(access, contribution_rule(guard, rule, existence))
     return access, option_combo_to_rules(guard_combo(existence))
@@ -799,10 +799,11 @@ def main():
     ap_regions = khddd.Regions.region_data_table  # rebound by set_region_table; the package's copy stays empty
     item_codes = load_mapping(ITEM_MAPPING, r'^\s*\[(\d+)\]\s*=\s*\{\s*\{\s*"([^"]+)"')
     section_paths = load_mapping(LOCATION_MAPPING, r'^\s*\[(\d+)\]\s*=\s*\{\s*\{\s*"@([^"]+)"')
+    folded = tracker_regions()
     location_paths = {}
     for name, data in khddd.location_data_table.items():
         if data.code is None:  # no AP id; hidden sections that board_gate counts
-            location_paths[name] = f"{data.region}/{EVENT_LOCATION}/{name}"
+            location_paths[name] = f"{folded[data.region]}/{EVENT_LOCATION}/{name}"
             continue
         path = section_paths.get(data.code)
         if path is None:
@@ -834,8 +835,7 @@ def main():
         translator.contributions[("location", name)].append((guard, rule))
 
     top_level = {node["name"] for node in tree}
-    regions = {region: region_rules(region, ap_regions, translator)
-               for region in top_level | {data.region for data in khddd.location_data_table.values()}}
+    regions = {region: region_rules(region, ap_regions, translator) for region in top_level}
     for node in tree:
         access, visibility = regions[node["name"]]
         set_rules(node, nontrivial(access), nontrivial(visibility))
@@ -854,9 +854,11 @@ def main():
             raise ValueError(f"{name!r} ended up unreachable under every option")
         if names[0] == data.region:
             visibility = option_combo_to_rules(assuming(existence, region_guard(data.region)))
-        else:  # no ancestor carries the region's rules
-            access = product(regions[data.region][0], access)
-            visibility = option_combo_to_rules(assuming(guard_and(region_guard(data.region), existence), True))
+        else:  # the top-level location carries only the rules down to start, an enclosing region or World
+            start = names[0] if folded[data.region] == names[0] else "World"
+            access = product(region_rules(data.region, ap_regions, translator, start)[0], access)
+            visibility = option_combo_to_rules(
+                assuming(guard_and(region_guard(data.region), existence), region_guard(start)))
         sections = section_rules[tuple(names)]
         if section_name in sections:
             warn(f"{name!r} shares the tracker section {path} with another location; rules are ANDed")
@@ -870,11 +872,13 @@ def main():
             shared_rules(child, path, section_rules, shared)
             place_rules(child, path, section_rules, shared)
 
+    chained = {entrance for region in top_level | {data.region for data in khddd.location_data_table.values()}
+               if region in ap_regions for entrance in region_chain(ap_regions, region)}
     for kind, name in translator.contributions:
         if kind == "location" and name not in location_paths:
             warn(f"rules for {name!r} were dropped (no tracker location)")
-        if kind == "entrance" and name not in top_level:
-            warn(f"rules for entrance {name!r} were dropped (no top-level node)")
+        if kind == "entrance" and name not in chained:
+            warn(f"rules for entrance {name!r} were dropped (no tracker location behind it)")
 
     LOCATIONS_JSON.write_text(dumps(tree) + "\n", encoding="utf-8", newline="\n")
     rule_count = sum("access_rules" in child for node in tree for child in descendants(node.get("children", [])))

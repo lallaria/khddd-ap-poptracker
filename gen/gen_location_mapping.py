@@ -5,6 +5,7 @@ Usage: <source>/Archipelago/venv/Scripts/python gen/gen_location_mapping.py
 Run it with the venv inside the Archipelago checkout that holds worlds/khddd.
 """
 import atexit
+import json
 import os
 import random
 import re
@@ -20,6 +21,7 @@ atexit.unregister(input)  # some apworlds register an exit prompt on import
 
 BOARD_ROOT = "Link Boards"
 OPEN_SEGMENT = "Open"
+LOCATIONS_JSON = Path(__file__).resolve().parent.parent / "locations" / "locations.json"
 
 
 class GateRecorder:
@@ -60,9 +62,29 @@ def gate_nodes():
     return nodes
 
 
+def world_name(region):
+    return re.sub(r"\s*\[(?:Sora|Riku)\]$", "", region).strip()
+
+
+def tracker_regions():
+    """{AP region: top-level location in locations.json}; a sub-region folds into the nearest enclosing top-level
+    location whose name it extends, so Traverse Town Plaza [Sora] lands in Traverse Town [Sora]."""
+    top_level = {node["name"] for node in json.loads(LOCATIONS_JSON.read_text(encoding="utf-8"))}
+    khddd.Regions.set_region_table()
+    regions = khddd.Regions.region_data_table  # rebound by set_region_table
+    parents = {exit_name: name for name, data in regions.items() for exit_name in data.region_exits or []}
+    folded = {}
+    for region in regions:
+        enclosing = region
+        while enclosing not in top_level and enclosing in parents:
+            enclosing = parents[enclosing]
+        folded[region] = enclosing if f"{world_name(region)} ".startswith(f"{world_name(enclosing)} ") else region
+    return folded
+
+
 def location_name(ap_name, region):
     """Tracker location name for an AP location: the AP name without world prefix and character tags."""
-    world = re.sub(r"\s*\[(?:Sora|Riku)\]$", "", region).strip()
+    world = world_name(region)
     name = ap_name
     if name.startswith(world + " "):
         name = name[len(world) + 1:]
@@ -82,7 +104,7 @@ def get_category(code, region, name):
         return "Lord Kyroo"
     if "Traverse Town 2" in region:
         return "TT2 Rewards"
-    if region.startswith("World Map"):
+    if region.startswith("World Map") or region == "Overworld":
         return "Special Rewards"
     if 2670000 <= code < 2680000:
         if "[Sora]" in region or region == "Destiny Islands":
@@ -124,12 +146,14 @@ CATEGORY_ORDER = [
 
 def main():
     segments = {name: f"Gate {gate}" for (_, gate), names in gate_nodes().items() for name in names}
+    folded = tracker_regions()
     categories = {}
     for ap_name, data in khddd.location_data_table.items():
         if data.code is None:  # events have no AP id
             continue
-        category = get_category(data.code, data.region, ap_name)
-        path = tracker_path(ap_name, data.region, category, segments)
+        region = folded[data.region]
+        category = get_category(data.code, region, ap_name)
+        path = tracker_path(ap_name, region, category, segments)
         categories.setdefault(category, []).append((data.code, path))
 
     lines = [

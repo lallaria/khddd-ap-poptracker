@@ -133,8 +133,8 @@ LOCATION_MAPPING = {
 	-- ########################################
 	-- ########### Special Rewards ############
 	-- ########################################
-	[2670294] = { { "@World Map [Sora]/All Superbosses Defeated/All Superbosses Defeated [Sora] [Riku]" } },
-	[2670300] = { { "@World Map [Sora]/All Lucky Emblems Found/All Lucky Emblems Found [Sora] [Riku]" } },
+	[2670294] = { { "@Overworld/All Superbosses Defeated/All Superbosses Defeated [Sora] [Riku]" } },
+	[2670300] = { { "@Overworld/All Lucky Emblems Found/All Lucky Emblems Found [Sora] [Riku]" } },
 
 	-- ########################################
 	-- ############# Sora Chests ##############
@@ -588,7 +588,7 @@ LOCATION_MAPPING = {
 	[2650649] = { { "@La Cite des Cloches [Riku]/Nave Lord Kyroo Fight/La Cite des Cloches Nave Lord Kyroo Fight [Riku]" } },
 	[2650650] = { { "@Prankster's Paradise [Sora]/Promontory Lord Kyroo Fight/Prankster's Paradise Promontory Lord Kyroo Fight [Sora]" } },
 	[2650651] = { { "@Symphony of Sorcery [Riku]/Moonlight Wood Lord Kyroo Fight/Symphony of Sorcery Moonlight Wood Lord Kyroo Fight [Riku]" } },
-	[2650652] = { { "@World Map [Sora]/Lord Kyroo Defeated/Lord Kyroo Defeated [Sora] [Riku]" } },
+	[2650652] = { { "@Overworld/Lord Kyroo Defeated/Lord Kyroo Defeated [Sora] [Riku]" } },
 
 	-- ########################################
 	-- ################ Levels ################

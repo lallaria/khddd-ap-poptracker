@@ -689,7 +689,7 @@
             },
             {
                 "name": "Cleared",
-                "access_rules": ["rail_slide", "flowmotion", "$can_infinite_jump", "$can_glide"],
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Traverse Town Cleared [Sora]"
@@ -1316,7 +1316,7 @@
     },
     {
         "name": "Traverse Town 2 [Sora]",
-        "access_rules": ["world_traverse_town_sora:2,wall_kick", "world_traverse_town_sora:2,glide", "world_traverse_town_sora:2,superglide", "world_traverse_town_sora:2,rail_slide", "world_traverse_town_sora:2,flowmotion"],
+        "access_rules": ["world_traverse_town_sora:2,glide", "world_traverse_town_sora:2,rail_slide", "world_traverse_town_sora:2,superglide", "world_traverse_town_sora:2,flowmotion", "world_traverse_town_sora:2,wall_kick,$can_infinite_jump"],
         "visibility_rules": ["opt_sora"],
         "children": [
             {
@@ -3043,7 +3043,7 @@
         "children": [
             {
                 "name": "Secret Portal",
-                "access_rules": ["glide,$has_sora_worlds|6", "superglide,$has_sora_worlds|6", "rail_slide,$has_sora_worlds|6", "flowmotion,$has_sora_worlds|6", "$has_sora_worlds|6,$can_infinite_jump"],
+                "access_rules": ["glide,$has_sora_worlds|6", "superglide,$has_sora_worlds|6", "rail_slide,$has_sora_worlds|6", "flowmotion,$has_sora_worlds|6", "$can_infinite_jump,$has_sora_worlds|6"],
                 "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
                 "sections": [
                     {
@@ -7300,7 +7300,7 @@
             },
             {
                 "name": "Chernobog Bonus Slot 1",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Chernobog Bonus Slot 1 [Riku]"
@@ -7309,7 +7309,7 @@
             },
             {
                 "name": "Chernobog Bonus Slot 2",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Chernobog Bonus Slot 2 [Riku]"
@@ -7318,7 +7318,7 @@
             },
             {
                 "name": "Counterpoint Reward",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Counterpoint Reward [Riku]"
@@ -7466,7 +7466,7 @@
             },
             {
                 "name": "Golden Wood Mega-Potion",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Golden Wood Mega-Potion [Riku]"
@@ -7482,7 +7482,7 @@
             },
             {
                 "name": "Snowgleam Wood Ice Barrage",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Snowgleam Wood Ice Barrage [Riku]"
@@ -7498,7 +7498,7 @@
             },
             {
                 "name": "Snowgleam Wood Candy Goggles",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Snowgleam Wood Candy Goggles [Riku]"
@@ -7514,7 +7514,7 @@
             },
             {
                 "name": "Snowgleam Wood Block-It Chocolate",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Snowgleam Wood Block-It Chocolate [Riku]"
@@ -7530,7 +7530,7 @@
             },
             {
                 "name": "Snowgleam Wood Ice Dream Cone 3",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Snowgleam Wood Ice Dream Cone 3 [Riku]"
@@ -7624,7 +7624,7 @@
             },
             {
                 "name": "Snowgleam Wood Dulcet Fancy",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Snowgleam Wood Dulcet Fancy [Riku]"
@@ -7640,7 +7640,7 @@
             },
             {
                 "name": "Snowgleam Wood Confetti Candy 3",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Snowgleam Wood Confetti Candy 3 [Riku]"
@@ -7673,7 +7673,7 @@
             },
             {
                 "name": "Cleared",
-                "access_rules": ["flowmotion", "rail_slide,high_jump", "rail_slide,double_flight", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
+                "access_rules": ["high_jump,rail_slide", "double_flight,rail_slide", "flowmotion", "rail_slide,$can_infinite_jump", "rail_slide,$can_pole_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Cleared [Riku]"
@@ -8540,36 +8540,6 @@
                 "sections": [
                     {
                         "name": "Unbound Keyblade Reward [Sora]"
-                    }
-                ]
-            },
-            {
-                "name": "All Superbosses Defeated",
-                "access_rules": ["opt_riku,world_traverse_town_riku:2,$has_recipes,$opt_off|opt_sora,@Traverse Town [Riku]/Secret Portal/Traverse Town Secret Portal [Riku],@La Cite des Cloches [Riku]/Secret Portal/La Cite des Cloches Secret Portal [Riku],@The Grid [Riku]/Secret Portal/The Grid Secret Portal [Riku],@Country of the Musketeers [Riku]/Secret Portal/Country of the Musketeers Secret Portal [Riku],@Prankster's Paradise [Riku]/Secret Portal/Prankster's Paradise Secret Portal [Riku],$has_emblems", "world_traverse_town_sora:2,opt_sora,$has_recipes,@Traverse Town [Sora]/Secret Portal/Traverse Town Secret Portal [Sora],@La Cite des Cloches [Sora]/Secret Portal/La Cite des Cloches Secret Portal [Sora],@The Grid [Sora]/Secret Portal/The Grid Secret Portal [Sora],@Country of the Musketeers [Sora]/Secret Portal/Country of the Musketeers Secret Portal [Sora],@Prankster's Paradise [Sora]/Secret Portal/Prankster's Paradise Secret Portal [Sora],@Symphony of Sorcery [Sora]/Secret Portal/Symphony of Sorcery Secret Portal [Sora],$opt_off|opt_riku", "world_traverse_town_sora:2,world_traverse_town_riku:2,$has_recipes,@Traverse Town [Sora]/Secret Portal/Traverse Town Secret Portal [Sora],@La Cite des Cloches [Sora]/Secret Portal/La Cite des Cloches Secret Portal [Sora],@The Grid [Sora]/Secret Portal/The Grid Secret Portal [Sora],@Country of the Musketeers [Sora]/Secret Portal/Country of the Musketeers Secret Portal [Sora],@Prankster's Paradise [Sora]/Secret Portal/Prankster's Paradise Secret Portal [Sora],@Symphony of Sorcery [Sora]/Secret Portal/Symphony of Sorcery Secret Portal [Sora],@Traverse Town [Riku]/Secret Portal/Traverse Town Secret Portal [Riku],@La Cite des Cloches [Riku]/Secret Portal/La Cite des Cloches Secret Portal [Riku],@The Grid [Riku]/Secret Portal/The Grid Secret Portal [Riku],@Country of the Musketeers [Riku]/Secret Portal/Country of the Musketeers Secret Portal [Riku],@Prankster's Paradise [Riku]/Secret Portal/Prankster's Paradise Secret Portal [Riku],$has_emblems"],
-                "visibility_rules": ["opt_goal_superbosses"],
-                "sections": [
-                    {
-                        "name": "All Superbosses Defeated [Sora] [Riku]"
-                    }
-                ]
-            },
-            {
-                "name": "Lord Kyroo Defeated",
-                "access_rules": ["opt_riku,world_symphony_of_sorcery_riku,world_la_cite_des_cloches_riku,high_jump,$opt_off|opt_sora", "opt_riku,world_symphony_of_sorcery_riku,world_la_cite_des_cloches_riku,double_flight,$opt_off|opt_sora", "opt_riku,world_symphony_of_sorcery_riku,world_la_cite_des_cloches_riku,$opt_off|opt_sora,$can_infinite_jump", "opt_riku,world_symphony_of_sorcery_riku,world_la_cite_des_cloches_riku,$opt_off|opt_sora,$can_pole_jump", "world_pranksters_paradise_sora,opt_sora,$opt_off|opt_riku", "world_pranksters_paradise_sora,world_la_cite_des_cloches_riku,world_symphony_of_sorcery_riku,high_jump", "world_pranksters_paradise_sora,world_la_cite_des_cloches_riku,world_symphony_of_sorcery_riku,double_flight", "world_pranksters_paradise_sora,world_la_cite_des_cloches_riku,world_symphony_of_sorcery_riku,$can_infinite_jump", "world_pranksters_paradise_sora,world_la_cite_des_cloches_riku,world_symphony_of_sorcery_riku,$can_pole_jump"],
-                "visibility_rules": ["opt_lord_kyroo"],
-                "sections": [
-                    {
-                        "name": "Lord Kyroo Defeated [Sora] [Riku]"
-                    }
-                ]
-            },
-            {
-                "name": "All Lucky Emblems Found",
-                "access_rules": ["$opt_off|opt_emblem_reqs", "$has_emblems"],
-                "visibility_rules": ["opt_emblem_reqs", "opt_goal_lucky_emblems"],
-                "sections": [
-                    {
-                        "name": "All Lucky Emblems Found [Sora] [Riku]"
                     }
                 ]
             }
@@ -24182,6 +24152,36 @@
                         "map": "Overworld",
                         "x": 1166,
                         "y": 255
+                    }
+                ]
+            },
+            {
+                "name": "All Superbosses Defeated",
+                "access_rules": ["opt_riku,world_traverse_town_riku:2,$has_recipes,$has_emblems,$opt_off|opt_sora,@Traverse Town [Riku]/Secret Portal/Traverse Town Secret Portal [Riku],@La Cite des Cloches [Riku]/Secret Portal/La Cite des Cloches Secret Portal [Riku],@The Grid [Riku]/Secret Portal/The Grid Secret Portal [Riku],@Country of the Musketeers [Riku]/Secret Portal/Country of the Musketeers Secret Portal [Riku],@Prankster's Paradise [Riku]/Secret Portal/Prankster's Paradise Secret Portal [Riku]", "world_traverse_town_sora:2,opt_sora,$has_recipes,$has_emblems,@Traverse Town [Sora]/Secret Portal/Traverse Town Secret Portal [Sora],@La Cite des Cloches [Sora]/Secret Portal/La Cite des Cloches Secret Portal [Sora],@The Grid [Sora]/Secret Portal/The Grid Secret Portal [Sora],@Country of the Musketeers [Sora]/Secret Portal/Country of the Musketeers Secret Portal [Sora],@Prankster's Paradise [Sora]/Secret Portal/Prankster's Paradise Secret Portal [Sora],@Symphony of Sorcery [Sora]/Secret Portal/Symphony of Sorcery Secret Portal [Sora],$opt_off|opt_riku", "world_traverse_town_sora:2,world_traverse_town_riku:2,$has_recipes,$has_emblems,@Traverse Town [Sora]/Secret Portal/Traverse Town Secret Portal [Sora],@La Cite des Cloches [Sora]/Secret Portal/La Cite des Cloches Secret Portal [Sora],@The Grid [Sora]/Secret Portal/The Grid Secret Portal [Sora],@Country of the Musketeers [Sora]/Secret Portal/Country of the Musketeers Secret Portal [Sora],@Prankster's Paradise [Sora]/Secret Portal/Prankster's Paradise Secret Portal [Sora],@Symphony of Sorcery [Sora]/Secret Portal/Symphony of Sorcery Secret Portal [Sora],@Traverse Town [Riku]/Secret Portal/Traverse Town Secret Portal [Riku],@La Cite des Cloches [Riku]/Secret Portal/La Cite des Cloches Secret Portal [Riku],@The Grid [Riku]/Secret Portal/The Grid Secret Portal [Riku],@Country of the Musketeers [Riku]/Secret Portal/Country of the Musketeers Secret Portal [Riku],@Prankster's Paradise [Riku]/Secret Portal/Prankster's Paradise Secret Portal [Riku]"],
+                "visibility_rules": ["opt_goal_superbosses"],
+                "sections": [
+                    {
+                        "name": "All Superbosses Defeated [Sora] [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "All Lucky Emblems Found",
+                "access_rules": ["$opt_off|opt_emblem_reqs", "$has_emblems"],
+                "visibility_rules": ["opt_emblem_reqs", "opt_goal_lucky_emblems"],
+                "sections": [
+                    {
+                        "name": "All Lucky Emblems Found [Sora] [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Lord Kyroo Defeated",
+                "access_rules": ["opt_riku,world_symphony_of_sorcery_riku,world_la_cite_des_cloches_riku,high_jump,$opt_off|opt_sora", "opt_riku,world_symphony_of_sorcery_riku,world_la_cite_des_cloches_riku,double_flight,$opt_off|opt_sora", "opt_riku,world_symphony_of_sorcery_riku,world_la_cite_des_cloches_riku,$opt_off|opt_sora,$can_infinite_jump", "opt_riku,world_symphony_of_sorcery_riku,world_la_cite_des_cloches_riku,$opt_off|opt_sora,$can_pole_jump", "world_pranksters_paradise_sora,opt_sora,$opt_off|opt_riku", "world_pranksters_paradise_sora,world_la_cite_des_cloches_riku,world_symphony_of_sorcery_riku,high_jump", "world_pranksters_paradise_sora,world_la_cite_des_cloches_riku,world_symphony_of_sorcery_riku,double_flight", "world_pranksters_paradise_sora,world_la_cite_des_cloches_riku,world_symphony_of_sorcery_riku,$can_infinite_jump", "world_pranksters_paradise_sora,world_la_cite_des_cloches_riku,world_symphony_of_sorcery_riku,$can_pole_jump"],
+                "visibility_rules": ["opt_lord_kyroo"],
+                "sections": [
+                    {
+                        "name": "Lord Kyroo Defeated [Sora] [Riku]"
                     }
                 ]
             }
