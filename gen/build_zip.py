@@ -8,7 +8,9 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 EXCLUDED_DIRS = {".git", ".github", ".claude", ".venv", "dist", "gen", "tools", "__pycache__"}
-EXCLUDED_FILES = {".gitignore", ".luarc.json", ".release-please-manifest.json", "release-please-config.json"}
+EXCLUDED_FILES = {
+    ".gitignore", ".luarc.json", ".release-please-manifest.json", "release-please-config.json", "rule-fixes.json", "rule-fixes.md",
+}
 
 
 def main(output):

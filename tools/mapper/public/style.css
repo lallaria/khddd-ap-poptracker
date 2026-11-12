@@ -37,7 +37,7 @@ html, body { height: 100%; margin: 0; }
 body { background: var(--bg); color: var(--text); display: flex; flex-direction: column; overflow: hidden; }
 [hidden] { display: none !important; }
 
-button, input, select {
+button, input, select, textarea {
     font: inherit;
     color: inherit;
     background: var(--panel-2);
@@ -69,6 +69,9 @@ label.check { flex-direction: row; align-items: center; gap: 6px; }
 .fields.grid4 { grid-template-columns: 1fr 1fr; }
 .indent { margin-left: 22px; }
 .buttons { display: flex; justify-content: flex-end; gap: 8px; }
+.buttons.start { justify-content: flex-start; flex-wrap: wrap; }
+textarea { width: 100%; resize: vertical; }
+code { font-size: 12px; }
 
 #toolbar {
     display: flex; align-items: center; gap: 8px;
@@ -111,6 +114,7 @@ main.editing-tabs { grid-template-columns: 380px minmax(0, 1fr) 340px; }
 .map-buttons { display: flex; gap: 6px; }
 .map-buttons button { flex: 1; }
 .badge { font-size: 11px; color: var(--dim); white-space: nowrap; }
+.badge.fix { color: var(--elsewhere); }
 .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; align-self: center; border: 1px solid var(--dim); }
 .dot.here { background: var(--here); border-color: var(--here); }
 .dot.elsewhere { background: var(--elsewhere); border-color: var(--elsewhere); }
@@ -128,6 +132,18 @@ main.editing-tabs { grid-template-columns: 380px minmax(0, 1fr) 340px; }
 #loc-details tr.current td:first-child { font-weight: 600; }
 #loc-details .maplink { background: none; border: none; padding: 0; text-align: left; text-decoration: underline; color: inherit; }
 #loc-details ul { margin: 0; padding-left: 18px; }
+#loc-details h4 { margin: 4px 0 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--dim); }
+#loc-details .logic-box > summary { cursor: pointer; font-size: 12px; color: var(--dim); }
+#loc-details .logic-box[open] { display: flex; flex-direction: column; gap: 6px; }
+#loc-details ul.checks { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+#loc-details .check-name { display: flex; gap: 6px; align-items: baseline; }
+#loc-details .check-name .label { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.logic, .rule-now { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 2px 8px; }
+ul.checks .logic { margin: 2px 0 0 12px; }
+.rule > div, .note { overflow-wrap: anywhere; }
+.note { white-space: pre-wrap; }
+.term.unknown { color: var(--warn); }
+.done { color: var(--here); }
 
 #canvas-pane { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; background: var(--canvas); }
 #map-canvas { flex: 1; min-height: 0; width: 100%; display: block; touch-action: none; outline: none; }
@@ -159,6 +175,21 @@ dialog {
     background: var(--panel); color: var(--text);
     border: 1px solid var(--line); border-radius: 8px; padding: 16px;
 }
+dialog.wide { width: min(760px, calc(100vw - 32px)); }
+#dr-rows { display: flex; flex-direction: column; gap: 6px; }
+.rule-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 4px;
+    padding: 4px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg);
+}
+.rule-row .or { width: 40px; font-size: 12px; }
+.rule-row input { flex: 1; min-width: 160px; }
+.chip {
+    display: inline-flex; align-items: center; gap: 2px;
+    padding: 1px 1px 1px 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel-2);
+}
+.chip.unknown { border-color: var(--warn); color: var(--warn); }
+.chip button { border: none; background: none; padding: 0 5px; line-height: 1.2; font-size: 11px; color: var(--dim); }
+#df-text { font: 12px/1.4 ui-monospace, "Cascadia Mono", Consolas, monospace; }
 dialog::backdrop { background: rgb(0 0 0 / 0.55); }
 dialog form, dialog { display: flex; flex-direction: column; gap: 10px; }
 dialog:not([open]) { display: none; }

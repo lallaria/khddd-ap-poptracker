@@ -1,5 +1,6 @@
 import * as G from "./geometry.mjs";
 import * as L from "./layout.mjs";
+import * as R from "./rules.mjs";
 import * as S from "./summary.mjs";
 
 const $ = (selector) => document.querySelector(selector);
@@ -48,6 +49,10 @@ const state = {
     editTabs: false,
     lastTabTarget: null,    // label of the place the last tab went
     summaryGroup: "Overworld",
+    rules: new Map(),       // R.locationIndex of pack.locations
+    names: new Map(),       // item code -> name
+    fixes: {},              // section path -> rule fix, as in rule-fixes.json
+    fixFiles: null,         // {file, markdown} the server writes the fixes to
     spaceHeld: false,
     cacheBust: Date.now(),
 };
@@ -105,6 +110,7 @@ function buildIndex() {
     };
     walk(state.pack.locations, []);
     state.picked = new Set([...state.picked].filter((key) => state.byKey.has(key)));
+    state.rules = R.locationIndex(state.pack.locations);
 }
 
 function nodeAt(names) {
@@ -128,7 +134,9 @@ function besideOf(names) {
 function applyPack(pack) {
     state.pack = pack;
     state.tree = L.layoutTree(pack.layouts);
+    state.names = R.itemNames(pack.items);
     buildIndex();
+    fillRuleTerms();
     if (!currentMap()) {
         const known = new Set(pack.maps.map((map) => map.name));
         state.mapName = null;
@@ -375,7 +383,9 @@ async function reload() {
     state.redo = [];
     state.cacheBust = Date.now();
     images.clear();
-    applyPack(await api("/api/pack"));
+    const [pack, fixes] = await Promise.all([api("/api/pack"), api("/api/fixes")]);
+    takeFixes(fixes);
+    applyPack(pack);
     status("Reloaded from disk.");
 }
 
@@ -1105,6 +1115,8 @@ function renderToolbar() {
     $("#btn-redo").disabled = !state.redo.length;
     $("#btn-redo").title = state.redo.length ? `Redo: ${state.redo.at(-1).label} (Ctrl+Y)` : "Redo (Ctrl+Y)";
     document.title = `${count ? "• " : ""}PopTracker Mapper`;
+    const fixes = Object.keys(state.fixes).length;
+    $("#btn-fixes").textContent = fixes ? `Rule fixes (${fixes})` : "Rule fixes";
 }
 
 function groupToggle(details, id, filtering) {
@@ -1273,6 +1285,7 @@ function matchesStatus(entry, want) {
     if (want === "here") return onMap(entry, state.mapName);
     if (want === "missing") return !onMap(entry, state.mapName);
     if (want === "nowhere") return !entry.node.map_locations?.length;
+    if (want === "fixes") return hasFix(entry);
     return true;
 }
 
@@ -1332,6 +1345,7 @@ function locRow(entry) {
     if (entry.node.sections.length > 1) {
         row.append(el("span", { className: "badge", textContent: plural(entry.node.sections.length, "check") }));
     }
+    if (hasFix(entry)) row.append(el("span", { className: "badge fix", textContent: "rule fix", title: "A rule fix is noted for the apworld" }));
     row.onmousedown = (event) => {
         if (event.shiftKey) event.preventDefault(); // keeps Shift+click from selecting text
     };
@@ -1408,6 +1422,7 @@ function renderDetails() {
     });
 
     const here = onMap(entry, state.mapName);
+    const logic = logicSection(entry);
     box.replaceChildren(...[
         el("h3", { textContent: node.name }),
         el("div", {
@@ -1415,7 +1430,8 @@ function renderDetails() {
             textContent: entry.path.slice(0, -1).join(" / ") + (node.parent ? ` (parent: ${node.parent})` : ""),
         }),
         el("div", { className: "small", textContent: plural(checks.length, "check") }),
-        list,
+        // the logic section lists several checks itself
+        checks.length > 1 && logic.length ? null : list,
         ...summaryTools(entry),
         ...ungroupTools(entry),
         markers.length ? table : el("div", { className: "dim small", textContent: "Not on any map yet." }),
@@ -1424,8 +1440,289 @@ function renderDetails() {
             textContent: (here ? "Click the map to move this marker; Shift+click adds another." : "Click the map to place it here.")
                 + " Ctrl+click more locations to group them.",
         }),
-    ]);
+        ...logic,
+    ].filter(Boolean));
 }
+
+// --- rule fixes --------------------------------------------------------------------------------
+
+/** Checks of the location itself, not the ones it refers to, so each fix lists once. */
+const ownCheckIds = (entry) => entry.node.sections.filter((section) => !section.ref && typeof section.name === "string")
+    .map((section) => `${entry.path.join("/")}/${section.name}`);
+const hasFix = (entry) => ownCheckIds(entry).some((id) => state.fixes[id]);
+const isApplied = (check, fix) => Boolean(fix?.wanted) && !check.missing && R.sameRules(check.own, fix.wanted);
+const fixCount = (n) => `${n} rule fix${n === 1 ? "" : "es"}`;
+
+function takeFixes({ fixes, file, markdown }) {
+    state.fixes = fixes;
+    state.fixFiles = { file, markdown };
+}
+
+function fillRuleTerms() {
+    const seen = new Set();
+    const options = [];
+    for (const [code, name] of state.names) {
+        if (seen.has(name)) continue;
+        seen.add(name);
+        options.push(el("option", { value: name, label: code }));
+    }
+    for (const term of R.helperTerms(state.rules)) options.push(el("option", { value: term }));
+    $("#rule-terms").replaceChildren(...options);
+}
+
+function termView(term) {
+    const known = R.knownTerm(term, state.names);
+    return el("span", {
+        className: `term${known ? "" : " unknown"}`, textContent: R.termLabel(term, state.names),
+        title: known ? term : `${term}\nNo item in the pack has this code`,
+    });
+}
+
+function ruleView(rules, nothing = "nothing") {
+    if (!rules.length) return el("div", { className: "dim", textContent: nothing });
+    return el("div", { className: "rule" }, ...rules.map((rule, i) => el("div", {},
+        i ? el("span", { className: "dim", textContent: "or " }) : null,
+        ...rule.flatMap((term, j) => [j ? el("span", { className: "dim", textContent: " & " }) : null, termView(term)]))));
+}
+
+function fixLines(check) {
+    const fix = state.fixes[check.id];
+    if (!fix) return [];
+    const lines = [
+        el("span", { className: "dim", textContent: "Should" }),
+        fix.wanted ? ruleView(fix.wanted, "nothing beyond its parents") : el("div", { className: "dim", textContent: "as now; see the note" }),
+    ];
+    if (fix.note) lines.push(el("span", { className: "dim", textContent: "Note" }), el("div", { className: "note", textContent: fix.note }));
+    if (isApplied(check, fix)) {
+        lines.push(el("span", {}), el("div", { className: "done", textContent: "✓ locations.json has this rule now" }));
+    }
+    return lines;
+}
+
+function removeFixes(checks) {
+    const next = { ...state.fixes };
+    for (const check of checks) delete next[check.id];
+    const label = checks.length === 1 ? `Removed the rule fix for ${checks[0].name}` : `Removed ${fixCount(checks.length)}`;
+    return saveFixes(next, label);
+}
+
+/** Each check's rule, with the fix noted for it; checks sharing a rule share one listing of it. */
+function logicSection(entry) {
+    const location = entry.path.join("/");
+    const checks = entry.node.sections.filter((section) => section.ref || typeof section.name === "string")
+        .map((section) => R.resolveCheck(state.rules, location, section));
+    if (!checks.length) return [];
+    const groups = new Map();
+    for (const check of checks) {
+        const key = check.missing ? `missing:${check.id}` : JSON.stringify([check.inherited, check.own]);
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(check);
+    }
+    const blocks = [];
+    for (const members of groups.values()) {
+        const [first] = members;
+        if (first.missing) {
+            blocks.push(el("div", { className: "warning small", textContent: `${first.id} is not in the pack; nothing to fix there.` }));
+            continue;
+        }
+        blocks.push(el("div", { className: "logic small" },
+            el("span", { className: "dim", textContent: "Parents" }), ruleView(first.inherited),
+            el("span", { className: "dim", textContent: "Needs" }), ruleView(first.own, "nothing beyond its parents"),
+            ...(checks.length === 1 ? fixLines(first) : [])));
+        if (checks.length === 1) {
+            const fix = state.fixes[first.id];
+            blocks.push(el("div", { className: "buttons" },
+                fix ? el("button", { textContent: "Remove fix", onclick: () => removeFixes([first]) }) : null,
+                el("button", { textContent: fix ? "Edit fix…" : "Fix rule…", onclick: () => openRuleDialog(first, members) })));
+            continue;
+        }
+        blocks.push(el("ul", { className: "checks small" }, ...members.map((check) => {
+            const fix = state.fixes[check.id];
+            return el("li", {},
+                el("div", { className: "check-name" },
+                    el("span", { className: "label", textContent: check.name, title: check.id }),
+                    el("span", { className: "tools" },
+                        tool("✎", fix ? "Edit the rule fix" : "Fix this check's rule", () => openRuleDialog(check, members)),
+                        fix ? tool("✕", "Remove the rule fix", () => removeFixes([check])) : null)),
+                fix ? el("div", { className: "logic" }, ...fixLines(check)) : null);
+        })));
+    }
+    const heading = el("h4", { textContent: "Logic" });
+    if (checks.length <= 6) return [heading, ...blocks];
+    const details = el("details", { className: "logic-box", open: checks.some((check) => state.fixes[check.id]) },
+        el("summary", { textContent: `Logic of ${plural(checks.length, "check")}` }), ...blocks);
+    return [details];
+}
+
+async function saveFixes(fixes, label) {
+    try {
+        takeFixes(await api("/api/fixes", {
+            method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ fixes }),
+        }));
+        status(Object.keys(fixes).length ? `${label}; the handoff is in ${state.fixFiles.markdown}.` : `${label}; no rule fixes left.`);
+        refreshAll();
+        return true;
+    } catch (error) {
+        status(`Could not save the rule fixes: ${error.message}`, true);
+        return false;
+    }
+}
+
+const ruleDialog = $("#dlg-rule");
+const ruleForm = ruleDialog.querySelector("form");
+let ruleEdit = null;
+
+/** Edits the fix for `check`; `siblings` share its rule and can take the same fix. */
+function openRuleDialog(check, siblings = [check]) {
+    const fix = state.fixes[check.id];
+    const others = siblings.filter((other) => other.id !== check.id);
+    ruleEdit = { check, others, rows: clone(fix?.wanted ?? check.own) };
+    ruleForm.reset();
+    $("#dr-heading").textContent = check.name;
+    $("#dr-path").textContent = check.location.split("/").join(" / ");
+    $("#dr-inherited").replaceChildren(ruleView(check.inherited));
+    $("#dr-now").replaceChildren(ruleView(check.own, "nothing beyond its parents"));
+    ruleForm.elements.note.value = fix?.note ?? "";
+    $("#dr-all-row").hidden = !others.length;
+    $("#dr-all-row").lastElementChild.textContent = `The same for the other ${plural(others.length, "check")} here with this rule`;
+    ruleForm.elements.all.checked = Boolean(fix) && others.length > 0 && others.every((other) =>
+        JSON.stringify(state.fixes[other.id]) === JSON.stringify(fix));
+    $("#dr-remove").hidden = !fix;
+    $("#dr-error").hidden = true;
+    renderRuleRows();
+    ruleDialog.showModal();
+    $("#dr-rows").lastElementChild.querySelector("input").focus();
+}
+
+/** Adds what is typed in each row's box to that row; false if something there is not a term. */
+function takeTyped() {
+    $("#dr-rows").querySelectorAll("input").forEach((input, i) => {
+        const row = ruleEdit.rows[i];
+        for (const term of input.value.split(",").map((text) => R.parseTerm(text, state.names)).filter(Boolean)) {
+            if (!row.includes(term)) row.push(term);
+        }
+        input.value = "";
+    });
+}
+
+function renderRuleRows(focus = null) {
+    if (!ruleEdit.rows.length) ruleEdit.rows.push([]);
+    $("#dr-rows").replaceChildren(...ruleEdit.rows.map((row, i) => {
+        const input = el("input", {
+            type: "text", autocomplete: "off", spellcheck: false,
+            placeholder: row.length ? "and…" : "item, $helper or @location",
+        });
+        input.setAttribute("list", "rule-terms");
+        const add = () => {
+            takeTyped();
+            renderRuleRows(i);
+        };
+        input.onkeydown = (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                add();
+            } else if (event.key === "Backspace" && !input.value && row.length) {
+                row.pop();
+                renderRuleRows(i);
+            }
+        };
+        // picking a suggestion adds it straight away
+        input.oninput = (event) => event.inputType === "insertReplacementText" && add();
+        const chips = row.map((term, j) => {
+            const known = R.knownTerm(term, state.names);
+            return el("span", {
+                className: `chip${known ? "" : " unknown"}`, title: known ? term : `${term}\nNo item in the pack has this code`,
+            }, R.termLabel(term, state.names), el("button", {
+                type: "button", textContent: "✕", title: "Remove",
+                onclick: () => {
+                    row.splice(j, 1);
+                    renderRuleRows(i);
+                },
+            }));
+        });
+        return el("div", { className: "rule-row" },
+            el("span", { className: "or dim", textContent: i ? "or" : "needs" }), ...chips, input,
+            tool("✕", "Remove this way", () => {
+                ruleEdit.rows.splice(i, 1);
+                renderRuleRows();
+            }));
+    }));
+    if (focus !== null) $("#dr-rows").children[Math.min(focus, ruleEdit.rows.length - 1)]?.querySelector("input")?.focus();
+}
+
+$("#dr-add-row").onclick = () => {
+    takeTyped();
+    ruleEdit.rows.push([]);
+    renderRuleRows(ruleEdit.rows.length - 1);
+};
+$("#dr-reset").onclick = () => {
+    ruleEdit.rows = clone(ruleEdit.check.own);
+    renderRuleRows(0);
+};
+$("#dr-remove").onclick = async () => {
+    const { check, others } = ruleEdit;
+    const targets = [check, ...(ruleForm.elements.all.checked ? others : [])].filter((target) => state.fixes[target.id]);
+    if (await removeFixes(targets)) ruleDialog.close();
+};
+ruleForm.querySelector("button[value=cancel]").addEventListener("click", () => ruleDialog.close());
+
+ruleForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    takeTyped();
+    const { check, others } = ruleEdit;
+    const wanted = ruleEdit.rows.filter((row) => row.length);
+    const note = ruleForm.elements.note.value.trim();
+    const changed = !R.sameRules(wanted, check.own);
+    if (!changed && !note) {
+        renderRuleRows();
+        $("#dr-error").textContent = "That is the rule it has now. Change it, or add a note.";
+        $("#dr-error").hidden = false;
+        return;
+    }
+    const targets = [check, ...(ruleForm.elements.all.checked ? others : [])];
+    const next = { ...state.fixes };
+    for (const target of targets) next[target.id] = { check: target.name, wanted: changed ? wanted : null, note, was: target.own };
+    const label = targets.length === 1 ? `Noted a rule fix for ${check.name}` : `Noted ${fixCount(targets.length)}`;
+    if (await saveFixes(next, label)) ruleDialog.close();
+});
+
+const fixesDialog = $("#dlg-fixes");
+
+function openFixesDialog() {
+    const count = Object.keys(state.fixes).length;
+    const applied = R.appliedFixes(state.rules, state.fixes);
+    const pending = count - applied.length;
+    $("#df-note").textContent = !count
+        ? "No rule fixes yet. Select a location, then use Fix rule… under its logic."
+        : `${fixCount(count)}${applied.length ? `, ${applied.length} of them in locations.json already` : ""}. They are kept in`
+            + ` ${state.fixFiles.file}, and the handoff below, for a session working on the apworld, in`
+            + ` ${state.fixFiles.markdown}. Nothing in the pack changes.`;
+    $("#df-text").value = pending ? R.fixesMarkdown(state.pack, state.fixes) : "";
+    $("#df-text").hidden = !pending;
+    $("#df-copy").disabled = !pending;
+    $("#df-clear").hidden = !applied.length;
+    $("#df-clear").textContent = `Clear ${applied.length} done`;
+    $("#df-error").hidden = true;
+    fixesDialog.showModal();
+    $("#df-text").scrollTop = 0;
+    $("#df-close").focus();
+}
+
+$("#df-clear").onclick = async () => {
+    const applied = new Set(R.appliedFixes(state.rules, state.fixes));
+    const next = Object.fromEntries(Object.entries(state.fixes).filter(([id]) => !applied.has(id)));
+    if (await saveFixes(next, `Cleared ${fixCount(applied.size)} that locations.json has now`)) openFixesDialog();
+};
+$("#df-copy").onclick = async () => {
+    try {
+        await navigator.clipboard.writeText($("#df-text").value);
+        status("Copied the rule fix handoff.");
+    } catch (error) {
+        $("#df-error").textContent = `Could not copy (${error.message}); select the text and copy it instead.`;
+        $("#df-error").hidden = false;
+    }
+};
+$("#df-close").onclick = () => fixesDialog.close();
 
 function pickedDetails() {
     const members = pickedEntries();
@@ -2207,4 +2504,9 @@ $("#al-shared").onchange = invalidate;
 $("#al-apply").onclick = applyAlign;
 $("#al-cancel").onclick = cancelAlign;
 
-api("/api/pack").then(applyPack).catch((error) => status(`Could not load the pack: ${error.message}`, true));
+$("#btn-fixes").onclick = openFixesDialog;
+
+Promise.all([api("/api/pack"), api("/api/fixes")]).then(([pack, fixes]) => {
+    takeFixes(fixes);
+    applyPack(pack);
+}).catch((error) => status(`Could not load the pack: ${error.message}`, true));

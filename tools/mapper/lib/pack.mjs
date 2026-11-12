@@ -2,9 +2,11 @@ import { mkdir, readdir, readFile, rename, rm, stat, writeFile } from "node:fs/p
 import path from "node:path";
 
 import { eachTab, layoutTree } from "../public/layout.mjs";
+import { fixesMarkdown, validFixes } from "../public/rules.mjs";
 
 export const MAPS_JSON = "maps/maps.json";
 export const LOCATIONS_JSON = "locations/locations.json";
+export const FIXES_FILE = "rule-fixes.json";
 export const IMAGE_EXTENSIONS = [".png", ".gif", ".jpg", ".jpeg"];
 const LAYOUT_WIDTH = 80;
 
@@ -236,18 +238,29 @@ async function mappedChecks(root) {
     return [...checks];
 }
 
+/** Item definitions from items/, trimmed to what naming rule terms needs. */
+async function readItems(root) {
+    const files = await Promise.all((await listFiles(root, "items", [".json", ".jsonc"])).map(async (rel) =>
+        parseJsonc(await readFile(path.join(root, rel), "utf8"))));
+    const trim = ({ name, codes }) => ({ name, codes: codes ?? "" });
+    return files.filter(Array.isArray).flat().filter((item) => typeof item?.name === "string").map((item) => ({
+        ...trim(item), ...(Array.isArray(item.stages) ? { stages: item.stages.map(trim) } : {}),
+    }));
+}
+
 export async function readPack(root) {
-    const [maps, locations, layouts, images, manifest] = await Promise.all([
+    const [maps, locations, layouts, images, manifest, items] = await Promise.all([
         readFile(path.join(root, MAPS_JSON), "utf8").then(JSON.parse),
         readFile(path.join(root, LOCATIONS_JSON), "utf8").then(JSON.parse),
         readLayouts(root),
         listFiles(root, "images", IMAGE_EXTENSIONS),
         readFile(path.join(root, "manifest.json"), "utf8").then(parseJsonc).catch(() => ({})),
+        readItems(root),
     ]);
     return {
         name: manifest.name ?? path.basename(root),
         minVersion: manifest.min_poptracker_version ?? null,
-        maps, locations, layouts, images,
+        maps, locations, layouts, images, items,
         tabRefs: await tabRefs(root, layoutTree(layouts)),
         checks: await mappedChecks(root),
     };
@@ -344,6 +357,37 @@ export async function applyPatch(root, { locations = [], maps = [], layouts = []
     }
     for (const [file, text] of layoutTexts) await writeAtomic(file, text);
     return { missing };
+}
+
+export const fixesMarkdownFile = (file) => file.replace(/\.json$/i, "") + ".md";
+
+export async function readFixes(file) {
+    try {
+        return JSON.parse(await readFile(file, "utf8")).fixes ?? {};
+    } catch (error) {
+        if (error.code === "ENOENT") return {};
+        throw error;
+    }
+}
+
+/**
+ * Writes the rule fixes and their Markdown handoff next to it; with no fixes left, removes both.
+ *
+ * Returns:
+ *     The handoff text, rendered against the pack as it is on disk.
+ */
+export async function writeFixes(root, file, fixes) {
+    if (!validFixes(fixes)) throw new PackError(400, "fixes must map section paths to {check, wanted, note}");
+    const markdown = fixesMarkdownFile(file);
+    if (!Object.keys(fixes).length) {
+        await Promise.all([rm(file, { force: true }), rm(markdown, { force: true })]);
+        return "";
+    }
+    const pack = await readPack(root);
+    const text = fixesMarkdown(pack, fixes);
+    await writeAtomic(file, dumps({ fixes }) + "\n");
+    await writeAtomic(markdown, text);
+    return text;
 }
 
 export async function saveImage(root, dir, name, bytes, overwrite) {

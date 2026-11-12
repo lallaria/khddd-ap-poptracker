@@ -2,8 +2,9 @@
 /**
  * PopTracker mapper: a local web UI for placing map_locations and swapping map images.
  *
- * Usage: node tools/mapper/server.mjs [pack dir] [--port 8765] [--no-open]
- * The pack dir defaults to the pack this tool sits in.
+ * Usage: node tools/mapper/server.mjs [pack dir] [--port 8765] [--no-open] [--fixes rule-fixes.json]
+ * The pack dir defaults to the pack this tool sits in. Rule fixes, notes for the apworld rather than pack edits, go to
+ * --fixes (default <pack dir>/rule-fixes.json) and its .md handoff beside it.
  */
 import { spawn } from "node:child_process";
 import { readFile } from "node:fs/promises";
@@ -12,7 +13,9 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
 
-import { applyPatch, PackError, readPack, resolveInside, saveImage } from "./lib/pack.mjs";
+import {
+    applyPatch, FIXES_FILE, fixesMarkdownFile, PackError, readFixes, readPack, resolveInside, saveImage, writeFixes,
+} from "./lib/pack.mjs";
 
 const PUBLIC = fileURLToPath(new URL("./public/", import.meta.url));
 const MAX_BODY = 64 * 1024 * 1024;
@@ -48,7 +51,8 @@ async function sendFile(res, file) {
     send(res, 200, await readFile(file), type);
 }
 
-export function createServer(root) {
+export function createServer(root, { fixesFile = path.join(root, FIXES_FILE) } = {}) {
+    const files = { file: fixesFile, markdown: fixesMarkdownFile(fixesFile) };
     return http.createServer(async (req, res) => {
         try {
             const url = new URL(req.url, "http://localhost");
@@ -68,6 +72,14 @@ export function createServer(root) {
             if (req.method === "POST" && url.pathname === "/api/save") {
                 const result = await applyPatch(root, JSON.parse((await body(req)).toString("utf8")));
                 return send(res, 200, { ...result, pack: await readPack(root) });
+            }
+            if (req.method === "GET" && url.pathname === "/api/fixes") {
+                return send(res, 200, { ...files, fixes: await readFixes(fixesFile) });
+            }
+            if (req.method === "POST" && url.pathname === "/api/fixes") {
+                const { fixes } = JSON.parse((await body(req)).toString("utf8"));
+                await writeFixes(root, fixesFile, fixes);
+                return send(res, 200, { ...files, fixes });
             }
             if (req.method === "POST" && url.pathname === "/api/image") {
                 const saved = await saveImage(root, url.searchParams.get("dir"), url.searchParams.get("name"),
@@ -102,11 +114,16 @@ function listen(server, port, attempts = 20) {
 async function main() {
     const { values, positionals } = parseArgs({
         allowPositionals: true,
-        options: { port: { type: "string", default: "8765" }, "no-open": { type: "boolean", default: false } },
+        options: {
+            port: { type: "string", default: "8765" },
+            "no-open": { type: "boolean", default: false },
+            fixes: { type: "string" },
+        },
     });
     const root = path.resolve(positionals[0] ?? fileURLToPath(new URL("../..", import.meta.url)));
     await readPack(root);
-    const port = await listen(createServer(root), Number(values.port));
+    const server = createServer(root, values.fixes ? { fixesFile: path.resolve(values.fixes) } : {});
+    const port = await listen(server, Number(values.port));
     const url = `http://127.0.0.1:${port}/`;
     console.log(`mapping ${root}\nopen ${url}  (Ctrl+C to stop)`);
     if (!values["no-open"]) openBrowser(url);

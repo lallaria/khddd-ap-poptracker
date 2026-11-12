@@ -86,4 +86,11 @@ alone; rebuild them after the generators add checks. For chests on top of each o
 or Shift+click several locations, then click the map: that makes one location beside them whose
 sections `ref` their checks, and their own markers on that map go. The checks stay where the
 generators put them, so a regen keeps the group. Press `?` in the tool for its shortcuts.
+
+Rules that are wrong get fixed in the apworld, not here. A location's details end with its Logic:
+what its parent locations need and what each check adds. "Fix rule…" records the rule a check
+should have, plus a note, without touching the pack. Fixes go to `rule-fixes.json` beside the pack
+(`--fixes <file>` puts them elsewhere), and `rule-fixes.md` next to it is the handoff to give a
+session working on the apworld; "Rule fixes" in the toolbar shows and copies it. Both files are
+gitignored. Once a regen gives a check the fixed rule, the mapper marks that fix done and can clear it.
 Tests: `node --test "tools/mapper/test/*.test.mjs"`.

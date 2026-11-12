@@ -86,6 +86,28 @@ describe("server", () => {
         assert.match(await readFile(path.join(root, "locations", "locations.json"), "utf8"), /"Lord Kyroo Defeated",[^]*?"x": 1,/);
     });
 
+    test("keeps rule fixes and their handoff beside the pack, never in it", async () => {
+        const file = path.join(root, "rule-fixes.json");
+        const empty = JSON.parse((await request(port, "GET", "/api/fixes")).body);
+        assert.deepEqual(empty, { file, markdown: path.join(root, "rule-fixes.md"), fixes: {} });
+        const locations = await readFile(path.join(root, "locations", "locations.json"), "utf8");
+        const fixes = {
+            "Traverse Town [Sora]/Secret Portal/Traverse Town Secret Portal [Sora]": {
+                check: "Traverse Town Secret Portal [Sora]", wanted: [["high_jump"]], note: "no world count", was: [],
+            },
+        };
+        const saved = await post("/api/fixes", JSON.stringify({ fixes }));
+        assert.equal(saved.status, 200);
+        assert.deepEqual(JSON.parse(saved.body).fixes, fixes);
+        assert.deepEqual(JSON.parse((await request(port, "GET", "/api/fixes")).body).fixes, fixes);
+        assert.match(await readFile(path.join(root, "rule-fixes.md"), "utf8"), /### Traverse Town Secret Portal \[Sora\][^]*- Note: no world count/);
+        assert.equal(await readFile(path.join(root, "locations", "locations.json"), "utf8"), locations);
+        assert.equal((await post("/api/fixes", JSON.stringify({ fixes: { x: {} } }))).status, 400);
+        assert.equal((await post("/api/fixes", JSON.stringify({ fixes: {} }))).status, 200);
+        await assert.rejects(readFile(file), { code: "ENOENT" });
+        await assert.rejects(readFile(path.join(root, "rule-fixes.md")), { code: "ENOENT" });
+    });
+
     test("uploads images and reports clashes with their path", async () => {
         const first = await post("/api/image?dir=images/maps&name=Overworld.png", Buffer.from("png"));
         assert.equal(first.status, 200);
