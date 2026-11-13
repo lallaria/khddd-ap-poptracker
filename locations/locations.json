@@ -6840,8 +6840,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 875,
-                        "y": 44
+                        "x": 891,
+                        "y": 94
                     }
                 ]
             },
@@ -6858,6 +6858,13 @@
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Double Impact Reward [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 885,
+                        "y": 66
                     }
                 ]
             },
@@ -6884,8 +6891,8 @@
                 "map_locations": [
                     {
                         "map": "Symphony of Sorcery [Sora]",
-                        "x": 400,
-                        "y": 163
+                        "x": 154,
+                        "y": 173
                     }
                 ]
             },
