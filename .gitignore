@@ -5,3 +5,4 @@ todo.*
 .venv/
 dist/
 rule-fixes.*
+**/__pycache__/**
