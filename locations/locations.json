@@ -4399,6 +4399,7 @@
             },
             {
                 "name": "Solar Sailer Panacea",
+                "access_rules": ["@The Grid [Riku]/Cleared/The Grid Cleared [Riku]"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Panacea [Riku]"
@@ -4414,6 +4415,7 @@
             },
             {
                 "name": "Solar Sailer Troubling Fancy",
+                "access_rules": ["@The Grid [Riku]/Cleared/The Grid Cleared [Riku]"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Troubling Fancy [Riku]"
@@ -4453,6 +4455,7 @@
             },
             {
                 "name": "Solar Sailer Wondrous Figment",
+                "access_rules": ["@The Grid [Riku]/Cleared/The Grid Cleared [Riku]"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Wondrous Figment [Riku]"
@@ -4461,6 +4464,7 @@
             },
             {
                 "name": "Solar Sailer Paint Gun: White",
+                "access_rules": ["@The Grid [Riku]/Cleared/The Grid Cleared [Riku]"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Paint Gun: White [Riku]"
@@ -4476,6 +4480,7 @@
             },
             {
                 "name": "Solar Sailer Hi-Potion",
+                "access_rules": ["@The Grid [Riku]/Cleared/The Grid Cleared [Riku]"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Hi-Potion [Riku]"
@@ -4491,6 +4496,7 @@
             },
             {
                 "name": "Solar Sailer Drop-Me-Not",
+                "access_rules": ["@The Grid [Riku]/Cleared/The Grid Cleared [Riku]"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Drop-Me-Not [Riku]"
@@ -4506,6 +4512,7 @@
             },
             {
                 "name": "Solar Sailer Candy Goggles",
+                "access_rules": ["@The Grid [Riku]/Cleared/The Grid Cleared [Riku]"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Candy Goggles [Riku]"
@@ -4521,6 +4528,7 @@
             },
             {
                 "name": "Solar Sailer Shield Cookie 2",
+                "access_rules": ["@The Grid [Riku]/Cleared/The Grid Cleared [Riku]"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Shield Cookie 2 [Riku]"
@@ -4529,6 +4537,7 @@
             },
             {
                 "name": "Solar Sailer Royal Cake",
+                "access_rules": ["@The Grid [Riku]/Cleared/The Grid Cleared [Riku]"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Royal Cake [Riku]"
