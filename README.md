@@ -91,6 +91,8 @@ Rules that are wrong get fixed in the apworld, not here. A location's details en
 what its parent locations need and what each check adds. "Fix rule…" records the rule a check
 should have, plus a note, without touching the pack. Fixes go to `rule-fixes.json` beside the pack
 (`--fixes <file>` puts them elsewhere), and `rule-fixes.md` next to it is the handoff to give a
-session working on the apworld; "Rule fixes" in the toolbar shows and copies it. Both files are
-gitignored. Once a regen gives a check the fixed rule, the mapper marks that fix done and can clear it.
+session working on the apworld; "Rule fixes" in the toolbar shows and copies it. The handoff asks
+that session to change only the apworld, on the branch checked out there, then commit and reply with
+the commit ID. Both files are gitignored. Once a regen gives a check the fixed rule, the mapper marks
+that fix done and can clear it.
 Tests: `node --test "tools/mapper/test/*.test.mjs"`.

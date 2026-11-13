@@ -200,7 +200,7 @@ function markdownRules(rules, names) {
     return " any of\n" + rules.map((rule) => `  - ${line(rule)}`).join("\n");
 }
 
-/** The handoff for a session that fixes the logic in the apworld; checks already fixed are left out. */
+/** The handoff for a session that fixes the logic in the apworld alone; checks already fixed are left out. */
 export function fixesMarkdown({ name, locations, items }, fixes) {
     const index = locationIndex(locations);
     const names = itemNames(items);
@@ -209,29 +209,32 @@ export function fixesMarkdown({ name, locations, items }, fixes) {
     const pending = Object.keys(fixes).filter((id) => !applied.has(id))
         .sort((a, b) => (order.get(a) ?? Infinity) - (order.get(b) ?? Infinity) || (a < b ? -1 : a > b ? 1 : 0));
     const out = [
-        `# Rule fixes: ${name}`,
+        `# Apworld rule fixes: ${name}`,
         "",
-        `${pending.length} ${pending.length === 1 ? "check needs" : "checks need"} different access rules. These notes come from`
-            + " the PopTracker mapper and change nothing in the pack: fix the logic in the apworld, then regenerate the"
-            + " pack's locations.json from it.",
+        `${pending.length} ${pending.length === 1 ? "check needs" : "checks need"} different access rules in the apworld.`,
         "",
-        "Each check lists what its parent locations (world, region) already require, its own rule in locations.json"
-            + " now, and the rule it should have on top of the parents' instead. Any one alternative of a rule is enough;"
-            + " terms joined by `&` are all needed. Names come from the pack's items, with PopTracker codes in backticks:"
-            + " `code:N` is N of an item, `$helper|args` a Lua helper, `@path` needs that location reachable. Whether a fix"
-            + " belongs on the location, a region or an entrance is for the apworld to decide.",
+        "- Base the changes on the apworld branch that is checked out now.",
+        "- Change only the apworld. Everything you need is in this file and the apworld; don't look for the tracker pack"
+            + " or regenerate anything from it.",
+        "- When done, commit the apworld changes and reply with the commit ID.",
+        "",
+        "Each check, named by its AP location, lists what its parents (world, region) already require, its own rule as the"
+            + " tracker last saw it, and the rule it should have on top of the parents' instead. The branch may have moved"
+            + " since, so read the current rule in the apworld. Any one alternative of a rule is enough; terms joined by `&`"
+            + " are all needed. `name(args)` is a logic helper, `×N` means N of an item, and `reach X` needs location X"
+            + " reachable; tracker codes follow in backticks for reference. Whether a fix belongs on the location, a region"
+            + " or an entrance is yours to decide.",
     ];
-    if (applied.size) out.push("", `${applied.size} more already match locations.json and are left out.`);
     let world = null;
     for (const id of pending) {
         const fix = fixes[id];
         const check = resolveCheck(index, id.slice(0, id.lastIndexOf("/")), { name: id.slice(id.lastIndexOf("/") + 1) });
-        const top = check.missing ? "Not in locations.json any more" : id.split("/")[0];
+        const top = check.missing ? "No longer in the tracker" : id.split("/")[0];
         if (top !== world) {
             world = top;
             out.push("", `## ${world}`);
         }
-        out.push("", `### ${fix.check}`, `\`${id}\``);
+        out.push("", `### ${fix.check}`);
         if (check.missing) {
             if (fix.was) out.push(`- Was:${markdownRules(fix.was, names)}`);
         } else {

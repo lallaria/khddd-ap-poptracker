@@ -124,17 +124,23 @@ describe("fixesMarkdown", () => {
         assert.deepEqual(appliedFixes(locationIndex(tree()), fixes), ["Town/Roof/Roof Prize"]);
     });
 
+    test("tells the session to work on the checked-out apworld branch only and report its commit", () => {
+        const text = fixesMarkdown(pack, fixes);
+        assert.match(text, /^# Apworld rule fixes: Test Pack\n\n3 checks need different access rules in the apworld\.\n/);
+        assert.ok(text.includes("- Base the changes on the apworld branch that is checked out now.\n"), text);
+        assert.ok(text.includes("- When done, commit the apworld changes and reply with the commit ID.\n"), text);
+        assert.doesNotMatch(text, /locations\.json|regenerate the/);
+        assert.doesNotMatch(text, /`Town\//);
+    });
+
     test("lists the pending fixes in pack order, by top-level location", () => {
         const text = fixesMarkdown(pack, fixes);
-        assert.match(text, /^# Rule fixes: Test Pack\n\n3 checks need different access rules\./);
-        assert.match(text, /1 more already match locations\.json and are left out\./);
         assert.doesNotMatch(text, /Roof Prize/);
         assert.ok(text.indexOf("### Roof Chest") < text.indexOf("### Square Chest"));
         assert.ok(text.includes([
             "## Town",
             "",
             "### Roof Chest",
-            "`Town/Roof/Roof Chest`",
             "- Parents require: world_town `world_town`",
             "- Now: any of",
             "  - High Jump `high_jump`",
@@ -144,7 +150,6 @@ describe("fixesMarkdown", () => {
             "  - can_glide() `$can_glide`",
         ].join("\n")), text);
         assert.ok(text.includes("- Now: nothing\n- Should be: see the note\n- Note: Needs the bell rung first."), text);
-        assert.ok(text.includes("## Not in locations.json any more\n\n### Gone\n`Town/Attic/Gone`\n- Was: High Jump `high_jump`\n"
-            + "- Should be: nothing"), text);
+        assert.ok(text.includes("## No longer in the tracker\n\n### Gone\n- Was: High Jump `high_jump`\n- Should be: nothing"), text);
     });
 });
