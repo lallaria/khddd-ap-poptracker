@@ -51,9 +51,17 @@ Archipelago checkout, so run them with that checkout's venv:
 ```
 
 The first regenerates `scripts/autotracking/location_mapping.lua`; the second rewrites the
-`access_rules` and `visibility_rules` in `locations/locations.json`, adding nodes for new locations
+`access_rules` and `visibility_rules` in the locations files, adding nodes for new locations
 (without map positions) and moving sections whose path changed, such as a board node whose gate did.
-Renamed locations need their node renamed by hand first so map positions are kept.
+A location whose checks all move to another region takes its map positions along; otherwise renamed
+locations need their node renamed by hand first so map positions are kept.
+
+Like the apworld, each AP region is its own top-level location, gated on its whole entrance chain:
+Traverse Town Plaza [Sora] sits between Traverse Town [Sora] and Traverse Town 2 [Sora]. A world's
+regions share one file, `locations/<sora|riku>/<world>.json`, and Destiny Islands, Levels, Link
+Boards and Overworld have their own. `scripts/init.lua` loads each file, and the apworld's
+`tracker_world["map_page_locations"]` lists them for Universal Tracker; the generator warns when
+either is missing one.
 
 `gen/gen_link_board_grid.py` builds the Link Boards grid: the `Link Boards` map image and
 its markers, the gate overlays in `images/spirits`, `layouts/link_boards.json` and
@@ -64,7 +72,7 @@ its markers, the gate overlays in `images/spirits`, `layouts/link_boards.json` a
 
 I vibecoded the **** out of this tool.  It is **NOT** included in any poptracker pack.  It exists
 so that I didn't have to open up paint to move a check, like one of those crappy old school html editors.
-It changes **ONLY** `locations/locations.json` and `maps/maps.json`, and I have verified that it doesn't look like crap.
+It changes **ONLY** the files in `locations/` and `maps/maps.json`, and I have verified that it doesn't look like crap.
 
 `tools/mapper` is a local web UI for placing locations on maps.  It requires node.js
 
@@ -73,8 +81,9 @@ node tools/mapper/server.mjs
 ```
 
 It opens in the browser. Pick a map (listed by layout tab), pick a location, and click the map to
-set its `map_locations`; Save writes `maps/maps.json` and `locations/locations.json` in the
-generators' format, onto whatever is on disk at that moment. "Replace image…" swaps a map's image
+set its `map_locations`; Save writes `maps/maps.json` and each changed locations file in the
+generators' format, onto whatever is on disk at that moment. A new top-level location, such as a
+summary group, goes in the last file `init.lua` loads. "Replace image…" swaps a map's image
 and moves its markers along: drag and scale the old image over the new one, or click matching
 landmarks on both. "Add map…" appends a map to `maps.json` and can give it a tab. "Edit tabs" adds,
 reorders, renames, moves and removes layout tabs, including sub-tabs under a tab; it rewrites

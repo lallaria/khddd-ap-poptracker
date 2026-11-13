@@ -18,7 +18,7 @@
     <button id="btn-redo" title="Redo (Ctrl+Y)" disabled>Redo</button>
     <button id="btn-fixes" title="Rule fixes noted for the apworld">Rule fixes</button>
     <button id="btn-reload" title="Reload the pack files from disk">Reload</button>
-    <button id="btn-save" class="primary" title="Write maps.json and locations.json (Ctrl+S)" disabled>Save</button>
+    <button id="btn-save" class="primary" title="Write maps.json and the locations files (Ctrl+S)" disabled>Save</button>
     <button id="btn-help" title="Shortcuts (?)">?</button>
 </header>
 <main>
@@ -239,7 +239,7 @@
     <textarea id="df-text" readonly rows="20" spellcheck="false"></textarea>
     <p id="df-error" class="warning small" hidden></p>
     <div class="buttons">
-        <button type="button" id="df-clear" title="Remove the fixes whose rule locations.json has now"></button>
+        <button type="button" id="df-clear" title="Remove the fixes whose rule the pack has now"></button>
         <span class="spacer"></span>
         <button type="button" id="df-copy">Copy</button>
         <button type="button" class="primary" id="df-close">Close</button>
@@ -286,7 +286,7 @@
         top-level location, which the generators and the world counters leave alone.</p>
     <p class="dim small">"Fix rule…" under a location's logic notes the rule a check should have, for the apworld to fix;
         it never changes the pack. "Rule fixes" in the toolbar shows the notes as a handoff for a session, which the mapper
-        also writes to rule-fixes.md beside rule-fixes.json. A fix whose rule locations.json has after a regen is marked
+        also writes to rule-fixes.md beside rule-fixes.json. A fix whose rule the pack has after a regen is marked
         done.</p>
     <p class="dim small">Grouping makes a location beside the first selected one, with a section referring to each of
         their checks, for chests that sit on top of each other. Generators keep it, since the checks themselves do not

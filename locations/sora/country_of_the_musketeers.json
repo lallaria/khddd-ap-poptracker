@@ -1,0 +1,585 @@
+[
+    {
+        "name": "Country of the Musketeers [Sora]",
+        "access_rules": ["world_country_of_the_musketeers_sora"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Secret Portal [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 929,
+                        "y": 236
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: Overnight Musketeers Reward",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Flashback: Overnight Musketeers Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Tyranto Rex Recipe Reward",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Tyranto Rex Recipe Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Slide Roll Reward",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Slide Roll Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Pete",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Pete Bonus Slot 1 [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/Pete Bonus Slot 1/Country of the Musketeers Pete Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Cleared [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/Cleared/Country of the Musketeers Cleared [Sora]"
+                    },
+                    {
+                        "name": "Country of the Musketeers All For One Reward [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/All For One Reward/Country of the Musketeers All For One Reward [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 929,
+                        "y": 181
+                    }
+                ]
+            },
+            {
+                "name": "Pete Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Pete Bonus Slot 1 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "All For One Reward",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers All For One Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Grand Lobby Mega-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Grand Lobby Mega-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1478,
+                        "y": 696
+                    }
+                ]
+            },
+            {
+                "name": "Grand Lobby Confetti Candy 2",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Grand Lobby Confetti Candy 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 984,
+                        "y": 775
+                    }
+                ]
+            },
+            {
+                "name": "Grand Lobby Ice Dream Cone 3",
+                "access_rules": ["$can_infinite_jump", "glide", "superglide", "wall_kick", "rail_slide", "flowmotion"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Grand Lobby Ice Dream Cone 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1237,
+                        "y": 400
+                    }
+                ]
+            },
+            {
+                "name": "Grand Lobby Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Grand Lobby Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 799,
+                        "y": 576
+                    }
+                ]
+            },
+            {
+                "name": "Grand Lobby Block-It Chocolate 2",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Grand Lobby Block-It Chocolate 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1407,
+                        "y": 493
+                    }
+                ]
+            },
+            {
+                "name": "Theatre Confetti Candy 3",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Theatre Confetti Candy 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1051,
+                        "y": 171
+                    }
+                ]
+            },
+            {
+                "name": "Theatre Dulcet Fancy",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Theatre Dulcet Fancy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 842,
+                        "y": 231
+                    }
+                ]
+            },
+            {
+                "name": "The Opera Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers The Opera Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1282,
+                        "y": 846
+                    }
+                ]
+            },
+            {
+                "name": "The Opera Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers The Opera Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 919,
+                        "y": 1210
+                    }
+                ]
+            },
+            {
+                "name": "The Opera Block-It Chocolate 2",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers The Opera Block-It Chocolate 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1308,
+                        "y": 1115
+                    }
+                ]
+            },
+            {
+                "name": "Mont Saint-Michel Fleeting Fantasy",
+                "access_rules": ["$can_infinite_jump", "glide", "superglide"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Mont Saint-Michel Fleeting Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 962,
+                        "y": 1677
+                    }
+                ]
+            },
+            {
+                "name": "Mont Saint-Michel Sparkga",
+                "access_rules": ["$can_infinite_jump", "high_jump", "flowmotion"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Mont Saint-Michel Sparkga [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1022,
+                        "y": 1674
+                    }
+                ]
+            },
+            {
+                "name": "Mont Saint-Michel Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Mont Saint-Michel Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 865,
+                        "y": 1455
+                    }
+                ]
+            },
+            {
+                "name": "Mont Saint-Michel Royal Cake",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Mont Saint-Michel Royal Cake [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 891,
+                        "y": 1324
+                    }
+                ]
+            },
+            {
+                "name": "Tower Road Firaga",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Tower Road Firaga [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1524,
+                        "y": 1250
+                    }
+                ]
+            },
+            {
+                "name": "Tower Road Dream Candy",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Tower Road Dream Candy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1601,
+                        "y": 1390
+                    }
+                ]
+            },
+            {
+                "name": "Tower Road Shield Cookie 2",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Tower Road Shield Cookie 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1583,
+                        "y": 1324
+                    }
+                ]
+            },
+            {
+                "name": "Tower Candy Goggles",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Tower Candy Goggles [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1963,
+                        "y": 1116
+                    }
+                ]
+            },
+            {
+                "name": "Tower Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Tower Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 2148,
+                        "y": 982
+                    }
+                ]
+            },
+            {
+                "name": "Tower Ice Dream Cone 2",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Tower Ice Dream Cone 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 2140,
+                        "y": 467
+                    }
+                ]
+            },
+            {
+                "name": "Dungeon Block-It Chocolate 3",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Dungeon Block-It Chocolate 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 634,
+                        "y": 1357
+                    }
+                ]
+            },
+            {
+                "name": "Dungeon Sonic Blade",
+                "access_rules": ["$can_infinite_jump", "glide", "superglide"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Dungeon Sonic Blade [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 505,
+                        "y": 1164
+                    }
+                ]
+            },
+            {
+                "name": "Dungeon Behind Crates",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Dungeon Fleeting Fancy [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/Dungeon Fleeting Fancy/Country of the Musketeers Dungeon Fleeting Fancy [Sora]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Dungeon Water Barrel [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/Dungeon Water Barrel/Country of the Musketeers Dungeon Water Barrel [Sora]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Dungeon Royal Cake [Sora]",
+                        "ref": "Country of the Musketeers [Sora]/Dungeon Royal Cake/Country of the Musketeers Dungeon Royal Cake [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 450,
+                        "y": 1228
+                    }
+                ]
+            },
+            {
+                "name": "Dungeon Fleeting Fancy",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Dungeon Fleeting Fancy [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Dungeon Chef Kyroo Recipe",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Dungeon Chef Kyroo Recipe [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 575,
+                        "y": 986
+                    }
+                ]
+            },
+            {
+                "name": "Dungeon Water Barrel",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Dungeon Water Barrel [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Dungeon Royal Cake",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Dungeon Royal Cake [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Training Yard Mega-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Training Yard Mega-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1791,
+                        "y": 2108
+                    }
+                ]
+            },
+            {
+                "name": "Training Yard Ice Dream Cone 2",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Training Yard Ice Dream Cone 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1554,
+                        "y": 2132
+                    }
+                ]
+            },
+            {
+                "name": "Training Yard Paint Gun: Sky Blue",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Training Yard Paint Gun: Sky Blue [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1522,
+                        "y": 1855
+                    }
+                ]
+            },
+            {
+                "name": "Shore Paint Gun: Blue",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Shore Paint Gun: Blue [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 1097,
+                        "y": 2056
+                    }
+                ]
+            },
+            {
+                "name": "Shore Dream Candy",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Shore Dream Candy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 977,
+                        "y": 1943
+                    }
+                ]
+            },
+            {
+                "name": "Cell Tornado Strike",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Cell Tornado Strike [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Sora]",
+                        "x": 212,
+                        "y": 763
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Cleared [Sora]"
+                    }
+                ]
+            }
+        ]
+    }
+]

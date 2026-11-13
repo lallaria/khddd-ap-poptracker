@@ -1,0 +1,800 @@
+[
+    {
+        "name": "The Grid [Riku]",
+        "access_rules": ["world_the_grid_riku"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "The Grid Secret Portal [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 184,
+                        "y": 195
+                    }
+                ]
+            },
+            {
+                "name": "Light Cycle Bonus Slot",
+                "sections": [
+                    {
+                        "name": "The Grid Light Cycle Bonus Slot [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: Father and Son Reward",
+                "sections": [
+                    {
+                        "name": "The Grid Flashback: Father and Son Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "City Dream Eater Fight Bonus Slot",
+                "sections": [
+                    {
+                        "name": "The Grid City Dream Eater Fight Bonus Slot [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: Stolen Disk Reward",
+                "sections": [
+                    {
+                        "name": "The Grid Flashback: Stolen Disk Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Commantis",
+                "sections": [
+                    {
+                        "name": "The Grid Commantis Bonus Slot 1 [Riku]",
+                        "ref": "The Grid [Riku]/Commantis Bonus Slot 1/The Grid Commantis Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "The Grid Dual Disc Reward [Riku]",
+                        "ref": "The Grid [Riku]/Dual Disc Reward/The Grid Dual Disc Reward [Riku]"
+                    },
+                    {
+                        "name": "The Grid Cleared [Riku]",
+                        "ref": "The Grid [Riku]/Cleared/The Grid Cleared [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 184,
+                        "y": 147
+                    }
+                ]
+            },
+            {
+                "name": "Commantis Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "The Grid Commantis Bonus Slot 1 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Dual Disc Reward",
+                "sections": [
+                    {
+                        "name": "The Grid Dual Disc Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Balloon",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Balloon [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 2191,
+                        "y": 305
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Hi-Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 2222,
+                        "y": 469
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Block-It Chocolate [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 2215,
+                        "y": 577
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Shield Cookie 2",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Shield Cookie 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 2142,
+                        "y": 687
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Panacea",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Panacea [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 2136,
+                        "y": 610
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 2257,
+                        "y": 643
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Fleeting Figment",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Fleeting Figment [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 2207,
+                        "y": 626
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Peepsta Hoo Recipe",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Peepsta Hoo Recipe [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 2212,
+                        "y": 683
+                    }
+                ]
+            },
+            {
+                "name": "Docks Confetti Candy 2",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Confetti Candy 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 330,
+                        "y": 354
+                    }
+                ]
+            },
+            {
+                "name": "Docks Counter Aura",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Counter Aura [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 372,
+                        "y": 305
+                    }
+                ]
+            },
+            {
+                "name": "Docks Shield Cookie",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Shield Cookie [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 360,
+                        "y": 243
+                    }
+                ]
+            },
+            {
+                "name": "Docks Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 810,
+                        "y": 396
+                    }
+                ]
+            },
+            {
+                "name": "Docks Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 674,
+                        "y": 312
+                    }
+                ]
+            },
+            {
+                "name": "Docks Balloon",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Balloon [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 558,
+                        "y": 334
+                    }
+                ]
+            },
+            {
+                "name": "City Confetti Candy",
+                "sections": [
+                    {
+                        "name": "The Grid City Confetti Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 632,
+                        "y": 745
+                    }
+                ]
+            },
+            {
+                "name": "City Potion",
+                "sections": [
+                    {
+                        "name": "The Grid City Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 532,
+                        "y": 877
+                    }
+                ]
+            },
+            {
+                "name": "Throughput Royal Cake",
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Royal Cake [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 970,
+                        "y": 526
+                    }
+                ]
+            },
+            {
+                "name": "Throughput Wondrous Figment",
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Wondrous Figment [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 958,
+                        "y": 722
+                    }
+                ]
+            },
+            {
+                "name": "Throughput Noble Fantasy",
+                "access_rules": ["high_jump", "double_flight", "rail_slide", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Noble Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1085,
+                        "y": 594
+                    }
+                ]
+            },
+            {
+                "name": "Throughput Ice Dream Cone 2",
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Ice Dream Cone 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 966,
+                        "y": 476
+                    }
+                ]
+            },
+            {
+                "name": "Throughput Shield Cookie",
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Shield Cookie [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1095,
+                        "y": 646
+                    }
+                ]
+            },
+            {
+                "name": "Throughput Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1033,
+                        "y": 504
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Panacea",
+                "sections": [
+                    {
+                        "name": "The Grid Bridge Panacea [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1284,
+                        "y": 680
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Water Barrel",
+                "sections": [
+                    {
+                        "name": "The Grid Bridge Water Barrel [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1426,
+                        "y": 626
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Gravity Strike",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Gravity Strike [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1902,
+                        "y": 572
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Block-It Chocolate 2",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Block-It Chocolate 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1881,
+                        "y": 513
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Noble Figment",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Noble Figment [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 2053,
+                        "y": 775
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1969,
+                        "y": 762
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Confetti Candy 2",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Confetti Candy 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1884,
+                        "y": 661
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 2071,
+                        "y": 752
+                    }
+                ]
+            },
+            {
+                "name": "Solar Sailor Main 3 Chests",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Wondrous Figment [Riku]",
+                        "ref": "The Grid Solar Sailer [Riku]/Wondrous Figment/The Grid Solar Sailer Wondrous Figment [Riku]"
+                    },
+                    {
+                        "name": "The Grid Solar Sailer Shield Cookie 2 [Riku]",
+                        "ref": "The Grid Solar Sailer [Riku]/Shield Cookie 2/The Grid Solar Sailer Shield Cookie 2 [Riku]"
+                    },
+                    {
+                        "name": "The Grid Solar Sailer Royal Cake [Riku]",
+                        "ref": "The Grid Solar Sailer [Riku]/Royal Cake/The Grid Solar Sailer Royal Cake [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1770,
+                        "y": 259
+                    }
+                ]
+            },
+            {
+                "name": "Portal Stairs Paint Gun: Black",
+                "sections": [
+                    {
+                        "name": "The Grid Portal Stairs Paint Gun: Black [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 205,
+                        "y": 721
+                    }
+                ]
+            },
+            {
+                "name": "Portal Stairs Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The Grid Portal Stairs Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 202,
+                        "y": 920
+                    }
+                ]
+            },
+            {
+                "name": "Portal Stairs Hi-Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Portal Stairs Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 163,
+                        "y": 1078
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "The Grid Cleared [Riku]"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "The Grid City [Riku]",
+        "access_rules": ["world_the_grid_riku,flowmotion", "world_the_grid_riku,rail_slide", "world_the_grid_riku,$can_infinite_jump"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Thundara",
+                "access_rules": ["flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "The Grid City Thundara [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 643,
+                        "y": 900
+                    }
+                ]
+            },
+            {
+                "name": "Fleeting Figment",
+                "sections": [
+                    {
+                        "name": "The Grid City Fleeting Figment [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 754,
+                        "y": 656
+                    }
+                ]
+            },
+            {
+                "name": "Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The Grid City Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 768,
+                        "y": 627
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "The Grid Solar Sailer [Riku]",
+        "access_rules": ["world_the_grid_riku,@The Grid [Riku]/Cleared/The Grid Cleared [Riku]"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Panacea",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Panacea [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1679,
+                        "y": 128
+                    }
+                ]
+            },
+            {
+                "name": "Troubling Fancy",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Troubling Fancy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1638,
+                        "y": 349
+                    }
+                ]
+            },
+            {
+                "name": "Wondrous Figment",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Wondrous Figment [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Paint Gun: White",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Paint Gun: White [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1833,
+                        "y": 272
+                    }
+                ]
+            },
+            {
+                "name": "Hi-Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1815,
+                        "y": 261
+                    }
+                ]
+            },
+            {
+                "name": "Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1783,
+                        "y": 179
+                    }
+                ]
+            },
+            {
+                "name": "Candy Goggles",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Candy Goggles [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Riku]",
+                        "x": 1907,
+                        "y": 74
+                    }
+                ]
+            },
+            {
+                "name": "Shield Cookie 2",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Shield Cookie 2 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Royal Cake",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Royal Cake [Riku]"
+                    }
+                ]
+            }
+        ]
+    }
+]

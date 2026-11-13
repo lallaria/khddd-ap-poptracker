@@ -75,22 +75,22 @@ describe("server", () => {
 
     test("saves a patch and returns the fresh pack", async () => {
         const response = await post("/api/save", JSON.stringify({
-            locations: [{ path: ["World Map [Sora]", "Lord Kyroo Defeated"], map_locations: [{ map: "Link Boards", x: 1, y: 2 }] }],
+            locations: [{ path: ["Overworld", "Lord Kyroo Defeated"], map_locations: [{ map: "Link Boards", x: 1, y: 2 }] }],
         }));
         assert.equal(response.status, 200);
         const result = JSON.parse(response.body);
         assert.deepEqual(result.missing, []);
-        const node = result.pack.locations.find((n) => n.name === "World Map [Sora]").children
+        const node = result.pack.locations.find((n) => n.name === "Overworld").children
             .find((n) => n.name === "Lord Kyroo Defeated");
         assert.deepEqual(node.map_locations, [{ map: "Link Boards", x: 1, y: 2 }]);
-        assert.match(await readFile(path.join(root, "locations", "locations.json"), "utf8"), /"Lord Kyroo Defeated",[^]*?"x": 1,/);
+        assert.match(await readFile(path.join(root, "locations", "overworld.json"), "utf8"), /"Lord Kyroo Defeated",[^]*?"x": 1,/);
     });
 
     test("keeps rule fixes and their handoff beside the pack, never in it", async () => {
         const file = path.join(root, "rule-fixes.json");
         const empty = JSON.parse((await request(port, "GET", "/api/fixes")).body);
         assert.deepEqual(empty, { file, markdown: path.join(root, "rule-fixes.md"), fixes: {} });
-        const locations = await readFile(path.join(root, "locations", "locations.json"), "utf8");
+        const locations = await readFile(path.join(root, "locations", "sora", "traverse_town.json"), "utf8");
         const fixes = {
             "Traverse Town [Sora]/Secret Portal/Traverse Town Secret Portal [Sora]": {
                 check: "Traverse Town Secret Portal [Sora]", wanted: [["high_jump"]], note: "no world count", was: [],
@@ -101,7 +101,7 @@ describe("server", () => {
         assert.deepEqual(JSON.parse(saved.body).fixes, fixes);
         assert.deepEqual(JSON.parse((await request(port, "GET", "/api/fixes")).body).fixes, fixes);
         assert.match(await readFile(path.join(root, "rule-fixes.md"), "utf8"), /### Traverse Town Secret Portal \[Sora\][^]*- Note: no world count/);
-        assert.equal(await readFile(path.join(root, "locations", "locations.json"), "utf8"), locations);
+        assert.equal(await readFile(path.join(root, "locations", "sora", "traverse_town.json"), "utf8"), locations);
         assert.equal((await post("/api/fixes", JSON.stringify({ fixes: { x: {} } }))).status, 400);
         assert.equal((await post("/api/fixes", JSON.stringify({ fixes: {} }))).status, 200);
         await assert.rejects(readFile(file), { code: "ENOENT" });

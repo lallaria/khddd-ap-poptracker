@@ -1,0 +1,48 @@
+[
+    {
+        "name": "Destiny Islands",
+        "visibility_rules": ["opt_destiny_islands,opt_sora"],
+        "children": [
+            {
+                "name": "Ursula Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Destiny Islands Ursula Bonus Slot 1 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: The Mark of Mastery Exam Reward",
+                "sections": [
+                    {
+                        "name": "Destiny Islands Flashback: The Mark of Mastery Exam Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Keyblades Reward",
+                "sections": [
+                    {
+                        "name": "Destiny Islands Glossary: Keyblades Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Keyblade Masters Reward",
+                "sections": [
+                    {
+                        "name": "Destiny Islands Glossary: Keyblade Masters Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Master Xehanort Reward",
+                "sections": [
+                    {
+                        "name": "Destiny Islands Glossary: Master Xehanort Reward [Sora]"
+                    }
+                ]
+            }
+        ]
+    }
+]

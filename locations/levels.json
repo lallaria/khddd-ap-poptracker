@@ -1,0 +1,1969 @@
+[
+    {
+        "name": "Levels",
+        "access_rules": ["opt_sora,$has_sora_worlds|1", "$has_sora_worlds|1,$has_riku_worlds|1", "opt_riku,$has_riku_worlds|1"],
+        "visibility_rules": ["opt_levels"],
+        "children": [
+            {
+                "name": "Sora Level 02",
+                "access_rules": ["$has_sora_worlds|1"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 02"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 03",
+                "access_rules": ["$has_sora_worlds|1"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 03"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 04",
+                "access_rules": ["$has_sora_worlds|1"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 04"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 05",
+                "access_rules": ["opt_sora,opt_riku,$has_sora_worlds|2", "opt_sora,$opt_off|opt_riku,$has_sora_worlds|2", "$has_sora_worlds|1,$has_sora_worlds|2"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 05"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 06",
+                "access_rules": ["$has_sora_worlds|2"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 06"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 07",
+                "access_rules": ["$has_sora_worlds|2"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 07"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 08",
+                "access_rules": ["$has_sora_worlds|2"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 08"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 09",
+                "access_rules": ["$has_sora_worlds|2"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 09"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 10",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 10"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 11",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 11"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 12",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 12"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 13",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 13"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 14",
+                "access_rules": ["$has_sora_worlds|3"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 14"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 15",
+                "access_rules": ["$has_sora_worlds|4"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 15"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 16",
+                "access_rules": ["$has_sora_worlds|4"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 16"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 17",
+                "access_rules": ["$has_sora_worlds|4"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 17"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 18",
+                "access_rules": ["$has_sora_worlds|4"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 18"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 19",
+                "access_rules": ["$has_sora_worlds|4"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 19"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 20",
+                "access_rules": ["$has_sora_worlds|5"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 20"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 21",
+                "access_rules": ["$has_sora_worlds|5"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 21"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 22",
+                "access_rules": ["$has_sora_worlds|5"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 22"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 23",
+                "access_rules": ["$has_sora_worlds|5"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 23"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 24",
+                "access_rules": ["$has_sora_worlds|5"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 24"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 25",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 25"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 26",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 26"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 27",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 27"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 28",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 28"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 29",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 29"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 30",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 30"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 31",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 31"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 32",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 32"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 33",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 33"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 34",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 34"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 35",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 35"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 36",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 36"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 37",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 37"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 38",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 38"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 39",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 39"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 40",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 40"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 41",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 41"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 42",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 42"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 43",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 43"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 44",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 44"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 45",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 45"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 46",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 46"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 47",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 47"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 48",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 48"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 49",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 49"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 50",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 50"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 51",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 51"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 52",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 52"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 53",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 53"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 54",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 54"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 55",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 55"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 56",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 56"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 57",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 57"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 58",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 58"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 59",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 59"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 60",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 60"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 61",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 61"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 62",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 62"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 63",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 63"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 64",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 64"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 65",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 65"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 66",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 66"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 67",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 67"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 68",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 68"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 69",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 69"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 70",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 70"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 71",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 71"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 72",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 72"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 73",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 73"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 74",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 74"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 75",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 75"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 76",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 76"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 77",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 77"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 78",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 78"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 79",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 79"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 80",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 80"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 81",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 81"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 82",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 82"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 83",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 83"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 84",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 84"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 85",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 85"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 86",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 86"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 87",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 87"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 88",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 88"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 89",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 89"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 90",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 90"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 91",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 91"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 92",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 92"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 93",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 93"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 94",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 94"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 95",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 95"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 96",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 96"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 97",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 97"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 98",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 98"
+                    }
+                ]
+            },
+            {
+                "name": "Sora Level 99",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_sora"],
+                "sections": [
+                    {
+                        "name": "Sora Level 99"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 02",
+                "access_rules": ["$has_riku_worlds|1"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 02"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 03",
+                "access_rules": ["$has_riku_worlds|1"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 03"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 04",
+                "access_rules": ["$has_riku_worlds|1"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 04"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 05",
+                "access_rules": ["opt_sora,opt_riku,$has_riku_worlds|2", "opt_riku,$opt_off|opt_sora,$has_riku_worlds|2", "$has_riku_worlds|1,$has_riku_worlds|2"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 05"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 06",
+                "access_rules": ["$has_riku_worlds|2"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 06"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 07",
+                "access_rules": ["$has_riku_worlds|2"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 07"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 08",
+                "access_rules": ["$has_riku_worlds|2"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 08"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 09",
+                "access_rules": ["$has_riku_worlds|2"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 09"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 10",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 10"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 11",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 11"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 12",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 12"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 13",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 13"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 14",
+                "access_rules": ["$has_riku_worlds|3"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 14"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 15",
+                "access_rules": ["$has_riku_worlds|4"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 15"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 16",
+                "access_rules": ["$has_riku_worlds|4"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 16"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 17",
+                "access_rules": ["$has_riku_worlds|4"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 17"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 18",
+                "access_rules": ["$has_riku_worlds|4"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 18"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 19",
+                "access_rules": ["$has_riku_worlds|4"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 19"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 20",
+                "access_rules": ["$has_riku_worlds|5"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 20"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 21",
+                "access_rules": ["$has_riku_worlds|5"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 21"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 22",
+                "access_rules": ["$has_riku_worlds|5"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 22"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 23",
+                "access_rules": ["$has_riku_worlds|5"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 23"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 24",
+                "access_rules": ["$has_riku_worlds|5"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 24"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 25",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 25"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 26",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 26"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 27",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 27"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 28",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 28"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 29",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 29"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 30",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 30"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 31",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 31"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 32",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 32"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 33",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 33"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 34",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 34"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 35",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 35"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 36",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 36"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 37",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 37"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 38",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 38"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 39",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 39"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 40",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 40"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 41",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 41"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 42",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 42"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 43",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 43"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 44",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 44"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 45",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 45"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 46",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 46"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 47",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 47"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 48",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 48"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 49",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 49"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 50",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 50"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 51",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 51"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 52",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 52"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 53",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 53"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 54",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 54"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 55",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 55"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 56",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 56"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 57",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 57"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 58",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 58"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 59",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 59"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 60",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 60"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 61",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 61"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 62",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 62"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 63",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 63"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 64",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 64"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 65",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 65"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 66",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 66"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 67",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 67"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 68",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 68"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 69",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 69"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 70",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 70"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 71",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 71"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 72",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 72"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 73",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 73"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 74",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 74"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 75",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 75"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 76",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 76"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 77",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 77"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 78",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 78"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 79",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 79"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 80",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 80"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 81",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 81"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 82",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 82"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 83",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 83"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 84",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 84"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 85",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 85"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 86",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 86"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 87",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 87"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 88",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 88"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 89",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 89"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 90",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 90"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 91",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 91"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 92",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 92"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 93",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 93"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 94",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 94"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 95",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 95"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 96",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 96"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 97",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 97"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 98",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 98"
+                    }
+                ]
+            },
+            {
+                "name": "Riku Level 99",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_riku"],
+                "sections": [
+                    {
+                        "name": "Riku Level 99"
+                    }
+                ]
+            }
+        ]
+    }
+]

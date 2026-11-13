@@ -1,0 +1,733 @@
+[
+    {
+        "name": "The Grid [Sora]",
+        "access_rules": ["world_the_grid_sora"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
+                "name": "Defeat Rinzler",
+                "sections": [
+                    {
+                        "name": "The Grid Rinzler Bonus Slot 1 [Sora]",
+                        "ref": "The Grid Throughput [Sora]/Rinzler Bonus Slot 1/The Grid Rinzler Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "The Grid Rinzler Bonus Slot 2 [Sora]",
+                        "ref": "The Grid Throughput [Sora]/Rinzler Bonus Slot 2/The Grid Rinzler Bonus Slot 2 [Sora]"
+                    },
+                    {
+                        "name": "The Grid Dual Disc Reward [Sora]",
+                        "ref": "The Grid Throughput [Sora]/Dual Disc Reward/The Grid Dual Disc Reward [Sora]"
+                    },
+                    {
+                        "name": "The Grid Cleared [Sora]",
+                        "ref": "The Grid Throughput [Sora]/Cleared/The Grid Cleared [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1130,
+                        "y": 1041
+                    }
+                ]
+            },
+            {
+                "name": "City Potion",
+                "sections": [
+                    {
+                        "name": "The Grid City Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 532,
+                        "y": 877
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "The Grid Throughput [Sora]",
+        "access_rules": ["world_the_grid_sora,glide", "world_the_grid_sora,superglide", "world_the_grid_sora,rail_slide", "world_the_grid_sora,flowmotion", "world_the_grid_sora,$can_infinite_jump"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "The Grid Secret Portal [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1699,
+                        "y": 1169
+                    }
+                ]
+            },
+            {
+                "name": "Counter Rush Reward",
+                "sections": [
+                    {
+                        "name": "The Grid Counter Rush Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Rinzler Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "The Grid Rinzler Bonus Slot 1 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Rinzler Bonus Slot 2",
+                "sections": [
+                    {
+                        "name": "The Grid Rinzler Bonus Slot 2 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Dual Disc Reward",
+                "sections": [
+                    {
+                        "name": "The Grid Dual Disc Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Ice Dream Cone 2",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Ice Dream Cone 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 2191,
+                        "y": 305
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 2222,
+                        "y": 379
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 2215,
+                        "y": 577
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Panacea",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Panacea [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 2142,
+                        "y": 687
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Shield Cookie",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Shield Cookie [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 2136,
+                        "y": 610
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Hi-Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 2257,
+                        "y": 643
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Lofty Fantasy",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Lofty Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 2207,
+                        "y": 626
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 1F Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 1F Ice Dream Cone [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 2212,
+                        "y": 683
+                    }
+                ]
+            },
+            {
+                "name": "Docks Eaglider Recipe",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Eaglider Recipe [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 330,
+                        "y": 354
+                    }
+                ]
+            },
+            {
+                "name": "Docks Candy Goggles",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Candy Goggles [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 372,
+                        "y": 305
+                    }
+                ]
+            },
+            {
+                "name": "Docks Paint Gun: Black",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Paint Gun: Black [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 360,
+                        "y": 243
+                    }
+                ]
+            },
+            {
+                "name": "Docks Panacea",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Panacea [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 810,
+                        "y": 396
+                    }
+                ]
+            },
+            {
+                "name": "Docks Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 674,
+                        "y": 312
+                    }
+                ]
+            },
+            {
+                "name": "Docks Balloon",
+                "sections": [
+                    {
+                        "name": "The Grid Docks Balloon [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 558,
+                        "y": 334
+                    }
+                ]
+            },
+            {
+                "name": "City Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The Grid City Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 632,
+                        "y": 745
+                    }
+                ]
+            },
+            {
+                "name": "City Troubling Fancy",
+                "access_rules": ["flowmotion", "glide", "superglide", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "The Grid City Troubling Fancy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 643,
+                        "y": 900
+                    }
+                ]
+            },
+            {
+                "name": "City Water Barrel",
+                "sections": [
+                    {
+                        "name": "The Grid City Water Barrel [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 754,
+                        "y": 656
+                    }
+                ]
+            },
+            {
+                "name": "City Block-It Chocolate 2",
+                "sections": [
+                    {
+                        "name": "The Grid City Block-It Chocolate 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 768,
+                        "y": 627
+                    }
+                ]
+            },
+            {
+                "name": "Fleeting Figment",
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Fleeting Figment [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 970,
+                        "y": 526
+                    }
+                ]
+            },
+            {
+                "name": "Circle Raid",
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Circle Raid [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 958,
+                        "y": 722
+                    }
+                ]
+            },
+            {
+                "name": "Dulcet Figment",
+                "access_rules": ["high_jump", "rail_slide", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Dulcet Figment [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1085,
+                        "y": 594
+                    }
+                ]
+            },
+            {
+                "name": "Royal Cake",
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Royal Cake [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 966,
+                        "y": 476
+                    }
+                ]
+            },
+            {
+                "name": "Confetti Candy",
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Confetti Candy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1095,
+                        "y": 646
+                    }
+                ]
+            },
+            {
+                "name": "Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Throughput Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1033,
+                        "y": 504
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "The Grid Bridge Block-It Chocolate [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1284,
+                        "y": 680
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The Grid Bridge Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1426,
+                        "y": 626
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Cyber Yog Recipe",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Cyber Yog Recipe [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1902,
+                        "y": 572
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Shield Cookie 2",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Shield Cookie 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1881,
+                        "y": 513
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Ice Dream Cone [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 2053,
+                        "y": 775
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1969,
+                        "y": 762
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1884,
+                        "y": 661
+                    }
+                ]
+            },
+            {
+                "name": "Rectifier 2F Paint Gun: Green",
+                "sections": [
+                    {
+                        "name": "The Grid Rectifier 2F Paint Gun: Green [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 2071,
+                        "y": 752
+                    }
+                ]
+            },
+            {
+                "name": "Solar Sailer Confetti Candy 2",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Confetti Candy 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1679,
+                        "y": 128
+                    }
+                ]
+            },
+            {
+                "name": "Solar Sailer Wondrous Figment",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Wondrous Figment [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1638,
+                        "y": 349
+                    }
+                ]
+            },
+            {
+                "name": "Solar Sailer Fleeting Figment",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Fleeting Figment [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1778,
+                        "y": 260
+                    }
+                ]
+            },
+            {
+                "name": "Solar Sailer Balloon",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Balloon [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1833,
+                        "y": 272
+                    }
+                ]
+            },
+            {
+                "name": "Solar Sailer Hi-Potion",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1815,
+                        "y": 261
+                    }
+                ]
+            },
+            {
+                "name": "Solar Sailer Panacea",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Panacea [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1783,
+                        "y": 179
+                    }
+                ]
+            },
+            {
+                "name": "Solar Sailer Candy Goggles",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Candy Goggles [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1907,
+                        "y": 74
+                    }
+                ]
+            },
+            {
+                "name": "Solar Sailer Balloonra",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Balloonra [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1766,
+                        "y": 269
+                    }
+                ]
+            },
+            {
+                "name": "Solar Sailer Water Barrel",
+                "sections": [
+                    {
+                        "name": "The Grid Solar Sailer Water Barrel [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 1766,
+                        "y": 247
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "The Grid Cleared [Sora]"
+                    }
+                ]
+            }
+        ]
+    }
+]

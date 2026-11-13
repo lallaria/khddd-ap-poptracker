@@ -1,0 +1,858 @@
+[
+    {
+        "name": "La Cite des Cloches [Sora]",
+        "access_rules": ["world_la_cite_des_cloches_sora"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Secret Portal [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1001,
+                        "y": 1513
+                    }
+                ]
+            },
+            {
+                "name": "Zolephant Recipe Reward",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Zolephant Recipe Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: Frollo Warns Quasimodo Reward",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Flashback: Frollo Warns Quasimodo Reward [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 3245,
+                        "y": 248
+                    }
+                ]
+            },
+            {
+                "name": "Flower Fight Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Flower Fight Bonus Slot 1 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 934,
+                        "y": 1596
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Wargoyle",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Wargoyle Bonus Slot 1 [Sora]",
+                        "ref": "La Cite des Cloches [Sora]/Wargoyle Bonus Slot 1/La Cite des Cloches Wargoyle Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Guardian Bell Reward [Sora]",
+                        "ref": "La Cite des Cloches [Sora]/Guardian Bell Reward/La Cite des Cloches Guardian Bell Reward [Sora]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Cleared [Sora]",
+                        "ref": "La Cite des Cloches [Sora]/Cleared/La Cite des Cloches Cleared [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1001,
+                        "y": 1595
+                    }
+                ]
+            },
+            {
+                "name": "Wargoyle Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Wargoyle Bonus Slot 1 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Guardian Bell Reward",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Guardian Bell Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Chronicle BBS Reward",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Chronicle BBS Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Square Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Square Block-It Chocolate [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1232,
+                        "y": 1417
+                    }
+                ]
+            },
+            {
+                "name": "Square Balloon",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Square Balloon [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1162,
+                        "y": 1642
+                    }
+                ]
+            },
+            {
+                "name": "Square Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Square Ice Dream Cone [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 908,
+                        "y": 1726
+                    }
+                ]
+            },
+            {
+                "name": "Square Potion",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Square Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 785,
+                        "y": 1621
+                    }
+                ]
+            },
+            {
+                "name": "Nave Water Barrel",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Water Barrel [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1096,
+                        "y": 468
+                    }
+                ]
+            },
+            {
+                "name": "Nave Royal Cake",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Royal Cake [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 997,
+                        "y": 95
+                    }
+                ]
+            },
+            {
+                "name": "Nave Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Block-It Chocolate [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 909,
+                        "y": 692
+                    }
+                ]
+            },
+            {
+                "name": "Nave Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1042,
+                        "y": 579
+                    }
+                ]
+            },
+            {
+                "name": "Nave Potion",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1119,
+                        "y": 746
+                    }
+                ]
+            },
+            {
+                "name": "Nave 2nd Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave 2nd Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 935,
+                        "y": 325
+                    }
+                ]
+            },
+            {
+                "name": "Bell Tower Dulcet Figment",
+                "access_rules": ["flowmotion", "high_jump", "$can_pole_jump", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bell Tower Dulcet Figment [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 536,
+                        "y": 424
+                    }
+                ]
+            },
+            {
+                "name": "Bell Tower Drop-Me-Not",
+                "access_rules": ["flowmotion", "high_jump", "$can_pole_jump", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bell Tower Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 406,
+                        "y": 120
+                    }
+                ]
+            },
+            {
+                "name": "Bell Tower Balloon",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bell Tower Balloon [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 494,
+                        "y": 567
+                    }
+                ]
+            },
+            {
+                "name": "Bell Tower 2nd Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bell Tower 2nd Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 342,
+                        "y": 962
+                    }
+                ]
+            },
+            {
+                "name": "Town Sparkra",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Sparkra [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 684,
+                        "y": 2274
+                    }
+                ]
+            },
+            {
+                "name": "Town Candy Goggles",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Candy Goggles [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 806,
+                        "y": 2180
+                    }
+                ]
+            },
+            {
+                "name": "Town Lofty Figment",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Lofty Figment [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 979,
+                        "y": 2274
+                    }
+                ]
+            },
+            {
+                "name": "Town Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Ice Dream Cone [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 770,
+                        "y": 1941
+                    }
+                ]
+            },
+            {
+                "name": "Town Wheeflower Recipe",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Wheeflower Recipe [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 795,
+                        "y": 2248
+                    }
+                ]
+            },
+            {
+                "name": "Town Confetti Candy",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Confetti Candy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 857,
+                        "y": 1982
+                    }
+                ]
+            },
+            {
+                "name": "Town Troubling Fancy",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Troubling Fancy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 750,
+                        "y": 2147
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Shield Cookie",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bridge Shield Cookie [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1434,
+                        "y": 1389
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Paint Gun: Red",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bridge Paint Gun: Red [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1450,
+                        "y": 1178
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bridge Block-It Chocolate [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1450,
+                        "y": 1483
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Potion",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bridge Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1448,
+                        "y": 1251
+                    }
+                ]
+            },
+            {
+                "name": "Outskirts Confetti Candy",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Outskirts Confetti Candy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1873,
+                        "y": 1084
+                    }
+                ]
+            },
+            {
+                "name": "Outskirts Noble Figment",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Outskirts Noble Figment [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1852,
+                        "y": 1069
+                    }
+                ]
+            },
+            {
+                "name": "Outskirts Balloon",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Outskirts Balloon [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1955,
+                        "y": 931
+                    }
+                ]
+            },
+            {
+                "name": "Outskirts Potion",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Outskirts Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1858,
+                        "y": 952
+                    }
+                ]
+            },
+            {
+                "name": "Outskirts Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Outskirts Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1871,
+                        "y": 919
+                    }
+                ]
+            },
+            {
+                "name": "Graveyard Gate Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Graveyard Gate Ice Dream Cone [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 2620,
+                        "y": 746
+                    }
+                ]
+            },
+            {
+                "name": "Graveyard Gate Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Graveyard Gate Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 2625,
+                        "y": 950
+                    }
+                ]
+            },
+            {
+                "name": "Graveyard Gate Potion",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Graveyard Gate Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 2404,
+                        "y": 744
+                    }
+                ]
+            },
+            {
+                "name": "Tunnels Sleepra",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Tunnels Sleepra [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1951,
+                        "y": 290
+                    }
+                ]
+            },
+            {
+                "name": "Tunnels Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Tunnels Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1776,
+                        "y": 150
+                    }
+                ]
+            },
+            {
+                "name": "Tunnels Catanuki Recipe",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Tunnels Catanuki Recipe [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1978,
+                        "y": 101
+                    }
+                ]
+            },
+            {
+                "name": "Tunnels Paint Gun: Purple",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Tunnels Paint Gun: Purple [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1936,
+                        "y": 134
+                    }
+                ]
+            },
+            {
+                "name": "Tunnels Ice Dream Cone 2",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Tunnels Ice Dream Cone 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1772,
+                        "y": 225
+                    }
+                ]
+            },
+            {
+                "name": "Old Graveyard Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Old Graveyard Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 2225,
+                        "y": 472
+                    }
+                ]
+            },
+            {
+                "name": "Catacombs Water Barrel",
+                "access_rules": ["flowmotion", "high_jump", "air_slide", "wall_kick", "glide", "superglide"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Catacombs Water Barrel [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 2417,
+                        "y": 459
+                    }
+                ]
+            },
+            {
+                "name": "Catacombs Fire Windmill",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Catacombs Fire Windmill [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 2367,
+                        "y": 558
+                    }
+                ]
+            },
+            {
+                "name": "Catacombs Toximander Recipe",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Catacombs Toximander Recipe [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 2664,
+                        "y": 565
+                    }
+                ]
+            },
+            {
+                "name": "Catacombs Royal Cake",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Catacombs Royal Cake [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 2837,
+                        "y": 488
+                    }
+                ]
+            },
+            {
+                "name": "Catacombs Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Catacombs Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 2623,
+                        "y": 511
+                    }
+                ]
+            },
+            {
+                "name": "Catacombs Shield Cookie",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Catacombs Shield Cookie [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 2736,
+                        "y": 478
+                    }
+                ]
+            },
+            {
+                "name": "Court of Miracles Thunder Dash",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Court of Miracles Thunder Dash [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 3333,
+                        "y": 119
+                    }
+                ]
+            },
+            {
+                "name": "Court of Miracles Hi-Potion",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Court of Miracles Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 3096,
+                        "y": 311
+                    }
+                ]
+            },
+            {
+                "name": "Court of Miracles Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Court of Miracles Block-It Chocolate [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 3094,
+                        "y": 196
+                    }
+                ]
+            },
+            {
+                "name": "Tunnels Noble Fantasy",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Tunnels Noble Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Sora]",
+                        "x": 1912,
+                        "y": 60
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Cleared [Sora]"
+                    }
+                ]
+            }
+        ]
+    }
+]

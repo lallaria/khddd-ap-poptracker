@@ -1,0 +1,751 @@
+[
+    {
+        "name": "Traverse Town [Sora]",
+        "access_rules": ["world_traverse_town_sora"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["high_jump,$has_sora_worlds|6", "$has_sora_worlds|6,$can_infinite_jump"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Secret Portal [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1843,
+                        "y": 255
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: Dream Eaters Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town Flashback: Dream Eaters Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Heartless Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town Glossary: Heartless Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Hockomonkey",
+                "sections": [
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 1 [Sora]",
+                        "ref": "Traverse Town Plaza [Sora]/Hockomonkey Bonus Slot 1/Traverse Town Hockomonkey Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 2 [Sora]",
+                        "ref": "Traverse Town Plaza [Sora]/Hockomonkey Bonus Slot 2/Traverse Town Hockomonkey Bonus Slot 2 [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town Skull Noise Reward [Sora]",
+                        "ref": "Traverse Town Plaza [Sora]/Skull Noise Reward/Traverse Town Skull Noise Reward [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town Cleared [Sora]",
+                        "ref": "Traverse Town Plaza [Sora]/Cleared/Traverse Town Cleared [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1842,
+                        "y": 316
+                    }
+                ]
+            },
+            {
+                "name": "Meow Wow Recipe Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town Meow Wow Recipe Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "First District Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "Traverse Town First District Ice Dream Cone [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 181,
+                        "y": 690
+                    }
+                ]
+            },
+            {
+                "name": "Second District Confetti Candy",
+                "access_rules": ["high_jump", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Second District Confetti Candy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 352,
+                        "y": 98
+                    }
+                ]
+            },
+            {
+                "name": "Second District Balloon",
+                "access_rules": ["high_jump", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Second District Balloon [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 339,
+                        "y": 420
+                    }
+                ]
+            },
+            {
+                "name": "Second District Hi-Potion",
+                "access_rules": ["high_jump", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Second District Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 231,
+                        "y": 98
+                    }
+                ]
+            },
+            {
+                "name": "Third District Vibrant Fantasy",
+                "access_rules": ["high_jump", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Third District Vibrant Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 472,
+                        "y": 810
+                    }
+                ]
+            },
+            {
+                "name": "Third District Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "Traverse Town Third District Block-It Chocolate [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 755,
+                        "y": 847
+                    }
+                ]
+            },
+            {
+                "name": "First District Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town First District Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 113,
+                        "y": 754
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Traverse Town Plaza [Sora]",
+        "access_rules": ["world_traverse_town_sora,glide", "world_traverse_town_sora,rail_slide", "world_traverse_town_sora,superglide", "world_traverse_town_sora,flowmotion", "world_traverse_town_sora,$can_infinite_jump"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
+                "name": "Hockomonkey Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 1 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Hockomonkey Bonus Slot 2",
+                "sections": [
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 2 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Skull Noise Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town Skull Noise Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Shield Cookie",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Shield Cookie [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1837,
+                        "y": 1091
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Water Barrel",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Water Barrel [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1676,
+                        "y": 918
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1850,
+                        "y": 833
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Ice Dream Cone [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1849,
+                        "y": 929
+                    }
+                ]
+            },
+            {
+                "name": "Fifth District Shield Cookie",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fifth District Shield Cookie [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1693,
+                        "y": 299
+                    }
+                ]
+            },
+            {
+                "name": "Fifth District Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fifth District Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 2020,
+                        "y": 383
+                    }
+                ]
+            },
+            {
+                "name": "Fifth District Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fifth District Block-It Chocolate [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1896,
+                        "y": 242
+                    }
+                ]
+            },
+            {
+                "name": "Fountain Plaza Balloon",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fountain Plaza Balloon [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1271,
+                        "y": 424
+                    }
+                ]
+            },
+            {
+                "name": "Fountain Plaza Intrepid Figment",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fountain Plaza Intrepid Figment [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1156,
+                        "y": 464
+                    }
+                ]
+            },
+            {
+                "name": "Fountain Plaza Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fountain Plaza Ice Dream Cone [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1043,
+                        "y": 272
+                    }
+                ]
+            },
+            {
+                "name": "Fountain Plaza Rampant Fantasy",
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Fountain Plaza Rampant Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1278,
+                        "y": 374
+                    }
+                ]
+            },
+            {
+                "name": "Garden Royal Cake",
+                "sections": [
+                    {
+                        "name": "Traverse Town Garden Royal Cake [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 2276,
+                        "y": 429
+                    }
+                ]
+            },
+            {
+                "name": "Garden Confetti Candy",
+                "sections": [
+                    {
+                        "name": "Traverse Town Garden Confetti Candy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 2208,
+                        "y": 320
+                    }
+                ]
+            },
+            {
+                "name": "Garden Rampant Figment",
+                "access_rules": ["rail_slide", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Garden Rampant Figment [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 2344,
+                        "y": 303
+                    }
+                ]
+            },
+            {
+                "name": "Garden Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Traverse Town Garden Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 2252,
+                        "y": 118
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1889,
+                        "y": 991
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Block-It Chocolate [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 2078,
+                        "y": 804
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District 2nd Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District 2nd Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1785,
+                        "y": 945
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Balloon (Command)",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Balloon (Command) [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1835,
+                        "y": 944
+                    }
+                ]
+            },
+            {
+                "name": "Fountain Plaza Strike Raid",
+                "access_rules": ["glide", "superglide", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Fountain Plaza Strike Raid [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1109,
+                        "y": 179
+                    }
+                ]
+            },
+            {
+                "name": "Post Office Rampant Fantasy",
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Rampant Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1409,
+                        "y": 960
+                    }
+                ]
+            },
+            {
+                "name": "Post Office Vibrant Fantasy",
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Vibrant Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1305,
+                        "y": 1149
+                    }
+                ]
+            },
+            {
+                "name": "Post Office Troubling Fantasy",
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Troubling Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1147,
+                        "y": 1012
+                    }
+                ]
+            },
+            {
+                "name": "Post Office Spark",
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Spark [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1236,
+                        "y": 1009
+                    }
+                ]
+            },
+            {
+                "name": "Post Office Paint Gun: Red",
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Paint Gun: Red [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1436,
+                        "y": 960
+                    }
+                ]
+            },
+            {
+                "name": "Post Office Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1270,
+                        "y": 1045
+                    }
+                ]
+            },
+            {
+                "name": "Post Office Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Ice Dream Cone [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1244,
+                        "y": 1090
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "Traverse Town Cleared [Sora]"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Traverse Town 2 [Sora]",
+        "access_rules": ["world_traverse_town_sora:2,glide", "world_traverse_town_sora:2,rail_slide", "world_traverse_town_sora:2,superglide", "world_traverse_town_sora:2,flowmotion", "world_traverse_town_sora:2,wall_kick,$can_infinite_jump"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
+                "name": "Defeat Julius",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Sliding Sidewinder Reward [Sora]",
+                        "ref": "Traverse Town 2 [Sora]/Sliding Sidewinder Reward/Traverse Town 2 Sliding Sidewinder Reward [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town 2 Ultima Weapon Reward [Sora]",
+                        "ref": "Traverse Town 2 [Sora]/Ultima Weapon Reward/Traverse Town 2 Ultima Weapon Reward [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1109,
+                        "y": 240
+                    }
+                ]
+            },
+            {
+                "name": "Sliding Sidewinder Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Sliding Sidewinder Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Knockout Punch Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Knockout Punch Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Boss Gauntlet",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Knockout Punch Reward [Sora]",
+                        "ref": "Traverse Town 2 [Sora]/Knockout Punch Reward/Traverse Town 2 Knockout Punch Reward [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town 2 Boss Gauntlet Reward [Sora]",
+                        "ref": "Traverse Town 2 [Sora]/Boss Gauntlet Reward/Traverse Town 2 Boss Gauntlet Reward [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town 2 Boss Gauntlet Bonus Slot 1 [Sora]",
+                        "ref": "Traverse Town 2 [Sora]/Boss Gauntlet Bonus Slot 1/Traverse Town 2 Boss Gauntlet Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town 2 Boss Gauntlet Bonus Slot 2 [Sora]",
+                        "ref": "Traverse Town 2 [Sora]/Boss Gauntlet Bonus Slot 2/Traverse Town 2 Boss Gauntlet Bonus Slot 2 [Sora]"
+                    },
+                    {
+                        "name": "Traverse Town 2 Cleared [Sora]",
+                        "ref": "Traverse Town 2 [Sora]/Cleared/Traverse Town 2 Cleared [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 593,
+                        "y": 909
+                    }
+                ]
+            },
+            {
+                "name": "Boss Gauntlet Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Boss Gauntlet Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Ultima Weapon Reward",
+                "access_rules": ["@Traverse Town [Sora]/Secret Portal/Traverse Town Secret Portal [Sora],@La Cite des Cloches [Sora]/Secret Portal/La Cite des Cloches Secret Portal [Sora],@The Grid Throughput [Sora]/Secret Portal/The Grid Secret Portal [Sora],@Country of the Musketeers [Sora]/Secret Portal/Country of the Musketeers Secret Portal [Sora],@Prankster's Paradise [Sora]/Secret Portal/Prankster's Paradise Secret Portal [Sora],@Symphony of Sorcery [Sora]/Secret Portal/Symphony of Sorcery Secret Portal [Sora],$has_recipes"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Ultima Weapon Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Boss Gauntlet Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Boss Gauntlet Bonus Slot 1 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Boss Gauntlet Bonus Slot 2",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Boss Gauntlet Bonus Slot 2 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Cleared [Sora]"
+                    }
+                ]
+            }
+        ]
+    }
+]

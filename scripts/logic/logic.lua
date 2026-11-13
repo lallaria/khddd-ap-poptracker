@@ -1,4 +1,4 @@
--- $ functions used by the rules that gen/gen_access_rules.py writes into locations/locations.json
+-- $ functions used by the rules that gen/gen_access_rules.py writes into the locations files
 local function has(code)
     return Tracker:ProviderCountForCode(code) > 0
 end
@@ -79,9 +79,9 @@ end
 -- the events counted by beat_x_sora_worlds / beat_x_riku_worlds in the apworld's Rules.py, by gate character
 local WORLD_EVENTS = {
     {
-        "@Traverse Town [Sora]/Cleared/Traverse Town Cleared [Sora]",
+        "@Traverse Town Plaza [Sora]/Cleared/Traverse Town Cleared [Sora]",
         "@La Cite des Cloches [Sora]/Cleared/La Cite des Cloches Cleared [Sora]",
-        "@The Grid [Sora]/Cleared/The Grid Cleared [Sora]",
+        "@The Grid Throughput [Sora]/Cleared/The Grid Cleared [Sora]",
         "@Prankster's Paradise [Sora]/Cleared/Prankster's Paradise Cleared [Sora]",
         "@Country of the Musketeers [Sora]/Cleared/Country of the Musketeers Cleared [Sora]",
         "@Symphony of Sorcery [Sora]/Cleared/Symphony of Sorcery Cleared [Sora]",
@@ -93,8 +93,8 @@ local WORLD_EVENTS = {
         "@La Cite des Cloches [Riku]/Cleared/La Cite des Cloches Cleared [Riku]",
         "@The Grid [Riku]/Cleared/The Grid Cleared [Riku]",
         "@Prankster's Paradise [Riku]/Cleared/Prankster's Paradise Cleared [Riku]",
-        "@Country of the Musketeers [Riku]/Cleared/Country of the Musketeers Cleared [Riku]",
-        "@Symphony of Sorcery [Riku]/Cleared/Symphony of Sorcery Cleared [Riku]",
+        "@Country of the Musketeers Green Room [Riku]/Cleared/Country of the Musketeers Cleared [Riku]",
+        "@Symphony of Sorcery Snowgleam Wood [Riku]/Cleared/Symphony of Sorcery Cleared [Riku]",
         "@Traverse Town 2 [Riku]/Cleared/Traverse Town 2 Cleared [Riku]",
         "@The World That Never Was [Riku]/Cleared/The World That Never Was Cleared [Riku]",
     },

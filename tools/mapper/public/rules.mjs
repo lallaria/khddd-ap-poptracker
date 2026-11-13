@@ -183,7 +183,7 @@ export function validFixes(fixes) {
         && typeof fix.note === "string" && (fix.was === undefined || rules(fix.was)));
 }
 
-/** Fixes whose wanted rule is what the check has now, so the apworld change has reached locations.json. */
+/** Fixes whose wanted rule is what the check has now, so the apworld change has reached the pack. */
 export function appliedFixes(index, fixes) {
     return Object.keys(fixes).filter((id) => {
         const fix = fixes[id];

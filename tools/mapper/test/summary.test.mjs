@@ -4,7 +4,7 @@ import path from "node:path";
 import { describe, test } from "node:test";
 import { fileURLToPath } from "node:url";
 
-import { LOCATIONS_JSON, readPack } from "../lib/pack.mjs";
+import { readPack } from "../lib/pack.mjs";
 import {
     groupSections, isSummary, isSummaryGroup, missingRefs, refLocations, sharedName, summarySections,
 } from "../public/summary.mjs";
@@ -65,7 +65,7 @@ describe("summary groups", () => {
         const [town, overworld] = tree();
         assert.ok(isSummaryGroup(overworld) && isSummary(overworld.children[0]));
         assert.ok(!isSummaryGroup(town) && !isSummaryGroup({ name: "Empty", children: [] }));
-        const locations = JSON.parse(await readFile(path.join(PACK, LOCATIONS_JSON), "utf8"));
+        const { locations } = await readPack(PACK);
         for (const name of ["Traverse Town [Sora]", "World Map [Sora]", "Levels", "Link Boards"]) {
             assert.ok(!isSummaryGroup(locations.find((node) => node.name === name)), name);
         }

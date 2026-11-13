@@ -1,0 +1,414 @@
+[
+    {
+        "name": "Prankster's Paradise [Riku]",
+        "access_rules": ["world_pranksters_paradise_riku"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Secret Portal [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 346,
+                        "y": 259
+                    }
+                ]
+            },
+            {
+                "name": "Chronicle: Chain of Memories Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Chronicle: Chain of Memories Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Char Clobster",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Char Clobster Bonus Slot 1 [Riku]",
+                        "ref": "Prankster's Paradise [Riku]/Char Clobster Bonus Slot 1/Prankster's Paradise Char Clobster Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Ocean's Rage Reward [Riku]",
+                        "ref": "Prankster's Paradise [Riku]/Ocean's Rage Reward/Prankster's Paradise Ocean's Rage Reward [Riku]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Cleared [Riku]",
+                        "ref": "Prankster's Paradise [Riku]/Cleared/Prankster's Paradise Cleared [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 346,
+                        "y": 311
+                    }
+                ]
+            },
+            {
+                "name": "Char Clobster Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Char Clobster Bonus Slot 1 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Ocean's Rage Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ocean's Rage Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Mouth Ice Dream Cone 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Mouth Ice Dream Cone 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 238,
+                        "y": 2556
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Mouth Paint Gun: Blue",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Mouth Paint Gun: Blue [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 408,
+                        "y": 2545
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Mouth Balloon",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Mouth Balloon [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 393,
+                        "y": 2292
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Mouth Panacea",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Mouth Panacea [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 249,
+                        "y": 2319
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Belly Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Belly Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 300,
+                        "y": 1430
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Belly Confetti Candy 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Belly Confetti Candy 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 750,
+                        "y": 1284
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Belly Block-It Chocolate 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Belly Block-It Chocolate 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 420,
+                        "y": 1490
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Belly Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Belly Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 468,
+                        "y": 1519
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Belly Collision Magnet",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Belly Collision Magnet [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 748,
+                        "y": 1202
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Gullet Shield Cookie 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Gullet Shield Cookie 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 213,
+                        "y": 1915
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Gullet Sir Kyroo Recipe",
+                "access_rules": ["rail_slide", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Gullet Sir Kyroo Recipe [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 340,
+                        "y": 1785
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Gullet Charming Fantasy",
+                "access_rules": ["flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Gullet Charming Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 391,
+                        "y": 2086
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Gullet Mini",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Gullet Mini [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 517,
+                        "y": 1909
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Gullet Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Gullet Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 408,
+                        "y": 1957
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Gullet Second Shield Cookie 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Gullet Second Shield Cookie 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 581,
+                        "y": 1769
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Cavity Confetti Candy 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Cavity Confetti Candy 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 471,
+                        "y": 982
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Cavity Royal Cake",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Cavity Royal Cake [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 626,
+                        "y": 883
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Cavity Water Barrel",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Cavity Water Barrel [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 304,
+                        "y": 720
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Cavity Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Cavity Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 360,
+                        "y": 638
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Cavity Panacea",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Cavity Panacea [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 338,
+                        "y": 876
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Mouth Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Mouth Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 218,
+                        "y": 2587
+                    }
+                ]
+            },
+            {
+                "name": "Monstro: Gullet Candy Goggles",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Monstro: Gullet Candy Goggles [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise (Monstro) [Riku]",
+                        "x": 411,
+                        "y": 1811
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Cleared [Riku]"
+                    }
+                ]
+            }
+        ]
+    }
+]

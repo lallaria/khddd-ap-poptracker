@@ -1,0 +1,554 @@
+[
+    {
+        "name": "The World That Never Was [Riku]",
+        "access_rules": ["world_the_world_that_never_was_riku,$has_riku_worlds|4"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Defeat Ansem",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Ansem I Defeated [Riku]",
+                        "ref": "The World That Never Was [Riku]/Ansem I Defeated/The World That Never Was Ansem I Defeated [Riku]"
+                    },
+                    {
+                        "name": "The World That Never Was Ansem II Defeated [Riku]",
+                        "ref": "The World That Never Was [Riku]/Ansem II Defeated/The World That Never Was Ansem II Defeated [Riku]"
+                    },
+                    {
+                        "name": "The World That Never Was Cleared [Riku]",
+                        "ref": "The World That Never Was [Riku]/Cleared/The World That Never Was Cleared [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 413,
+                        "y": 689
+                    }
+                ]
+            },
+            {
+                "name": "Ansem II Defeated",
+                "access_rules": ["flowmotion,air_slide", "rail_slide,air_slide"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Ansem II Defeated [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Young Xehanort Defeated",
+                "access_rules": ["opt_goal_lucky_emblems", "opt_riku,meow_wow_recipe,komory_bat_recipe,recusant_sigil,rail_slide,$opt_off|opt_sora,$has_emblems,$has_recipes", "opt_riku,meow_wow_recipe,komory_bat_recipe,recusant_sigil,flowmotion,$opt_off|opt_sora,$has_emblems,$has_recipes", "rail_slide,opt_sora,opt_riku,@The World That Never Was [Sora]/Xemnas Bonus Slot 1/The World That Never Was Xemnas Bonus Slot 1 [Sora]", "rail_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,@The World That Never Was [Sora]/Xemnas Bonus Slot 1/The World That Never Was Xemnas Bonus Slot 1 [Sora],$has_emblems,$has_recipes", "flowmotion,opt_sora,opt_riku,@The World That Never Was [Sora]/Xemnas Bonus Slot 1/The World That Never Was Xemnas Bonus Slot 1 [Sora]", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,@The World That Never Was [Sora]/Xemnas Bonus Slot 1/The World That Never Was Xemnas Bonus Slot 1 [Sora],$has_emblems,$has_recipes"],
+                "visibility_rules": ["opt_goal_final_boss", "opt_goal_lucky_emblems"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Young Xehanort Defeated [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 301,
+                        "y": 554
+                    }
+                ]
+            },
+            {
+                "name": "Armored Ventus Nightmare Defeated",
+                "access_rules": ["opt_goal_lucky_emblems", "rail_slide,@The World That Never Was [Riku]/Young Xehanort Defeated/The World That Never Was Young Xehanort Defeated [Riku]", "flowmotion,@The World That Never Was [Riku]/Young Xehanort Defeated/The World That Never Was Young Xehanort Defeated [Riku]"],
+                "visibility_rules": ["opt_avn,opt_goal_final_boss", "opt_avn,opt_goal_lucky_emblems"],
+                "sections": [
+                    {
+                        "name": "Armored Ventus Nightmare Defeated [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 325,
+                        "y": 347
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Dream Candy",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Dream Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 484,
+                        "y": 2675
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Elixir",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Elixir [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 220,
+                        "y": 2476
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Confetti Candy 3",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Confetti Candy 3 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 279,
+                        "y": 2483
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Dulcet Fantasy",
+                "access_rules": ["flowmotion", "high_jump", "double_flight", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Dulcet Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 579,
+                        "y": 2549
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Dark Splicer",
+                "access_rules": ["flowmotion", "high_jump", "double_flight", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Dark Splicer [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 613,
+                        "y": 2533
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Second Dream Candy",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Second Dream Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 457,
+                        "y": 2488
+                    }
+                ]
+            },
+            {
+                "name": "Walk of Delusions Ice Dream Cone 3",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Walk of Delusions Ice Dream Cone 3 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 548,
+                        "y": 2226
+                    }
+                ]
+            },
+            {
+                "name": "Walk of Delusions Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Walk of Delusions Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 237,
+                        "y": 2219
+                    }
+                ]
+            },
+            {
+                "name": "Walk of Delusions Lofty Fantasy",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Walk of Delusions Lofty Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 384,
+                        "y": 2219
+                    }
+                ]
+            },
+            {
+                "name": "Fact Within Fiction Spark Raid",
+                "access_rules": ["rail_slide,super_jump", "$can_infinite_jump", "flowmotion"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Fact Within Fiction Spark Raid [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 415,
+                        "y": 1901
+                    }
+                ]
+            },
+            {
+                "name": "Fact Within Fiction Intrepid Fancy",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Fact Within Fiction Intrepid Fancy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 393,
+                        "y": 1821
+                    }
+                ]
+            },
+            {
+                "name": "Fact Within Fiction Royal Cake",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Fact Within Fiction Royal Cake [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 374,
+                        "y": 1754
+                    }
+                ]
+            },
+            {
+                "name": "Fact Within Fiction Block-It Chocolate 3",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Fact Within Fiction Block-It Chocolate 3 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 332,
+                        "y": 1719
+                    }
+                ]
+            },
+            {
+                "name": "Fact Within Fiction Mega-Potion",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Fact Within Fiction Mega-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 550,
+                        "y": 1652
+                    }
+                ]
+            },
+            {
+                "name": "Verge of Chaos Elixir",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Verge of Chaos Elixir [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 566,
+                        "y": 1351
+                    }
+                ]
+            },
+            {
+                "name": "Verge of Chaos Skelterwild Recipe",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Verge of Chaos Skelterwild Recipe [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 512,
+                        "y": 1471
+                    }
+                ]
+            },
+            {
+                "name": "Verge of Chaos Candy Goggles",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Verge of Chaos Candy Goggles [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 569,
+                        "y": 1379
+                    }
+                ]
+            },
+            {
+                "name": "Verge of Chaos Wondrous Fantasy",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Verge of Chaos Wondrous Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 539,
+                        "y": 1419
+                    }
+                ]
+            },
+            {
+                "name": "Verge of Chaos Paint Gun: Black",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Verge of Chaos Paint Gun: Black [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 516,
+                        "y": 1465
+                    }
+                ]
+            },
+            {
+                "name": "Verge of Chaos Shield Cookie 3",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Verge of Chaos Shield Cookie 3 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 638,
+                        "y": 1313
+                    }
+                ]
+            },
+            {
+                "name": "Verge of Chaos Second Elixir",
+                "access_rules": ["flowmotion", "rail_slide", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Verge of Chaos Second Elixir [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 594,
+                        "y": 1301
+                    }
+                ]
+            },
+            {
+                "name": "Fact Within Fiction Balloon",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Fact Within Fiction Balloon [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 390,
+                        "y": 1912
+                    }
+                ]
+            },
+            {
+                "name": "Fact Within Fiction Elixir",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Fact Within Fiction Elixir [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 398,
+                        "y": 1861
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Second Elixir",
+                "access_rules": ["flowmotion", "high_jump", "double_flight", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Second Elixir [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 326,
+                        "y": 2430
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Keeba Tiger Recipe",
+                "access_rules": ["flowmotion", "rail_slide", "high_jump", "$can_infinite_jump", "$can_pole_jump"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Keeba Tiger Recipe [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 299,
+                        "y": 2430
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Curaga",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Curaga [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 431,
+                        "y": 2526
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Doubleflight",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Doubleflight [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 427,
+                        "y": 2561
+                    }
+                ]
+            },
+            {
+                "name": "Delusive Beginning Third Elixir",
+                "access_rules": ["flowmotion", "rail_slide", "high_jump", "$can_infinite_jump", "$can_pole_jump"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Delusive Beginning Third Elixir [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 623,
+                        "y": 2534
+                    }
+                ]
+            },
+            {
+                "name": "Ansem I Defeated",
+                "access_rules": ["flowmotion,air_slide", "rail_slide,air_slide"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Ansem I Defeated [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Anti Black Coat Nightmare",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Anti Black Coat Nightmare Defeated [Riku]",
+                        "ref": "The World That Never Was [Riku]/Anti Black Coat Nightmare Defeated/The World That Never Was Anti Black Coat Nightmare Defeated [Riku]"
+                    },
+                    {
+                        "name": "The World That Never Was Cleared [Riku]",
+                        "ref": "The World That Never Was [Riku]/Cleared/The World That Never Was Cleared [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Castle That Never Was) [Riku]",
+                        "x": 493,
+                        "y": 1109
+                    }
+                ]
+            },
+            {
+                "name": "Anti Black Coat Nightmare Defeated",
+                "access_rules": ["flowmotion,air_slide", "rail_slide,air_slide"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Anti Black Coat Nightmare Defeated [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "access_rules": ["flowmotion,air_slide", "rail_slide,air_slide"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Cleared [Riku]"
+                    }
+                ]
+            }
+        ]
+    }
+]

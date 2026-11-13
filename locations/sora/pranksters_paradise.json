@@ -1,0 +1,632 @@
+[
+    {
+        "name": "Prankster's Paradise [Sora]",
+        "access_rules": ["world_pranksters_paradise_sora"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["$has_sora_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Secret Portal [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1035,
+                        "y": 831
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: When World's Dream Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Flashback: When World's Dream Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: Pinocchio Lies Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Flashback: Pinocchio Lies Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Found Pinocchio HP Bonus",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Found Pinocchio HP Bonus [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Jestabocky Recipe Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Jestabocky Recipe Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "High Jump Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise High Jump Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Nobodies Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Glossary: Nobodies Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Organization XIII Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Glossary: Organization XIII Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Chronicle: KH2 Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Chronicle: KH2 Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: In Search of Monstro Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Flashback: In Search of Monstro Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Chill Clawbster",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Chill Clawbster Bonus Slot 1 [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Chill Clawbster Bonus Slot 1/Prankster's Paradise Chill Clawbster Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Ferris Gear Reward [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Ferris Gear Reward/Prankster's Paradise Ferris Gear Reward [Sora]"
+                    },
+                    {
+                        "name": "Prankster's Paradise Cleared [Sora]",
+                        "ref": "Prankster's Paradise [Sora]/Cleared/Prankster's Paradise Cleared [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1697,
+                        "y": 1176
+                    }
+                ]
+            },
+            {
+                "name": "Chill Clawbster Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Chill Clawbster Bonus Slot 1 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Ferris Gear Reward",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ferris Gear Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Amusement Park Blizzara",
+                "access_rules": ["$can_infinite_jump", "super_jump,rail_slide", "flowmotion", "glide", "superglide"],
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Amusement Park Blizzara [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 116,
+                        "y": 1383
+                    }
+                ]
+            },
+            {
+                "name": "Amusement Park Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Amusement Park Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 313,
+                        "y": 1190
+                    }
+                ]
+            },
+            {
+                "name": "Amusement Park Balloon",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Amusement Park Balloon [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 101,
+                        "y": 1360
+                    }
+                ]
+            },
+            {
+                "name": "Amusement Park Shield Cookie 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Amusement Park Shield Cookie 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 164,
+                        "y": 1106
+                    }
+                ]
+            },
+            {
+                "name": "Amusement Park Malleable Fantasy",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Amusement Park Malleable Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 91,
+                        "y": 1238
+                    }
+                ]
+            },
+            {
+                "name": "Amusement Park Paint Gun: Yellow",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Amusement Park Paint Gun: Yellow [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 100,
+                        "y": 1223
+                    }
+                ]
+            },
+            {
+                "name": "Amusement Park Ice Dream Cone 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Amusement Park Ice Dream Cone 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 302,
+                        "y": 1271
+                    }
+                ]
+            },
+            {
+                "name": "Amusement Park Block-It Chocolate 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Amusement Park Block-It Chocolate 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 180,
+                        "y": 1285
+                    }
+                ]
+            },
+            {
+                "name": "Amusement Park Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Amusement Park Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 263,
+                        "y": 1447
+                    }
+                ]
+            },
+            {
+                "name": "Ocean Floor Panacea",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ocean Floor Panacea [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1277,
+                        "y": 569
+                    }
+                ]
+            },
+            {
+                "name": "Ocean Floor Lofty Fantasy",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ocean Floor Lofty Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1234,
+                        "y": 768
+                    }
+                ]
+            },
+            {
+                "name": "Ocean Floor Paint Gun: Sky Blue",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ocean Floor Paint Gun: Sky Blue [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1378,
+                        "y": 718
+                    }
+                ]
+            },
+            {
+                "name": "Ocean Floor Zero Gravira",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ocean Floor Zero Gravira [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1260,
+                        "y": 883
+                    }
+                ]
+            },
+            {
+                "name": "Ocean Depths Rampant Fancy",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ocean Depths Rampant Fancy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1672,
+                        "y": 905
+                    }
+                ]
+            },
+            {
+                "name": "Ocean Depths Candy Goggles",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ocean Depths Candy Goggles [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1643,
+                        "y": 856
+                    }
+                ]
+            },
+            {
+                "name": "Ocean Depths Royal Cake",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ocean Depths Royal Cake [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1825,
+                        "y": 853
+                    }
+                ]
+            },
+            {
+                "name": "Ocean Depths Tatsu Steed Recipe",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ocean Depths Tatsu Steed Recipe [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1791,
+                        "y": 1061
+                    }
+                ]
+            },
+            {
+                "name": "Ocean Depths Shield Cookie 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Ocean Depths Shield Cookie 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 1808,
+                        "y": 947
+                    }
+                ]
+            },
+            {
+                "name": "Promontory Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Promontory Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 688,
+                        "y": 1045
+                    }
+                ]
+            },
+            {
+                "name": "Promontory Water Barrel",
+                "access_rules": ["$can_infinite_jump", "$can_glide"],
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Promontory Water Barrel [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 977,
+                        "y": 829
+                    }
+                ]
+            },
+            {
+                "name": "Promontory Ice Dream Cone 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Promontory Ice Dream Cone 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 943,
+                        "y": 772
+                    }
+                ]
+            },
+            {
+                "name": "Windup Way Block-It Chocolate 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Windup Way Block-It Chocolate 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 457,
+                        "y": 970
+                    }
+                ]
+            },
+            {
+                "name": "Windup Way Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Windup Way Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 490,
+                        "y": 853
+                    }
+                ]
+            },
+            {
+                "name": "Windup Way Aerial Slam",
+                "access_rules": ["$can_infinite_jump", "high_jump,$can_pole_jump"],
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Windup Way Aerial Slam [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 520,
+                        "y": 738
+                    }
+                ]
+            },
+            {
+                "name": "Windup Way Royal Cake",
+                "access_rules": ["$can_infinite_jump", "high_jump,$can_pole_jump"],
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Windup Way Royal Cake [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 489,
+                        "y": 757
+                    }
+                ]
+            },
+            {
+                "name": "Windup Way Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Windup Way Hi-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 782,
+                        "y": 677
+                    }
+                ]
+            },
+            {
+                "name": "Circus Balloon",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Circus Balloon [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 833,
+                        "y": 285
+                    }
+                ]
+            },
+            {
+                "name": "Circus Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Circus Drop-Me-Not [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 713,
+                        "y": 176
+                    }
+                ]
+            },
+            {
+                "name": "Circus Confetti Candy 2",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Circus Confetti Candy 2 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 866,
+                        "y": 504
+                    }
+                ]
+            },
+            {
+                "name": "Circus Rampant Fancy",
+                "access_rules": ["$can_infinite_jump", "high_jump,$can_pole_jump"],
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Circus Rampant Fancy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 895,
+                        "y": 329
+                    }
+                ]
+            },
+            {
+                "name": "Amusement Park Candy Goggles",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Amusement Park Candy Goggles [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 112,
+                        "y": 1210
+                    }
+                ]
+            },
+            {
+                "name": "Promontory Lord Kyroo Fight",
+                "visibility_rules": ["opt_lord_kyroo"],
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Promontory Lord Kyroo Fight [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Prankster's Paradise [Sora]",
+                        "x": 858,
+                        "y": 825
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "Prankster's Paradise Cleared [Sora]"
+                    }
+                ]
+            }
+        ]
+    }
+]

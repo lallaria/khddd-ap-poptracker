@@ -1494,7 +1494,7 @@ function fixLines(check) {
     ];
     if (fix.note) lines.push(el("span", { className: "dim", textContent: "Note" }), el("div", { className: "note", textContent: fix.note }));
     if (isApplied(check, fix)) {
-        lines.push(el("span", {}), el("div", { className: "done", textContent: "✓ locations.json has this rule now" }));
+        lines.push(el("span", {}), el("div", { className: "done", textContent: "✓ the pack has this rule now" }));
     }
     return lines;
 }
@@ -1694,7 +1694,7 @@ function openFixesDialog() {
     const pending = count - applied.length;
     $("#df-note").textContent = !count
         ? "No rule fixes yet. Select a location, then use Fix rule… under its logic."
-        : `${fixCount(count)}${applied.length ? `, ${applied.length} of them in locations.json already` : ""}. They are kept in`
+        : `${fixCount(count)}${applied.length ? `, ${applied.length} of them in the pack already` : ""}. They are kept in`
             + ` ${state.fixFiles.file}, and the handoff below, for a session working on the apworld, in`
             + ` ${state.fixFiles.markdown}. Nothing in the pack changes.`;
     $("#df-text").value = pending ? R.fixesMarkdown(state.pack, state.fixes) : "";
@@ -1711,7 +1711,7 @@ function openFixesDialog() {
 $("#df-clear").onclick = async () => {
     const applied = new Set(R.appliedFixes(state.rules, state.fixes));
     const next = Object.fromEntries(Object.entries(state.fixes).filter(([id]) => !applied.has(id)));
-    if (await saveFixes(next, `Cleared ${fixCount(applied.size)} that locations.json has now`)) openFixesDialog();
+    if (await saveFixes(next, `Cleared ${fixCount(applied.size)} that the pack has now`)) openFixesDialog();
 };
 $("#df-copy").onclick = async () => {
     try {

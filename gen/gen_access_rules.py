@@ -1,4 +1,6 @@
-"""Generates access_rules and visibility_rules in locations/locations.json from the apworld's Rules.py.
+"""Generates access_rules and visibility_rules in the locations files from the apworld's Rules.py.
+
+Each AP region is a top-level location, and each world's regions share locations/<character>/<world>.json.
 
 Usage: <source>/Archipelago/venv/Scripts/python gen/gen_access_rules.py
 
@@ -20,12 +22,16 @@ from pathlib import Path
 sys.path.insert(0, str(Path(sys.prefix).parent))  # the venv sits in the Archipelago checkout
 
 from worlds import khddd
-from gen_location_mapping import BOARD_ROOT, OPEN_SEGMENT, gate_nodes, tracker_regions
+from gen_location_mapping import BOARD_ROOT, OPEN_SEGMENT, gate_nodes, location_file, region_parents
 
 atexit.unregister(input)  # some apworlds register an exit prompt on import
 
 REPO = Path(__file__).resolve().parent.parent
-LOCATIONS_JSON = REPO / "locations" / "locations.json"
+LOCATIONS_DIR = REPO / "locations"
+INIT_LUA = REPO / "scripts" / "init.lua"
+# a top-level location that is no AP region stays in its file; from the single file before the split it goes here
+UNSPLIT_FILE = "locations/locations.json"
+OTHER_FILE = "locations/overworld.json"
 LOCATION_MAPPING = REPO / "scripts" / "autotracking" / "location_mapping.lua"
 ITEM_MAPPING = REPO / "scripts" / "autotracking" / "item_mapping.lua"
 LOGIC_LUA = REPO / "scripts" / "logic" / "logic.lua"
@@ -615,10 +621,10 @@ def contribution_rule(guard, rule, existence):
     return union(option_combo_to_rules(negated), rule)
 
 
-def region_chain(regions, target, start="World"):
-    """Entrance names from start to target."""
-    paths = {start: []}
-    queue = [start]
+def region_chain(regions, target):
+    """Entrance names from the origin region to target."""
+    paths = {"World": []}
+    queue = ["World"]
     while queue:
         region = queue.pop(0)
         if region == target:
@@ -630,17 +636,17 @@ def region_chain(regions, target, start="World"):
     return None
 
 
-def region_rules(region, ap_regions, translator, start="World"):
-    """(access, visibility) of an AP region: its entrance chain from start and the options that create it."""
+def region_rules(region, ap_regions, translator):
+    """(access, visibility) of an AP region: its entrance chain and the options that create it."""
     existence = region_guard(region)
     access = [[]]
-    for entrance in region_chain(ap_regions, region, start) if region in ap_regions else []:
+    for entrance in region_chain(ap_regions, region) if region in ap_regions else []:
         for guard, rule in translator.contributions.get(("entrance", entrance), []):
             access = product(access, contribution_rule(guard, rule, existence))
     return access, option_combo_to_rules(guard_combo(existence))
 
 
-# --- locations.json ------------------------------------------------------------------------------
+# --- locations files -----------------------------------------------------------------------------
 
 def load_mapping(path, pattern):
     return {int(m.group(1)): m.group(2) for m in re.finditer(pattern, path.read_text(encoding="utf-8"), re.M)}
@@ -794,16 +800,87 @@ def descendants(nodes):
         yield from descendants(node.get("children", []))
 
 
+def init_location_files():
+    return re.findall(r'Tracker:AddLocations\("([^"]+)"\)', INIT_LUA.read_text(encoding="utf-8"))
+
+
+def read_locations():
+    """Every top-level location from the files init.lua loads and any other under locations/, and {name: its file}."""
+    found = sorted(path.relative_to(REPO).as_posix() for path in LOCATIONS_DIR.rglob("*.json"))
+    tree, sources = [], {}
+    for rel in dict.fromkeys(init_location_files() + found):
+        if not (REPO / rel).exists():
+            continue
+        for node in json.loads((REPO / rel).read_text(encoding="utf-8")):
+            tree.append(node)
+            sources[node["name"]] = rel
+    return tree, sources
+
+
+def write_locations(tree, sources, parents, regions):
+    """Writes each top-level location to its region's file, ordered like the apworld's region table, and removes the
+    files left empty; returns the files written."""
+    order = {region: index for index, region in enumerate(regions)}
+    files = defaultdict(list)
+    for node in tree:
+        name = node["name"]
+        rel = location_file(name, parents) if name in order else sources.get(name, OTHER_FILE)
+        files[OTHER_FILE if rel == UNSPLIT_FILE else rel].append(node)
+    for rel, nodes in files.items():
+        nodes.sort(key=lambda node: order.get(node["name"], len(order)))
+        (REPO / rel).parent.mkdir(parents=True, exist_ok=True)
+        (REPO / rel).write_text(dumps(nodes) + "\n", encoding="utf-8", newline="\n")
+    for rel in sorted(set(sources.values()) - set(files)):
+        (REPO / rel).unlink()
+        print(f"removed {rel}")
+    return sorted(files)
+
+
+def carry_markers(tree, location_paths):
+    """Takes map_locations off each location whose sections all moved to one other location; returns
+    {new location path: map_locations} for main to put there once it exists."""
+    carried = {}
+    for prefix, node in walk_paths(tree):
+        sections = node.get("sections", [])
+        if not node.get("map_locations") or not sections:
+            continue
+        if any("ref" in section or section.get("name") not in location_paths for section in sections):
+            continue
+        targets = {location_paths[section["name"]].rpartition("/")[0] for section in sections}
+        path = prefix + node["name"]
+        if len(targets) == 1 and path not in targets:
+            carried[targets.pop()] = node.pop("map_locations")
+    return carried
+
+
+def walk_paths(nodes, prefix=""):
+    for node in nodes:
+        yield prefix, node
+        yield from walk_paths(node.get("children", []), f"{prefix}{node['name']}/")
+
+
+def retarget_refs(tree, location_paths):
+    """Points each ref that no longer names a section at the check its last segment names, if that moved."""
+    existing = {f"{prefix}{node['name']}/{section.get('name', '')}"
+                for prefix, node in walk_paths(tree) for section in node.get("sections", [])}
+    for _, node in walk_paths(tree):
+        for section in node.get("sections", []):
+            ref = section.get("ref")
+            moved = location_paths.get(ref.rpartition("/")[2]) if ref and ref not in existing else None
+            if moved:
+                print(f"retargeting {ref} -> {moved}")
+                section["ref"] = moved
+
+
 def main():
-    khddd.Regions.set_region_table()
+    parents = region_parents()
     ap_regions = khddd.Regions.region_data_table  # rebound by set_region_table; the package's copy stays empty
     item_codes = load_mapping(ITEM_MAPPING, r'^\s*\[(\d+)\]\s*=\s*\{\s*\{\s*"([^"]+)"')
     section_paths = load_mapping(LOCATION_MAPPING, r'^\s*\[(\d+)\]\s*=\s*\{\s*\{\s*"@([^"]+)"')
-    folded = tracker_regions()
     location_paths = {}
     for name, data in khddd.location_data_table.items():
         if data.code is None:  # no AP id; hidden sections that board_gate counts
-            location_paths[name] = f"{folded[data.region]}/{EVENT_LOCATION}/{name}"
+            location_paths[name] = f"{data.region}/{EVENT_LOCATION}/{name}"
             continue
         path = section_paths.get(data.code)
         if path is None:
@@ -818,7 +895,8 @@ def main():
     for path in sorted(listed - world_events):
         warn(f"{path!r} is in WORLD_EVENTS in logic.lua but not the apworld's world groups")
 
-    tree = json.loads(LOCATIONS_JSON.read_text(encoding="utf-8"))
+    tree, sources = read_locations()
+    carried = carry_markers(tree, location_paths)
     for path in remove_stale_sections(tree, location_paths):
         print(f"removing {path}")
     for path in location_paths.values():
@@ -826,6 +904,14 @@ def main():
         sections = tree_node(tree, names).setdefault("sections", [])
         if not any(section.get("name") == section_name for section in sections):
             sections.append({"name": section_name})
+    for path, markers in carried.items():
+        node = tree_node(tree, path.split("/"))
+        if "map_locations" in node:
+            warn(f"{path!r} already has map_locations; the ones from its old location are dropped")
+        else:
+            print(f"moving map_locations to {path}")
+            node["map_locations"] = markers
+    retarget_refs(tree, location_paths)
     for names, refs in board_overviews(location_paths).items():
         tree_node(tree, list(names))["sections"] = refs
 
@@ -854,11 +940,9 @@ def main():
             raise ValueError(f"{name!r} ended up unreachable under every option")
         if names[0] == data.region:
             visibility = option_combo_to_rules(assuming(existence, region_guard(data.region)))
-        else:  # the top-level location carries only the rules down to start, an enclosing region or World
-            start = names[0] if folded[data.region] == names[0] else "World"
-            access = product(region_rules(data.region, ap_regions, translator, start)[0], access)
-            visibility = option_combo_to_rules(
-                assuming(guard_and(region_guard(data.region), existence), region_guard(start)))
+        else:  # away from its region's top-level location, the whole entrance chain goes on the location
+            access = product(region_rules(data.region, ap_regions, translator)[0], access)
+            visibility = option_combo_to_rules(guard_and(region_guard(data.region), existence))
         sections = section_rules[tuple(names)]
         if section_name in sections:
             warn(f"{name!r} shares the tracker section {path} with another location; rules are ANDed")
@@ -880,9 +964,17 @@ def main():
         if kind == "entrance" and name not in chained:
             warn(f"rules for entrance {name!r} were dropped (no tracker location behind it)")
 
-    LOCATIONS_JSON.write_text(dumps(tree) + "\n", encoding="utf-8", newline="\n")
+    written = write_locations(tree, sources, parents, ap_regions)
+    loaded = init_location_files()
+    for rel in sorted(set(written) - set(loaded)):
+        warn(f"init.lua does not load {rel}")
+    for rel in sorted(set(loaded) - set(written)):
+        warn(f"init.lua loads {rel}, which holds no location")
+    ut_files = khddd.KHDDDWorld.tracker_world.get("map_page_locations")
+    if sorted([ut_files] if isinstance(ut_files, str) else ut_files or []) != written:
+        warn(f"the apworld's tracker_world map_page_locations should list {written}")
     rule_count = sum("access_rules" in child for node in tree for child in descendants(node.get("children", [])))
-    print(f"wrote {LOCATIONS_JSON.name}: {rule_count} locations with access rules, {len(WARNINGS)} warnings")
+    print(f"wrote {len(written)} locations files: {rule_count} locations with access rules, {len(WARNINGS)} warnings")
 
 
 if __name__ == "__main__":

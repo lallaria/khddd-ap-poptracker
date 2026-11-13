@@ -1,0 +1,17 @@
+[
+    {
+        "name": "World Map [Sora]",
+        "children": [
+            {
+                "name": "Unbound Keyblade Reward",
+                "access_rules": ["@Traverse Town [Sora]/Secret Portal/Traverse Town Secret Portal [Sora],@La Cite des Cloches [Sora]/Secret Portal/La Cite des Cloches Secret Portal [Sora],@The Grid Throughput [Sora]/Secret Portal/The Grid Secret Portal [Sora],@Country of the Musketeers [Sora]/Secret Portal/Country of the Musketeers Secret Portal [Sora],@Prankster's Paradise [Sora]/Secret Portal/Prankster's Paradise Secret Portal [Sora],@Symphony of Sorcery [Sora]/Secret Portal/Symphony of Sorcery Secret Portal [Sora]"],
+                "visibility_rules": ["opt_sora,opt_goal_superbosses", "opt_sora,opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Unbound Keyblade Reward [Sora]"
+                    }
+                ]
+            }
+        ]
+    }
+]

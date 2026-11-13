@@ -6,15 +6,16 @@ import { after, before, describe, test } from "node:test";
 import { fileURLToPath } from "node:url";
 
 import {
-    applyPatch, dumps, formatLayout, LOCATIONS_JSON, MAPS_JSON, parseJsonc, resolveInside, sanitizeImageName, saveImage,
+    applyPatch, dumps, formatLayout, locationFiles, MAPS_JSON, parseJsonc, resolveInside, sanitizeImageName, saveImage,
 } from "../lib/pack.mjs";
 import { addTab, layoutTree, tabTargets } from "../public/layout.mjs";
 
 const PACK = fileURLToPath(new URL("../../..", import.meta.url));
+const TOWN_JSON = "locations/sora/traverse_town.json";
 
 async function tempPack() {
     const root = await mkdtemp(path.join(tmpdir(), "mapper-"));
-    for (const part of ["manifest.json", "maps", "locations", "layouts"]) {
+    for (const part of ["manifest.json", "maps", "locations", "layouts", "scripts"]) {
         await cp(path.join(PACK, part), path.join(root, part), { recursive: true });
     }
     return root;
@@ -22,7 +23,7 @@ async function tempPack() {
 
 describe("dumps", () => {
     test("round-trips the pack's own files byte for byte", async () => {
-        for (const file of [MAPS_JSON, LOCATIONS_JSON]) {
+        for (const file of [MAPS_JSON, ...await locationFiles(PACK)]) {
             const text = await readFile(path.join(PACK, file), "utf8");
             assert.equal(dumps(JSON.parse(text)) + "\n", text, file);
         }
@@ -102,7 +103,7 @@ describe("applyPatch", () => {
     after(() => rm(root, { recursive: true, force: true }));
 
     test("rewrites only the patched markers and maps", async () => {
-        const originalLocations = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
+        const originalLocations = await readFile(path.join(root, TOWN_JSON), "utf8");
         const tree = JSON.parse(originalLocations);
         const town = tree.find((node) => node.name === "Traverse Town [Sora]");
         const placed = town.children.find((node) => node.map_locations);
@@ -125,7 +126,7 @@ describe("applyPatch", () => {
 
         delete placed.map_locations;
         unplaced.map_locations = [{ map: "Traverse Town [Sora]", x: 10, y: 20 }];
-        const written = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
+        const written = await readFile(path.join(root, TOWN_JSON), "utf8");
         assert.equal(written, dumps(tree) + "\n");
         assert.ok(!written.includes("\r"));
 
@@ -152,14 +153,23 @@ describe("applyPatch groups", () => {
     });
     after(() => rm(root, { recursive: true, force: true }));
 
-    const readTree = async () => JSON.parse(await readFile(path.join(root, LOCATIONS_JSON), "utf8"));
+    const LAST_JSON = "locations/overworld.json";
+    const readTree = async () => JSON.parse(await readFile(path.join(root, LAST_JSON), "utf8"));
     const overworld = {
         name: "Mapper Test",
         children: [{ name: "Traverse Town [Sora]", sections: [{ name: "a", ref: "Traverse Town [Sora]/x/a" }] }],
     };
 
-    test("adds, replaces and removes whole top-level locations", async () => {
+    test("reads the locations files in the order init.lua adds them", async () => {
+        const files = await locationFiles(root);
+        const init = await readFile(path.join(root, "scripts", "init.lua"), "utf8");
+        assert.deepEqual(files, [...init.matchAll(/AddLocations\("([^"]+)"\)/g)].map((match) => match[1]));
+        assert.equal(files.at(-1), LAST_JSON);
+    });
+
+    test("adds a new top-level location to the last file, replaces and removes it there", async () => {
         const original = await readTree();
+        const town = await readFile(path.join(root, TOWN_JSON), "utf8");
         await applyPatch(root, { groups: [{ name: "Mapper Test", before: null, after: overworld }] });
         assert.deepEqual(await readTree(), [...original, overworld]);
 
@@ -169,11 +179,25 @@ describe("applyPatch groups", () => {
         assert.deepEqual((await readTree()).at(-1), placed);
 
         await applyPatch(root, { groups: [{ name: "Mapper Test", before: placed, after: null }] });
-        assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), dumps(original) + "\n");
+        assert.equal(await readFile(path.join(root, LAST_JSON), "utf8"), dumps(original) + "\n");
+        assert.equal(await readFile(path.join(root, TOWN_JSON), "utf8"), town);
+    });
+
+    test("writes a replaced top-level location back to its own file", async () => {
+        const town = JSON.parse(await readFile(path.join(root, TOWN_JSON), "utf8"));
+        const last = await readFile(path.join(root, LAST_JSON), "utf8");
+        const plaza = town.find((node) => node.name === "Traverse Town Plaza [Sora]");
+        const renamed = { ...plaza, children: plaza.children.slice(1) };
+        await applyPatch(root, { groups: [{ name: plaza.name, before: plaza, after: renamed }] });
+        const written = JSON.parse(await readFile(path.join(root, TOWN_JSON), "utf8"));
+        assert.deepEqual(written.map((node) => node.name), town.map((node) => node.name));
+        assert.deepEqual(written.find((node) => node.name === plaza.name), renamed);
+        assert.equal(await readFile(path.join(root, LAST_JSON), "utf8"), last);
+        await applyPatch(root, { groups: [{ name: plaza.name, before: renamed, after: plaza }] });
     });
 
     test("refuses a group that changed on disk, or a name already taken, before writing", async () => {
-        const text = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
+        const text = await readFile(path.join(root, TOWN_JSON), "utf8");
         const town = JSON.parse(text).find((node) => node.name === "Traverse Town [Sora]");
         for (const group of [
             { name: "Mapper Test", before: overworld, after: null },
@@ -184,7 +208,7 @@ describe("applyPatch groups", () => {
                 groups: [group],
             }), (error) => error.status === 409 && /changed on disk/.test(error.message), group.name);
         }
-        assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), text);
+        assert.equal(await readFile(path.join(root, TOWN_JSON), "utf8"), text);
     });
 });
 
@@ -195,11 +219,11 @@ describe("applyPatch nodes", () => {
     });
     after(() => rm(root, { recursive: true, force: true }));
 
-    const readTree = async () => JSON.parse(await readFile(path.join(root, LOCATIONS_JSON), "utf8"));
+    const readTree = async () => JSON.parse(await readFile(path.join(root, TOWN_JSON), "utf8"));
     const townOf = (tree) => tree.find((node) => node.name === "Traverse Town [Sora]");
 
     test("adds a location before its sibling, replaces and removes it, with the members' markers", async () => {
-        const text = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
+        const text = await readFile(path.join(root, TOWN_JSON), "utf8");
         const town = townOf(JSON.parse(text));
         const [first, second] = town.children.filter((node) => node.map_locations);
         const names = [town.name, "Mapper Group"];
@@ -227,11 +251,11 @@ describe("applyPatch nodes", () => {
             locations: [first, second].map((node) => ({ path: [town.name, node.name], map_locations: node.map_locations })),
             nodes: [{ path: names, before: moved, after: null }],
         });
-        assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), text);
+        assert.equal(await readFile(path.join(root, TOWN_JSON), "utf8"), text);
     });
 
     test("refuses a location that changed on disk, or a parent that is gone, before writing", async () => {
-        const text = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
+        const text = await readFile(path.join(root, TOWN_JSON), "utf8");
         const town = townOf(JSON.parse(text));
         for (const node of [
             { path: [town.name, town.children[0].name], before: null, after: { name: "x", sections: [] } },
@@ -245,7 +269,7 @@ describe("applyPatch nodes", () => {
         }
         await assert.rejects(applyPatch(root, { nodes: [{ path: ["Mapper Group"], before: null, after: { name: "Mapper Group" } }] }),
             (error) => error.status === 400 && /as a group/.test(error.message));
-        assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), text);
+        assert.equal(await readFile(path.join(root, TOWN_JSON), "utf8"), text);
     });
 });
 
@@ -268,14 +292,14 @@ describe("applyPatch layouts", () => {
 
     test("refuses a layout that changed on disk, before writing anything", async () => {
         const { edit } = await boardsSubTab();
-        const locations = await readFile(path.join(root, LOCATIONS_JSON), "utf8");
+        const locations = await readFile(path.join(root, TOWN_JSON), "utf8");
         const town = JSON.parse(locations).find((node) => node.name === "Traverse Town [Sora]");
         const stale = { ...edit, before: { ...edit.before, background: "#ffffff" } };
         await assert.rejects(applyPatch(root, {
             locations: [{ path: [town.name, town.children[0].name], map_locations: null }],
             layouts: [stale],
         }), (error) => error.status === 409 && /changed on disk/.test(error.message));
-        assert.equal(await readFile(path.join(root, LOCATIONS_JSON), "utf8"), locations);
+        assert.equal(await readFile(path.join(root, TOWN_JSON), "utf8"), locations);
     });
 
     test("rewrites the layout file in its own style", async () => {

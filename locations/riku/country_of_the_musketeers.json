@@ -1,0 +1,593 @@
+[
+    {
+        "name": "Country of the Musketeers [Riku]",
+        "access_rules": ["world_country_of_the_musketeers_riku"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["$has_riku_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Secret Portal [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1494,
+                        "y": 225
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Holey Moley",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Holey Moley Bonus Slot 1 [Riku]",
+                        "ref": "Country of the Musketeers Green Room [Riku]/Holey Moley Bonus Slot 1/Country of the Musketeers Holey Moley Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "Country of the Musketeers All For One Reward [Riku]",
+                        "ref": "Country of the Musketeers Green Room [Riku]/All For One Reward/Country of the Musketeers All For One Reward [Riku]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Cleared [Riku]",
+                        "ref": "Country of the Musketeers Green Room [Riku]/Cleared/Country of the Musketeers Cleared [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1494,
+                        "y": 260
+                    }
+                ]
+            },
+            {
+                "name": "Grand Lobby Water Barrel",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Grand Lobby Water Barrel [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 921,
+                        "y": 884
+                    }
+                ]
+            },
+            {
+                "name": "Grand Lobby Confetti Candy 2",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Grand Lobby Confetti Candy 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 427,
+                        "y": 963
+                    }
+                ]
+            },
+            {
+                "name": "Grand Lobby Royal Cake",
+                "access_rules": ["$can_infinite_jump", "double_flight", "wall_kick", "rail_slide", "flowmotion"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Grand Lobby Royal Cake [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 680,
+                        "y": 588
+                    }
+                ]
+            },
+            {
+                "name": "Grand Lobby Shadowbreaker",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Grand Lobby Shadowbreaker [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 269,
+                        "y": 681
+                    }
+                ]
+            },
+            {
+                "name": "Grand Lobby Mega-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Grand Lobby Mega-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 850,
+                        "y": 681
+                    }
+                ]
+            },
+            {
+                "name": "Theatre Confetti Candy 2",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Theatre Confetti Candy 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 494,
+                        "y": 359
+                    }
+                ]
+            },
+            {
+                "name": "Theatre Balloon",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Theatre Balloon [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 285,
+                        "y": 419
+                    }
+                ]
+            },
+            {
+                "name": "The Opera Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers The Opera Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 346,
+                        "y": 1084
+                    }
+                ]
+            },
+            {
+                "name": "The Opera Shield Cookie 2",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers The Opera Shield Cookie 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 737,
+                        "y": 1177
+                    }
+                ]
+            },
+            {
+                "name": "The Opera Panacea",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers The Opera Panacea [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 717,
+                        "y": 1370
+                    }
+                ]
+            },
+            {
+                "name": "The Opera Dream Candy",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers The Opera Dream Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 698,
+                        "y": 1062
+                    }
+                ]
+            },
+            {
+                "name": "Machine Room Blizzaga",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Machine Room Blizzaga [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1546,
+                        "y": 1050
+                    }
+                ]
+            },
+            {
+                "name": "Machine Room Ducky Goose Recipe",
+                "access_rules": ["double_flight", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Machine Room Ducky Goose Recipe [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1152,
+                        "y": 655
+                    }
+                ]
+            },
+            {
+                "name": "Machine Room Ice Dream Cone 2",
+                "access_rules": ["double_flight", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Machine Room Ice Dream Cone 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1106,
+                        "y": 823
+                    }
+                ]
+            },
+            {
+                "name": "Machine Room Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Machine Room Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1538,
+                        "y": 796
+                    }
+                ]
+            },
+            {
+                "name": "Backstage Royal Cake",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Backstage Royal Cake [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1450,
+                        "y": 118
+                    }
+                ]
+            },
+            {
+                "name": "Backstage Fleeting Fantasy",
+                "access_rules": ["double_flight", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Backstage Fleeting Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1484,
+                        "y": 301
+                    }
+                ]
+            },
+            {
+                "name": "Backstage Dream Candy",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Backstage Dream Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1471,
+                        "y": 193
+                    }
+                ]
+            },
+            {
+                "name": "Backstage Staggerceps Recipe",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Backstage Staggerceps Recipe [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1574,
+                        "y": 255
+                    }
+                ]
+            },
+            {
+                "name": "Green Room Behind Wall",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Green Room Stop [Riku]",
+                        "ref": "Country of the Musketeers Green Room [Riku]/Stop/Country of the Musketeers Green Room Stop [Riku]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Green Room Drop-Me-Not [Riku]",
+                        "ref": "Country of the Musketeers Green Room [Riku]/Drop-Me-Not/Country of the Musketeers Green Room Drop-Me-Not [Riku]"
+                    },
+                    {
+                        "name": "Country of the Musketeers Green Room Confetti Candy 3 [Riku]",
+                        "ref": "Country of the Musketeers Green Room [Riku]/Confetti Candy 3/Country of the Musketeers Green Room Confetti Candy 3 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1411,
+                        "y": 1284
+                    }
+                ]
+            },
+            {
+                "name": "Machine Room Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Machine Room Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1377,
+                        "y": 841
+                    }
+                ]
+            },
+            {
+                "name": "Backstage Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Backstage Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1428,
+                        "y": 364
+                    }
+                ]
+            },
+            {
+                "name": "Backstage Mega-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Backstage Mega-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1655,
+                        "y": 377
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Country of the Musketeers Green Room [Riku]",
+        "access_rules": ["world_country_of_the_musketeers_riku,pole_spin,high_jump", "world_country_of_the_musketeers_riku,pole_spin,double_flight", "world_country_of_the_musketeers_riku,pole_spin,rail_slide", "world_country_of_the_musketeers_riku,pole_spin,$can_infinite_jump", "world_country_of_the_musketeers_riku,flowmotion"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Flashback: Bon Journey Reward",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Flashback: Bon Journey Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Stage Gadget Reward",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Stage Gadget Reward [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1288,
+                        "y": 1554
+                    }
+                ]
+            },
+            {
+                "name": "Holey Moley Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Holey Moley Bonus Slot 1 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Shadow Slide Reward",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Shadow Slide Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Shadow Strike Reward",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Shadow Strike Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "All For One Reward",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers All For One Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Candy Goggles",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Green Room Candy Goggles [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1122,
+                        "y": 1336
+                    }
+                ]
+            },
+            {
+                "name": "Prickly Fantasy",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Green Room Prickly Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1191,
+                        "y": 1413
+                    }
+                ]
+            },
+            {
+                "name": "Fleeting Fantasy",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Green Room Fleeting Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1096,
+                        "y": 1402
+                    }
+                ]
+            },
+            {
+                "name": "Shield Cookie 3",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Green Room Shield Cookie 3 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1343,
+                        "y": 1636
+                    }
+                ]
+            },
+            {
+                "name": "Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Green Room Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1319,
+                        "y": 1506
+                    }
+                ]
+            },
+            {
+                "name": "Stop",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Green Room Stop [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Green Room Drop-Me-Not [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Confetti Candy 3",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Green Room Confetti Candy 3 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Machine Room Mega-Potion",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Machine Room Mega-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Country of the Musketeers [Riku]",
+                        "x": 1189,
+                        "y": 1048
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "Country of the Musketeers Cleared [Riku]"
+                    }
+                ]
+            }
+        ]
+    }
+]

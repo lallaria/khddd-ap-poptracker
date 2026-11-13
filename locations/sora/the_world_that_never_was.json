@@ -1,0 +1,298 @@
+[
+    {
+        "name": "The World That Never Was [Sora]",
+        "access_rules": ["world_the_world_that_never_was_sora,$has_sora_worlds|4"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
+                "name": "Defeat Xemnas",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Xemnas Bonus Slot 1 [Sora]",
+                        "ref": "The World That Never Was [Sora]/Xemnas Bonus Slot 1/The World That Never Was Xemnas Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "The World That Never Was Cleared [Sora]",
+                        "ref": "The World That Never Was [Sora]/Cleared/The World That Never Was Cleared [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 361,
+                        "y": 307
+                    }
+                ]
+            },
+            {
+                "name": "Xemnas Bonus Slot 1",
+                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,glide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Xemnas Bonus Slot 1 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Recusant's Sigil Reward",
+                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,glide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Glossary: Recusant's Sigil Reward [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 366,
+                        "y": 54
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Hearts Tied to Sora Reward",
+                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,glide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Glossary: Hearts Tied to Sora Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Avenue to Dreams Shield Cookie 3",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Avenue to Dreams Shield Cookie 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 485,
+                        "y": 1179
+                    }
+                ]
+            },
+            {
+                "name": "Avenue to Dreams Dulcet Fantasy",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Avenue to Dreams Dulcet Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 439,
+                        "y": 1271
+                    }
+                ]
+            },
+            {
+                "name": "Avenue to Dreams Savage Fantasy",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Avenue to Dreams Savage Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 309,
+                        "y": 1173
+                    }
+                ]
+            },
+            {
+                "name": "Avenue to Dreams Salvation",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Avenue to Dreams Salvation [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 445,
+                        "y": 1220
+                    }
+                ]
+            },
+            {
+                "name": "Avenue to Dreams Elixir",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Avenue to Dreams Elixir [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 232,
+                        "y": 1070
+                    }
+                ]
+            },
+            {
+                "name": "Avenue to Dreams Dream Candy",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Avenue to Dreams Dream Candy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 141,
+                        "y": 1152
+                    }
+                ]
+            },
+            {
+                "name": "Avenue to Dreams Water Barrel",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Avenue to Dreams Water Barrel [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 445,
+                        "y": 1152
+                    }
+                ]
+            },
+            {
+                "name": "Avenue to Dreams Drak Quack Recipe",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Avenue to Dreams Drak Quack Recipe [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 344,
+                        "y": 1073
+                    }
+                ]
+            },
+            {
+                "name": "Contorted City Elixir",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Contorted City Elixir [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 329,
+                        "y": 667
+                    }
+                ]
+            },
+            {
+                "name": "Contorted City Block-It Chocolate 3",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Contorted City Block-It Chocolate 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 108,
+                        "y": 717
+                    }
+                ]
+            },
+            {
+                "name": "Contorted City Shield Cookie 3",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Contorted City Shield Cookie 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 352,
+                        "y": 713
+                    }
+                ]
+            },
+            {
+                "name": "Contorted City Confetti Candy 3",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Contorted City Confetti Candy 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 499,
+                        "y": 694
+                    }
+                ]
+            },
+            {
+                "name": "Contorted City Wondrous Fantasy",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Contorted City Wondrous Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 456,
+                        "y": 565
+                    }
+                ]
+            },
+            {
+                "name": "Contorted City Ice Dream Cone 3",
+                "access_rules": ["$can_infinite_jump", "flowmotion", "high_jump,air_slide", "high_jump,glide"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Contorted City Ice Dream Cone 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 399,
+                        "y": 641
+                    }
+                ]
+            },
+            {
+                "name": "Contorted City Ars Arcanum",
+                "sections": [
+                    {
+                        "name": "The World That Never Was Contorted City Ars Arcanum [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TWTNW (Dark City) [Sora]",
+                        "x": 251,
+                        "y": 644
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "access_rules": ["@The World That Never Was [Sora]/Xemnas Bonus Slot 1/The World That Never Was Xemnas Bonus Slot 1 [Sora]"],
+                "sections": [
+                    {
+                        "name": "The World That Never Was Cleared [Sora]"
+                    }
+                ]
+            }
+        ]
+    }
+]

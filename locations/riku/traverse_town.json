@@ -1,0 +1,726 @@
+[
+    {
+        "name": "Traverse Town [Riku]",
+        "access_rules": ["world_traverse_town_riku"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["rail_slide,$has_riku_worlds|6", "double_flight,$has_riku_worlds|6", "flowmotion,$has_riku_worlds|6", "$has_riku_worlds|6,$can_infinite_jump"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Secret Portal [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 2342,
+                        "y": 328
+                    }
+                ]
+            },
+            {
+                "name": "Komory Bat Recipe Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town Komory Bat Recipe Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: Keyblade War Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town Flashback: Keyblade War Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Keyblade War Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town Glossary: Keyblade War Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Kingdom Hearts Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town Glossary: Kingdom Hearts Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Glossary: Keyblade Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town Glossary: Keyblade Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Rescue Shiki Bonus Slot",
+                "sections": [
+                    {
+                        "name": "Traverse Town Rescue Shiki Bonus Slot [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Hockomonkey",
+                "sections": [
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 1 [Riku]",
+                        "ref": "Traverse Town [Riku]/Hockomonkey Bonus Slot 1/Traverse Town Hockomonkey Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 2 [Riku]",
+                        "ref": "Traverse Town [Riku]/Hockomonkey Bonus Slot 2/Traverse Town Hockomonkey Bonus Slot 2 [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town Skull Noise Reward [Riku]",
+                        "ref": "Traverse Town [Riku]/Skull Noise Reward/Traverse Town Skull Noise Reward [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 2272,
+                        "y": 320
+                    }
+                ]
+            },
+            {
+                "name": "Hockomonkey Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 1 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Hockomonkey Bonus Slot 2",
+                "sections": [
+                    {
+                        "name": "Traverse Town Hockomonkey Bonus Slot 2 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Skull Noise Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town Skull Noise Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "First District Rampant Fantasy",
+                "sections": [
+                    {
+                        "name": "Traverse Town First District Rampant Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 181,
+                        "y": 688
+                    }
+                ]
+            },
+            {
+                "name": "First District Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town First District Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 115,
+                        "y": 754
+                    }
+                ]
+            },
+            {
+                "name": "Second District Block-It Chocolate",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Second District Block-It Chocolate [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 349,
+                        "y": 102
+                    }
+                ]
+            },
+            {
+                "name": "Second District Balloon",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Second District Balloon [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 340,
+                        "y": 415
+                    }
+                ]
+            },
+            {
+                "name": "Second District Yoggy Ram Recipe",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Second District Yoggy Ram Recipe [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 231,
+                        "y": 100
+                    }
+                ]
+            },
+            {
+                "name": "Third District Ice Dream Cone",
+                "access_rules": ["double_flight", "flowmotion", "high_jump", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Third District Ice Dream Cone [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 474,
+                        "y": 810
+                    }
+                ]
+            },
+            {
+                "name": "Third District Confetti Candy",
+                "sections": [
+                    {
+                        "name": "Traverse Town Third District Confetti Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 759,
+                        "y": 849
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1837,
+                        "y": 1093
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Intrepid Figment",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Intrepid Figment [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1673,
+                        "y": 914
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Balloon",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Balloon [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1855,
+                        "y": 837
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Confetti Candy",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Confetti Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1779,
+                        "y": 941
+                    }
+                ]
+            },
+            {
+                "name": "Fifth District Troubling Fantasy",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fifth District Troubling Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1693,
+                        "y": 297
+                    }
+                ]
+            },
+            {
+                "name": "Fifth District Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fifth District Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 2019,
+                        "y": 382
+                    }
+                ]
+            },
+            {
+                "name": "Fifth District Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fifth District Block-It Chocolate [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1895,
+                        "y": 245
+                    }
+                ]
+            },
+            {
+                "name": "Fountain Plaza Vibrant Fantasy",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fountain Plaza Vibrant Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1006,
+                        "y": 397
+                    }
+                ]
+            },
+            {
+                "name": "Fountain Plaza Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fountain Plaza Ice Dream Cone [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1045,
+                        "y": 272
+                    }
+                ]
+            },
+            {
+                "name": "Garden Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Traverse Town Garden Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 2275,
+                        "y": 413
+                    }
+                ]
+            },
+            {
+                "name": "Garden Paint Gun: Green",
+                "sections": [
+                    {
+                        "name": "Traverse Town Garden Paint Gun: Green [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 2206,
+                        "y": 324
+                    }
+                ]
+            },
+            {
+                "name": "Garden Royal Cake",
+                "access_rules": ["rail_slide", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Garden Royal Cake [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 2344,
+                        "y": 305
+                    }
+                ]
+            },
+            {
+                "name": "Garden Hi-Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Garden Hi-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 2248,
+                        "y": 120
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Second Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Second Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1889,
+                        "y": 1001
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Shield Cookie",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Shield Cookie [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 2078,
+                        "y": 808
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Second Confetti Candy",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Second Confetti Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1853,
+                        "y": 926
+                    }
+                ]
+            },
+            {
+                "name": "Fourth District Candy Goggles",
+                "sections": [
+                    {
+                        "name": "Traverse Town Fourth District Candy Goggles [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1837,
+                        "y": 943
+                    }
+                ]
+            },
+            {
+                "name": "Fountain Plaza Blizzard Edge",
+                "access_rules": ["double_flight", "high_jump", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Fountain Plaza Blizzard Edge [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1110,
+                        "y": 179
+                    }
+                ]
+            },
+            {
+                "name": "Back Streets Troubling Fantasy",
+                "access_rules": ["double_flight,air_slide", "$can_infinite_jump", "flowmotion"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Back Streets Troubling Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1085,
+                        "y": 1076
+                    }
+                ]
+            },
+            {
+                "name": "Back Streets Thunder",
+                "sections": [
+                    {
+                        "name": "Traverse Town Back Streets Thunder [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1102,
+                        "y": 952
+                    }
+                ]
+            },
+            {
+                "name": "Back Streets Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Back Streets Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 962,
+                        "y": 715
+                    }
+                ]
+            },
+            {
+                "name": "Back Streets Shield Cookie",
+                "sections": [
+                    {
+                        "name": "Traverse Town Back Streets Shield Cookie [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 849,
+                        "y": 788
+                    }
+                ]
+            },
+            {
+                "name": "Back Streets Intrepid Figment",
+                "access_rules": ["double_flight,air_slide", "$can_infinite_jump", "flowmotion"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Back Streets Intrepid Figment [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 904,
+                        "y": 764
+                    }
+                ]
+            },
+            {
+                "name": "Back Streets Paint Gun: Sky Blue",
+                "sections": [
+                    {
+                        "name": "Traverse Town Back Streets Paint Gun: Sky Blue [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 901,
+                        "y": 888
+                    }
+                ]
+            },
+            {
+                "name": "Back Streets Second Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Back Streets Second Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 986,
+                        "y": 899
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "Traverse Town Cleared [Riku]"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Traverse Town 2 [Riku]",
+        "access_rules": ["world_traverse_town_riku:2"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Help Beat & Rhyme",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Cera Terror Battle Bonus Slot 1 [Riku]",
+                        "ref": "Traverse Town 2 [Riku]/Cera Terror Battle Bonus Slot 1/Traverse Town 2 Cera Terror Battle Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town 2 Cera Terror Battle Bonus Slot 2 [Riku]",
+                        "ref": "Traverse Town 2 [Riku]/Cera Terror Battle Bonus Slot 2/Traverse Town 2 Cera Terror Battle Bonus Slot 2 [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town 2 Cera Terror Recipe Reward [Riku]",
+                        "ref": "Traverse Town 2 [Riku]/Cera Terror Recipe Reward/Traverse Town 2 Cera Terror Recipe Reward [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1108,
+                        "y": 274
+                    }
+                ]
+            },
+            {
+                "name": "Cera Terror Battle Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Cera Terror Battle Bonus Slot 1 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Cera Terror Battle Bonus Slot 2",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Cera Terror Battle Bonus Slot 2 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Cera Terror Recipe Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Cera Terror Recipe Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Trap Spellican",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Knockout Punch Reward [Riku]",
+                        "ref": "Traverse Town 2 [Riku]/Knockout Punch Reward/Traverse Town 2 Knockout Punch Reward [Riku]"
+                    },
+                    {
+                        "name": "Traverse Town 2 Cleared [Riku]",
+                        "ref": "Traverse Town 2 [Riku]/Cleared/Traverse Town 2 Cleared [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 620,
+                        "y": 765
+                    }
+                ]
+            },
+            {
+                "name": "Knockout Punch Reward",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Knockout Punch Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Ultima Weapon Reward",
+                "access_rules": ["@Traverse Town [Riku]/Secret Portal/Traverse Town Secret Portal [Riku],@La Cite des Cloches [Riku]/Secret Portal/La Cite des Cloches Secret Portal [Riku],@The Grid [Riku]/Secret Portal/The Grid Secret Portal [Riku],@Country of the Musketeers [Riku]/Secret Portal/Country of the Musketeers Secret Portal [Riku],@Prankster's Paradise [Riku]/Secret Portal/Prankster's Paradise Secret Portal [Riku],$has_recipes"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Ultima Weapon Reward [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Riku]",
+                        "x": 1109,
+                        "y": 239
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "Traverse Town 2 Cleared [Riku]"
+                    }
+                ]
+            }
+        ]
+    }
+]

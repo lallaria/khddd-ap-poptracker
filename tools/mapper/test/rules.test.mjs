@@ -120,7 +120,7 @@ describe("fixesMarkdown", () => {
         "Town/Attic/Gone": { check: "Gone", wanted: [], note: "", was: [["high_jump"]] },
     };
 
-    test("leaves out fixes locations.json already has", () => {
+    test("leaves out fixes the pack already has", () => {
         assert.deepEqual(appliedFixes(locationIndex(tree()), fixes), ["Town/Roof/Roof Prize"]);
     });
 

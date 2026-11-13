@@ -1,0 +1,443 @@
+[
+    {
+        "name": "Symphony of Sorcery [Sora]",
+        "access_rules": ["world_symphony_of_sorcery_sora"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["high_jump,$has_sora_worlds|6", "$has_sora_worlds|6,$can_infinite_jump"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Secret Portal [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 891,
+                        "y": 94
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: Sorcerer's Apprentice Reward",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Flashback: Sorcerer's Apprentice Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Double Impact Reward",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Double Impact Reward [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 885,
+                        "y": 66
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Spellican",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Spellican Bonus Slot 1 [Sora]",
+                        "ref": "Symphony of Sorcery [Sora]/Spellican Bonus Slot 1/Symphony of Sorcery Spellican Bonus Slot 1 [Sora]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Spellican Bonus Slot 2 [Sora]",
+                        "ref": "Symphony of Sorcery [Sora]/Spellican Bonus Slot 2/Symphony of Sorcery Spellican Bonus Slot 2 [Sora]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Counterpoint Reward [Sora]",
+                        "ref": "Symphony of Sorcery [Sora]/Counterpoint Reward/Symphony of Sorcery Counterpoint Reward [Sora]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Cleared [Sora]",
+                        "ref": "Symphony of Sorcery [Sora]/Cleared/Symphony of Sorcery Cleared [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 154,
+                        "y": 173
+                    }
+                ]
+            },
+            {
+                "name": "Spellican Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Spellican Bonus Slot 1 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Spellican Bonus Slot 2",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Spellican Bonus Slot 2 [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Counterpoint Reward",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Counterpoint Reward [Sora]"
+                    }
+                ]
+            },
+            {
+                "name": "Tower Entrance Dream Candy",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Tower Entrance Dream Candy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 252,
+                        "y": 698
+                    }
+                ]
+            },
+            {
+                "name": "Tower Block-It Chocolate 3",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Tower Block-It Chocolate 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 92,
+                        "y": 1395
+                    }
+                ]
+            },
+            {
+                "name": "Tower Elixir",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Tower Elixir [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 379,
+                        "y": 1364
+                    }
+                ]
+            },
+            {
+                "name": "Cloudwalk Glide",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Cloudwalk Glide [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 1115,
+                        "y": 1441
+                    }
+                ]
+            },
+            {
+                "name": "Cloudwalk Intrepid Fantasy",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Cloudwalk Intrepid Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 952,
+                        "y": 1249
+                    }
+                ]
+            },
+            {
+                "name": "Cloudwalk Ice Dream Cone 3",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Cloudwalk Ice Dream Cone 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 974,
+                        "y": 1407
+                    }
+                ]
+            },
+            {
+                "name": "Cloudwalk Mega-Potion",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Cloudwalk Mega-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 1049,
+                        "y": 1265
+                    }
+                ]
+            },
+            {
+                "name": "Cloudwalk Prism Windmill",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Cloudwalk Prism Windmill [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 1029,
+                        "y": 1213
+                    }
+                ]
+            },
+            {
+                "name": "Cloudwalk Paint Gun: White",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Cloudwalk Paint Gun: White [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 1015,
+                        "y": 1259
+                    }
+                ]
+            },
+            {
+                "name": "Cloudwalk Elixir",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Cloudwalk Elixir [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 1001,
+                        "y": 1277
+                    }
+                ]
+            },
+            {
+                "name": "Glen Tornado",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Glen Tornado [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 985,
+                        "y": 982
+                    }
+                ]
+            },
+            {
+                "name": "Glen Royal Cake",
+                "access_rules": ["wall_kick", "superglide", "glide", "flowmotion"],
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Glen Royal Cake [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 878,
+                        "y": 803
+                    }
+                ]
+            },
+            {
+                "name": "Glen Intrepid Fantasy",
+                "access_rules": ["wall_kick", "superglide", "glide", "flowmotion"],
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Glen Intrepid Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 896,
+                        "y": 707
+                    }
+                ]
+            },
+            {
+                "name": "Glen Ice Dream Cone 3",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Glen Ice Dream Cone 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 694,
+                        "y": 929
+                    }
+                ]
+            },
+            {
+                "name": "Glen Mega-Potion",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Glen Mega-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 875,
+                        "y": 1012
+                    }
+                ]
+            },
+            {
+                "name": "Fields Block-It Chocolate 3",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Fields Block-It Chocolate 3 [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 839,
+                        "y": 319
+                    }
+                ]
+            },
+            {
+                "name": "Fields Epic Fantasy",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Fields Epic Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 946,
+                        "y": 368
+                    }
+                ]
+            },
+            {
+                "name": "Fields Electricorn Recipe",
+                "access_rules": ["superglide", "glide", "flowmotion", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Fields Electricorn Recipe [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 968,
+                        "y": 346
+                    }
+                ]
+            },
+            {
+                "name": "Fields Triple Plasma",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Fields Triple Plasma [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 767,
+                        "y": 233
+                    }
+                ]
+            },
+            {
+                "name": "Fields Panacea",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Fields Panacea [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 964,
+                        "y": 224
+                    }
+                ]
+            },
+            {
+                "name": "Fields Mega-Potion",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Fields Mega-Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 915,
+                        "y": 225
+                    }
+                ]
+            },
+            {
+                "name": "Cloudwalk Candy Goggles",
+                "access_rules": ["wall_kick", "superglide", "glide", "flowmotion"],
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Cloudwalk Candy Goggles [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Sora]",
+                        "x": 931,
+                        "y": 1430
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Cleared [Sora]"
+                    }
+                ]
+            }
+        ]
+    }
+]

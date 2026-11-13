@@ -12,7 +12,7 @@ import re
 
 from PIL import Image, ImageDraw, ImageFont
 
-from gen_access_rules import ITEM_MAPPING, LOCATIONS_JSON, REPO, dumps, khddd, load_mapping
+from gen_access_rules import ITEM_MAPPING, REPO, dumps, khddd, load_mapping, read_locations
 from gen_location_mapping import BOARD_ROOT
 
 MAPS_JSON = REPO / "maps" / "maps.json"
@@ -148,7 +148,8 @@ def spirit_table(table):
 
 
 def main():
-    tree = json.loads(LOCATIONS_JSON.read_text(encoding="utf-8"))
+    tree, sources = read_locations()
+    boards_file = sources[BOARD_ROOT]
     boards = {node["name"]: node for node in next(n for n in tree if n["name"] == BOARD_ROOT)["children"]}
     table = spirits(boards)
     rows = -(-len(table) // COLUMNS)
@@ -158,7 +159,8 @@ def main():
     LAYOUT.write_text(dumps(layout(table, rows)) + "\n", encoding="utf-8", newline="\n")
     SPIRIT_TABLE.write_text(spirit_table(table), encoding="utf-8", newline="\n")
     place_markers(table, boards)
-    LOCATIONS_JSON.write_text(dumps(tree) + "\n", encoding="utf-8", newline="\n")
+    nodes = [node for node in tree if sources[node["name"]] == boards_file]
+    (REPO / boards_file).write_text(dumps(nodes) + "\n", encoding="utf-8", newline="\n")
     set_map()
     print(f"wrote the Link Boards grid: {len(table)} spirits in {rows} rows of {COLUMNS}")
 

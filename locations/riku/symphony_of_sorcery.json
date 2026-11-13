@@ -1,0 +1,427 @@
+[
+    {
+        "name": "Symphony of Sorcery [Riku]",
+        "access_rules": ["world_symphony_of_sorcery_riku"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Flashback: A Magical Mishap Reward",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Flashback: A Magical Mishap Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Chernobog",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Chernobog Bonus Slot 1 [Riku]",
+                        "ref": "Symphony of Sorcery Snowgleam Wood [Riku]/Chernobog Bonus Slot 1/Symphony of Sorcery Chernobog Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Chernobog Bonus Slot 2 [Riku]",
+                        "ref": "Symphony of Sorcery Snowgleam Wood [Riku]/Chernobog Bonus Slot 2/Symphony of Sorcery Chernobog Bonus Slot 2 [Riku]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Counterpoint Reward [Riku]",
+                        "ref": "Symphony of Sorcery Snowgleam Wood [Riku]/Counterpoint Reward/Symphony of Sorcery Counterpoint Reward [Riku]"
+                    },
+                    {
+                        "name": "Symphony of Sorcery Cleared [Riku]",
+                        "ref": "Symphony of Sorcery Snowgleam Wood [Riku]/Cleared/Symphony of Sorcery Cleared [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 1474,
+                        "y": 1375
+                    }
+                ]
+            },
+            {
+                "name": "Tower Entrance Water Barrel",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Tower Entrance Water Barrel [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 233,
+                        "y": 700
+                    }
+                ]
+            },
+            {
+                "name": "Tower Royal Cake",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Tower Royal Cake [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 91,
+                        "y": 1392
+                    }
+                ]
+            },
+            {
+                "name": "Tower Dream Candy",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Tower Dream Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 377,
+                        "y": 1371
+                    }
+                ]
+            },
+            {
+                "name": "Moonlight Wood Zero Graviza",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Moonlight Wood Zero Graviza [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 865,
+                        "y": 277
+                    }
+                ]
+            },
+            {
+                "name": "Moonlight Wood Confetti Candy 3",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Moonlight Wood Confetti Candy 3 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 791,
+                        "y": 337
+                    }
+                ]
+            },
+            {
+                "name": "Moonlight Wood Shield Cookie 3",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Moonlight Wood Shield Cookie 3 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 701,
+                        "y": 194
+                    }
+                ]
+            },
+            {
+                "name": "Moonlight Wood Paint Gun: Green",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Moonlight Wood Paint Gun: Green [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 811,
+                        "y": 395
+                    }
+                ]
+            },
+            {
+                "name": "Moonlight Wood Mega-Potion",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Moonlight Wood Mega-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 758,
+                        "y": 211
+                    }
+                ]
+            },
+            {
+                "name": "Moonlight Wood Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Moonlight Wood Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 698,
+                        "y": 303
+                    }
+                ]
+            },
+            {
+                "name": "Moonlight Wood Intrepid Fancy",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Moonlight Wood Intrepid Fancy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 823,
+                        "y": 331
+                    }
+                ]
+            },
+            {
+                "name": "Moonlight Wood Lord Kyroo Fight",
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump", "$can_pole_jump"],
+                "visibility_rules": ["opt_lord_kyroo"],
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Moonlight Wood Lord Kyroo Fight [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 667,
+                        "y": 374
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Symphony of Sorcery Golden Wood [Riku]",
+        "access_rules": ["world_symphony_of_sorcery_riku,high_jump", "world_symphony_of_sorcery_riku,double_flight", "world_symphony_of_sorcery_riku,flowmotion", "world_symphony_of_sorcery_riku,$can_infinite_jump", "world_symphony_of_sorcery_riku,$can_pole_jump"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Elixir",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Golden Wood Elixir [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 695,
+                        "y": 774
+                    }
+                ]
+            },
+            {
+                "name": "Intrepid Fantasy",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Golden Wood Intrepid Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 836,
+                        "y": 657
+                    }
+                ]
+            },
+            {
+                "name": "Mega-Potion",
+                "access_rules": ["flowmotion", "rail_slide"],
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Golden Wood Mega-Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 841,
+                        "y": 892
+                    }
+                ]
+            },
+            {
+                "name": "Paint Gun: Red",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Golden Wood Paint Gun: Red [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 816,
+                        "y": 776
+                    }
+                ]
+            },
+            {
+                "name": "Ryu Dragon Recipe",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Golden Wood Ryu Dragon Recipe [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 653,
+                        "y": 621
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Symphony of Sorcery Snowgleam Wood [Riku]",
+        "access_rules": ["world_symphony_of_sorcery_riku,high_jump,rail_slide", "world_symphony_of_sorcery_riku,double_flight,rail_slide", "world_symphony_of_sorcery_riku,flowmotion", "world_symphony_of_sorcery_riku,rail_slide,$can_infinite_jump", "world_symphony_of_sorcery_riku,rail_slide,$can_pole_jump"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Chernobog Bonus Slot 1",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Chernobog Bonus Slot 1 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Chernobog Bonus Slot 2",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Chernobog Bonus Slot 2 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Counterpoint Reward",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Counterpoint Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Ice Barrage",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Snowgleam Wood Ice Barrage [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 1282,
+                        "y": 1371
+                    }
+                ]
+            },
+            {
+                "name": "Candy Goggles",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Snowgleam Wood Candy Goggles [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 1286,
+                        "y": 1266
+                    }
+                ]
+            },
+            {
+                "name": "Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Snowgleam Wood Block-It Chocolate [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 1350,
+                        "y": 1038
+                    }
+                ]
+            },
+            {
+                "name": "Ice Dream Cone 3",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Snowgleam Wood Ice Dream Cone 3 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 1340,
+                        "y": 1207
+                    }
+                ]
+            },
+            {
+                "name": "Dulcet Fancy",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Snowgleam Wood Dulcet Fancy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 1291,
+                        "y": 1194
+                    }
+                ]
+            },
+            {
+                "name": "Confetti Candy 3",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Snowgleam Wood Confetti Candy 3 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Symphony of Sorcery [Riku]",
+                        "x": 1444,
+                        "y": 1314
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "sections": [
+                    {
+                        "name": "Symphony of Sorcery Cleared [Riku]"
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,643 @@
+[
+    {
+        "name": "La Cite des Cloches [Riku]",
+        "access_rules": ["world_la_cite_des_cloches_riku"],
+        "visibility_rules": ["opt_riku"],
+        "children": [
+            {
+                "name": "Secret Portal",
+                "access_rules": ["air_slide,$has_riku_worlds|6"],
+                "visibility_rules": ["opt_goal_superbosses", "opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Secret Portal [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1006,
+                        "y": 1254
+                    }
+                ]
+            },
+            {
+                "name": "Flashback: Dark Obsession Reward",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Flashback: Dark Obsession Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Sonic Impact Reward",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Sonic Impact Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Defeat Wargoyle",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Wargoyle Bonus Slot 1 [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Wargoyle Bonus Slot 1/La Cite des Cloches Wargoyle Bonus Slot 1 [Riku]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Wargoyle Bonus Slot 2 [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Wargoyle Bonus Slot 2/La Cite des Cloches Wargoyle Bonus Slot 2 [Riku]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Guardian Bell Reward [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Guardian Bell Reward/La Cite des Cloches Guardian Bell Reward [Riku]"
+                    },
+                    {
+                        "name": "La Cite des Cloches Cleared [Riku]",
+                        "ref": "La Cite des Cloches [Riku]/Cleared/La Cite des Cloches Cleared [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1006,
+                        "y": 1286
+                    }
+                ]
+            },
+            {
+                "name": "Wargoyle Bonus Slot 1",
+                "access_rules": ["air_slide"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Wargoyle Bonus Slot 1 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Wargoyle Bonus Slot 2",
+                "access_rules": ["air_slide"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Wargoyle Bonus Slot 2 [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Chronicle: Kingdom Hearts Reward",
+                "access_rules": ["air_slide"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Chronicle: Kingdom Hearts Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Guardian Bell Reward",
+                "access_rules": ["air_slide"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Guardian Bell Reward [Riku]"
+                    }
+                ]
+            },
+            {
+                "name": "Square Balloon",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Square Balloon [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1232,
+                        "y": 1417
+                    }
+                ]
+            },
+            {
+                "name": "Square Shield Cookie",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Square Shield Cookie [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1162,
+                        "y": 1642
+                    }
+                ]
+            },
+            {
+                "name": "Square Confetti Candy",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Square Confetti Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 985,
+                        "y": 1743
+                    }
+                ]
+            },
+            {
+                "name": "Square Potion",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Square Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 785,
+                        "y": 1621
+                    }
+                ]
+            },
+            {
+                "name": "Nave Shield Cookie 2",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Shield Cookie 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1096,
+                        "y": 468
+                    }
+                ]
+            },
+            {
+                "name": "Nave Fira",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Fira [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 997,
+                        "y": 95
+                    }
+                ]
+            },
+            {
+                "name": "Nave Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 909,
+                        "y": 692
+                    }
+                ]
+            },
+            {
+                "name": "Nave Rampant Figment",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Rampant Figment [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1042,
+                        "y": 579
+                    }
+                ]
+            },
+            {
+                "name": "Nave Paint Gun: Yellow",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Paint Gun: Yellow [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1119,
+                        "y": 746
+                    }
+                ]
+            },
+            {
+                "name": "Nave Second Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Second Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 935,
+                        "y": 325
+                    }
+                ]
+            },
+            {
+                "name": "Bell Tower Royal Cake",
+                "access_rules": ["flowmotion", "high_jump", "double_flight", "$can_pole_jump", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bell Tower Royal Cake [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 536,
+                        "y": 424
+                    }
+                ]
+            },
+            {
+                "name": "Bell Tower Dulcet Figment",
+                "access_rules": ["flowmotion", "high_jump", "double_flight", "$can_pole_jump", "$can_infinite_jump"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bell Tower Dulcet Figment [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 406,
+                        "y": 120
+                    }
+                ]
+            },
+            {
+                "name": "Bell Tower Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bell Tower Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 494,
+                        "y": 567
+                    }
+                ]
+            },
+            {
+                "name": "Bell Tower Second Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bell Tower Second Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 342,
+                        "y": 962
+                    }
+                ]
+            },
+            {
+                "name": "Town Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Block-It Chocolate [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 684,
+                        "y": 2274
+                    }
+                ]
+            },
+            {
+                "name": "Town Candy Goggles",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Candy Goggles [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 806,
+                        "y": 2180
+                    }
+                ]
+            },
+            {
+                "name": "Town Water Barrel",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Water Barrel [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 979,
+                        "y": 2274
+                    }
+                ]
+            },
+            {
+                "name": "Town Noble Fantasy",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Noble Fantasy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 770,
+                        "y": 1941
+                    }
+                ]
+            },
+            {
+                "name": "Town Potion",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 768,
+                        "y": 2124
+                    }
+                ]
+            },
+            {
+                "name": "Town Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Ice Dream Cone [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 857,
+                        "y": 1982
+                    }
+                ]
+            },
+            {
+                "name": "Town Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Town Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 750,
+                        "y": 2147
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Balloon",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bridge Balloon [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1434,
+                        "y": 1389
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Confetti Candy 2",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bridge Confetti Candy 2 [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1450,
+                        "y": 1178
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Confetti Candy",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bridge Confetti Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1450,
+                        "y": 1483
+                    }
+                ]
+            },
+            {
+                "name": "Bridge Potion",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Bridge Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1448,
+                        "y": 1251
+                    }
+                ]
+            },
+            {
+                "name": "Outskirts Shield Cookie",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Outskirts Shield Cookie [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1873,
+                        "y": 1084
+                    }
+                ]
+            },
+            {
+                "name": "Outskirts Potion",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Outskirts Potion [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1852,
+                        "y": 1069
+                    }
+                ]
+            },
+            {
+                "name": "Outskirts Drop-Me-Not",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Outskirts Drop-Me-Not [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1955,
+                        "y": 931
+                    }
+                ]
+            },
+            {
+                "name": "Outskirts Paint Gun: Purple",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Outskirts Paint Gun: Purple [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1858,
+                        "y": 952
+                    }
+                ]
+            },
+            {
+                "name": "Outskirts Confetti Candy",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Outskirts Confetti Candy [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1871,
+                        "y": 919
+                    }
+                ]
+            },
+            {
+                "name": "Windmill Block-It Chocolate",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Windmill Block-It Chocolate [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1537,
+                        "y": 1834
+                    }
+                ]
+            },
+            {
+                "name": "Windmill Sliding Crescent",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Windmill Sliding Crescent [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1580,
+                        "y": 1926
+                    }
+                ]
+            },
+            {
+                "name": "Windmill Water Barrel",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Windmill Water Barrel [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1693,
+                        "y": 1805
+                    }
+                ]
+            },
+            {
+                "name": "Windmill Shield Cookie",
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Windmill Shield Cookie [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1704,
+                        "y": 1974
+                    }
+                ]
+            },
+            {
+                "name": "Nave Lord Kyroo Fight",
+                "visibility_rules": ["opt_lord_kyroo"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Nave Lord Kyroo Fight [Riku]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "La Cité des Cloches [Riku]",
+                        "x": 1012,
+                        "y": 709
+                    }
+                ]
+            },
+            {
+                "name": "Cleared",
+                "access_rules": ["air_slide"],
+                "sections": [
+                    {
+                        "name": "La Cite des Cloches Cleared [Riku]"
+                    }
+                ]
+            }
+        ]
+    }
+]

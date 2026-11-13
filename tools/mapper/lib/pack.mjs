@@ -5,7 +5,7 @@ import { eachTab, layoutTree } from "../public/layout.mjs";
 import { fixesMarkdown, validFixes } from "../public/rules.mjs";
 
 export const MAPS_JSON = "maps/maps.json";
-export const LOCATIONS_JSON = "locations/locations.json";
+export const LOCATIONS_DIR = "locations";
 export const FIXES_FILE = "rule-fixes.json";
 export const IMAGE_EXTENSIONS = [".png", ".gif", ".jpg", ".jpeg"];
 const LAYOUT_WIDTH = 80;
@@ -238,6 +238,25 @@ async function mappedChecks(root) {
     return [...checks];
 }
 
+/** Locations files in load order: those the pack's Lua adds, as it names them, then any other under locations/. */
+export async function locationFiles(root) {
+    const found = await listFiles(root, LOCATIONS_DIR, [".json", ".jsonc"]);
+    const added = [];
+    for (const rel of await listFiles(root, "scripts", [".lua"])) {
+        for (const match of (await readFile(path.join(root, rel), "utf8")).matchAll(/AddLocations\(\s*"([^"]+)"\s*\)/g)) {
+            if (found.includes(match[1])) added.push(match[1]);
+        }
+    }
+    return [...new Set([...added, ...found])];
+}
+
+async function readLocationFiles(root) {
+    return Promise.all((await locationFiles(root)).map(async (rel) => {
+        const text = await readFile(path.join(root, rel), "utf8");
+        return { rel, text, value: JSON.parse(text) };
+    }));
+}
+
 /** Item definitions from items/, trimmed to what naming rule terms needs. */
 async function readItems(root) {
     const files = await Promise.all((await listFiles(root, "items", [".json", ".jsonc"])).map(async (rel) =>
@@ -251,7 +270,7 @@ async function readItems(root) {
 export async function readPack(root) {
     const [maps, locations, layouts, images, manifest, items] = await Promise.all([
         readFile(path.join(root, MAPS_JSON), "utf8").then(JSON.parse),
-        readFile(path.join(root, LOCATIONS_JSON), "utf8").then(JSON.parse),
+        readLocationFiles(root).then((files) => files.flatMap((file) => file.value)),
         readLayouts(root),
         listFiles(root, "images", IMAGE_EXTENSIONS),
         readFile(path.join(root, "manifest.json"), "utf8").then(parseJsonc).catch(() => ({})),
@@ -294,7 +313,7 @@ async function layoutWrites(root, edits) {
  *         `maps` lists `{name, entry}` (null entry removes that map, otherwise replaced in place or appended);
  *         `layouts` lists `{key, before, after}`, refused with 409 if the key on disk no longer equals `before`;
  *         `groups` lists whole top-level locations `{name, before, after}` the same way (null: absent), applied
- *         before `locations`.
+ *         before `locations`; a new one goes in the last locations file.
  *         `nodes` lists whole locations below the top level `{path, before, after, beside}` the same way, applied
  *         after `groups`; a new one goes before its sibling named `beside`, or last.
  *
@@ -305,16 +324,23 @@ export async function applyPatch(root, { locations = [], maps = [], layouts = []
     const layoutTexts = await layoutWrites(root, layouts);
     const missing = [];
     if (locations.length || groups.length || nodes.length) {
-        const file = path.join(root, LOCATIONS_JSON);
-        const tree = JSON.parse(await readFile(file, "utf8"));
+        const files = await readLocationFiles(root);
+        if (!files.length) throw new PackError(404, `the pack has no locations files under ${LOCATIONS_DIR}/`);
+        const home = new Map();  // top-level location -> the file it is written back to; new ones go in the last
+        const tree = files.flatMap((file) => file.value.map((node) => (home.set(node, file), node)));
         const changed = (name) => new PackError(409,
-            `${name} in ${LOCATIONS_JSON} changed on disk since it was loaded; Reload, then redo its edits`);
+            `${name} in ${LOCATIONS_DIR}/ changed on disk since it was loaded; Reload, then redo its edits`);
         for (const { name, before, after } of groups) {
             const index = tree.findIndex((node) => node.name === name);
             if (canonical(index < 0 ? null : tree[index]) !== canonical(before ?? null)) throw changed(name);
-            if (after && index >= 0) tree[index] = after;
-            else if (after) tree.push(after);
-            else if (index >= 0) tree.splice(index, 1);
+            if (after && index >= 0) {
+                home.set(after, home.get(tree[index]));
+                tree[index] = after;
+            } else if (after) {
+                tree.push(after);
+            } else if (index >= 0) {
+                tree.splice(index, 1);
+            }
         }
         for (const { path: names, before, after, beside } of nodes) {
             if (names.length < 2) throw new PackError(400, `${names.join("/")} is top-level; patch it as a group`);
@@ -342,7 +368,12 @@ export async function applyPatch(root, { locations = [], maps = [], layouts = []
             if (markers?.length) node.map_locations = markers;
             else delete node.map_locations;
         }
-        await writeAtomic(file, dumps(tree) + "\n");
+        for (const file of files) file.value = [];
+        for (const node of tree) (home.get(node) ?? files.at(-1)).value.push(node);
+        for (const file of files) {
+            const text = dumps(file.value) + "\n";
+            if (text !== file.text) await writeAtomic(path.join(root, file.rel), text);
+        }
     }
     if (maps.length) {
         const file = path.join(root, MAPS_JSON);

@@ -1,22 +1,22 @@
 -- overlays each world icon with the number of unchecked, logically reachable (green) checks in that world
 local REACHABLE_COLOR = "#20FF20" -- PopTracker's default map colour for reachable
 
--- code of the item the layouts show for each world -> its top-level locations in locations/locations.json
-local WORLD_LOCATIONS = {
-    world_traverse_town_sora_shown = { "Traverse Town [Sora]", "Traverse Town 2 [Sora]" },
-    world_traverse_town_riku_shown = { "Traverse Town [Riku]", "Traverse Town 2 [Riku]" },
-    world_la_cite_des_cloches_sora = { "La Cite des Cloches [Sora]" },
-    world_la_cite_des_cloches_riku = { "La Cite des Cloches [Riku]" },
-    world_the_grid_sora = { "The Grid [Sora]" },
-    world_the_grid_riku = { "The Grid [Riku]" },
-    world_pranksters_paradise_sora = { "Prankster's Paradise [Sora]" },
-    world_pranksters_paradise_riku = { "Prankster's Paradise [Riku]" },
-    world_country_of_the_musketeers_sora = { "Country of the Musketeers [Sora]" },
-    world_country_of_the_musketeers_riku = { "Country of the Musketeers [Riku]" },
-    world_symphony_of_sorcery_sora = { "Symphony of Sorcery [Sora]" },
-    world_symphony_of_sorcery_riku = { "Symphony of Sorcery [Riku]" },
-    world_the_world_that_never_was_sora = { "The World That Never Was [Sora]" },
-    world_the_world_that_never_was_riku = { "The World That Never Was [Riku]" },
+-- code of the item the layouts show for each world -> the locations file holding that world's regions
+local WORLD_FILES = {
+    world_traverse_town_sora_shown = "locations/sora/traverse_town.json",
+    world_traverse_town_riku_shown = "locations/riku/traverse_town.json",
+    world_la_cite_des_cloches_sora = "locations/sora/la_cite_des_cloches.json",
+    world_la_cite_des_cloches_riku = "locations/riku/la_cite_des_cloches.json",
+    world_the_grid_sora = "locations/sora/the_grid.json",
+    world_the_grid_riku = "locations/riku/the_grid.json",
+    world_pranksters_paradise_sora = "locations/sora/pranksters_paradise.json",
+    world_pranksters_paradise_riku = "locations/riku/pranksters_paradise.json",
+    world_country_of_the_musketeers_sora = "locations/sora/country_of_the_musketeers.json",
+    world_country_of_the_musketeers_riku = "locations/riku/country_of_the_musketeers.json",
+    world_symphony_of_sorcery_sora = "locations/sora/symphony_of_sorcery.json",
+    world_symphony_of_sorcery_riku = "locations/riku/symphony_of_sorcery.json",
+    world_the_world_that_never_was_sora = "locations/sora/the_world_that_never_was.json",
+    world_the_world_that_never_was_riku = "locations/riku/the_world_that_never_was.json",
 }
 
 -- Lua has no access to PopTracker's visibility results, so visibility_rules are re-evaluated here;
@@ -98,33 +98,26 @@ local function collect_sections(node, parent_id, chain, out)
 end
 
 local function load_world_sections()
-    local world_of = {}
-    for code, names in pairs(WORLD_LOCATIONS) do
-        for _, name in ipairs(names) do
-            world_of[name] = code
-        end
-    end
-    local file = io.open("locations/locations.json", "rb")
-    local locations = decode_json(file:read("*all"))
-    file:close()
     local sections = {}
-    for _, top in ipairs(locations) do
-        local code = world_of[top.name]
-        if code then
-            sections[code] = sections[code] or {}
-            collect_sections(top, nil, {}, sections[code])
-            world_of[top.name] = nil
+    for code, path in pairs(WORLD_FILES) do
+        sections[code] = {}
+        local file = io.open(path, "rb")
+        if file then
+            local locations = decode_json(file:read("*all"))
+            file:close()
+            for _, top in ipairs(locations) do
+                collect_sections(top, nil, {}, sections[code])
+            end
+        else
+            print("world indicators: no locations file " .. path)
         end
-    end
-    for name in pairs(world_of) do
-        print("world indicators: no top-level location " .. name)
     end
     return sections
 end
 
 local WORLD_SECTIONS = load_world_sections()
 local WORLD_ITEMS = {}
-for code in pairs(WORLD_LOCATIONS) do
+for code in pairs(WORLD_FILES) do
     local item = Tracker:FindObjectForCode(code)
     item:SetOverlayBackground("#000000")
     item:SetOverlayFontSize(20)

@@ -5,7 +5,6 @@ Usage: <source>/Archipelago/venv/Scripts/python gen/gen_location_mapping.py
 Run it with the venv inside the Archipelago checkout that holds worlds/khddd.
 """
 import atexit
-import json
 import os
 import random
 import re
@@ -21,7 +20,6 @@ atexit.unregister(input)  # some apworlds register an exit prompt on import
 
 BOARD_ROOT = "Link Boards"
 OPEN_SEGMENT = "Open"
-LOCATIONS_JSON = Path(__file__).resolve().parent.parent / "locations" / "locations.json"
 
 
 class GateRecorder:
@@ -66,28 +64,46 @@ def world_name(region):
     return re.sub(r"\s*\[(?:Sora|Riku)\]$", "", region).strip()
 
 
-def tracker_regions():
-    """{AP region: top-level location in locations.json}; a sub-region folds into the nearest enclosing top-level
-    location whose name it extends, so Traverse Town Plaza [Sora] lands in Traverse Town [Sora]."""
-    top_level = {node["name"] for node in json.loads(LOCATIONS_JSON.read_text(encoding="utf-8"))}
+def region_parents():
+    """{AP region: the region whose exit leads to it}; the root region has none."""
     khddd.Regions.set_region_table()
     regions = khddd.Regions.region_data_table  # rebound by set_region_table
-    parents = {exit_name: name for name, data in regions.items() for exit_name in data.region_exits or []}
-    folded = {}
-    for region in regions:
-        enclosing = region
-        while enclosing not in top_level and enclosing in parents:
-            enclosing = parents[enclosing]
-        folded[region] = enclosing if f"{world_name(region)} ".startswith(f"{world_name(enclosing)} ") else region
-    return folded
+    return {exit_name: name for name, data in regions.items() for exit_name in data.region_exits or []}
 
 
-def location_name(ap_name, region):
-    """Tracker location name for an AP location: the AP name without world prefix and character tags."""
-    world = world_name(region)
+def extends(region, other):
+    return f"{world_name(region)} ".startswith(f"{world_name(other)} ")
+
+
+def world_region(region, parents):
+    """The farthest ancestor whose name region extends, so Traverse Town Plaza [Sora] and Traverse Town 2 [Sora] belong
+    to Traverse Town [Sora]; the root region never counts."""
+    world = region
+    ancestor = parents.get(region)
+    while ancestor in parents:
+        if extends(region, ancestor):
+            world = ancestor
+        ancestor = parents[ancestor]
+    return world
+
+
+def location_file(region, parents):
+    """Pack-relative locations file of a region's top-level location: locations/<character>/<world>.json, or
+    locations/<region>.json for a region of neither character."""
+    world = world_region(region, parents)
+    slug = re.sub(r"[^a-z0-9]+", "_", world_name(world).lower().replace("'", "")).strip("_")
+    character = re.search(r"\[(Sora|Riku)\]$", world)
+    return f"locations/{character.group(1).lower()}/{slug}.json" if character else f"locations/{slug}.json"
+
+
+def location_name(ap_name, region, parents):
+    """Tracker location name for an AP location: the AP name without its region's or world's prefix and character
+    tags."""
     name = ap_name
-    if name.startswith(world + " "):
-        name = name[len(world) + 1:]
+    for prefix in (world_name(region), world_name(world_region(region, parents))):
+        if name.startswith(prefix + " "):
+            name = name[len(prefix) + 1:]
+            break
     name = re.sub(r"\s*\[Sora\]\s*\[Riku\]\s*$", "", name)
     name = re.sub(r"\s*\[(?:Sora|Riku)\]\s*$", "", name)
     return name.strip()
@@ -117,7 +133,7 @@ def get_category(code, region, name):
     return "Other"
 
 
-def tracker_path(ap_name, region, category, segments):
+def tracker_path(ap_name, region, category, segments, parents):
     """@Region/Location/Section for an AP location; link board nodes are sections of their gate segment,
     @Link Boards/<Spirit>/<Segment>/<Node>.
 
@@ -126,7 +142,7 @@ def tracker_path(ap_name, region, category, segments):
     if category == "Link Boards":
         spirit = ap_name.rpartition(" Node ")[0]
         return f"@{BOARD_ROOT}/{spirit}/{segments.get(ap_name, OPEN_SEGMENT)}/{ap_name}"
-    return f"@{region}/{location_name(ap_name, region)}/{ap_name}"
+    return f"@{region}/{location_name(ap_name, region, parents)}/{ap_name}"
 
 
 CATEGORY_ORDER = [
@@ -146,14 +162,13 @@ CATEGORY_ORDER = [
 
 def main():
     segments = {name: f"Gate {gate}" for (_, gate), names in gate_nodes().items() for name in names}
-    folded = tracker_regions()
+    parents = region_parents()
     categories = {}
     for ap_name, data in khddd.location_data_table.items():
         if data.code is None:  # events have no AP id
             continue
-        region = folded[data.region]
-        category = get_category(data.code, region, ap_name)
-        path = tracker_path(ap_name, region, category, segments)
+        category = get_category(data.code, data.region, ap_name)
+        path = tracker_path(ap_name, data.region, category, segments, parents)
         categories.setdefault(category, []).append((data.code, path))
 
     lines = [

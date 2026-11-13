@@ -1,0 +1,17 @@
+[
+    {
+        "name": "World Map [Riku]",
+        "children": [
+            {
+                "name": "Unbound Keyblade Reward",
+                "access_rules": ["@Traverse Town [Riku]/Secret Portal/Traverse Town Secret Portal [Riku],@La Cite des Cloches [Riku]/Secret Portal/La Cite des Cloches Secret Portal [Riku],@The Grid [Riku]/Secret Portal/The Grid Secret Portal [Riku],@Country of the Musketeers [Riku]/Secret Portal/Country of the Musketeers Secret Portal [Riku],@Prankster's Paradise [Riku]/Secret Portal/Prankster's Paradise Secret Portal [Riku]"],
+                "visibility_rules": ["opt_riku,opt_goal_superbosses", "opt_riku,opt_superbosses"],
+                "sections": [
+                    {
+                        "name": "Unbound Keyblade Reward [Riku]"
+                    }
+                ]
+            }
+        ]
+    }
+]
