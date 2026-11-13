@@ -402,7 +402,7 @@
             },
             {
                 "name": "Fountain Plaza Rampant Fantasy",
-                "access_rules": ["glide,$can_infinite_jump", "rail_slide,$can_infinite_jump", "superglide,$can_infinite_jump", "flowmotion,$can_infinite_jump"],
+                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Traverse Town Fountain Plaza Rampant Fantasy [Sora]"
@@ -6370,7 +6370,6 @@
             },
             {
                 "name": "Grand Lobby Shadowbreaker",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,$can_infinite_jump", "flowmotion,high_jump", "flowmotion,double_flight", "flowmotion,$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Grand Lobby Shadowbreaker [Riku]"
@@ -6571,7 +6570,6 @@
             },
             {
                 "name": "Machine Room Blizzaga",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Machine Room Blizzaga [Riku]"
@@ -6587,7 +6585,7 @@
             },
             {
                 "name": "Machine Room Ducky Goose Recipe",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
+                "access_rules": ["double_flight", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Machine Room Ducky Goose Recipe [Riku]"
@@ -6603,7 +6601,7 @@
             },
             {
                 "name": "Machine Room Ice Dream Cone 2",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
+                "access_rules": ["double_flight", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Machine Room Ice Dream Cone 2 [Riku]"
@@ -6619,7 +6617,6 @@
             },
             {
                 "name": "Machine Room Drop-Me-Not",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Machine Room Drop-Me-Not [Riku]"
@@ -6635,7 +6632,7 @@
             },
             {
                 "name": "Backstage Royal Cake",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,$can_infinite_jump", "flowmotion"],
+                "access_rules": ["high_jump", "double_flight", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Backstage Royal Cake [Riku]"
@@ -6651,7 +6648,7 @@
             },
             {
                 "name": "Backstage Fleeting Fantasy",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,$can_infinite_jump", "flowmotion"],
+                "access_rules": ["double_flight", "flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Backstage Fleeting Fantasy [Riku]"
@@ -6667,7 +6664,6 @@
             },
             {
                 "name": "Backstage Dream Candy",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Backstage Dream Candy [Riku]"
@@ -6683,7 +6679,6 @@
             },
             {
                 "name": "Backstage Staggerceps Recipe",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Backstage Staggerceps Recipe [Riku]"
@@ -6750,7 +6745,6 @@
             },
             {
                 "name": "Machine Room Hi-Potion",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Machine Room Hi-Potion [Riku]"
@@ -6782,7 +6776,6 @@
             },
             {
                 "name": "Backstage Drop-Me-Not",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Backstage Drop-Me-Not [Riku]"
@@ -6798,7 +6791,6 @@
             },
             {
                 "name": "Backstage Mega-Potion",
-                "access_rules": ["pole_spin,high_jump", "pole_spin,double_flight", "pole_spin,rail_slide", "pole_spin,$can_infinite_jump", "flowmotion"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Backstage Mega-Potion [Riku]"
