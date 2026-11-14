@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { describe, test } from "node:test";
 
 import {
-    appliedFixes, combine, fixesMarkdown, helperTerms, inheritedRules, itemNames, knownTerm, locationIndex, ownRules,
-    parseTerm, resolveCheck, sameRules, termLabel, validFixes,
+    appliedFixes, combine, fixesMarkdown, helperTerms, inheritedRules, isOptional, itemNames, knownTerm, locationIndex,
+    ownRules, parseTerm, resolveCheck, sameRules, termLabel, toggleOptional, validFixes,
 } from "../public/rules.mjs";
 
 const items = [
@@ -81,7 +81,7 @@ describe("rules", () => {
         assert.equal(termLabel("$opt_off|opt_goal_boss", names), "opt_off(Goal: Boss)");
         assert.equal(termLabel("^$board_gate|3|1", names), "board_gate(3, 1)");
         assert.equal(termLabel("@Town/Roof/Roof Chest", names), "reach Roof Chest");
-        assert.equal(termLabel("[high_jump]", names), "High Jump (optional)");
+        assert.equal(termLabel("[high_jump]", names), "High Jump (else out of logic)");
         assert.equal(termLabel("mystery", names), "mystery");
         assert.equal(parseTerm("  high jump ", names), "high_jump");
         assert.equal(parseTerm("la cite [sora]", names), "world_cite_sora");
@@ -96,8 +96,23 @@ describe("rules", () => {
         assert.ok(!knownTerm("New Item", names));
     });
 
+    test("reads optional terms by name and toggles them", () => {
+        const names = itemNames(items);
+        assert.equal(parseTerm("[High Jump]", names), "[high_jump]");
+        assert.equal(parseTerm("{lucky emblem:2}", names), "{lucky_emblem:2}");
+        assert.equal(parseTerm("[ ]", names), null);
+        assert.ok(knownTerm("[high_jump]", names));
+        assert.ok(!knownTerm("[New Item]", names));
+        assert.ok(isOptional("[high_jump]"));
+        assert.ok(!isOptional("world_cite_sora"));
+        assert.equal(toggleOptional("high_jump"), "[high_jump]");
+        assert.equal(toggleOptional("[high_jump]"), "high_jump");
+    });
+
     test("collects the helper terms the rules use", () => {
         assert.deepEqual(helperTerms(locationIndex(tree())), ["$can_glide"]);
+        const index = locationIndex([{ name: "Hall", access_rules: ["sliding_dash,[opt_slidedash]", "$can_glide"] }]);
+        assert.deepEqual(helperTerms(index), ["$can_glide", "[opt_slidedash]"]);
     });
 
     test("accepts only fixes shaped like rule-fixes.json", () => {

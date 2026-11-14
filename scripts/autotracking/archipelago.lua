@@ -244,6 +244,11 @@ function apply_slot_data(slot_data)
 	setSettingActive("opt_fast_go_mode", slotBool(slot_data.fast_go_mode))
 	-- seeds without link_board_sanity predate the option and always have board checks
 	setSettingActive("opt_link_boards", slotBool(slot_data.link_board_sanity) ~= false)
+	-- logic options exist only in the options table, from apworlds that have them
+	local options = type(slot_data.options) == "table" and slot_data.options or {}
+	setSettingActive("opt_slidedash", slotBool(options.slidedash))
+	setSettingActive("opt_riku_links", slotBool(options.riku_links))
+	setSettingActive("opt_glitched", slotBool(options.glitched))
 	local vanilla_levels = slotBool(slot_data.use_vanilla_levels)
 	if vanilla_levels ~= nil then
 		setSettingActive("opt_levels", not vanilla_levels)

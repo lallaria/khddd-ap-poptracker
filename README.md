@@ -20,6 +20,9 @@ Ventus Nightmare, level checks, link board checks, fast go mode, recipes require
 required. Chest logic and which locations are shown following these settings. When connected to
 Archipelago they should be filled automatically.
 
+The Logic group in the same window holds the apworld's logic options: Slide Dash logic, Rising Wing
+logic and glitched logic. With one off, checks that need it show yellow: possible, but out of logic.
+
 The green number on a world icon counts that world's unchecked checks that are in logic, including
 ones without a map pin.
 
@@ -98,7 +101,8 @@ generators put them, so a regen keeps the group. Press `?` in the tool for its s
 
 Rules that are wrong get fixed in the apworld, not here. A location's details end with its Logic:
 what its parent locations need and what each check adds. "Fix rule…" records the rule a check
-should have, plus a note, without touching the pack. Fixes go to `rule-fixes.json` beside the pack
+should have, plus a note, without touching the pack. Clicking a term there makes it out of logic only
+(`[term]`, yellow without it), which is how a logic option such as Slide Dash logic is written. Fixes go to `rule-fixes.json` beside the pack
 (`--fixes <file>` puts them elsewhere), and `rule-fixes.md` next to it is the handoff to give a
 session working on the apworld; "Rule fixes" in the toolbar shows and copies it. The handoff asks
 that session to change only the apworld, on the branch checked out there, then commit and reply with

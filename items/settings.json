@@ -99,6 +99,30 @@
         "codes": "opt_fast_go_mode"
     },
     {
+        "name": "Slide Dash logic",
+        "type": "toggle",
+        "img": "images/items/switch_on.png",
+        "disabled_img": "images/items/switch_off.png",
+        "disabled_img_mods": "none",
+        "codes": "opt_slidedash"
+    },
+    {
+        "name": "Rising Wing logic",
+        "type": "toggle",
+        "img": "images/items/switch_on.png",
+        "disabled_img": "images/items/switch_off.png",
+        "disabled_img_mods": "none",
+        "codes": "opt_riku_links"
+    },
+    {
+        "name": "Glitched logic",
+        "type": "toggle",
+        "img": "images/items/switch_on.png",
+        "disabled_img": "images/items/switch_off.png",
+        "disabled_img_mods": "none",
+        "codes": "opt_glitched"
+    },
+    {
         "name": "Recipes required",
         "type": "consumable",
         "img": "images/items/recipe.png",

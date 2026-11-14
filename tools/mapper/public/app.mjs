@@ -1466,15 +1466,28 @@ function fillRuleTerms() {
         seen.add(name);
         options.push(el("option", { value: name, label: code }));
     }
-    for (const term of R.helperTerms(state.rules)) options.push(el("option", { value: term }));
+    for (const term of R.helperTerms(state.rules)) {
+        options.push(el("option", { value: term, label: R.termLabel(term, state.names) }));
+    }
     $("#rule-terms").replaceChildren(...options);
+}
+
+const OPTIONAL_NOTE = "Without it the check still shows, yellow: possible, but out of logic";
+
+function termTitle(term, known) {
+    return [term, known ? null : "No item in the pack has this code", R.isOptional(term) ? OPTIONAL_NOTE : null]
+        .filter(Boolean).join("\n");
+}
+
+function termClasses(base, term, known) {
+    return [base, known ? null : "unknown", R.isOptional(term) ? "optional" : null].filter(Boolean).join(" ");
 }
 
 function termView(term) {
     const known = R.knownTerm(term, state.names);
     return el("span", {
-        className: `term${known ? "" : " unknown"}`, textContent: R.termLabel(term, state.names),
-        title: known ? term : `${term}\nNo item in the pack has this code`,
+        className: termClasses("term", term, known), textContent: R.termLabel(term, state.names),
+        title: termTitle(term, known),
     });
 }
 
@@ -1630,9 +1643,15 @@ function renderRuleRows(focus = null) {
         input.oninput = (event) => event.inputType === "insertReplacementText" && add();
         const chips = row.map((term, j) => {
             const known = R.knownTerm(term, state.names);
-            return el("span", {
-                className: `chip${known ? "" : " unknown"}`, title: known ? term : `${term}\nNo item in the pack has this code`,
-            }, R.termLabel(term, state.names), el("button", {
+            const label = el("span", {
+                className: "toggle", textContent: R.termLabel(term, state.names),
+                title: `${termTitle(term, known)}\nClick to ${R.isOptional(term) ? "require it again" : "make it out of logic only"}`,
+                onclick: () => {
+                    row[j] = R.toggleOptional(term);
+                    renderRuleRows(i);
+                },
+            });
+            return el("span", { className: termClasses("chip", term, known) }, label, el("button", {
                 type: "button", textContent: "✕", title: "Remove",
                 onclick: () => {
                     row.splice(j, 1);

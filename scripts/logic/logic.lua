@@ -37,7 +37,7 @@ local RIKU_WORLDS = {
     "world_symphony_of_sorcery_riku",
 }
 
-local function count_worlds(codes)
+local function count_owned(codes)
     local count = 0
     for _, code in ipairs(codes) do
         if has(code) then
@@ -48,11 +48,44 @@ local function count_worlds(codes)
 end
 
 function has_sora_worlds(n)
-    return count_worlds(SORA_WORLDS) >= tonumber(n)
+    return count_owned(SORA_WORLDS) >= tonumber(n)
 end
 
 function has_riku_worlds(n)
-    return count_worlds(RIKU_WORLDS) >= tonumber(n)
+    return count_owned(RIKU_WORLDS) >= tonumber(n)
+end
+
+-- recipes by style from the apworld's Items.py, for the styles has_rising_wing counts; gen_access_rules.py checks them
+local RECIPE_STYLES = {
+    Aqua = {
+        "sir_kyroo_recipe", "fin_fatale_recipe", "tatsu_steed_recipe", "icequin_ace_recipe",
+        "escarglow_recipe", "wheeflower_recipe", "zolephant_recipe", "juggle_pup_recipe",
+        "r_and_r_seal_recipe", "beatalike_recipe", "tubguin_ace_recipe",
+    },
+    Dark = {
+        "komory_bat_recipe", "toximander_recipe", "necho_cat_recipe", "peepsta_hoo_recipe",
+        "ghostabocky_recipe", "fishbone_recipe", "woeflower_recipe", "skelterwild_recipe",
+        "keeba_tiger_recipe", "frootz_cat_recipe",
+    },
+    Fire = {
+        "yoggy_ram_recipe", "hebby_rep_recipe", "ko_kabuto_recipe", "staggerceps_recipe",
+        "chef_kyroo_recipe", "tatsu_blaze_recipe", "eaglider_recipe", "tyranto_rex_recipe",
+        "ryu_dragon_recipe", "drak_quack_recipe", "sudo_neku_recipe", "kab_kannon_recipe",
+    },
+    Physical = {
+        "meow_wow_recipe", "tama_sheep_recipe", "pricklemane_recipe", "kooma_panda_recipe",
+        "halbird_recipe", "flowbermeow_recipe", "drill_sye_recipe", "cera_terror_recipe",
+        "ducky_goose_recipe", "aura_lion_recipe", "meowjesty_recipe", "ursa_circus_recipe",
+        "catanuki_recipe",
+    },
+}
+
+-- the recipes of has_rising_wing; the riku_links option is a separate rule term
+function has_rising_wing()
+    local aqua = count_owned(RECIPE_STYLES.Aqua)
+    local links = aqua + count_owned(RECIPE_STYLES.Dark) + count_owned(RECIPE_STYLES.Fire)
+        + count_owned(RECIPE_STYLES.Physical)
+    return aqua >= 1 and links >= 2
 end
 
 -- spirit id -> { character = 1 sora / 2 riku, world count per gate } from slot_data gate_reqs; nil until AP connects

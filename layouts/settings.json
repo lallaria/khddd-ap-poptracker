@@ -13,6 +13,14 @@
             },
             {
                 "type": "group",
+                "header": "Logic (off: checks that need it show yellow)",
+                "content": {
+                    "type": "layout",
+                    "key": "settings_logic"
+                }
+            },
+            {
+                "type": "group",
                 "header": "Tracker",
                 "content": {
                     "type": "layout",
@@ -103,6 +111,36 @@
                 "content": [
                     { "type": "item", "item": "opt_emblem_reqs", "max_width": 48, "max_height": 48 },
                     { "type": "text", "text": "Lucky Emblems required", "v_alignment": "center" }
+                ]
+            }
+        ]
+    },
+    "settings_logic": {
+        "type": "array",
+        "orientation": "vertical",
+        "content": [
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_slidedash", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Slide Dash logic (Sliding Dash, Thunder Dash)", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_riku_links", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Rising Wing logic (Riku's links)", "v_alignment": "center" }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "horizontal",
+                "content": [
+                    { "type": "item", "item": "opt_glitched", "max_width": 48, "max_height": 48 },
+                    { "type": "text", "text": "Glitched logic", "v_alignment": "center" }
                 ]
             }
         ]

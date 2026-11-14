@@ -35,6 +35,7 @@ OTHER_FILE = "locations/overworld.json"
 LOCATION_MAPPING = REPO / "scripts" / "autotracking" / "location_mapping.lua"
 ITEM_MAPPING = REPO / "scripts" / "autotracking" / "item_mapping.lua"
 LOGIC_LUA = REPO / "scripts" / "logic" / "logic.lua"
+RECIPE_STYLES_LUA = "RECIPE_STYLES"
 EVENT_LOCATION = "Cleared"
 
 # option -> value domain; emblem_reqs is folded to 0 / "1 or more"
@@ -73,14 +74,17 @@ TOGGLE_CODES = {
 COUNT_OPTION_CODES = {"emblem_reqs": "opt_emblem_reqs", "recipe_reqs": "opt_recipe_reqs"}
 # (item, option) count comparisons with a dedicated Lua function
 COUNT_HELPERS = {("Lucky Emblem", "emblem_reqs"): "$has_emblems"}
-# Rules.py helper -> Lua $ function; other helpers are inlined from their body
+# Rules.py helper -> Lua $ function, or its terms; other helpers are inlined from their body
 HELPERS = {
     "can_infinite_jump": "$can_infinite_jump",
     "can_pole_jump": "$can_pole_jump",
     "can_glide": "$can_glide",
     "post_office_access": "$post_office_access",
     "has_required_recipes": "$has_recipes",
+    "has_rising_wing": ("$has_rising_wing", "[opt_riku_links]"),
 }
+# logic option -> setting code; a rule ANDed with its OptionFilter becomes an optional term, yellow while it is off
+LOGIC_OPTION_CODES = {"glitched": "opt_glitched", "slidedash": "opt_slidedash", "riku_links": "opt_riku_links"}
 COUNTING_HELPERS = {"has_x_sora_worlds": "$has_sora_worlds", "has_x_riku_worlds": "$has_riku_worlds"}
 # Rules.py helper returning {node: rule} for the rolled link board gates; gate_contributions adds those rules
 GATE_RULES_HELPER = "gate_rules"
@@ -282,7 +286,7 @@ def option_combo_to_rules(branches):
 # --- rule combo over piece strings -------------------------------------------------------------------
 
 def split_piece(text):
-    if text.startswith(("$", "^", "@")):
+    if text.startswith(("$", "^", "@", "[")):
         return text, None
     code, _, count = text.partition(":")
     return code, int(count) if count else 1
@@ -418,7 +422,21 @@ class Translator:
             return combine(self.rule(node.left, env), self.rule(node.right, env))
         if isinstance(node, ast.Call):
             return self.call_rule(node, env)
+        if isinstance(node, (ast.Name, ast.List, ast.Tuple)):
+            return self.option_filters(self.concrete(node, env), node)
         raise ValueError(f"unsupported rule expression: {ast.unparse(node)}")
+
+    @staticmethod
+    def option_filters(filters, node):
+        """Optional terms for the OptionFilters a rule is ANDed with; only logic options turned on are supported."""
+        names = {option: name for name, option in khddd.Options.KHDDDOptions.type_hints.items()}
+        terms = []
+        for option_filter in filters:
+            name = names.get(getattr(option_filter, "option", None))
+            if name not in LOGIC_OPTION_CODES or option_filter.operator != "eq" or not option_filter.value:
+                raise ValueError(f"unsupported option filter in {ast.unparse(node)}: {option_filter}")
+            terms.append(f"[{LOGIC_OPTION_CODES[name]}]")
+        return [terms]
 
     def count_rule(self, name, node, env):
         """Rule combo for owning as many of the item as node says."""
@@ -449,6 +467,8 @@ class Translator:
         args = node.args
         if name == "True_":
             return [[]]
+        if name == "False_":
+            return []
         if name == "Has":
             code = self.item_code(self.concrete(args[0], env))
             return [[code]] if code else []
@@ -475,7 +495,8 @@ class Translator:
     def helper_rule(self, node, env):
         name = node.func.id
         if name in HELPERS:
-            return [[HELPERS[name]]]
+            terms = HELPERS[name]
+            return [[terms] if isinstance(terms, str) else list(terms)]
         if name in COUNTING_HELPERS:
             return [[f"{COUNTING_HELPERS[name]}|{self.concrete(node.args[0], env)}"]]
         function = self.functions.get(name)
@@ -872,6 +893,19 @@ def retarget_refs(tree, location_paths):
                 section["ref"] = moved
 
 
+def check_recipe_styles(item_codes):
+    """Warns where the recipe codes per style in logic.lua, which $has_rising_wing counts, differ from the apworld's."""
+    try:
+        by_style = khddd.Items.get_recipes_by_style
+    except AttributeError:  # apworlds before recipe styles
+        return
+    block = re.search(rf"{RECIPE_STYLES_LUA} = \{{(.*?)\n\}}", LOGIC_LUA.read_text(encoding="utf-8"), re.S).group(1)
+    for style, listed in re.findall(r"(\w+) = \{([^}]*)\}", block):
+        wanted = {item_codes.get(data.code) for data in by_style(style).values()}
+        if set(re.findall(r'"([^"]+)"', listed)) != wanted:
+            warn(f"{RECIPE_STYLES_LUA}.{style} in logic.lua should list {sorted(wanted)}")
+
+
 def main():
     parents = region_parents()
     ap_regions = khddd.Regions.region_data_table  # rebound by set_region_table; the package's copy stays empty
@@ -894,6 +928,7 @@ def main():
         warn(f"{path!r} is missing from WORLD_EVENTS in logic.lua")
     for path in sorted(listed - world_events):
         warn(f"{path!r} is in WORLD_EVENTS in logic.lua but not the apworld's world groups")
+    check_recipe_styles(item_codes)
 
     tree, sources = read_locations()
     carried = carry_markers(tree, location_paths)

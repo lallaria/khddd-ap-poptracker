@@ -129,9 +129,15 @@ export function itemNames(items) {
 
 const HELPER = /^\^?\$([^|]+)(?:\|(.*))?$/;
 const COUNTED = /^(.*?)(?::(\d+))?$/;
+const WRAPPED = /^([[{])(.*)[\]}]$/;
+
+/** True for a `[term]`: without it the alternative still counts, as a sequence break (yellow). */
+export const isOptional = (term) => /^\[.*\]$/.test(term);
+
+export const toggleOptional = (term) => (isOptional(term) ? term.slice(1, -1) : `[${term}]`);
 
 export function termLabel(term, names) {
-    if (/^\[.*\]$/.test(term)) return `${termLabel(term.slice(1, -1), names)} (optional)`;
+    if (isOptional(term)) return `${termLabel(term.slice(1, -1), names)} (else out of logic)`;
     if (/^\{.*\}$/.test(term)) return `${termLabel(term.slice(1, -1), names)} (checkable)`;
     if (term.startsWith("@")) return `reach ${term.slice(term.lastIndexOf("/") + 1)}`;
     const helper = HELPER.exec(term);
@@ -147,15 +153,25 @@ export function termLabel(term, names) {
 
 /** False for a plain code that no item defines; helpers and references are taken on trust. */
 export function knownTerm(term, names) {
-    if (/^[\^$@[{]/.test(term)) return true;
+    const wrapped = WRAPPED.exec(term);
+    if (wrapped) return knownTerm(wrapped[2], names);
+    if (/^[\^$@]/.test(term)) return true;
     return names.has(COUNTED.exec(term)[1]);
 }
 
-/** A term from what the user typed: an item name or code, `:N` or `×N` for a count, or a raw helper or reference. */
+/**
+ * A term from what the user typed: an item name or code, `:N` or `×N` for a count, or a raw helper or reference;
+ * any of these in `[]` or `{}` keeps the brackets.
+ */
 export function parseTerm(text, names) {
     const raw = String(text).trim();
     if (!raw) return null;
-    if (/^[\^$@[{]/.test(raw)) return raw;
+    const wrapped = WRAPPED.exec(raw);
+    if (wrapped) {
+        const inner = parseTerm(wrapped[2], names);
+        return inner && `${wrapped[1]}${inner}${wrapped[1] === "[" ? "]" : "}"}`;
+    }
+    if (/^[\^$@]/.test(raw)) return raw;
     const [, typed, count] = /^(.*?)(?:\s*[:×]\s*(\d+))?$/.exec(raw);
     const base = typed.trim();
     const wanted = fold(base);
@@ -163,12 +179,14 @@ export function parseTerm(text, names) {
     return count && Number(count) > 1 ? `${code}:${Number(count)}` : code;
 }
 
-/** Distinct helper terms the pack's access rules use, for suggestions. */
+/** Distinct helper and optional terms the pack's access rules use, for suggestions. */
 export function helperTerms(index) {
     const terms = new Set();
     for (const { node } of index.values()) {
         for (const holder of [node, ...(node.sections || [])]) {
-            for (const rule of ownRules(holder)) for (const term of rule) if (HELPER.test(term)) terms.add(term);
+            for (const rule of ownRules(holder)) {
+                for (const term of rule) if (HELPER.test(term) || isOptional(term)) terms.add(term);
+            }
         }
     }
     return [...terms].sort();
@@ -222,8 +240,10 @@ export function fixesMarkdown({ name, locations, items }, fixes) {
             + " tracker last saw it, and the rule it should have on top of the parents' instead. The branch may have moved"
             + " since, so read the current rule in the apworld. Any one alternative of a rule is enough; terms joined by `&`"
             + " are all needed. `name(args)` is a logic helper, `×N` means N of an item, and `reach X` needs location X"
-            + " reachable; tracker codes follow in backticks for reference. Whether a fix belongs on the location, a region"
-            + " or an entrance is yours to decide.",
+            + " reachable; tracker codes follow in backticks for reference. A term marked `(else out of logic)` is a logic"
+            + " option: the alternative is in logic only with that option on, so AND its `option_...()` helper in Rules.py"
+            + " onto the rest of the alternative. Whether a fix belongs on the location, a region or an entrance is yours"
+            + " to decide.",
     ];
     let world = null;
     for (const id of pending) {

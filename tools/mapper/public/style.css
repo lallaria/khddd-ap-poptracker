@@ -143,6 +143,7 @@ ul.checks .logic { margin: 2px 0 0 12px; }
 .rule > div, .note { overflow-wrap: anywhere; }
 .note { white-space: pre-wrap; }
 .term.unknown { color: var(--warn); }
+.term.optional { text-decoration: underline dashed var(--accent); text-underline-offset: 3px; }
 .done { color: var(--here); }
 
 #canvas-pane { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; background: var(--canvas); }
@@ -188,6 +189,8 @@ dialog.wide { width: min(760px, calc(100vw - 32px)); }
     padding: 1px 1px 1px 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel-2);
 }
 .chip.unknown { border-color: var(--warn); color: var(--warn); }
+.chip.optional { border-color: var(--accent); border-style: dashed; }
+.chip .toggle { cursor: pointer; }
 .chip button { border: none; background: none; padding: 0 5px; line-height: 1.2; font-size: 11px; color: var(--dim); }
 #df-text { font: 12px/1.4 ui-monospace, "Cascadia Mono", Consolas, monospace; }
 dialog::backdrop { background: rgb(0 0 0 / 0.55); }
