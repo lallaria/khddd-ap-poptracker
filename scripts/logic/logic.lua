@@ -19,6 +19,29 @@ function post_office_access()
     return has("flowmotion") or has("wall_kick") or has("glide") or has("rail_slide")
 end
 
+-- helpers with a logic option return an AccessibilityLevel (^$): out of logic while the option is off
+local function with_logic_option(code, possible)
+    if not possible then
+        return AccessibilityLevel.None
+    end
+    return has(code) and AccessibilityLevel.Normal or AccessibilityLevel.SequenceBreak
+end
+
+function can_sliding_dash()
+    return with_logic_option("opt_slidedash", has("sliding_dash") or has("thunder_dash"))
+end
+
+function has_vertical_mobility()
+    return has("high_jump") or has("flowmotion") or can_infinite_jump()
+end
+
+function has_horizontal_mobility()
+    if has("air_slide") or has("flowmotion") or can_infinite_jump() then
+        return AccessibilityLevel.Normal
+    end
+    return can_sliding_dash()
+end
+
 -- the worlds counted by has_x_sora_worlds / has_x_riku_worlds in the apworld's Rules.py
 local SORA_WORLDS = {
     "world_traverse_town_sora",
@@ -80,12 +103,11 @@ local RECIPE_STYLES = {
     },
 }
 
--- the recipes of has_rising_wing; the riku_links option is a separate rule term
 function has_rising_wing()
     local aqua = count_owned(RECIPE_STYLES.Aqua)
     local links = aqua + count_owned(RECIPE_STYLES.Dark) + count_owned(RECIPE_STYLES.Fire)
         + count_owned(RECIPE_STYLES.Physical)
-    return aqua >= 1 and links >= 2
+    return with_logic_option("opt_riku_links", aqua >= 1 and links >= 2)
 end
 
 -- spirit id -> { character = 1 sora / 2 riku, world count per gate } from slot_data gate_reqs; nil until AP connects

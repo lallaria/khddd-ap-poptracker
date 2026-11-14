@@ -6,7 +6,8 @@ import { after, before, describe, test } from "node:test";
 import { fileURLToPath } from "node:url";
 
 import {
-    applyPatch, dumps, formatLayout, locationFiles, MAPS_JSON, parseJsonc, resolveInside, sanitizeImageName, saveImage,
+    applyPatch, dumps, formatLayout, locationFiles, luaHelperTerms, MAPS_JSON, parseJsonc, resolveInside, sanitizeImageName,
+    saveImage,
 } from "../lib/pack.mjs";
 import { addTab, layoutTree, tabTargets } from "../public/layout.mjs";
 
@@ -349,5 +350,30 @@ describe("saveImage", () => {
     test("normalises separators in the folder", async () => {
         assert.equal(await saveImage(root, "images\\maps\\", "b.png", Buffer.from(""), false), "images/maps/b.png");
         assert.equal(await saveImage(root, null, "c.png", Buffer.from(""), false), "images/maps/c.png");
+    });
+});
+
+describe("luaHelperTerms", () => {
+    test("offers global functions without parameters, ^$ for those returning an AccessibilityLevel", () => {
+        const lua = [
+            "local function has(code)", "    return true", "end",
+            "local function level(ok)", "    return ok and AccessibilityLevel.Normal or AccessibilityLevel.None", "end",
+            "function can_jump()", "    return has(\"jump\")", "end",
+            "function can_dash()", "    return level(has(\"dash\"))", "end",
+            "function can_move()", "    if can_jump() then", "        return AccessibilityLevel.Normal", "    end",
+            "    return can_dash()", "end",
+            "function has_worlds(n)", "    return n", "end",
+            "function set_state()", "    state = 1", "end",
+        ].join("\n");
+        assert.deepEqual(luaHelperTerms(lua), ["$can_jump", "^$can_dash", "^$can_move"]);
+    });
+
+    test("reads the pack's own logic helpers", async () => {
+        const terms = luaHelperTerms(await readFile(path.join(PACK, "scripts/logic/logic.lua"), "utf8"));
+        for (const term of ["$can_glide", "$has_vertical_mobility", "^$has_horizontal_mobility", "^$can_sliding_dash",
+            "^$has_rising_wing"]) {
+            assert.ok(terms.includes(term), `${term} in ${terms}`);
+        }
+        assert.ok(!terms.some((term) => term.includes("board_gate")), String(terms));
     });
 });

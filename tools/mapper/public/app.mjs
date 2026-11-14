@@ -1466,7 +1466,7 @@ function fillRuleTerms() {
         seen.add(name);
         options.push(el("option", { value: name, label: code }));
     }
-    for (const term of R.helperTerms(state.rules)) {
+    for (const term of new Set([...(state.pack.helpers ?? []), ...R.helperTerms(state.rules)])) {
         options.push(el("option", { value: term, label: R.termLabel(term, state.names) }));
     }
     $("#rule-terms").replaceChildren(...options);

@@ -74,14 +74,17 @@ TOGGLE_CODES = {
 COUNT_OPTION_CODES = {"emblem_reqs": "opt_emblem_reqs", "recipe_reqs": "opt_recipe_reqs"}
 # (item, option) count comparisons with a dedicated Lua function
 COUNT_HELPERS = {("Lucky Emblem", "emblem_reqs"): "$has_emblems"}
-# Rules.py helper -> Lua $ function, or its terms; other helpers are inlined from their body
+# Rules.py helper -> Lua function, ^$ when it involves a logic option; other helpers are inlined from their body
 HELPERS = {
     "can_infinite_jump": "$can_infinite_jump",
     "can_pole_jump": "$can_pole_jump",
     "can_glide": "$can_glide",
     "post_office_access": "$post_office_access",
     "has_required_recipes": "$has_recipes",
-    "has_rising_wing": ("$has_rising_wing", "[opt_riku_links]"),
+    "has_vertical_mobility": "$has_vertical_mobility",
+    "has_horizontal_mobility": "^$has_horizontal_mobility",
+    "can_sliding_dash": "^$can_sliding_dash",
+    "has_rising_wing": "^$has_rising_wing",
 }
 # logic option -> setting code; a rule ANDed with its OptionFilter becomes an optional term, yellow while it is off
 LOGIC_OPTION_CODES = {"glitched": "opt_glitched", "slidedash": "opt_slidedash", "riku_links": "opt_riku_links"}
@@ -495,8 +498,7 @@ class Translator:
     def helper_rule(self, node, env):
         name = node.func.id
         if name in HELPERS:
-            terms = HELPERS[name]
-            return [[terms] if isinstance(terms, str) else list(terms)]
+            return [[HELPERS[name]]]
         if name in COUNTING_HELPERS:
             return [[f"{COUNTING_HELPERS[name]}|{self.concrete(node.args[0], env)}"]]
         function = self.functions.get(name)
@@ -894,7 +896,7 @@ def retarget_refs(tree, location_paths):
 
 
 def check_recipe_styles(item_codes):
-    """Warns where the recipe codes per style in logic.lua, which $has_rising_wing counts, differ from the apworld's."""
+    """Warns where the recipe codes per style in logic.lua, which has_rising_wing counts, differ from the apworld's."""
     try:
         by_style = khddd.Items.get_recipes_by_style
     except AttributeError:  # apworlds before recipe styles

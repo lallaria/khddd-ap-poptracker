@@ -227,6 +227,38 @@ async function tabRefs(root, tree) {
     return refs;
 }
 
+/**
+ * Rule terms for the global functions without parameters that Lua source defines: `^$name` when the function returns
+ * an AccessibilityLevel, itself or through the function it returns, else `$name`.
+ */
+export function luaHelperTerms(text) {
+    const functions = new Map();
+    for (const [, local, name, params, body] of text.matchAll(/^(local )?function (\w+)\(([^)]*)\)\n([\s\S]*?)^end\b/gm)) {
+        functions.set(name, { global: !local, params: params.trim(), body });
+    }
+    const levels = new Set();
+    for (let grown = true; grown;) {
+        grown = false;
+        for (const [name, { body }] of functions) {
+            if (levels.has(name)) continue;
+            const returned = [...body.matchAll(/\breturn\s+(\w+)\(/g)].map((match) => match[1]);
+            if (/\bAccessibilityLevel\./.test(body) || returned.some((callee) => levels.has(callee))) {
+                levels.add(name);
+                grown = true;
+            }
+        }
+    }
+    return [...functions].filter(([, fn]) => fn.global && !fn.params && /\breturn\b/.test(fn.body))
+        .map(([name]) => `${levels.has(name) ? "^$" : "$"}${name}`).sort();
+}
+
+/** Rule helpers the pack's scripts under a logic folder define, as terms. */
+async function logicHelpers(root) {
+    const files = (await listFiles(root, "scripts", [".lua"])).filter((rel) => rel.split("/").includes("logic"));
+    const terms = await Promise.all(files.map(async (rel) => luaHelperTerms(await readFile(path.join(root, rel), "utf8"))));
+    return [...new Set(terms.flat())].sort();
+}
+
 /** Section paths the autotracker maps to AP locations, or null when the pack has no location_mapping.lua. */
 async function mappedChecks(root) {
     const files = (await listFiles(root, "scripts", [".lua"])).filter((rel) => rel.endsWith("/location_mapping.lua"));
@@ -282,6 +314,7 @@ export async function readPack(root) {
         maps, locations, layouts, images, items,
         tabRefs: await tabRefs(root, layoutTree(layouts)),
         checks: await mappedChecks(root),
+        helpers: await logicHelpers(root),
     };
 }
 
