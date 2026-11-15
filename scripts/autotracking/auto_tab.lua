@@ -2,8 +2,8 @@
 -- worlds/khddd/Client.py); the opt_auto_tab toggle lets the user turn it off
 AUTO_TAB_KEY = nil
 
-local WORLD_MAP = 0x0B
 local OVERWORLD_TAB = "Overworld"
+local LINK_BOARDS_TAB = "Link Boards"
 
 local CHARACTER_TABS = {
 	[0] = "Sora",
@@ -11,7 +11,7 @@ local CHARACTER_TABS = {
 }
 
 -- world byte (WorldFlags.*.worldNo in DDDAPConnector.lua) -> tab title per character;
--- 0x01 Destiny Islands has no map tab
+-- any other world (World Map, Destiny Islands) shows the Overworld tab
 local WORLD_TABS = {
 	[0x03] = { [0] = "Traverse Town", [1] = "Traverse Town" },
 	[0x04] = { [0] = "Country of the Musketeers", [1] = "Country of the Musketeers" },
@@ -24,10 +24,12 @@ local WORLD_TABS = {
 
 local last_world = nil
 local last_character = nil
+local last_spirit_menu = nil
 
 local function onAutoTabClear()
 	last_world = nil
 	last_character = nil
+	last_spirit_menu = nil
 	AUTO_TAB_KEY = nil
 	local team = Archipelago.TeamNumber
 	local slot = Archipelago.PlayerNumber
@@ -61,26 +63,27 @@ local function onRoomUpdate(key, value)
 		end
 		return
 	end
-	if world == last_world and character == last_character then
+	local spirit_menu = value.spirit_menu == true
+	if world == last_world and character == last_character and spirit_menu == last_spirit_menu then
 		return
 	end
 	last_world = world
 	last_character = character
+	last_spirit_menu = spirit_menu
 	local character_tab = CHARACTER_TABS[character]
 	local world_tab = WORLD_TABS[world] and WORLD_TABS[world][character]
 	if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-		print(string.format("onRoomUpdate: world 0x%02X, character %d -> %s / %s", world, character,
-			tostring(character_tab), tostring(world_tab)))
+		print(string.format("onRoomUpdate: world 0x%02X, character %d, spirit menu %s -> %s / %s", world,
+			character, tostring(spirit_menu), tostring(character_tab), tostring(world_tab)))
 	end
-	if world == WORLD_MAP then
+	if spirit_menu then
+		Tracker:UiHint("ActivateTab", LINK_BOARDS_TAB)
+	elseif world_tab then
+		Tracker:UiHint("ActivateTab", character_tab)
+		Tracker:UiHint("ActivateTab", world_tab)
+	else
 		Tracker:UiHint("ActivateTab", OVERWORLD_TAB)
-		return
 	end
-	if not character_tab or not world_tab then
-		return
-	end
-	Tracker:UiHint("ActivateTab", character_tab)
-	Tracker:UiHint("ActivateTab", world_tab)
 end
 
 Archipelago:AddClearHandler("auto tab clear", onAutoTabClear)
