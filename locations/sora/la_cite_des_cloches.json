@@ -696,7 +696,7 @@
             },
             {
                 "name": "Catacombs Water Barrel",
-                "access_rules": ["flowmotion", "high_jump", "air_slide", "wall_kick", "glide", "superglide"],
+                "access_rules": ["$has_vertical_mobility", "^$has_horizontal_mobility", "$can_glide"],
                 "sections": [
                     {
                         "name": "La Cite des Cloches Catacombs Water Barrel [Sora]"
@@ -742,6 +742,7 @@
             },
             {
                 "name": "Catacombs Royal Cake",
+                "access_rules": ["^$has_horizontal_mobility", "$can_glide"],
                 "sections": [
                     {
                         "name": "La Cite des Cloches Catacombs Royal Cake [Sora]"
@@ -757,6 +758,7 @@
             },
             {
                 "name": "Catacombs Drop-Me-Not",
+                "access_rules": ["$has_vertical_mobility", "^$has_horizontal_mobility", "$can_glide"],
                 "sections": [
                     {
                         "name": "La Cite des Cloches Catacombs Drop-Me-Not [Sora]"

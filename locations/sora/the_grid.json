@@ -5,6 +5,28 @@
         "visibility_rules": ["opt_sora"],
         "children": [
             {
+                "name": "City Potion",
+                "sections": [
+                    {
+                        "name": "The Grid City Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "The Grid [Sora]",
+                        "x": 532,
+                        "y": 877
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "The Grid Throughput [Sora]",
+        "access_rules": ["world_the_grid_sora,rail_slide", "world_the_grid_sora,$can_glide", "world_the_grid_sora,$can_infinite_jump"],
+        "visibility_rules": ["opt_sora"],
+        "children": [
+            {
                 "name": "Defeat Rinzler",
                 "sections": [
                     {
@@ -32,28 +54,6 @@
                     }
                 ]
             },
-            {
-                "name": "City Potion",
-                "sections": [
-                    {
-                        "name": "The Grid City Potion [Sora]"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "The Grid [Sora]",
-                        "x": 532,
-                        "y": 877
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "name": "The Grid Throughput [Sora]",
-        "access_rules": ["world_the_grid_sora,glide", "world_the_grid_sora,superglide", "world_the_grid_sora,rail_slide", "world_the_grid_sora,flowmotion", "world_the_grid_sora,$can_infinite_jump"],
-        "visibility_rules": ["opt_sora"],
-        "children": [
             {
                 "name": "Secret Portal",
                 "access_rules": ["$has_sora_worlds|6"],
@@ -330,7 +330,7 @@
             },
             {
                 "name": "City Troubling Fancy",
-                "access_rules": ["flowmotion", "glide", "superglide", "$can_infinite_jump"],
+                "access_rules": ["$can_glide", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "The Grid City Troubling Fancy [Sora]"

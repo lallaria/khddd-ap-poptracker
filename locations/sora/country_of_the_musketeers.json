@@ -117,7 +117,7 @@
             },
             {
                 "name": "Grand Lobby Ice Dream Cone 3",
-                "access_rules": ["$can_infinite_jump", "glide", "superglide", "wall_kick", "rail_slide", "flowmotion"],
+                "access_rules": ["$can_infinite_jump", "$can_glide", "wall_kick", "rail_slide"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Grand Lobby Ice Dream Cone 3 [Sora]"
@@ -238,7 +238,7 @@
             },
             {
                 "name": "Mont Saint-Michel Fleeting Fantasy",
-                "access_rules": ["$can_infinite_jump", "glide", "superglide"],
+                "access_rules": ["$can_infinite_jump", "$can_glide"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Mont Saint-Michel Fleeting Fantasy [Sora]"
@@ -405,7 +405,7 @@
             },
             {
                 "name": "Dungeon Sonic Blade",
-                "access_rules": ["$can_infinite_jump", "glide", "superglide"],
+                "access_rules": ["$can_infinite_jump", "$can_glide"],
                 "sections": [
                     {
                         "name": "Country of the Musketeers Dungeon Sonic Blade [Sora]"

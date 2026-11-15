@@ -26,7 +26,7 @@
             },
             {
                 "name": "Xemnas Bonus Slot 1",
-                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,glide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
+                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_glide,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
                 "sections": [
                     {
                         "name": "The World That Never Was Xemnas Bonus Slot 1 [Sora]"
@@ -35,7 +35,7 @@
             },
             {
                 "name": "Glossary: Recusant's Sigil Reward",
-                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,glide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
+                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_glide,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
                 "sections": [
                     {
                         "name": "The World That Never Was Glossary: Recusant's Sigil Reward [Sora]"
@@ -51,7 +51,7 @@
             },
             {
                 "name": "Glossary: Hearts Tied to Sora Reward",
-                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,glide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
+                "access_rules": ["meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_infinite_jump,$has_recipes,$has_emblems", "high_jump,air_slide,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems", "high_jump,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$can_glide,$has_recipes,$has_emblems", "flowmotion,meow_wow_recipe,komory_bat_recipe,recusant_sigil,$has_recipes,$has_emblems"],
                 "sections": [
                     {
                         "name": "The World That Never Was Glossary: Hearts Tied to Sora Reward [Sora]"
@@ -255,7 +255,7 @@
             },
             {
                 "name": "Contorted City Ice Dream Cone 3",
-                "access_rules": ["$can_infinite_jump", "flowmotion", "high_jump,air_slide", "high_jump,glide"],
+                "access_rules": ["$can_infinite_jump", "flowmotion", "high_jump,air_slide", "high_jump,$can_glide"],
                 "sections": [
                     {
                         "name": "The World That Never Was Contorted City Ice Dream Cone 3 [Sora]"

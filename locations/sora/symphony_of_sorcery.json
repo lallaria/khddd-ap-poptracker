@@ -263,7 +263,7 @@
             },
             {
                 "name": "Glen Royal Cake",
-                "access_rules": ["wall_kick", "superglide", "glide", "flowmotion"],
+                "access_rules": ["wall_kick", "$can_glide"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Glen Royal Cake [Sora]"
@@ -279,7 +279,7 @@
             },
             {
                 "name": "Glen Intrepid Fantasy",
-                "access_rules": ["wall_kick", "superglide", "glide", "flowmotion"],
+                "access_rules": ["wall_kick", "$can_glide"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Glen Intrepid Fantasy [Sora]"
@@ -355,7 +355,7 @@
             },
             {
                 "name": "Fields Electricorn Recipe",
-                "access_rules": ["superglide", "glide", "flowmotion", "$can_infinite_jump"],
+                "access_rules": ["$can_glide", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Fields Electricorn Recipe [Sora]"
@@ -416,7 +416,7 @@
             },
             {
                 "name": "Cloudwalk Candy Goggles",
-                "access_rules": ["wall_kick", "superglide", "glide", "flowmotion"],
+                "access_rules": ["wall_kick", "$can_glide"],
                 "sections": [
                     {
                         "name": "Symphony of Sorcery Cloudwalk Candy Goggles [Sora]"

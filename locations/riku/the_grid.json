@@ -683,6 +683,7 @@
         "children": [
             {
                 "name": "Panacea",
+                "access_rules": ["double_flight", "$has_vertical_mobility", "^$has_horizontal_mobility"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Panacea [Riku]"
@@ -766,6 +767,7 @@
             },
             {
                 "name": "Candy Goggles",
+                "access_rules": ["double_flight", "$has_vertical_mobility", "^$has_horizontal_mobility"],
                 "sections": [
                     {
                         "name": "The Grid Solar Sailer Candy Goggles [Riku]"

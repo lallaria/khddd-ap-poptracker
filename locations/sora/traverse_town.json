@@ -181,12 +181,73 @@
                         "y": 754
                     }
                 ]
+            },
+            {
+                "name": "Post Office Rampant Fantasy",
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Rampant Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1409,
+                        "y": 960
+                    }
+                ]
+            },
+            {
+                "name": "Post Office Vibrant Fantasy",
+                "access_rules": ["rail_slide", "^$has_horizontal_mobility", "$can_glide"],
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Vibrant Fantasy [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1305,
+                        "y": 1149
+                    }
+                ]
+            },
+            {
+                "name": "Post Office Potion",
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Potion [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1270,
+                        "y": 1045
+                    }
+                ]
+            },
+            {
+                "name": "Post Office Ice Dream Cone",
+                "sections": [
+                    {
+                        "name": "Traverse Town Post Office Ice Dream Cone [Sora]"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "Traverse Town [Sora]",
+                        "x": 1244,
+                        "y": 1090
+                    }
+                ]
             }
         ]
     },
     {
         "name": "Traverse Town Plaza [Sora]",
-        "access_rules": ["world_traverse_town_sora,glide", "world_traverse_town_sora,rail_slide", "world_traverse_town_sora,superglide", "world_traverse_town_sora,flowmotion", "world_traverse_town_sora,$can_infinite_jump"],
+        "access_rules": ["world_traverse_town_sora,rail_slide", "world_traverse_town_sora,$can_glide", "world_traverse_town_sora,$can_infinite_jump"],
         "visibility_rules": ["opt_sora"],
         "children": [
             {
@@ -365,7 +426,7 @@
             },
             {
                 "name": "Fountain Plaza Rampant Fantasy",
-                "access_rules": ["glide", "rail_slide", "superglide", "flowmotion", "$can_infinite_jump"],
+                "access_rules": ["superglide", "$has_vertical_mobility"],
                 "sections": [
                     {
                         "name": "Traverse Town Fountain Plaza Rampant Fantasy [Sora]"
@@ -502,7 +563,7 @@
             },
             {
                 "name": "Fountain Plaza Strike Raid",
-                "access_rules": ["glide", "superglide", "flowmotion", "$can_infinite_jump"],
+                "access_rules": ["$can_glide", "$has_vertical_mobility"],
                 "sections": [
                     {
                         "name": "Traverse Town Fountain Plaza Strike Raid [Sora]"
@@ -513,36 +574,6 @@
                         "map": "Traverse Town [Sora]",
                         "x": 1109,
                         "y": 179
-                    }
-                ]
-            },
-            {
-                "name": "Post Office Rampant Fantasy",
-                "sections": [
-                    {
-                        "name": "Traverse Town Post Office Rampant Fantasy [Sora]"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "Traverse Town [Sora]",
-                        "x": 1409,
-                        "y": 960
-                    }
-                ]
-            },
-            {
-                "name": "Post Office Vibrant Fantasy",
-                "sections": [
-                    {
-                        "name": "Traverse Town Post Office Vibrant Fantasy [Sora]"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "Traverse Town [Sora]",
-                        "x": 1305,
-                        "y": 1149
                     }
                 ]
             },
@@ -592,36 +623,6 @@
                 ]
             },
             {
-                "name": "Post Office Potion",
-                "sections": [
-                    {
-                        "name": "Traverse Town Post Office Potion [Sora]"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "Traverse Town [Sora]",
-                        "x": 1270,
-                        "y": 1045
-                    }
-                ]
-            },
-            {
-                "name": "Post Office Ice Dream Cone",
-                "sections": [
-                    {
-                        "name": "Traverse Town Post Office Ice Dream Cone [Sora]"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "Traverse Town [Sora]",
-                        "x": 1244,
-                        "y": 1090
-                    }
-                ]
-            },
-            {
                 "name": "Cleared",
                 "sections": [
                     {
@@ -633,7 +634,7 @@
     },
     {
         "name": "Traverse Town 2 [Sora]",
-        "access_rules": ["world_traverse_town_sora:2,glide", "world_traverse_town_sora:2,rail_slide", "world_traverse_town_sora:2,superglide", "world_traverse_town_sora:2,flowmotion", "world_traverse_town_sora:2,wall_kick,$can_infinite_jump"],
+        "access_rules": ["world_traverse_town_sora:2,rail_slide", "world_traverse_town_sora:2,$can_glide", "world_traverse_town_sora:2,wall_kick,$can_infinite_jump"],
         "visibility_rules": ["opt_sora"],
         "children": [
             {

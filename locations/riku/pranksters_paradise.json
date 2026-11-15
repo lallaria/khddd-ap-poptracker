@@ -86,6 +86,7 @@
             },
             {
                 "name": "Monstro: Mouth Paint Gun: Blue",
+                "access_rules": ["double_flight", "$has_vertical_mobility", "^$has_horizontal_mobility"],
                 "sections": [
                     {
                         "name": "Prankster's Paradise Monstro: Mouth Paint Gun: Blue [Riku]"
@@ -101,6 +102,7 @@
             },
             {
                 "name": "Monstro: Mouth Balloon",
+                "access_rules": ["double_flight", "pole_swing", "$has_vertical_mobility", "^$has_horizontal_mobility"],
                 "sections": [
                     {
                         "name": "Prankster's Paradise Monstro: Mouth Balloon [Riku]"
@@ -237,7 +239,6 @@
             },
             {
                 "name": "Monstro: Gullet Charming Fantasy",
-                "access_rules": ["flowmotion", "$can_infinite_jump"],
                 "sections": [
                     {
                         "name": "Prankster's Paradise Monstro: Gullet Charming Fantasy [Riku]"
