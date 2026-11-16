@@ -931,11 +931,16 @@ def main():
                  + "\n".join(moved))
     world_events = {location_paths[name]
                     for name in khddd.location_name_groups["Sora Worlds"] | khddd.location_name_groups["Riku Worlds"]}
-    listed = set(re.findall(rf'"@([^"]+/{EVENT_LOCATION}/[^"]+)"', LOGIC_LUA.read_text(encoding="utf-8")))
+    logic_lua = LOGIC_LUA.read_text(encoding="utf-8")
+    listed = set(re.findall(rf'"@([^"]+/{EVENT_LOCATION}/[^"]+)"', logic_lua))
     for path in sorted(world_events - listed):
         warn(f"{path!r} is missing from WORLD_EVENTS in logic.lua")
     for path in sorted(listed - world_events):
         warn(f"{path!r} is in WORLD_EVENTS in logic.lua but not the apworld's world groups")
+    for block in re.findall(r"clears = \{([^}]*)\}", logic_lua):
+        for name in re.findall(r'"([^"]+)"', block):
+            if getattr(khddd.location_data_table.get(name), "code", None) is None:
+                warn(f"WORLD_EVENTS clears {name!r} in logic.lua is not an AP check")
     check_recipe_styles(item_codes)
 
     tree, sources = read_locations()

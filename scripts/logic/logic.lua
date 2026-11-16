@@ -131,68 +131,130 @@ function recipe_not_in_pool(id)
     return not recipe_in_pool(id)
 end
 
--- the events counted by beat_x_sora_worlds / beat_x_riku_worlds in the apworld's Rules.py, by gate character
+-- the events counted by beat_x_sora_worlds / beat_x_riku_worlds in the apworld's Rules.py, by gate character;
+-- clears are the AP checks sent as the world is cleared: its boss and keyblade (TWTNW: its last check)
 local WORLD_EVENTS = {
     {
-        "@Traverse Town Plaza [Sora]/Cleared/Traverse Town Cleared [Sora]",
-        "@La Cite des Cloches [Sora]/Cleared/La Cite des Cloches Cleared [Sora]",
-        "@The Grid Throughput [Sora]/Cleared/The Grid Cleared [Sora]",
-        "@Prankster's Paradise [Sora]/Cleared/Prankster's Paradise Cleared [Sora]",
-        "@Country of the Musketeers [Sora]/Cleared/Country of the Musketeers Cleared [Sora]",
-        "@Symphony of Sorcery [Sora]/Cleared/Symphony of Sorcery Cleared [Sora]",
-        "@Traverse Town 2 [Sora]/Cleared/Traverse Town 2 Cleared [Sora]",
-        "@The World That Never Was [Sora]/Cleared/The World That Never Was Cleared [Sora]",
+        { event = "@Traverse Town Plaza [Sora]/Cleared/Traverse Town Cleared [Sora]",
+          clears = { "Traverse Town Hockomonkey Bonus Slot 1 [Sora]", "Traverse Town Hockomonkey Bonus Slot 2 [Sora]",
+                     "Traverse Town Skull Noise Reward [Sora]" } },
+        { event = "@La Cite des Cloches [Sora]/Cleared/La Cite des Cloches Cleared [Sora]",
+          clears = { "La Cite des Cloches Wargoyle Bonus Slot 1 [Sora]", "La Cite des Cloches Guardian Bell Reward [Sora]",
+                     "La Cite des Cloches Chronicle BBS Reward [Sora]" } },
+        { event = "@The Grid Throughput [Sora]/Cleared/The Grid Cleared [Sora]",
+          clears = { "The Grid Rinzler Bonus Slot 1 [Sora]", "The Grid Rinzler Bonus Slot 2 [Sora]",
+                     "The Grid Dual Disc Reward [Sora]" } },
+        { event = "@Prankster's Paradise [Sora]/Cleared/Prankster's Paradise Cleared [Sora]",
+          clears = { "Prankster's Paradise Chill Clawbster Bonus Slot 1 [Sora]", "Prankster's Paradise Ferris Gear Reward [Sora]" } },
+        { event = "@Country of the Musketeers [Sora]/Cleared/Country of the Musketeers Cleared [Sora]",
+          clears = { "Country of the Musketeers Pete Bonus Slot 1 [Sora]", "Country of the Musketeers All For One Reward [Sora]" } },
+        { event = "@Symphony of Sorcery [Sora]/Cleared/Symphony of Sorcery Cleared [Sora]",
+          clears = { "Symphony of Sorcery Spellican Bonus Slot 1 [Sora]", "Symphony of Sorcery Spellican Bonus Slot 2 [Sora]",
+                     "Symphony of Sorcery Counterpoint Reward [Sora]" } },
+        { event = "@Traverse Town 2 [Sora]/Cleared/Traverse Town 2 Cleared [Sora]",
+          clears = { "Traverse Town 2 Boss Gauntlet Bonus Slot 1 [Sora]", "Traverse Town 2 Boss Gauntlet Bonus Slot 2 [Sora]",
+                     "Traverse Town 2 Boss Gauntlet Reward [Sora]", "Traverse Town 2 Knockout Punch Reward [Sora]" } },
+        { event = "@The World That Never Was [Sora]/Cleared/The World That Never Was Cleared [Sora]",
+          clears = { "The World That Never Was Glossary: Hearts Tied to Sora Reward [Sora]" } },
     },
     {
-        "@Traverse Town [Riku]/Cleared/Traverse Town Cleared [Riku]",
-        "@La Cite des Cloches [Riku]/Cleared/La Cite des Cloches Cleared [Riku]",
-        "@The Grid [Riku]/Cleared/The Grid Cleared [Riku]",
-        "@Prankster's Paradise [Riku]/Cleared/Prankster's Paradise Cleared [Riku]",
-        "@Country of the Musketeers Green Room [Riku]/Cleared/Country of the Musketeers Cleared [Riku]",
-        "@Symphony of Sorcery Snowgleam Wood [Riku]/Cleared/Symphony of Sorcery Cleared [Riku]",
-        "@Traverse Town 2 [Riku]/Cleared/Traverse Town 2 Cleared [Riku]",
-        "@The World That Never Was [Riku]/Cleared/The World That Never Was Cleared [Riku]",
+        { event = "@Traverse Town [Riku]/Cleared/Traverse Town Cleared [Riku]",
+          clears = { "Traverse Town Hockomonkey Bonus Slot 1 [Riku]", "Traverse Town Hockomonkey Bonus Slot 2 [Riku]",
+                     "Traverse Town Skull Noise Reward [Riku]" } },
+        { event = "@La Cite des Cloches [Riku]/Cleared/La Cite des Cloches Cleared [Riku]",
+          clears = { "La Cite des Cloches Wargoyle Bonus Slot 1 [Riku]", "La Cite des Cloches Wargoyle Bonus Slot 2 [Riku]",
+                     "La Cite des Cloches Guardian Bell Reward [Riku]", "La Cite des Cloches Chronicle: Kingdom Hearts Reward [Riku]" } },
+        { event = "@The Grid [Riku]/Cleared/The Grid Cleared [Riku]",
+          clears = { "The Grid Commantis Bonus Slot 1 [Riku]", "The Grid Dual Disc Reward [Riku]" } },
+        { event = "@Prankster's Paradise [Riku]/Cleared/Prankster's Paradise Cleared [Riku]",
+          clears = { "Prankster's Paradise Char Clobster Bonus Slot 1 [Riku]", "Prankster's Paradise Ocean's Rage Reward [Riku]" } },
+        { event = "@Country of the Musketeers Green Room [Riku]/Cleared/Country of the Musketeers Cleared [Riku]",
+          clears = { "Country of the Musketeers Holey Moley Bonus Slot 1 [Riku]", "Country of the Musketeers All For One Reward [Riku]" } },
+        { event = "@Symphony of Sorcery Snowgleam Wood [Riku]/Cleared/Symphony of Sorcery Cleared [Riku]",
+          clears = { "Symphony of Sorcery Chernobog Bonus Slot 1 [Riku]", "Symphony of Sorcery Chernobog Bonus Slot 2 [Riku]",
+                     "Symphony of Sorcery Counterpoint Reward [Riku]" } },
+        { event = "@Traverse Town 2 [Riku]/Cleared/Traverse Town 2 Cleared [Riku]",
+          clears = { "Traverse Town 2 Cera Terror Battle Bonus Slot 1 [Riku]", "Traverse Town 2 Cera Terror Battle Bonus Slot 2 [Riku]",
+                     "Traverse Town 2 Knockout Punch Reward [Riku]" } },
+        { event = "@The World That Never Was [Riku]/Cleared/The World That Never Was Cleared [Riku]",
+          clears = { "The World That Never Was Ansem II Defeated [Riku]" } },
     },
 }
 
--- Cleared events the character reaches in logic, and those reachable only with sequence breaks
-local function reachable_worlds(character)
-    local normal, sequence_break = 0, 0
-    for _, path in ipairs(WORLD_EVENTS[character] or {}) do
-        local section = Tracker:FindObjectForCode(path)
-        local level = section and section.AccessibilityLevel or AccessibilityLevel.None
-        if level >= AccessibilityLevel.Normal then
-            normal = normal + 1
-        elseif level >= AccessibilityLevel.SequenceBreak then
-            sequence_break = sequence_break + 1
+-- AP location name -> section code, from location_mapping.lua (loaded after this file)
+local check_sections = nil
+
+local function check_section(name)
+    if not check_sections then
+        check_sections = {}
+        for _, targets in pairs(LOCATION_MAPPING or {}) do
+            local code = targets[1] and targets[1][1]
+            if code and code:sub(1, 1) == "@" then
+                check_sections[code:match("[^/]+$")] = code
+            end
         end
     end
-    return normal, sequence_break
+    local code = check_sections[name]
+    return code and Tracker:FindObjectForCode(code)
 end
 
--- open while the gate's character can reach as many Cleared events as the gate needs
+local function world_cleared(world)
+    for _, name in ipairs(world.clears) do
+        local section = check_section(name)
+        if section and section.AvailableChestCount == 0 then
+            return true
+        end
+    end
+    return false
+end
+
+-- the character's worlds already cleared, then the rest by whether their Cleared event is in logic or a sequence break
+local function count_worlds(character)
+    local cleared, normal, sequence_break = 0, 0, 0
+    for _, world in ipairs(WORLD_EVENTS[character] or {}) do
+        if world_cleared(world) then
+            cleared = cleared + 1
+        else
+            local section = Tracker:FindObjectForCode(world.event)
+            local level = section and section.AccessibilityLevel or AccessibilityLevel.None
+            if level >= AccessibilityLevel.Normal then
+                normal = normal + 1
+            elseif level >= AccessibilityLevel.SequenceBreak then
+                sequence_break = sequence_break + 1
+            end
+        end
+    end
+    return cleared, normal, sequence_break
+end
+
+-- green once enough worlds are cleared, blue while enough more are in logic to clear
 function board_gate(id, gate)
     local gates = board_gates and board_gates[tonumber(id)]
     local needed = gates and gates[tonumber(gate)]
     if not needed then
         return AccessibilityLevel.Normal
     end
-    local normal, sequence_break = reachable_worlds(gates.character)
-    if normal >= needed then
+    local cleared, normal, sequence_break = count_worlds(gates.character)
+    if cleared >= needed then
         return AccessibilityLevel.Normal
-    elseif normal + sequence_break >= needed then
+    elseif cleared + normal >= needed then
+        return AccessibilityLevel.Inspect
+    elseif cleared + normal + sequence_break >= needed then
         return AccessibilityLevel.SequenceBreak
     end
     return AccessibilityLevel.None
 end
 
--- how many of the spirit's first gate_count gates are open in logic; worlds caches reachable_worlds by character
+-- how many of the spirit's first gate_count gates are open in logic; worlds caches that count by character
 function open_board_gates(id, gate_count, worlds)
     local gates = board_gates and board_gates[tonumber(id)]
     if not gates then
         return gate_count
     end
-    worlds[gates.character] = worlds[gates.character] or reachable_worlds(gates.character)
+    if not worlds[gates.character] then
+        local cleared, normal = count_worlds(gates.character)
+        worlds[gates.character] = cleared + normal
+    end
     local open = 0
     for gate = 1, gate_count do
         if not gates[gate] or gates[gate] <= worlds[gates.character] then
