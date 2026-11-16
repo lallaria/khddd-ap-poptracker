@@ -914,6 +914,7 @@ def main():
     item_codes = load_mapping(ITEM_MAPPING, r'^\s*\[(\d+)\]\s*=\s*\{\s*\{\s*"([^"]+)"')
     section_paths = load_mapping(LOCATION_MAPPING, r'^\s*\[(\d+)\]\s*=\s*\{\s*\{\s*"@([^"]+)"')
     location_paths = {}
+    moved = []
     for name, data in khddd.location_data_table.items():
         if data.code is None:  # no AP id; hidden sections that board_gate counts
             location_paths[name] = f"{data.region}/{EVENT_LOCATION}/{name}"
@@ -921,8 +922,13 @@ def main():
         path = section_paths.get(data.code)
         if path is None:
             warn(f"{name!r} ({data.code}) is missing from location_mapping.lua; rerun gen_location_mapping.py")
+        elif path.partition("/")[0] != data.region:
+            moved.append(f"  {name} ({path.partition('/')[0]} -> {data.region})")
         else:
             location_paths[name] = path
+    if moved:
+        sys.exit("location_mapping.lua predates these region moves; run gen_location_mapping.py first:\n"
+                 + "\n".join(moved))
     world_events = {location_paths[name]
                     for name in khddd.location_name_groups["Sora Worlds"] | khddd.location_name_groups["Riku Worlds"]}
     listed = set(re.findall(rf'"@([^"]+/{EVENT_LOCATION}/[^"]+)"', LOGIC_LUA.read_text(encoding="utf-8")))
@@ -975,11 +981,7 @@ def main():
             access = product(access, contribution_rule(guard, rule, existence))
         if not access:
             raise ValueError(f"{name!r} ended up unreachable under every option")
-        if names[0] == data.region:
-            visibility = option_combo_to_rules(assuming(existence, region_guard(data.region)))
-        else:  # away from its region's top-level location, the whole entrance chain goes on the location
-            access = product(region_rules(data.region, ap_regions, translator)[0], access)
-            visibility = option_combo_to_rules(guard_and(region_guard(data.region), existence))
+        visibility = option_combo_to_rules(assuming(existence, region_guard(data.region)))
         sections = section_rules[tuple(names)]
         if section_name in sections:
             warn(f"{name!r} shares the tracker section {path} with another location; rules are ANDed")
